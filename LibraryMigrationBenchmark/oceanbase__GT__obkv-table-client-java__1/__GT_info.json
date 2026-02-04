@@ -1,0 +1,22 @@
+{
+  "id": "oceanbase__GT__obkv-table-client-java__1",
+  "client_project_name": "oceanbase/obkv-table-client-java",
+  "github_url": "https://github.com/oceanbase/obkv-table-client-java",
+  "before_migration_commit_hash": "462531e9d6d16d26c9bbef6d57a5d9ea822d499d",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "com.alibaba:fastjson:1.2.83"
+  ],
+  "target_library_list": [
+    "com.fasterxml.jackson.core:jackson-databind:2.19.0",
+    "com.fasterxml.jackson.core:jackson-annotations:2.19.0"
+  ],
+  "commit_pr_url": "https://github.com/oceanbase/obkv-table-client-java/pull/347"
+}

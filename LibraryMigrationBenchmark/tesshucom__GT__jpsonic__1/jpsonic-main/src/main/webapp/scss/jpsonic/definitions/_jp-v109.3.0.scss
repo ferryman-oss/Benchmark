@@ -1,0 +1,674 @@
+* {
+  outline-color: $jp-color-complementary3;
+}
+
+body {
+  background: $jp-color-base1;
+  color: $jp-color-black;
+}
+
+strong {
+  color: $jp-color-alert;
+}
+
+p {
+  margin: 30px 0 30px $jp-subsection-indent;
+  line-height: 30px;
+}
+
+a {
+  text-decoration: none;
+  &:link,
+  &:active,
+  &:visited,
+  &:link *,
+  &:active *,
+  &:visited * {
+    color: $jp-color-base4;
+  }
+  &:hover,
+  &:hover * {
+    color: $jp-color-complementary3;
+  }
+  &.disabled,
+  &.disabled span,
+  span.disabled {
+    color: $jp-color-light-gray;
+    cursor: default;
+  }
+}
+
+img {
+  margin: 0;
+  padding: 0;
+  border-style: none;
+  vertical-align: middle;
+
+  @include border(zero);
+}
+
+$jp-user-inputs-baseline: 30%;
+
+dl,
+dl.single {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 0 0 $jp-subsection-indent;
+  padding: 0;
+  background-color: $jp-color-white;
+  dt,
+  dd {
+    min-height: 30px;
+  }
+  dt {
+    width: $jp-user-inputs-baseline;
+    padding: 5px 3px 1px 3px;
+    background-color: $jp-color-base1;
+    color: $jp-color-black;
+    font-size: .86rem;
+    font-weight: 500;
+
+    @include border(other-than-top);
+    &:first-child {
+      @include border(top);
+      @include borderRadius(upper-left);
+    }
+    &:last-of-type {
+      @include borderRadius(lower-left);
+    }
+    > .popup.help {
+      vertical-align: middle;
+    }
+  }
+  dd {
+    width: calc(100% - #{$jp-user-inputs-baseline});
+    padding: 3px;
+    font-size: .86rem;
+
+    @include border(right);
+    @include border(bottom);
+    &:first-of-type {
+      @include border(top);
+      @include borderRadius(upper-right);
+    }
+    &:last-of-type {
+      @include borderRadius(lower-right);
+    }
+    > input[type="checkbox"] {
+      padding: 0;
+      vertical-align: middle;
+    }
+    > label {
+      vertical-align: middle;
+      > .popup.help {
+        vertical-align: middle;
+      }
+    }
+    > div {
+      text-align: right;
+      vertical-align: middle;
+      > input[type="button"] {
+        margin-top: -2px;
+      }
+    }
+  }
+}
+
+dl.single {
+  margin-top: 30px;
+  dt {
+    &:first-child {
+      @include border;
+      @include borderRadius(left);
+    }
+  }
+  dd {
+    &:last-of-type {
+      @include border(top);
+      @include borderRadius(right);
+    }
+  }
+}
+
+// ******************** input *********************************************
+
+input,
+textarea,
+select,
+.ui-dialog-buttonpane button {
+  padding: 1px;
+  outline: none;
+  background: $jp-color-white;
+  font-size: .93rem;
+  vertical-align: middle;
+
+  @include border(input);
+  @include borderRadius(input);
+  &:focus {
+    padding: 0;
+    outline: none;
+    background: $jp-color-complementary1;
+
+    @include transition;
+    @include border(input-focus);
+  }
+  &:disabled {
+    background: $jp-color-medium-gray;
+  }
+}
+.ui-dialog-buttonpane button {
+  &:focus {
+    background: $jp-color-base4;
+    color: $jp-color-white;
+  }
+}
+input[type="checkbox"] {
+  @include border(zero);
+}
+
+input[type="text"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select {
+  height: 22px;
+  color: $jp-color-black;
+  font-size: .86rem;
+  text-align: justify;
+}
+
+textarea {
+  color: $jp-color-black;
+}
+
+// ******************** checkbox ******************************************
+
+input[type="checkbox"],
+input[type="radio"] {
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  box-sizing: border-box;
+  background: $jp-color-white;
+
+  -webkit-appearance: none;
+     -moz-appearance: none;
+      -ms-appearance: none;
+       -o-appearance: none;
+          appearance: none;
+  @include border(input);
+  &:checked,
+  &:indeterminate {
+    background: $jp-color-base3;
+  }
+  &:disabled {
+    background: $jp-color-medium-gray;
+  }
+  &:focus {
+    @include outline;
+  }
+}
+
+input[type="checkbox"] {
+  // 'box' >>
+  border-radius: 4px;
+  &::before {
+    // 'check' >>
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 4px;
+    width: 5px;
+    height: 8px;
+    margin-top: -5px;
+    padding: 0;
+    border-right: 3px solid $jp-color-white;
+    border-bottom: 3px solid $jp-color-white;
+    content: "";
+    transform: rotate(45deg);
+    // <
+  }
+  &:disabled {
+    &:not(:checked) {
+      &::before {
+        border: 0;
+      }
+    }
+  }
+  // <
+}
+
+input[type="checkbox"] + label + input[type="checkbox"],
+input[type="checkbox"] + input[type="hidden"] + label + input[type="checkbox"] {
+  margin-left: 8px;
+}
+
+// ******************** radio *********************************************
+
+input[type="radio"] {
+  // 'circle' >>
+  border-radius: 50%;
+  &:checked:before {
+    background: $jp-color-white;
+    transform: scale(1);
+  }
+  // 'check' >>
+  &:before {
+    display: block;
+    width: 8px;
+    height: 8px;
+    margin: 3px;
+    border-radius: 50%;
+    content: "";
+    transform: scale(0);
+    // <
+  }
+  // <
+}
+
+// ******************** submit ********************************************
+
+input[type="submit"],
+input[type="button"],
+.ui-dialog-buttonpane button {
+  @include blockLink($jp-color-base4, $jp-color-white);
+}
+
+input[type="submit"],
+input[type="button"],
+dd.input[type="text"],
+input[type="select"],
+.ui-dialog-buttonpane button {
+  padding-top: 2px;
+  padding-right: 20px;
+  padding-bottom: 2px;
+  padding-left: 20px;
+  outline: none;
+  &:focus,
+  &:active {
+    padding-top: 1px;
+    padding-right: 19px;
+    padding-bottom: 1px;
+    padding-left: 19px;
+
+    @include border(input-focus);
+  }
+  &:disabled {
+    background: $jp-color-medium-gray;
+  }
+}
+
+input[type="submit"],
+input[type="button"],
+.ui-dialog-buttonpane button {
+  min-width: 24px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+// ******************** coverart-container/artistMain.jsp, albumMain.jsp, home.jsp *******************
+
+div.coverart-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+
+  @include sectionContent();
+}
+
+// ******************** details template **********************************
+
+details {
+  background-color: $jp-color-white;
+  vertical-align: middle;
+
+  @include subSection;
+  summary {
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    justify-content: start;
+    position: relative;
+    height: 30px;
+    padding: 0 0 0 30px;
+    border-radius: 15px;
+    background: $jp-color-white;
+    font-size: 1.07rem;
+    cursor: pointer;
+    transition-duration: .5s;
+
+    @include border;
+    @include dropShadow;
+    &::-webkit-details-marker {
+      display: none;
+    }
+    &:before {
+      position: absolute;
+      left: 0;
+      width: 8px;
+      height: 8px;
+      margin-top: 2px;
+      margin-left: 12px;
+      border-top: solid 4px $jp-color-base3; // one-off-border
+      border-right: solid 4px $jp-color-base3; // one-off-border
+      content: "";
+      transition: all .5s ease-out;
+      -webkit-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+              transform: rotate(45deg);
+    }
+  }
+  > summary + strong {
+    margin-left: 30px;
+    font-size: .86rem;
+    line-height: 30px;
+    vertical-align: middle;
+  }
+
+  > dl,
+  table.tabular,
+  div.coverart-container {
+    margin-top: 30px;
+  }
+}
+
+details[open] {
+  summary {
+    background: $jp-color-base1;
+
+    @include border;
+    @include dropShadow(none);
+    &:before {
+      border-top: solid 4px $jp-color-base1; // one-off-border
+      border-right: solid 4px $jp-color-base1; // one-off-border
+      transition: all .5s ease-in;
+      -webkit-transform: rotate(135deg);
+          -ms-transform: rotate(135deg);
+              transform: rotate(135deg);
+    }
+  }
+}
+
+// ******************** section template **********************************
+
+section {
+  min-height: 60px;
+  margin-top: 20px;
+  border-bottom: 1.4px solid $jp-color-base3;
+  > h1 {
+    display: flex;
+    align-items: center;
+    margin: 4px 0 0 8px;
+    padding: 3px 0 5px 0;
+    color: $jp-color-dark-gray;
+    font-size: 1.43rem;
+    white-space: nowrap;
+  }
+  > h2 {
+    background-color: red; // DEPRECATED
+  }
+  > details {
+    @include sectionContent;
+    > summary {
+      > h1 {
+        display: flex;
+        align-items: center;
+        margin: 0 0 0 8px;
+        padding: 0 0 0 0;
+        color: $jp-color-dark-gray;
+        font-size: 1.43rem;
+        white-space: nowrap;
+      }
+    }
+    > #artistBio,
+    .description {
+      overflow: auto;
+      width: calc(100vw - 480px);
+      height: 180px;
+      margin: 30px 0 30px calc(240px - 30px);
+      padding: 5px 10px 5px 10px;
+      background-color: $jp-color-complementary2;
+      color: $jp-color-black;
+      line-height: 30px;
+
+      @include border;
+      @include border;
+      @include borderRadius;
+      @media screen and (max-width: #{$jp-supplement-width-threshold}) {
+        width: calc(100vw - 120px);
+        margin: 30px 0 30px calc(60px - 30px);
+      }
+    }
+  }
+  > details:not(.loading) {
+    > summary {
+      padding-left: 20px;
+      > h1 {
+        &:before {
+          display: none;
+          content: "";
+        }
+      }
+    }
+  }
+  > details.loading {
+    filter: none;
+    > summary {
+      padding-left: 0;
+      border: $jp-border-width solid transparent;
+
+      @include dropShadow(none);
+      &:before {
+        border-top: solid 4px transparent;
+        border-right: solid 4px transparent;
+      }
+    }
+  }
+}
+
+section + details {
+  margin-top: 30px;
+}
+
+// ******************** table template ************************************
+
+//table {
+//background-color: red; // DEPRECATED v109.3.0 right and video unfixed yet
+//}
+
+table.tabular {
+  border-spacing: 0;
+  border-collapse: separate;
+  background: $jp-color-white;
+
+  @include sectionContent;
+  @include border(top);
+  @include borderRadius(upper);
+  caption {
+    height: 30px;
+    max-height: 30px;
+    margin-top: 0;
+    padding: 6px;
+    color: $jp-color-dark-gray;
+    font-size: .93rem;
+    font-weight: 600;
+    text-align: left;
+  }
+  thead {
+    tr {
+      height: 30px;
+      &:first-child {
+        th {
+          padding: 0 0 0 10px;
+          font-size: .93rem;
+          text-align: left;
+          vertical-align: middle;
+          &:first-child {
+            @include border(left);
+            @include borderRadius(upper-left);
+          }
+          &:last-child {
+            @include border(right);
+            @include borderRadius(upper-right);
+          }
+          &.prime-end {
+            @media screen and (max-width: #{$jp-supplement-width-threshold}) {
+              @include border(right);
+              @include borderRadius(upper-right);
+            }
+          }
+        }
+      }
+      th {
+        padding: 0 0 0 10px;
+        background-color: $jp-color-base1;
+        color: $jp-color-black;
+        font-size: .93rem;
+        text-align: left;
+        vertical-align: middle;
+
+        @include border(bottom);
+        &:first-child {
+          @include borderRadius(upper-left);
+        }
+        &:last-child {
+          @include borderRadius(upper-right);
+        }
+        &.supplement {
+          @media screen and (max-width: #{$jp-supplement-width-threshold}) {
+            display: none;
+          }
+        }
+        &.prime-end {
+          @media screen and (max-width: #{$jp-supplement-width-threshold}) {
+            @include borderRadius(upper-right);
+          }
+        }
+      }
+    }
+  }
+  tbody {
+    #pattern {
+      display: none;
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+    tr {
+      height: 30px;
+
+      @include border(bottom-zero);
+      td {
+        padding: 0 0 0 10px;
+        font-size: .93rem;
+        text-align: left;
+        vertical-align: middle;
+        white-space: nowrap;
+
+        @include border(bottom);
+        &:first-child {
+          @include border(left);
+        }
+        &:last-child {
+          @include border(right);
+        }
+        &.supplement {
+          @media screen and (max-width: #{$jp-supplement-width-threshold}) {
+            display: none;
+          }
+        }
+        &.prime-end {
+          @media screen and (max-width: #{$jp-supplement-width-threshold}) {
+            @include border(right);
+          }
+        }
+      }
+      &:last-child {
+        td {
+          @include border(zero);
+        }
+      }
+      &:last-child {
+        th,
+        td {
+          @include border(bottom);
+          &:first-child {
+            @include border(left);
+            @include borderRadius(lower-left);
+          }
+          &:last-child {
+            @include border(right);
+            @include borderRadius(lower-right);
+          }
+          &.prime-end {
+            @media screen and (max-width: #{$jp-supplement-width-threshold}) {
+              @include border(right);
+              @include borderRadius(lower-right);
+            }
+          }
+        }
+      }
+      &:hover {
+        background-color: $jp-color-mask-light-gray;
+      }
+    }
+  }
+}
+
+.actions + table.tabular {
+  margin-top: 30px;
+}
+
+// ******************** scrollbar *****************************************
+
+::-webkit-scrollbar {
+  width: $jp-scrollbar-size;
+  height: 10px;
+  background: $jp-color-base1;
+}
+
+::-webkit-scrollbar-button {
+  height: 0;
+  border: 0;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  min-height: 60px;
+  background: $jp-color-base3;
+
+  @include border(top);
+  @include border(bottom);
+  @include borderRadius;
+  @include dropShadow;
+}
+
+::-webkit-scrollbar-track {
+  margin-bottom: $jp-player-height;
+  background: $jp-color-base1;
+}
+
+::-webkit-scrollbar-track-piece {
+  background: white;
+
+  @include border;
+  @include borderRadius;
+  @include dropShadow;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+::-webkit-resizer {
+  background-color: transparent;
+}

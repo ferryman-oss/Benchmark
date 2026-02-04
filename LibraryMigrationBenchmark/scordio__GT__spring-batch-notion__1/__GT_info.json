@@ -1,0 +1,21 @@
+{
+  "id": "scordio__GT__spring-batch-notion__1",
+  "client_project_name": "scordio/spring-batch-notion",
+  "github_url": "https://github.com/scordio/spring-batch-notion",
+  "before_migration_commit_hash": "e9c1738",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "org.springframework.cloud:spring-cloud-contract-wiremock:4.0.4"
+  ],
+  "target_library_list": [
+    "org.wiremock.integrations:wiremock-spring-boot:3.0.2"
+  ],
+  "commit_pr_url": "https://github.com/scordio/spring-batch-notion/pull/25"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "jenkinsci__GT__swarm-plugin__1",
+  "client_project_name": "jenkinsci/swarm-plugin",
+  "github_url": "https://github.com/jenkinsci/swarm-plugin",
+  "before_migration_commit_hash": "f6a96ab0dca4f42514b64d919e946ec53aed23e9",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "client"
+  ],
+  "jdk_version": "1.8",
+  "original_library_list": [
+    "commons-httpclient:commons-httpclient:3.1"
+  ],
+  "target_library_list": [
+    "org.apache.httpcomponents:httpclient:4.5.8"
+  ],
+  "commit_pr_url": "https://github.com/jenkinsci/swarm-plugin/pull/105"
+}

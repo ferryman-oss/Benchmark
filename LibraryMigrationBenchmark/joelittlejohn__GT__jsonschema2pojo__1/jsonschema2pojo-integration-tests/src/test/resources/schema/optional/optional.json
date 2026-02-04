@@ -1,0 +1,16 @@
+{
+    "type" : "object",
+    "properties" : {
+        "optionalProperty" : {
+            "type" : "string",
+            "optional" : true
+        },
+        "nonOptionalProperty" : {
+            "type" : "string",
+            "optional" : false
+        },
+        "defaultNotOptionalProperty" : {
+            "type" : "string"
+        }
+    }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "attiand__GT__eap-records-rest-war__1",
+  "client_project_name": "attiand/eap-records-rest-war",
+  "github_url": "https://github.com/attiand/eap-records-rest-war",
+  "before_migration_commit_hash": "11c64e7ee3f869c416a1401b22df8a8d28c1fb01",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "org.jboss.spec.javax.ws.rs:jboss-jaxrs-api_2.1_spec:2.0.1.Final"
+  ],
+  "target_library_list": [
+    "jakarta.ws.rs:jakarta.ws.rs-api:3.1.0"
+  ],
+  "commit_pr_url": "https://github.com/attiand/eap-records-rest-war/pull/2"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "petems__GT__datadog-java-apm-demo__1",
+  "client_project_name": "petems/datadog-java-apm-demo",
+  "github_url": "https://github.com/petems/datadog-java-apm-demo",
+  "before_migration_commit_hash": "06c2a80d3eab61ba33c748a7142d3ef42910e5d3",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "org.slf4j:slf4j-api:1.7.36"
+  ],
+  "target_library_list": [
+    "org.apache.logging.log4j:log4j-api:2.17.2",
+    "org.apache.logging.log4j:log4j-core:2.17.2"
+  ],
+  "commit_pr_url": "https://github.com/petems/datadog-java-apm-demo/pull/3"
+}

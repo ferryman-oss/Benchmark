@@ -1,0 +1,21 @@
+{
+  "id": "talsma-ict__GT__misc-java-utils__1",
+  "client_project_name": "talsma-ict/misc-java-utils",
+  "github_url": "https://github.com/talsma-ict/misc-java-utils",
+  "before_migration_commit_hash": "e6cf83a",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "org.hamcrest:hamcrest:3.0"
+  ],
+  "target_library_list": [
+    "org.assertj:assertj-core:3.27.3"
+  ],
+  "commit_pr_url": "https://github.com/talsma-ict/misc-java-utils/pull/83"
+}

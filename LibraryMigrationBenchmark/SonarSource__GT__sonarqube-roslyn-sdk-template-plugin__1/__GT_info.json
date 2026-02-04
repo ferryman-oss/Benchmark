@@ -1,0 +1,22 @@
+{
+  "id": "SonarSource__GT__sonarqube-roslyn-sdk-template-plugin__1",
+  "client_project_name": "SonarSource/sonarqube-roslyn-sdk-template-plugin",
+  "github_url": "https://github.com/SonarSource/sonarqube-roslyn-sdk-template-plugin",
+  "before_migration_commit_hash": "7436b8b",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "junit:junit:4.12"
+  ],
+  "target_library_list": [
+    "org.junit.jupiter:junit-jupiter:5.10.2",
+    "org.junit.jupiter:junit-jupiter-api:5.10.2"
+  ],
+  "commit_pr_url": "https://github.com/SonarSource/sonarqube-roslyn-sdk-template-plugin/pull/31"
+}

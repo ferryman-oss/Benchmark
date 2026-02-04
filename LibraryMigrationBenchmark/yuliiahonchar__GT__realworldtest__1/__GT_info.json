@@ -1,0 +1,21 @@
+{
+  "id": "yuliiahonchar__GT__realworldtest__1",
+  "client_project_name": "yuliiahonchar/realworldtest",
+  "github_url": "https://github.com/yuliiahonchar/realworldtest",
+  "before_migration_commit_hash": "d40d2651f26c37650286168eb7e5e34169f7ccd9",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "21",
+  "original_library_list": [
+    "com.squareup.retrofit2:converter-gson:2.9.0"
+  ],
+  "target_library_list": [
+    "com.squareup.retrofit2:converter-jackson:2.9.0"
+  ],
+  "commit_pr_url": "https://github.com/yuliiahonchar/realworldtest/pull/2"
+}

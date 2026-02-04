@@ -1,0 +1,22 @@
+{
+  "id": "Commonjava__GT__indy-generic-proxy-service__1",
+  "client_project_name": "Commonjava/indy-generic-proxy-service",
+  "github_url": "https://github.com/Commonjava/indy-generic-proxy-service",
+  "before_migration_commit_hash": "b11f7176b21a694461633be9c9758e3f4c3f98f0",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "org.infinispan:infinispan-core-jakarta:14.0.21.Final",
+    "org.infinispan:infinispan-commons-jakarta:14.0.21.Final"
+  ],
+  "target_library_list": [
+    "com.github.ben-manes.caffeine:caffeine:3.1.5"
+  ],
+  "commit_pr_url": "https://github.com/Commonjava/indy-generic-proxy-service/pull/102"
+}

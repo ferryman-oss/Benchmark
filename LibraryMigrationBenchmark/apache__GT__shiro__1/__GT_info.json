@@ -1,0 +1,26 @@
+{
+  "id": "apache__GT__shiro__1",
+  "client_project_name": "apache/shiro",
+  "github_url": "https://github.com/apache/shiro",
+  "before_migration_commit_hash": "c0a6a4e07d5b47779d87372b37f0dba63810d63b",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "",
+    "samples/spring-boot",
+    "tools/hasher"
+  ],
+  "jdk_version": "1.8",
+  "original_library_list": [
+    "ch.qos.logback:logback-classic:1.2.10"
+  ],
+  "target_library_list": [
+    "org.apache.logging.log4j:log4j-slf4j-impl:2.20.0",
+    "org.apache.logging.log4j:log4j-api:2.20.0",
+    "org.apache.logging.log4j:log4j-core:2.20.0",
+    "org.apache.logging.log4j:log4j-core-test:2.20.0"
+  ],
+  "commit_pr_url": "https://github.com/apache/shiro/pull/945"
+}

@@ -1,0 +1,23 @@
+{
+  "id": "ONSdigital__GT__ssdc-rm-exception-manager__1",
+  "client_project_name": "ONSdigital/ssdc-rm-exception-manager",
+  "github_url": "https://github.com/ONSdigital/ssdc-rm-exception-manager",
+  "before_migration_commit_hash": "fd754b1e5ecab5666bae698aa5ffe65aa48923ed",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "com.godaddy:logging:1.2.5"
+  ],
+  "target_library_list": [
+    "ch.qos.logback:logback-classic:1.5.3",
+    "net.logstash.logback:logstash-logback-encoder:7.4",
+    "ch.qos.logback:logback-core:1.5.3"
+  ],
+  "commit_pr_url": "https://github.com/ONSdigital/ssdc-rm-exception-manager/pull/66"
+}

@@ -1,0 +1,23 @@
+{
+  "id": "tesshucom__GT__jpsonic__1",
+  "client_project_name": "tesshucom/jpsonic",
+  "github_url": "https://github.com/tesshucom/jpsonic",
+  "before_migration_commit_hash": "8ba1a75d09eeee41b3b647c760ec9e2964c191cb",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "jpsonic-main"
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "org.fourthline.cling:cling-core:2.0.1",
+    "org.fourthline.cling:cling-support:2.0.1"
+  ],
+  "target_library_list": [
+    "org.jupnp:org.jupnp:2.7.1",
+    "org.jupnp:org.jupnp.support:2.7.1"
+  ],
+  "commit_pr_url": "https://github.com/tesshucom/jpsonic/pull/2541"
+}

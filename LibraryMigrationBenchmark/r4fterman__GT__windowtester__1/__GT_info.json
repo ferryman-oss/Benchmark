@@ -1,0 +1,21 @@
+{
+  "id": "r4fterman__GT__windowtester__1",
+  "client_project_name": "r4fterman/windowtester",
+  "github_url": "https://github.com/r4fterman/windowtester",
+  "before_migration_commit_hash": "16955b08e9b8a6b9fbeca691ea2688e5c418db13",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "abbot"
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "org.jdom:jdom:1.1.3"
+  ],
+  "target_library_list": [
+    "org.dom4j:dom4j:2.2.0"
+  ],
+  "commit_pr_url": "https://github.com/r4fterman/windowtester/pull/9"
+}

@@ -1,0 +1,2009 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for io.confluent:kafka-schema-registry:jar:7.3.0-0
+[WARNING] 'build.plugins.plugin.version' for io.swagger.core.v3:swagger-maven-plugin is missing. @ line 311, column 21
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for io.confluent:kafka-connect-avro-converter:jar:7.3.0-0
+[WARNING] 'build.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin io.confluent:kafka-connect-maven-plugin @ line 115, column 21
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Detecting the operating system and CPU architecture
+[INFO] ------------------------------------------------------------------------
+[INFO] os.detected.name: linux
+[INFO] os.detected.arch: x86_64
+[INFO] os.detected.bitness: 64
+[INFO] os.detected.version: 5.15
+[INFO] os.detected.version.major: 5
+[INFO] os.detected.version.minor: 15
+[INFO] os.detected.release: ubuntu
+[INFO] os.detected.release.version: 22.04
+[INFO] os.detected.release.like.ubuntu: true
+[INFO] os.detected.release.like.debian: true
+[INFO] os.detected.classifier: linux-x86_64
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] kafka-schema-registry-parent                                       [pom]
+[INFO] kafka-schema-registry-client                                       [jar]
+[INFO] kafka-json-schema-provider                                         [jar]
+[INFO] kafka-protobuf-types                                               [jar]
+[INFO] kafka-protobuf-provider                                            [jar]
+[INFO] kafka-schema-serializer                                            [jar]
+[INFO] kafka-avro-serializer                                              [jar]
+[INFO] kafka-schema-registry                                              [jar]
+[INFO] kafka-json-serializer                                              [jar]
+[INFO] kafka-schema-converter                                             [jar]
+[INFO] kafka-connect-avro-data                                            [jar]
+[INFO] kafka-connect-avro-converter                                       [jar]
+[INFO] kafka-schema-registry-package                                      [pom]
+[INFO] kafka-streams-avro-serde                                           [jar]
+[INFO] kafka-json-schema-serializer                                       [jar]
+[INFO] kafka-connect-json-schema-converter                                [jar]
+[INFO] kafka-streams-json-schema-serde                                    [jar]
+[INFO] kafka-protobuf-serializer                                          [jar]
+[INFO] kafka-connect-protobuf-converter                                   [jar]
+[INFO] kafka-streams-protobuf-serde                                       [jar]
+[INFO] kafka-serde-tools-package                                          [pom]
+[INFO] maven-plugin                                              [maven-plugin]
+[INFO] client-console-scripts                                             [pom]
+[INFO] schema-registry-console-scripts                                    [pom]
+[INFO] kafka-schema-registry-benchmark                                    [jar]
+[INFO] 
+[INFO] -------------< io.confluent:kafka-schema-registry-parent >--------------
+[INFO] Building kafka-schema-registry-parent 7.3.0-0                     [1/25]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.3.0:tree (default-cli) @ kafka-schema-registry-parent ---
+[INFO] io.confluent:kafka-schema-registry-parent:pom:7.3.0-0
+[INFO] +- io.confluent:common-utils:jar:7.3.0:compile
+[INFO] |  \- org.slf4j:slf4j-api:jar:1.7.36:compile
+[INFO] \- io.confluent:assembly-plugin-boilerplate:zip:resources:7.3.0:provided
+[INFO] 
+[INFO] -------------< io.confluent:kafka-schema-registry-client >--------------
+[INFO] Building kafka-schema-registry-client 7.3.0-0                     [2/25]
+[INFO]   from client/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.3.0:tree (default-cli) @ kafka-schema-registry-client ---
+[INFO] io.confluent:kafka-schema-registry-client:jar:7.3.0-0
+[INFO] +- org.apache.kafka:kafka-clients:jar:7.3.0-ccs:compile
+[INFO] |  +- com.github.luben:zstd-jni:jar:1.5.2-1:runtime
+[INFO] |  +- org.lz4:lz4-java:jar:1.8.0:runtime
+[INFO] |  +- org.xerial.snappy:snappy-java:jar:1.1.8.4:runtime
+[INFO] |  \- org.slf4j:slf4j-api:jar:1.7.36:compile
+[INFO] +- org.apache.avro:avro:jar:1.11.0:compile
+[INFO] |  \- com.fasterxml.jackson.core:jackson-core:jar:2.13.2:compile
+[INFO] +- org.apache.commons:commons-compress:jar:1.21:compile
+[INFO] +- com.fasterxml.jackson.core:jackson-databind:jar:2.13.2.2:compile
+[INFO] |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.13.2:compile
+[INFO] +- org.easymock:easymock:jar:4.3:test
+[INFO] |  \- org.objenesis:objenesis:jar:3.2:test
+[INFO] +- org.powermock:powermock-module-junit4:jar:2.0.9:test
+[INFO] |  +- org.powermock:powermock-module-junit4-common:jar:2.0.9:test
+[INFO] |  |  +- org.powermock:powermock-reflect:jar:2.0.9:test
+[INFO] |  |  \- org.powermock:powermock-core:jar:2.0.9:test
+[INFO] |  |     \- org.javassist:javassist:jar:3.27.0-GA:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] +- org.mockito:mockito-core:jar:4.6.1:test
+[INFO] |  +- net.bytebuddy:byte-buddy:jar:1.12.10:test
+[INFO] |  \- net.bytebuddy:byte-buddy-agent:jar:1.12.10:test
+[INFO] +- org.mockito:mockito-inline:jar:4.6.1:test
+[INFO] +- org.powermock:powermock-api-easymock:jar:2.0.9:test
+[INFO] |  +- org.powermock:powermock-api-support:jar:2.0.9:test
+[INFO] |  \- cglib:cglib-nodep:jar:3.2.9:test
+[INFO] +- junit:junit:jar:4.13.2:test
+[INFO] +- io.swagger.core.v3:swagger-annotations:jar:2.1.10:compile
+[INFO] +- com.google.guava:guava:jar:30.1.1-jre:compile
+[INFO] |  +- com.google.guava:failureaccess:jar:1.0.1:compile
+[INFO] |  +- com.google.guava:listenablefuture:jar:9999.0-empty-to-avoid-conflict-with-guava:compile
+[INFO] |  +- com.google.code.findbugs:jsr305:jar:3.0.2:compile
+[INFO] |  +- org.checkerframework:checker-qual:jar:3.8.0:compile
+[INFO] |  +- com.google.errorprone:error_prone_annotations:jar:2.5.1:compile
+[INFO] |  \- com.google.j2objc:j2objc-annotations:jar:1.3:compile
+[INFO] +- com.google.guava:guava-testlib:jar:30.1.1-jre:test
+[INFO] +- io.confluent:common-utils:jar:7.3.0:compile
+[INFO] \- io.confluent:assembly-plugin-boilerplate:zip:resources:7.3.0:provided
+[INFO] 
+[INFO] --------------< io.confluent:kafka-json-schema-provider >---------------
+[INFO] Building kafka-json-schema-provider 7.3.0-0                       [3/25]
+[INFO]   from json-schema-provider/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.3.0:tree (default-cli) @ kafka-json-schema-provider ---
+[INFO] io.confluent:kafka-json-schema-provider:jar:7.3.0-0
+[INFO] +- io.confluent:kafka-schema-registry-client:jar:7.3.0-0:compile
+[INFO] |  +- org.apache.kafka:kafka-clients:jar:7.3.0-ccs:compile
+[INFO] |  |  +- com.github.luben:zstd-jni:jar:1.5.2-1:runtime
+[INFO] |  |  +- org.lz4:lz4-java:jar:1.8.0:runtime
+[INFO] |  |  \- org.xerial.snappy:snappy-java:jar:1.1.8.4:runtime
+[INFO] |  +- org.apache.avro:avro:jar:1.11.0:compile
+[INFO] |  +- org.apache.commons:commons-compress:jar:1.21:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.13.2.2:compile
+[INFO] |  +- io.swagger.core.v3:swagger-annotations:jar:2.1.10:compile
+[INFO] |  \- com.google.guava:guava:jar:30.1.1-jre:compile
+[INFO] |     +- com.google.guava:failureaccess:jar:1.0.1:compile
+[INFO] |     +- com.google.guava:listenablefuture:jar:9999.0-empty-to-avoid-conflict-with-guava:compile
+[INFO] |     +- com.google.code.findbugs:jsr305:jar:3.0.2:compile
+[INFO] |     +- org.checkerframework:checker-qual:jar:3.8.0:compile
+[INFO] |     +- com.google.errorprone:error_prone_annotations:jar:2.5.1:compile
+[INFO] |     \- com.google.j2objc:j2objc-annotations:jar:1.3:compile
+[INFO] +- com.github.erosb:everit-json-schema:jar:1.14.1:compile
+[INFO] |  +- org.json:json:jar:20220320:compile
+[INFO] |  +- commons-validator:commons-validator:jar:1.7:compile
+[INFO] |  |  +- commons-digester:commons-digester:jar:2.1:compile
+[INFO] |  |  +- commons-logging:commons-logging:jar:1.2:compile
+[INFO] |  |  \- commons-collections:commons-collections:jar:3.2.2:compile
+[INFO] |  +- com.damnhandy:handy-uri-templates:jar:2.1.8:compile
+[INFO] |  \- com.google.re2j:re2j:jar:1.6:compile
+[INFO] +- com.fasterxml.jackson.datatype:jackson-datatype-guava:jar:2.13.2:compile
+[INFO] |  \- com.fasterxml.jackson.core:jackson-core:jar:2.13.2:compile
+[INFO] +- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.13.2:compile
+[INFO] +- com.fasterxml.jackson.datatype:jackson-datatype-joda:jar:2.13.2:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-annotations:jar:2.13.2:compile
+[INFO] |  \- joda-time:joda-time:jar:2.10.8:compile
+[INFO] +- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.13.2:compile
+[INFO] +- com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.13.2:compile
+[INFO] +- com.kjetland:mbknor-jackson-jsonschema_2.13:jar:1.0.39:compile
+[INFO] |  +- org.scala-lang:scala-library:jar:2.13.5:compile
+[INFO] |  +- javax.validation:validation-api:jar:2.0.1.Final:compile
+[INFO] |  +- org.slf4j:slf4j-api:jar:1.7.36:compile
+[INFO] |  \- io.github.classgraph:classgraph:jar:4.8.21:compile
+[INFO] +- org.jetbrains.kotlin:kotlin-stdlib:jar:1.6.0:compile
+[INFO] |  +- org.jetbrains:annotations:jar:13.0:compile
+[INFO] |  \- org.jetbrains.kotlin:kotlin-stdlib-common:jar:1.6.0:compile
+[INFO] +- org.jetbrains.kotlin:kotlin-scripting-jvm:jar:1.6.0:compile
+[INFO] |  +- org.jetbrains.kotlin:kotlin-script-runtime:jar:1.6.0:compile
+[INFO] |  \- org.jetbrains.kotlin:kotlin-scripting-common:jar:1.6.0:compile
+[INFO] +- org.jetbrains.kotlin:kotlin-scripting-compiler-embeddable:jar:1.6.0:compile
+[INFO] |  \- org.jetbrains.kotlin:kotlin-scripting-compiler-impl-embeddable:jar:1.6.0:runtime
+[INFO] +- org.mockito:mockito-core:jar:4.6.1:test
+[INFO] |  +- net.bytebuddy:byte-buddy:jar:1.12.10:test
+[INFO] |  +- net.bytebuddy:byte-buddy-agent:jar:1.12.10:test
+[INFO] |  \- org.objenesis:objenesis:jar:3.2:test
+[INFO] +- junit:junit:jar:4.13.2:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] +- io.confluent:common-utils:jar:7.3.0:compile
+[INFO] \- io.confluent:assembly-plugin-boilerplate:zip:resources:7.3.0:provided
+[INFO] 
+[INFO] -----------------< io.confluent:kafka-protobuf-types >------------------
+[INFO] Building kafka-protobuf-types 7.3.0-0                             [4/25]
+[INFO]   from protobuf-types/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.3.0:tree (default-cli) @ kafka-protobuf-types ---
+[INFO] io.confluent:kafka-protobuf-types:jar:7.3.0-0
+[INFO] +- com.google.protobuf:protobuf-java:jar:3.19.4:compile
+[INFO] +- com.google.protobuf:protobuf-java-util:jar:3.19.4:compile
+[INFO] |  +- com.google.guava:guava:jar:30.1.1-jre:compile
+[INFO] |  |  +- com.google.guava:failureaccess:jar:1.0.1:compile
+[INFO] |  |  +- com.google.guava:listenablefuture:jar:9999.0-empty-to-avoid-conflict-with-guava:compile
+[INFO] |  |  \- org.checkerframework:checker-qual:jar:3.8.0:compile
+[INFO] |  +- com.google.errorprone:error_prone_annotations:jar:2.5.1:compile
+[INFO] |  +- com.google.j2objc:j2objc-annotations:jar:1.3:compile
+[INFO] |  +- com.google.code.findbugs:jsr305:jar:3.0.2:compile
+[INFO] |  \- com.google.code.gson:gson:jar:2.9.0:compile
+[INFO] +- com.google.api.grpc:proto-google-common-protos:jar:2.5.1:compile
+[INFO] +- org.mockito:mockito-core:jar:4.6.1:test
+[INFO] |  +- net.bytebuddy:byte-buddy:jar:1.12.10:test
+[INFO] |  +- net.bytebuddy:byte-buddy-agent:jar:1.12.10:test
+[INFO] |  \- org.objenesis:objenesis:jar:3.2:test
+[INFO] +- junit:junit:jar:4.13.2:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] +- io.confluent:common-utils:jar:7.3.0:compile
+[INFO] |  \- org.slf4j:slf4j-api:jar:1.7.36:compile
+[INFO] \- io.confluent:assembly-plugin-boilerplate:zip:resources:7.3.0:provided
+[INFO] 
+[INFO] ----------------< io.confluent:kafka-protobuf-provider >----------------
+[INFO] Building kafka-protobuf-provider 7.3.0-0                          [5/25]
+[INFO]   from protobuf-provider/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] 2 problems were encountered while building the effective model for org.apache.yetus:audience-annotations:jar:0.5.0 during dependency collection step for project (use -X to see details)
+[INFO] 
+[INFO] --- dependency:3.3.0:tree (default-cli) @ kafka-protobuf-provider ---
+[INFO] io.confluent:kafka-protobuf-provider:jar:7.3.0-0
+[INFO] +- org.apache.kafka:kafka_2.13:jar:7.3.0-ccs:provided
+[INFO] |  +- org.apache.kafka:kafka-clients:jar:7.3.0-ccs:compile
+[INFO] |  |  +- com.github.luben:zstd-jni:jar:1.5.2-1:runtime
+[INFO] |  |  +- org.lz4:lz4-java:jar:1.8.0:runtime
+[INFO] |  |  \- org.xerial.snappy:snappy-java:jar:1.1.8.4:runtime
+[INFO] |  +- org.scala-lang:scala-library:jar:2.13.5:provided
+[INFO] |  +- org.apache.kafka:kafka-server-common:jar:7.3.0-ccs:provided
+[INFO] |  +- org.apache.kafka:kafka-metadata:jar:7.3.0-ccs:provided
+[INFO] |  +- org.apache.kafka:kafka-raft:jar:7.3.0-ccs:provided
+[INFO] |  +- org.apache.kafka:kafka-storage:jar:7.3.0-ccs:provided
+[INFO] |  |  \- org.apache.kafka:kafka-storage-api:jar:7.3.0-ccs:provided
+[INFO] |  +- net.sourceforge.argparse4j:argparse4j:jar:0.7.0:provided
+[INFO] |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.13.2.2:compile
+[INFO] |  |  +- com.fasterxml.jackson.core:jackson-annotations:jar:2.13.2:compile
+[INFO] |  |  \- com.fasterxml.jackson.core:jackson-core:jar:2.13.2:compile
+[INFO] |  +- com.fasterxml.jackson.module:jackson-module-scala_2.13:jar:2.13.2:provided
+[INFO] |  |  \- com.thoughtworks.paranamer:paranamer:jar:2.8:provided
+[INFO] |  +- com.fasterxml.jackson.dataformat:jackson-dataformat-csv:jar:2.13.2:provided
+[INFO] |  +- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.13.2:provided
+[INFO] |  +- net.sf.jopt-simple:jopt-simple:jar:5.0.4:provided
+[INFO] |  +- org.bitbucket.b_c:jose4j:jar:0.7.9:provided
+[INFO] |  +- com.yammer.metrics:metrics-core:jar:2.2.0:provided
+[INFO] |  +- org.scala-lang.modules:scala-collection-compat_2.13:jar:2.6.0:provided
+[INFO] |  +- org.scala-lang.modules:scala-java8-compat_2.13:jar:1.0.2:provided
+[INFO] |  +- org.scala-lang:scala-reflect:jar:2.13.5:provided
+[INFO] |  +- com.typesafe.scala-logging:scala-logging_2.13:jar:3.9.4:provided
+[INFO] |  +- org.slf4j:slf4j-api:jar:1.7.36:compile
+[INFO] |  +- io.dropwizard.metrics:metrics-core:jar:4.1.12.1:provided
+[INFO] |  +- org.apache.zookeeper:zookeeper:jar:3.6.3:provided
+[INFO] |  |  +- org.apache.zookeeper:zookeeper-jute:jar:3.6.3:provided
+[INFO] |  |  \- org.apache.yetus:audience-annotations:jar:0.5.0:provided
+[INFO] |  \- commons-cli:commons-cli:jar:1.4:provided
+[INFO] +- com.squareup.wire:wire-schema-jvm:jar:4.3.0:compile
+[INFO] |  +- org.jetbrains.kotlin:kotlin-stdlib-common:jar:1.6.10:compile
+[INFO] |  +- com.google.guava:guava:jar:30.1.1-jre:compile
+[INFO] |  |  +- com.google.guava:failureaccess:jar:1.0.1:compile
+[INFO] |  |  +- com.google.guava:listenablefuture:jar:9999.0-empty-to-avoid-conflict-with-guava:compile
+[INFO] |  |  \- org.checkerframework:checker-qual:jar:3.8.0:compile
+[INFO] |  +- org.jetbrains.kotlin:kotlin-stdlib-jdk8:jar:1.6.10:compile
+[INFO] |  |  \- org.jetbrains.kotlin:kotlin-stdlib-jdk7:jar:1.6.10:compile
+[INFO] |  \- com.squareup.okio:okio:jar:3.0.0:compile
+[INFO] +- com.squareup.wire:wire-runtime-jvm:jar:4.3.0:compile
+[INFO] +- com.squareup.okio:okio-jvm:jar:3.0.0:compile
+[INFO] +- org.apache.commons:commons-lang3:jar:3.12.0:compile
+[INFO] +- org.jetbrains.kotlin:kotlin-stdlib:jar:1.6.0:compile
+[INFO] |  \- org.jetbrains:annotations:jar:13.0:compile
+[INFO] +- com.google.protobuf:protobuf-java:jar:3.19.4:compile
+[INFO] +- com.google.protobuf:protobuf-java-util:jar:3.19.4:compile
+[INFO] |  +- com.google.errorprone:error_prone_annotations:jar:2.5.1:compile
+[INFO] |  +- com.google.j2objc:j2objc-annotations:jar:1.3:compile
+[INFO] |  +- com.google.code.findbugs:jsr305:jar:3.0.2:compile
+[INFO] |  \- com.google.code.gson:gson:jar:2.9.0:compile
+[INFO] +- com.google.api.grpc:proto-google-common-protos:jar:2.5.1:compile
+[INFO] +- io.confluent:kafka-schema-registry-client:jar:7.3.0-0:compile
+[INFO] |  +- org.apache.avro:avro:jar:1.11.0:compile
+[INFO] |  +- org.apache.commons:commons-compress:jar:1.21:compile
+[INFO] |  \- io.swagger.core.v3:swagger-annotations:jar:2.1.10:compile
+[INFO] +- io.confluent:kafka-protobuf-types:jar:7.3.0-0:compile
+[INFO] +- org.mockito:mockito-core:jar:4.6.1:test
+[INFO] |  +- net.bytebuddy:byte-buddy:jar:1.12.10:test
+[INFO] |  +- net.bytebuddy:byte-buddy-agent:jar:1.12.10:test
+[INFO] |  \- org.objenesis:objenesis:jar:3.2:test
+[INFO] +- junit:junit:jar:4.13.2:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] +- io.confluent:common-utils:jar:7.3.0:compile
+[INFO] \- io.confluent:assembly-plugin-boilerplate:zip:resources:7.3.0:provided
+[INFO] 
+[INFO] ----------------< io.confluent:kafka-schema-serializer >----------------
+[INFO] Building kafka-schema-serializer 7.3.0-0                          [6/25]
+[INFO]   from schema-serializer/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.3.0:tree (default-cli) @ kafka-schema-serializer ---
+[INFO] io.confluent:kafka-schema-serializer:jar:7.3.0-0
+[INFO] +- org.apache.kafka:kafka_2.13:jar:7.3.0-ccs:provided
+[INFO] |  +- org.apache.kafka:kafka-clients:jar:7.3.0-ccs:compile
+[INFO] |  |  +- com.github.luben:zstd-jni:jar:1.5.2-1:runtime
+[INFO] |  |  +- org.lz4:lz4-java:jar:1.8.0:runtime
+[INFO] |  |  \- org.xerial.snappy:snappy-java:jar:1.1.8.4:runtime
+[INFO] |  +- org.scala-lang:scala-library:jar:2.13.5:provided
+[INFO] |  +- org.apache.kafka:kafka-server-common:jar:7.3.0-ccs:provided
+[INFO] |  +- org.apache.kafka:kafka-metadata:jar:7.3.0-ccs:provided
+[INFO] |  +- org.apache.kafka:kafka-raft:jar:7.3.0-ccs:provided
+[INFO] |  +- org.apache.kafka:kafka-storage:jar:7.3.0-ccs:provided
+[INFO] |  |  \- org.apache.kafka:kafka-storage-api:jar:7.3.0-ccs:provided
+[INFO] |  +- net.sourceforge.argparse4j:argparse4j:jar:0.7.0:provided
+[INFO] |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.13.2.2:compile
+[INFO] |  |  +- com.fasterxml.jackson.core:jackson-annotations:jar:2.13.2:compile
+[INFO] |  |  \- com.fasterxml.jackson.core:jackson-core:jar:2.13.2:compile
+[INFO] |  +- com.fasterxml.jackson.module:jackson-module-scala_2.13:jar:2.13.2:provided
+[INFO] |  |  \- com.thoughtworks.paranamer:paranamer:jar:2.8:provided
+[INFO] |  +- com.fasterxml.jackson.dataformat:jackson-dataformat-csv:jar:2.13.2:provided
+[INFO] |  +- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.13.2:provided
+[INFO] |  +- net.sf.jopt-simple:jopt-simple:jar:5.0.4:provided
+[INFO] |  +- org.bitbucket.b_c:jose4j:jar:0.7.9:provided
+[INFO] |  +- com.yammer.metrics:metrics-core:jar:2.2.0:provided
+[INFO] |  +- org.scala-lang.modules:scala-collection-compat_2.13:jar:2.6.0:provided
+[INFO] |  +- org.scala-lang.modules:scala-java8-compat_2.13:jar:1.0.2:provided
+[INFO] |  +- org.scala-lang:scala-reflect:jar:2.13.5:provided
+[INFO] |  +- com.typesafe.scala-logging:scala-logging_2.13:jar:3.9.4:provided
+[INFO] |  +- org.slf4j:slf4j-api:jar:1.7.36:compile
+[INFO] |  +- io.dropwizard.metrics:metrics-core:jar:4.1.12.1:provided
+[INFO] |  +- org.apache.zookeeper:zookeeper:jar:3.6.3:provided
+[INFO] |  |  +- org.apache.zookeeper:zookeeper-jute:jar:3.6.3:provided
+[INFO] |  |  \- org.apache.yetus:audience-annotations:jar:0.5.0:provided
+[INFO] |  \- commons-cli:commons-cli:jar:1.4:provided
+[INFO] +- io.confluent:kafka-schema-registry-client:jar:7.3.0-0:compile
+[INFO] |  +- org.apache.avro:avro:jar:1.11.0:compile
+[INFO] |  +- org.apache.commons:commons-compress:jar:1.21:compile
+[INFO] |  +- io.swagger.core.v3:swagger-annotations:jar:2.1.10:compile
+[INFO] |  \- com.google.guava:guava:jar:30.1.1-jre:compile
+[INFO] |     +- com.google.guava:failureaccess:jar:1.0.1:compile
+[INFO] |     +- com.google.guava:listenablefuture:jar:9999.0-empty-to-avoid-conflict-with-guava:compile
+[INFO] |     +- com.google.code.findbugs:jsr305:jar:3.0.2:compile
+[INFO] |     +- org.checkerframework:checker-qual:jar:3.8.0:compile
+[INFO] |     +- com.google.errorprone:error_prone_annotations:jar:2.5.1:compile
+[INFO] |     \- com.google.j2objc:j2objc-annotations:jar:1.3:compile
+[INFO] +- junit:junit:jar:4.13.2:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] +- io.confluent:common-utils:jar:7.3.0:compile
+[INFO] \- io.confluent:assembly-plugin-boilerplate:zip:resources:7.3.0:provided
+[INFO] 
+[INFO] -----------------< io.confluent:kafka-avro-serializer >-----------------
+[INFO] Building kafka-avro-serializer 7.3.0-0                            [7/25]
+[INFO]   from avro-serializer/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.3.0:tree (default-cli) @ kafka-avro-serializer ---
+[INFO] io.confluent:kafka-avro-serializer:jar:7.3.0-0
+[INFO] +- org.apache.kafka:kafka_2.13:jar:7.3.0-ccs:provided
+[INFO] |  +- org.apache.kafka:kafka-clients:jar:7.3.0-ccs:compile
+[INFO] |  |  +- com.github.luben:zstd-jni:jar:1.5.2-1:runtime
+[INFO] |  |  +- org.lz4:lz4-java:jar:1.8.0:runtime
+[INFO] |  |  \- org.xerial.snappy:snappy-java:jar:1.1.8.4:runtime
+[INFO] |  +- org.scala-lang:scala-library:jar:2.13.5:provided
+[INFO] |  +- org.apache.kafka:kafka-server-common:jar:7.3.0-ccs:provided
+[INFO] |  +- org.apache.kafka:kafka-metadata:jar:7.3.0-ccs:provided
+[INFO] |  +- org.apache.kafka:kafka-raft:jar:7.3.0-ccs:provided
+[INFO] |  +- org.apache.kafka:kafka-storage:jar:7.3.0-ccs:provided
+[INFO] |  |  \- org.apache.kafka:kafka-storage-api:jar:7.3.0-ccs:provided
+[INFO] |  +- net.sourceforge.argparse4j:argparse4j:jar:0.7.0:provided
+[INFO] |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.13.2.2:compile
+[INFO] |  |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.13.2:compile
+[INFO] |  +- com.fasterxml.jackson.module:jackson-module-scala_2.13:jar:2.13.2:provided
+[INFO] |  |  \- com.thoughtworks.paranamer:paranamer:jar:2.8:provided
+[INFO] |  +- com.fasterxml.jackson.dataformat:jackson-dataformat-csv:jar:2.13.2:provided
+[INFO] |  +- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.13.2:provided
+[INFO] |  +- net.sf.jopt-simple:jopt-simple:jar:5.0.4:provided
+[INFO] |  +- org.bitbucket.b_c:jose4j:jar:0.7.9:provided
+[INFO] |  +- com.yammer.metrics:metrics-core:jar:2.2.0:provided
+[INFO] |  +- org.scala-lang.modules:scala-collection-compat_2.13:jar:2.6.0:provided
+[INFO] |  +- org.scala-lang.modules:scala-java8-compat_2.13:jar:1.0.2:provided
+[INFO] |  +- org.scala-lang:scala-reflect:jar:2.13.5:provided
+[INFO] |  +- com.typesafe.scala-logging:scala-logging_2.13:jar:3.9.4:provided
+[INFO] |  +- org.slf4j:slf4j-api:jar:1.7.36:compile
+[INFO] |  +- io.dropwizard.metrics:metrics-core:jar:4.1.12.1:provided
+[INFO] |  +- org.apache.zookeeper:zookeeper:jar:3.6.3:provided
+[INFO] |  |  +- org.apache.zookeeper:zookeeper-jute:jar:3.6.3:provided
+[INFO] |  |  \- org.apache.yetus:audience-annotations:jar:0.5.0:provided
+[INFO] |  \- commons-cli:commons-cli:jar:1.4:provided
+[INFO] +- org.apache.avro:avro:jar:1.11.0:compile
+[INFO] |  \- com.fasterxml.jackson.core:jackson-core:jar:2.13.2:compile
+[INFO] +- org.apache.commons:commons-compress:jar:1.21:compile
+[INFO] +- io.confluent:kafka-schema-serializer:jar:7.3.0-0:compile
+[INFO] +- io.confluent:kafka-schema-registry-client:jar:7.3.0-0:compile
+[INFO] |  \- io.swagger.core.v3:swagger-annotations:jar:2.1.10:compile
+[INFO] +- com.google.guava:guava:jar:30.1.1-jre:compile
+[INFO] |  +- com.google.guava:failureaccess:jar:1.0.1:compile
+[INFO] |  +- com.google.guava:listenablefuture:jar:9999.0-empty-to-avoid-conflict-with-guava:compile
+[INFO] |  +- com.google.code.findbugs:jsr305:jar:3.0.2:compile
+[INFO] |  +- org.checkerframework:checker-qual:jar:3.8.0:compile
+[INFO] |  +- com.google.errorprone:error_prone_annotations:jar:2.5.1:compile
+[INFO] |  \- com.google.j2objc:j2objc-annotations:jar:1.3:compile
+[INFO] +- junit:junit:jar:4.13.2:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] +- org.slf4j:slf4j-reload4j:jar:1.7.36:test
+[INFO] |  \- ch.qos.reload4j:reload4j:jar:1.2.19:test
+[INFO] +- io.confluent:logredactor:jar:1.0.10:compile
+[INFO] |  +- com.google.re2j:re2j:jar:1.6:compile
+[INFO] |  +- io.confluent:logredactor-metrics:jar:1.0.10:compile
+[INFO] |  \- com.eclipsesource.minimal-json:minimal-json:jar:0.9.5:compile
+[INFO] +- io.confluent:common-utils:jar:7.3.0:compile
+[INFO] \- io.confluent:assembly-plugin-boilerplate:zip:resources:7.3.0:provided
+[INFO] 
+[INFO] -----------------< io.confluent:kafka-schema-registry >-----------------
+[INFO] Building kafka-schema-registry 7.3.0-0                            [8/25]
+[INFO]   from core/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.3.0:tree (default-cli) @ kafka-schema-registry ---
+[INFO] io.confluent:kafka-schema-registry:jar:7.3.0-0
+[INFO] +- io.confluent:kafka-schema-registry-client:jar:7.3.0-0:compile
+[INFO] |  \- com.fasterxml.jackson.core:jackson-databind:jar:2.13.2.2:compile
+[INFO] +- io.confluent:kafka-json-schema-provider:jar:7.3.0-0:compile
+[INFO] |  +- com.github.erosb:everit-json-schema:jar:1.14.1:compile
+[INFO] |  |  +- org.json:json:jar:20220320:compile
+[INFO] |  |  +- commons-validator:commons-validator:jar:1.7:compile
+[INFO] |  |  |  +- commons-digester:commons-digester:jar:2.1:compile
+[INFO] |  |  |  \- commons-logging:commons-logging:jar:1.2:compile
+[INFO] |  |  \- com.damnhandy:handy-uri-templates:jar:2.1.8:compile
+[INFO] |  +- com.fasterxml.jackson.datatype:jackson-datatype-guava:jar:2.13.2:compile
+[INFO] |  +- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.13.2:compile
+[INFO] |  +- com.fasterxml.jackson.datatype:jackson-datatype-joda:jar:2.13.2:compile
+[INFO] |  |  \- joda-time:joda-time:jar:2.10.8:compile
+[INFO] |  +- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.13.2:compile
+[INFO] |  +- com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.13.2:compile
+[INFO] |  +- com.kjetland:mbknor-jackson-jsonschema_2.13:jar:1.0.39:compile
+[INFO] |  |  +- javax.validation:validation-api:jar:2.0.1.Final:compile
+[INFO] |  |  \- io.github.classgraph:classgraph:jar:4.8.21:compile
+[INFO] |  +- org.jetbrains.kotlin:kotlin-stdlib:jar:1.6.0:compile
+[INFO] |  |  +- org.jetbrains:annotations:jar:13.0:compile
+[INFO] |  |  \- org.jetbrains.kotlin:kotlin-stdlib-common:jar:1.6.0:compile
+[INFO] |  +- org.jetbrains.kotlin:kotlin-scripting-jvm:jar:1.6.0:compile
+[INFO] |  |  +- org.jetbrains.kotlin:kotlin-script-runtime:jar:1.6.0:compile
+[INFO] |  |  \- org.jetbrains.kotlin:kotlin-scripting-common:jar:1.6.0:compile
+[INFO] |  \- org.jetbrains.kotlin:kotlin-scripting-compiler-embeddable:jar:1.6.0:compile
+[INFO] |     \- org.jetbrains.kotlin:kotlin-scripting-compiler-impl-embeddable:jar:1.6.0:runtime
+[INFO] +- io.confluent:kafka-protobuf-provider:jar:7.3.0-0:compile
+[INFO] |  +- com.squareup.wire:wire-schema-jvm:jar:4.3.0:compile
+[INFO] |  |  +- org.jetbrains.kotlin:kotlin-stdlib-jdk8:jar:1.6.10:compile
+[INFO] |  |  |  \- org.jetbrains.kotlin:kotlin-stdlib-jdk7:jar:1.6.10:compile
+[INFO] |  |  \- com.squareup.okio:okio:jar:3.0.0:compile
+[INFO] |  +- com.squareup.wire:wire-runtime-jvm:jar:4.3.0:compile
+[INFO] |  +- com.squareup.okio:okio-jvm:jar:3.0.0:compile
+[INFO] |  +- org.apache.commons:commons-lang3:jar:3.12.0:compile
+[INFO] |  +- com.google.protobuf:protobuf-java:jar:3.19.4:compile
+[INFO] |  +- com.google.protobuf:protobuf-java-util:jar:3.19.4:compile
+[INFO] |  |  \- com.google.code.gson:gson:jar:2.9.0:compile
+[INFO] |  \- com.google.api.grpc:proto-google-common-protos:jar:2.5.1:compile
+[INFO] +- org.apache.kafka:kafka_2.13:jar:7.3.0-ccs:compile
+[INFO] |  +- org.scala-lang:scala-library:jar:2.13.5:compile
+[INFO] |  +- org.apache.kafka:kafka-server-common:jar:7.3.0-ccs:runtime
+[INFO] |  +- org.apache.kafka:kafka-metadata:jar:7.3.0-ccs:runtime
+[INFO] |  +- org.apache.kafka:kafka-raft:jar:7.3.0-ccs:runtime
+[INFO] |  +- org.apache.kafka:kafka-storage:jar:7.3.0-ccs:runtime
+[INFO] |  |  \- org.apache.kafka:kafka-storage-api:jar:7.3.0-ccs:runtime
+[INFO] |  +- net.sourceforge.argparse4j:argparse4j:jar:0.7.0:runtime
+[INFO] |  +- com.fasterxml.jackson.module:jackson-module-scala_2.13:jar:2.13.2:runtime
+[INFO] |  |  \- com.thoughtworks.paranamer:paranamer:jar:2.8:runtime
+[INFO] |  +- com.fasterxml.jackson.dataformat:jackson-dataformat-csv:jar:2.13.2:runtime
+[INFO] |  +- net.sf.jopt-simple:jopt-simple:jar:5.0.4:runtime
+[INFO] |  +- org.bitbucket.b_c:jose4j:jar:0.7.9:runtime
+[INFO] |  +- com.yammer.metrics:metrics-core:jar:2.2.0:runtime
+[INFO] |  +- org.scala-lang.modules:scala-collection-compat_2.13:jar:2.6.0:runtime
+[INFO] |  +- org.scala-lang.modules:scala-java8-compat_2.13:jar:1.0.2:runtime
+[INFO] |  +- org.scala-lang:scala-reflect:jar:2.13.5:runtime
+[INFO] |  +- com.typesafe.scala-logging:scala-logging_2.13:jar:3.9.4:runtime
+[INFO] |  +- org.slf4j:slf4j-api:jar:1.7.36:compile
+[INFO] |  +- io.dropwizard.metrics:metrics-core:jar:4.1.12.1:runtime
+[INFO] |  \- commons-cli:commons-cli:jar:1.4:runtime
+[INFO] +- org.apache.kafka:kafka-clients:jar:7.3.0-ccs:compile
+[INFO] |  +- com.github.luben:zstd-jni:jar:1.5.2-1:runtime
+[INFO] |  +- org.lz4:lz4-java:jar:1.8.0:runtime
+[INFO] |  \- org.xerial.snappy:snappy-java:jar:1.1.8.4:runtime
+[INFO] +- org.glassfish.jersey.ext:jersey-bean-validation:jar:2.36:compile
+[INFO] |  +- org.glassfish.hk2.external:jakarta.inject:jar:2.6.1:compile
+[INFO] |  +- org.glassfish.jersey.core:jersey-common:jar:2.36:compile
+[INFO] |  |  +- jakarta.annotation:jakarta.annotation-api:jar:1.3.5:compile
+[INFO] |  |  \- org.glassfish.hk2:osgi-resource-locator:jar:1.0.3:compile
+[INFO] |  +- org.glassfish.jersey.core:jersey-server:jar:2.36:compile
+[INFO] |  |  \- org.glassfish.jersey.core:jersey-client:jar:2.36:compile
+[INFO] |  +- jakarta.validation:jakarta.validation-api:jar:2.0.2:compile
+[INFO] |  +- jakarta.el:jakarta.el-api:jar:4.0.0:compile
+[INFO] |  +- org.glassfish:jakarta.el:jar:3.0.4:compile
+[INFO] |  \- jakarta.ws.rs:jakarta.ws.rs-api:jar:2.1.6:compile
+[INFO] +- org.hibernate.validator:hibernate-validator:jar:6.1.7.Final:compile
+[INFO] |  +- org.jboss.logging:jboss-logging:jar:3.3.2.Final:compile
+[INFO] |  \- com.fasterxml:classmate:jar:1.3.4:compile
+[INFO] +- io.confluent:rest-utils:jar:7.3.0:compile
+[INFO] |  +- org.eclipse.jetty.websocket:javax-websocket-server-impl:jar:9.4.48.v20220622:compile
+[INFO] |  |  +- org.eclipse.jetty:jetty-annotations:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  +- org.eclipse.jetty:jetty-plus:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  |  \- org.eclipse.jetty:jetty-jndi:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  +- org.eclipse.jetty:jetty-webapp:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  |  \- org.eclipse.jetty:jetty-xml:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  +- javax.annotation:javax.annotation-api:jar:1.3.2:compile
+[INFO] |  |  |  +- org.ow2.asm:asm:jar:9.3:compile
+[INFO] |  |  |  \- org.ow2.asm:asm-commons:jar:9.3:compile
+[INFO] |  |  |     +- org.ow2.asm:asm-tree:jar:9.3:compile
+[INFO] |  |  |     \- org.ow2.asm:asm-analysis:jar:9.3:compile
+[INFO] |  |  +- org.eclipse.jetty.websocket:javax-websocket-client-impl:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  +- org.eclipse.jetty.websocket:websocket-client:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  |  \- org.eclipse.jetty:jetty-client:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  \- javax.websocket:javax.websocket-client-api:jar:1.0:compile
+[INFO] |  |  +- org.eclipse.jetty.websocket:websocket-server:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  +- org.eclipse.jetty.websocket:websocket-common:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  |  \- org.eclipse.jetty.websocket:websocket-api:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  \- org.eclipse.jetty.websocket:websocket-servlet:jar:9.4.48.v20220622:compile
+[INFO] |  |  \- javax.websocket:javax.websocket-api:jar:1.0:compile
+[INFO] |  +- org.glassfish.jersey.containers:jersey-container-servlet:jar:2.36:compile
+[INFO] |  |  \- org.glassfish.jersey.containers:jersey-container-servlet-core:jar:2.36:compile
+[INFO] |  +- org.glassfish.jersey.inject:jersey-hk2:jar:2.36:compile
+[INFO] |  |  +- org.glassfish.hk2:hk2-locator:jar:2.6.1:compile
+[INFO] |  |  |  +- org.glassfish.hk2.external:aopalliance-repackaged:jar:2.6.1:compile
+[INFO] |  |  |  +- org.glassfish.hk2:hk2-api:jar:2.6.1:compile
+[INFO] |  |  |  \- org.glassfish.hk2:hk2-utils:jar:2.6.1:compile
+[INFO] |  |  \- org.javassist:javassist:jar:3.25.0-GA:compile
+[INFO] |  +- javax.xml.bind:jaxb-api:jar:2.3.0:compile
+[INFO] |  +- javax.activation:activation:jar:1.1.1:compile
+[INFO] |  +- org.eclipse.jetty:jetty-jmx:jar:9.4.48.v20220622:compile
+[INFO] |  |  \- org.eclipse.jetty:jetty-util:jar:9.4.48.v20220622:compile
+[INFO] |  +- org.eclipse.jetty:jetty-server:jar:9.4.48.v20220622:compile
+[INFO] |  |  +- javax.servlet:javax.servlet-api:jar:3.1.0:compile
+[INFO] |  |  +- org.eclipse.jetty:jetty-http:jar:9.4.48.v20220622:compile
+[INFO] |  |  \- org.eclipse.jetty:jetty-io:jar:9.4.48.v20220622:compile
+[INFO] |  +- org.eclipse.jetty.http2:http2-server:jar:9.4.48.v20220622:compile
+[INFO] |  |  \- org.eclipse.jetty.http2:http2-common:jar:9.4.48.v20220622:compile
+[INFO] |  |     \- org.eclipse.jetty.http2:http2-hpack:jar:9.4.48.v20220622:compile
+[INFO] |  +- org.eclipse.jetty:jetty-alpn-server:jar:9.4.48.v20220622:compile
+[INFO] |  +- org.eclipse.jetty:jetty-alpn-java-server:jar:9.4.48.v20220622:runtime
+[INFO] |  +- org.eclipse.jetty:jetty-servlet:jar:9.4.48.v20220622:compile
+[INFO] |  |  +- org.eclipse.jetty:jetty-security:jar:9.4.48.v20220622:compile
+[INFO] |  |  \- org.eclipse.jetty:jetty-util-ajax:jar:9.4.48.v20220622:compile
+[INFO] |  +- org.eclipse.jetty:jetty-servlets:jar:9.4.48.v20220622:compile
+[INFO] |  |  \- org.eclipse.jetty:jetty-continuation:jar:9.4.48.v20220622:compile
+[INFO] |  +- org.eclipse.jetty:jetty-jaas:jar:9.4.48.v20220622:compile
+[INFO] |  +- com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:jar:2.13.2:compile
+[INFO] |  |  \- com.fasterxml.jackson.module:jackson-module-jaxb-annotations:jar:2.13.2:compile
+[INFO] |  +- com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:jar:2.13.2:compile
+[INFO] |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.13.2:compile
+[INFO] +- org.slf4j:slf4j-reload4j:jar:1.7.36:compile
+[INFO] |  \- ch.qos.reload4j:reload4j:jar:1.2.19:compile
+[INFO] +- io.confluent:logredactor:jar:1.0.10:compile
+[INFO] |  +- com.google.re2j:re2j:jar:1.6:compile
+[INFO] |  +- io.confluent:logredactor-metrics:jar:1.0.10:compile
+[INFO] |  \- com.eclipsesource.minimal-json:minimal-json:jar:0.9.5:compile
+[INFO] +- com.google.guava:guava:jar:30.1.1-jre:compile
+[INFO] |  +- com.google.guava:failureaccess:jar:1.0.1:compile
+[INFO] |  +- com.google.guava:listenablefuture:jar:9999.0-empty-to-avoid-conflict-with-guava:compile
+[INFO] |  +- com.google.code.findbugs:jsr305:jar:3.0.2:compile
+[INFO] |  +- org.checkerframework:checker-qual:jar:3.8.0:compile
+[INFO] |  +- com.google.errorprone:error_prone_annotations:jar:2.5.1:compile
+[INFO] |  \- com.google.j2objc:j2objc-annotations:jar:1.3:compile
+[INFO] +- org.apache.avro:avro:jar:1.11.0:compile
+[INFO] |  \- com.fasterxml.jackson.core:jackson-core:jar:2.13.2:compile
+[INFO] +- org.apache.commons:commons-compress:jar:1.21:compile
+[INFO] +- org.apache.zookeeper:zookeeper:jar:3.6.3:compile
+[INFO] |  +- org.apache.zookeeper:zookeeper-jute:jar:3.6.3:compile
+[INFO] |  \- org.apache.yetus:audience-annotations:jar:0.5.0:compile
+[INFO] +- io.netty:netty-codec:jar:4.1.79.Final:compile
+[INFO] |  +- io.netty:netty-common:jar:4.1.79.Final:compile
+[INFO] |  +- io.netty:netty-buffer:jar:4.1.79.Final:compile
+[INFO] |  \- io.netty:netty-transport:jar:4.1.79.Final:compile
+[INFO] |     \- io.netty:netty-resolver:jar:4.1.79.Final:compile
+[INFO] +- io.confluent:kafka-protobuf-types:jar:7.3.0-0:test
+[INFO] +- junit:junit:jar:4.13.2:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] +- org.apache.kafka:kafka_2.13:jar:test:7.3.0-ccs:test
+[INFO] +- org.apache.kafka:kafka-clients:jar:test:7.3.0-ccs:test
+[INFO] +- org.bouncycastle:bcpkix-jdk15on:jar:1.68:test
+[INFO] |  \- org.bouncycastle:bcprov-jdk15on:jar:1.68:test
+[INFO] +- io.confluent:kafka-avro-serializer:jar:7.3.0-0:test
+[INFO] |  \- io.confluent:kafka-schema-serializer:jar:7.3.0-0:test
+[INFO] +- org.easymock:easymock:jar:4.3:test
+[INFO] |  \- org.objenesis:objenesis:jar:3.2:test
+[INFO] +- org.apache.directory.api:api-all:jar:1.0.0-M33:test
+[INFO] |  +- org.apache.servicemix.bundles:org.apache.servicemix.bundles.xpp3:jar:1.1.4c_6:test
+[INFO] |  +- org.apache.servicemix.bundles:org.apache.servicemix.bundles.dom4j:jar:1.6.1_5:test
+[INFO] |  +- commons-pool:commons-pool:jar:1.6:test
+[INFO] |  +- org.apache.mina:mina-core:jar:2.0.10:test
+[INFO] |  +- commons-lang:commons-lang:jar:2.6:test
+[INFO] |  +- commons-collections:commons-collections:jar:3.2.2:compile
+[INFO] |  +- org.apache.servicemix.bundles:org.apache.servicemix.bundles.antlr:jar:2.7.7_5:test
+[INFO] |  \- commons-io:commons-io:jar:2.4:test
+[INFO] +- org.apache.directory.server:apacheds-core-api:jar:2.0.0-M22:test
+[INFO] |  +- org.apache.directory.server:apacheds-core-constants:jar:2.0.0-M22:test
+[INFO] |  +- org.apache.directory.server:apacheds-i18n:jar:2.0.0-M22:test
+[INFO] |  +- org.apache.directory.api:api-i18n:jar:1.0.0-RC1:test
+[INFO] |  +- org.apache.directory.api:api-asn1-api:jar:1.0.0-RC1:test
+[INFO] |  +- org.apache.directory.api:api-ldap-client-api:jar:1.0.0-RC1:test
+[INFO] |  +- org.apache.directory.api:api-ldap-codec-core:jar:1.0.0-RC1:test
+[INFO] |  +- org.apache.directory.api:api-ldap-extras-aci:jar:1.0.0-RC1:test
+[INFO] |  +- org.apache.directory.api:api-ldap-extras-util:jar:1.0.0-RC1:test
+[INFO] |  +- org.apache.directory.api:api-ldap-model:jar:1.0.0-RC1:test
+[INFO] |  |  \- commons-codec:commons-codec:jar:1.10:test
+[INFO] |  +- org.apache.directory.api:api-util:jar:1.0.0-RC1:test
+[INFO] |  \- net.sf.ehcache:ehcache:jar:2.8.5:test
+[INFO] +- org.apache.directory.server:apacheds-interceptor-kerberos:jar:2.0.0-M22:test
+[INFO] |  +- org.apache.directory.server:apacheds-core:jar:2.0.0-M22:test
+[INFO] |  |  +- org.apache.directory.server:apacheds-interceptors-admin:jar:2.0.0-M22:test
+[INFO] |  |  +- org.apache.directory.server:apacheds-interceptors-authn:jar:2.0.0-M22:test
+[INFO] |  |  +- org.apache.directory.server:apacheds-interceptors-number:jar:2.0.0-M22:test
+[INFO] |  |  +- org.apache.directory.server:apacheds-interceptors-authz:jar:2.0.0-M22:test
+[INFO] |  |  +- org.apache.directory.server:apacheds-interceptors-changelog:jar:2.0.0-M22:test
+[INFO] |  |  +- org.apache.directory.server:apacheds-interceptors-collective:jar:2.0.0-M22:test
+[INFO] |  |  +- org.apache.directory.server:apacheds-interceptors-event:jar:2.0.0-M22:test
+[INFO] |  |  +- org.apache.directory.server:apacheds-interceptors-exception:jar:2.0.0-M22:test
+[INFO] |  |  +- org.apache.directory.server:apacheds-interceptors-journal:jar:2.0.0-M22:test
+[INFO] |  |  +- org.apache.directory.server:apacheds-interceptors-normalization:jar:2.0.0-M22:test
+[INFO] |  |  +- org.apache.directory.server:apacheds-interceptors-operational:jar:2.0.0-M22:test
+[INFO] |  |  +- org.apache.directory.server:apacheds-interceptors-referral:jar:2.0.0-M22:test
+[INFO] |  |  +- org.apache.directory.server:apacheds-interceptors-schema:jar:2.0.0-M22:test
+[INFO] |  |  +- org.apache.directory.server:apacheds-interceptors-subtree:jar:2.0.0-M22:test
+[INFO] |  |  \- org.apache.directory.server:apacheds-interceptors-trigger:jar:2.0.0-M22:test
+[INFO] |  |     \- org.apache.directory.api:api-ldap-extras-trigger:jar:1.0.0-RC1:test
+[INFO] |  \- org.apache.directory.server:apacheds-kerberos-codec:jar:2.0.0-M22:test
+[INFO] +- org.apache.directory.server:apacheds-protocol-shared:jar:2.0.0-M22:test
+[INFO] +- org.apache.directory.server:apacheds-protocol-kerberos:jar:2.0.0-M22:test
+[INFO] |  \- org.apache.directory.server:apacheds-core-shared:jar:2.0.0-M22:test
+[INFO] +- org.apache.directory.server:apacheds-protocol-ldap:jar:2.0.0-M22:test
+[INFO] |  +- org.apache.directory.jdbm:apacheds-jdbm1:jar:2.0.0-M3:test
+[INFO] |  +- org.apache.directory.api:api-asn1-ber:jar:1.0.0-RC1:test
+[INFO] |  +- org.apache.directory.api:api-ldap-extras-codec-api:jar:1.0.0-RC1:test
+[INFO] |  +- org.apache.directory.api:api-ldap-extras-codec:jar:1.0.0-RC1:test
+[INFO] |  \- org.apache.directory.api:api-ldap-extras-sp:jar:1.0.0-RC1:test
+[INFO] +- org.apache.directory.server:apacheds-ldif-partition:jar:2.0.0-M22:test
+[INFO] |  \- org.apache.directory.server:apacheds-xdbm-partition:jar:2.0.0-M22:test
+[INFO] +- org.apache.directory.server:apacheds-mavibot-partition:jar:2.0.0-M22:test
+[INFO] |  +- org.apache.directory.mavibot:mavibot:jar:1.0.0-M8:test
+[INFO] |  \- org.apache.directory.server:apacheds-core-avl:jar:2.0.0-M22:test
+[INFO] +- org.apache.directory.server:apacheds-jdbm-partition:jar:2.0.0-M22:test
+[INFO] +- io.swagger.core.v3:swagger-annotations:jar:2.1.10:compile
+[INFO] +- io.swagger.core.v3:swagger-core:jar:2.1.10:compile
+[INFO] |  +- jakarta.xml.bind:jakarta.xml.bind-api:jar:2.3.2:compile
+[INFO] |  |  \- jakarta.activation:jakarta.activation-api:jar:1.2.1:compile
+[INFO] |  +- com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:jar:2.13.2:compile
+[INFO] |  |  \- org.yaml:snakeyaml:jar:1.30:compile
+[INFO] |  \- io.swagger.core.v3:swagger-models:jar:2.1.10:compile
+[INFO] +- io.confluent:common-utils:jar:7.3.0:compile
+[INFO] \- io.confluent:assembly-plugin-boilerplate:zip:resources:7.3.0:provided
+[INFO] 
+[INFO] -----------------< io.confluent:kafka-json-serializer >-----------------
+[INFO] Building kafka-json-serializer 7.3.0-0                            [9/25]
+[INFO]   from json-serializer/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.3.0:tree (default-cli) @ kafka-json-serializer ---
+[INFO] io.confluent:kafka-json-serializer:jar:7.3.0-0
+[INFO] +- org.apache.kafka:kafka_2.13:jar:7.3.0-ccs:provided
+[INFO] |  +- org.apache.kafka:kafka-clients:jar:7.3.0-ccs:provided
+[INFO] |  |  +- com.github.luben:zstd-jni:jar:1.5.2-1:provided
+[INFO] |  |  +- org.lz4:lz4-java:jar:1.8.0:provided
+[INFO] |  |  \- org.xerial.snappy:snappy-java:jar:1.1.8.4:provided
+[INFO] |  +- org.scala-lang:scala-library:jar:2.13.5:provided
+[INFO] |  +- org.apache.kafka:kafka-server-common:jar:7.3.0-ccs:provided
+[INFO] |  +- org.apache.kafka:kafka-metadata:jar:7.3.0-ccs:provided
+[INFO] |  +- org.apache.kafka:kafka-raft:jar:7.3.0-ccs:provided
+[INFO] |  +- org.apache.kafka:kafka-storage:jar:7.3.0-ccs:provided
+[INFO] |  |  \- org.apache.kafka:kafka-storage-api:jar:7.3.0-ccs:provided
+[INFO] |  +- net.sourceforge.argparse4j:argparse4j:jar:0.7.0:provided
+[INFO] |  +- com.fasterxml.jackson.module:jackson-module-scala_2.13:jar:2.13.2:provided
+[INFO] |  |  \- com.thoughtworks.paranamer:paranamer:jar:2.8:provided
+[INFO] |  +- com.fasterxml.jackson.dataformat:jackson-dataformat-csv:jar:2.13.2:provided
+[INFO] |  +- net.sf.jopt-simple:jopt-simple:jar:5.0.4:provided
+[INFO] |  +- org.bitbucket.b_c:jose4j:jar:0.7.9:provided
+[INFO] |  +- com.yammer.metrics:metrics-core:jar:2.2.0:provided
+[INFO] |  +- org.scala-lang.modules:scala-collection-compat_2.13:jar:2.6.0:provided
+[INFO] |  +- org.scala-lang.modules:scala-java8-compat_2.13:jar:1.0.2:provided
+[INFO] |  +- org.scala-lang:scala-reflect:jar:2.13.5:provided
+[INFO] |  +- com.typesafe.scala-logging:scala-logging_2.13:jar:3.9.4:provided
+[INFO] |  +- org.slf4j:slf4j-api:jar:1.7.36:compile
+[INFO] |  +- io.dropwizard.metrics:metrics-core:jar:4.1.12.1:provided
+[INFO] |  +- org.apache.zookeeper:zookeeper:jar:3.6.3:provided
+[INFO] |  |  +- org.apache.zookeeper:zookeeper-jute:jar:3.6.3:provided
+[INFO] |  |  \- org.apache.yetus:audience-annotations:jar:0.5.0:provided
+[INFO] |  \- commons-cli:commons-cli:jar:1.4:provided
+[INFO] +- com.fasterxml.jackson.core:jackson-databind:jar:2.13.2.2:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-annotations:jar:2.13.2:compile
+[INFO] |  \- com.fasterxml.jackson.core:jackson-core:jar:2.13.2:compile
+[INFO] +- io.confluent:common-config:jar:7.3.0:compile
+[INFO] +- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.13.2:compile
+[INFO] +- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.13.2:compile
+[INFO] +- com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.13.2:compile
+[INFO] +- junit:junit:jar:4.13.2:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] +- io.confluent:common-utils:jar:7.3.0:compile
+[INFO] \- io.confluent:assembly-plugin-boilerplate:zip:resources:7.3.0:provided
+[INFO] 
+[INFO] ----------------< io.confluent:kafka-schema-converter >-----------------
+[INFO] Building kafka-schema-converter 7.3.0-0                          [10/25]
+[INFO]   from schema-converter/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.3.0:tree (default-cli) @ kafka-schema-converter ---
+[INFO] io.confluent:kafka-schema-converter:jar:7.3.0-0
+[INFO] +- org.apache.kafka:connect-api:jar:7.3.0-ccs:provided
+[INFO] |  +- org.apache.kafka:kafka-clients:jar:7.3.0-ccs:provided
+[INFO] |  |  +- com.github.luben:zstd-jni:jar:1.5.2-1:provided
+[INFO] |  |  +- org.lz4:lz4-java:jar:1.8.0:provided
+[INFO] |  |  \- org.xerial.snappy:snappy-java:jar:1.1.8.4:provided
+[INFO] |  +- org.slf4j:slf4j-api:jar:1.7.36:compile
+[INFO] |  \- javax.ws.rs:javax.ws.rs-api:jar:2.1.1:provided
+[INFO] +- junit:junit:jar:4.13.2:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] +- io.confluent:common-utils:jar:7.3.0:compile
+[INFO] \- io.confluent:assembly-plugin-boilerplate:zip:resources:7.3.0:provided
+[INFO] 
+[INFO] ----------------< io.confluent:kafka-connect-avro-data >----------------
+[INFO] Building kafka-connect-avro-data 7.3.0-0                         [11/25]
+[INFO]   from avro-data/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.3.0:tree (default-cli) @ kafka-connect-avro-data ---
+[INFO] io.confluent:kafka-connect-avro-data:jar:7.3.0-0
+[INFO] +- org.apache.kafka:connect-api:jar:7.3.0-ccs:provided
+[INFO] |  +- org.slf4j:slf4j-api:jar:1.7.36:compile
+[INFO] |  \- javax.ws.rs:javax.ws.rs-api:jar:2.1.1:provided
+[INFO] +- org.apache.kafka:kafka-clients:jar:7.3.0-ccs:provided
+[INFO] |  +- com.github.luben:zstd-jni:jar:1.5.2-1:provided
+[INFO] |  +- org.lz4:lz4-java:jar:1.8.0:provided
+[INFO] |  \- org.xerial.snappy:snappy-java:jar:1.1.8.4:provided
+[INFO] +- org.apache.avro:avro:jar:1.11.0:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-core:jar:2.13.2:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.13.2.2:compile
+[INFO] |  |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.13.2:compile
+[INFO] |  \- org.apache.commons:commons-compress:jar:1.21:compile
+[INFO] +- io.confluent:kafka-avro-serializer:jar:7.3.0-0:compile
+[INFO] |  +- io.confluent:kafka-schema-serializer:jar:7.3.0-0:compile
+[INFO] |  +- io.confluent:kafka-schema-registry-client:jar:7.3.0-0:compile
+[INFO] |  |  \- io.swagger.core.v3:swagger-annotations:jar:2.1.10:compile
+[INFO] |  \- io.confluent:logredactor:jar:1.0.10:compile
+[INFO] |     +- com.google.re2j:re2j:jar:1.6:compile
+[INFO] |     +- io.confluent:logredactor-metrics:jar:1.0.10:compile
+[INFO] |     \- com.eclipsesource.minimal-json:minimal-json:jar:0.9.5:compile
+[INFO] +- io.confluent:kafka-schema-converter:jar:7.3.0-0:compile
+[INFO] +- com.google.guava:guava:jar:30.1.1-jre:test
+[INFO] |  +- com.google.guava:failureaccess:jar:1.0.1:test
+[INFO] |  +- com.google.guava:listenablefuture:jar:9999.0-empty-to-avoid-conflict-with-guava:test
+[INFO] |  +- com.google.code.findbugs:jsr305:jar:3.0.2:test
+[INFO] |  +- org.checkerframework:checker-qual:jar:3.8.0:test
+[INFO] |  +- com.google.errorprone:error_prone_annotations:jar:2.5.1:test
+[INFO] |  \- com.google.j2objc:j2objc-annotations:jar:1.3:test
+[INFO] +- junit:junit:jar:4.13.2:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] +- org.powermock:powermock-module-junit4:jar:2.0.9:test
+[INFO] |  \- org.powermock:powermock-module-junit4-common:jar:2.0.9:test
+[INFO] |     +- org.powermock:powermock-reflect:jar:2.0.9:test
+[INFO] |     |  +- org.objenesis:objenesis:jar:3.0.1:test
+[INFO] |     |  +- net.bytebuddy:byte-buddy:jar:1.10.14:test
+[INFO] |     |  \- net.bytebuddy:byte-buddy-agent:jar:1.10.14:test
+[INFO] |     \- org.powermock:powermock-core:jar:2.0.9:test
+[INFO] |        \- org.javassist:javassist:jar:3.27.0-GA:test
+[INFO] +- uk.co.jemos.podam:podam:jar:6.0.2.RELEASE:test
+[INFO] |  +- net.jcip:jcip-annotations:jar:1.0:test
+[INFO] |  +- javax.annotation:jsr250-api:jar:1.0:test
+[INFO] |  +- javax.validation:validation-api:jar:1.1.0.Final:test
+[INFO] |  +- org.springframework:spring-core:jar:4.1.6.RELEASE:test
+[INFO] |  |  \- commons-logging:commons-logging:jar:1.2:test
+[INFO] |  +- org.springframework:spring-context:jar:4.1.6.RELEASE:test
+[INFO] |  |  +- org.springframework:spring-aop:jar:4.1.6.RELEASE:test
+[INFO] |  |  |  \- aopalliance:aopalliance:jar:1.0:test
+[INFO] |  |  +- org.springframework:spring-beans:jar:4.1.6.RELEASE:test
+[INFO] |  |  \- org.springframework:spring-expression:jar:4.1.6.RELEASE:test
+[INFO] |  +- org.springframework:spring-messaging:jar:4.1.6.RELEASE:test
+[INFO] |  +- org.hibernate:hibernate-validator:jar:4.2.0.Final:test
+[INFO] |  \- org.springframework.integration:spring-integration-core:jar:4.1.3.RELEASE:test
+[INFO] |     +- org.springframework:spring-tx:jar:4.1.4.RELEASE:test
+[INFO] |     +- org.projectreactor:reactor-core:jar:1.1.4.RELEASE:test
+[INFO] |     |  +- com.goldmansachs:gs-collections:jar:5.1.0:test
+[INFO] |     |  |  \- com.goldmansachs:gs-collections-api:jar:5.1.0:test
+[INFO] |     |  +- com.lmax:disruptor:jar:3.2.1:test
+[INFO] |     |  \- io.gatling:jsr166e:jar:1.0:test
+[INFO] |     \- org.springframework.retry:spring-retry:jar:1.1.1.RELEASE:test
+[INFO] +- javax.xml.ws:jaxws-api:jar:2.3.0:test
+[INFO] |  +- javax.xml.bind:jaxb-api:jar:2.3.0:test
+[INFO] |  \- javax.xml.soap:javax.xml.soap-api:jar:1.4.0:test
+[INFO] +- io.confluent:common-utils:jar:7.3.0:compile
+[INFO] \- io.confluent:assembly-plugin-boilerplate:zip:resources:7.3.0:provided
+[INFO] 
+[INFO] -------------< io.confluent:kafka-connect-avro-converter >--------------
+[INFO] Building kafka-connect-avro-converter 7.3.0-0                    [12/25]
+[INFO]   from avro-converter/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.3.0:tree (default-cli) @ kafka-connect-avro-converter ---
+[INFO] io.confluent:kafka-connect-avro-converter:jar:7.3.0-0
+[INFO] +- org.apache.kafka:connect-api:jar:7.3.0-ccs:provided
+[INFO] |  +- org.slf4j:slf4j-api:jar:1.7.36:compile
+[INFO] |  \- javax.ws.rs:javax.ws.rs-api:jar:2.1.1:provided
+[INFO] +- org.apache.kafka:kafka-clients:jar:7.3.0-ccs:provided
+[INFO] |  +- com.github.luben:zstd-jni:jar:1.5.2-1:provided
+[INFO] |  +- org.lz4:lz4-java:jar:1.8.0:provided
+[INFO] |  \- org.xerial.snappy:snappy-java:jar:1.1.8.4:provided
+[INFO] +- org.apache.avro:avro:jar:1.11.0:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-core:jar:2.13.2:compile
+[INFO] |  \- com.fasterxml.jackson.core:jackson-databind:jar:2.13.2.2:compile
+[INFO] |     \- com.fasterxml.jackson.core:jackson-annotations:jar:2.13.2:compile
+[INFO] +- org.apache.commons:commons-compress:jar:1.21:compile
+[INFO] +- io.confluent:kafka-avro-serializer:jar:7.3.0-0:compile
+[INFO] |  +- io.confluent:kafka-schema-serializer:jar:7.3.0-0:compile
+[INFO] |  \- io.confluent:logredactor:jar:1.0.10:compile
+[INFO] |     +- com.google.re2j:re2j:jar:1.6:compile
+[INFO] |     +- io.confluent:logredactor-metrics:jar:1.0.10:compile
+[INFO] |     \- com.eclipsesource.minimal-json:minimal-json:jar:0.9.5:compile
+[INFO] +- io.confluent:kafka-schema-registry-client:jar:7.3.0-0:compile
+[INFO] |  \- io.swagger.core.v3:swagger-annotations:jar:2.1.10:compile
+[INFO] +- io.confluent:kafka-connect-avro-data:jar:7.3.0-0:compile
+[INFO] |  \- io.confluent:kafka-schema-converter:jar:7.3.0-0:compile
+[INFO] +- com.google.guava:guava:jar:30.1.1-jre:test
+[INFO] |  +- com.google.guava:failureaccess:jar:1.0.1:test
+[INFO] |  +- com.google.guava:listenablefuture:jar:9999.0-empty-to-avoid-conflict-with-guava:test
+[INFO] |  +- com.google.code.findbugs:jsr305:jar:3.0.2:test
+[INFO] |  +- org.checkerframework:checker-qual:jar:3.8.0:test
+[INFO] |  +- com.google.errorprone:error_prone_annotations:jar:2.5.1:test
+[INFO] |  \- com.google.j2objc:j2objc-annotations:jar:1.3:test
+[INFO] +- junit:junit:jar:4.13.2:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] +- org.powermock:powermock-module-junit4:jar:2.0.9:test
+[INFO] |  \- org.powermock:powermock-module-junit4-common:jar:2.0.9:test
+[INFO] |     +- org.powermock:powermock-reflect:jar:2.0.9:test
+[INFO] |     |  +- org.objenesis:objenesis:jar:3.0.1:test
+[INFO] |     |  +- net.bytebuddy:byte-buddy:jar:1.10.14:test
+[INFO] |     |  \- net.bytebuddy:byte-buddy-agent:jar:1.10.14:test
+[INFO] |     \- org.powermock:powermock-core:jar:2.0.9:test
+[INFO] |        \- org.javassist:javassist:jar:3.27.0-GA:test
+[INFO] +- io.confluent:common-utils:jar:7.3.0:compile
+[INFO] \- io.confluent:assembly-plugin-boilerplate:zip:resources:7.3.0:provided
+[INFO] 
+[INFO] -------------< io.confluent:kafka-schema-registry-package >-------------
+[INFO] Building kafka-schema-registry-package 7.3.0-0                   [13/25]
+[INFO]   from package-schema-registry/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.3.0:tree (default-cli) @ kafka-schema-registry-package ---
+[INFO] io.confluent:kafka-schema-registry-package:pom:7.3.0-0
+[INFO] +- org.slf4j:slf4j-reload4j:jar:1.7.36:compile
+[INFO] |  +- org.slf4j:slf4j-api:jar:1.7.36:compile
+[INFO] |  \- ch.qos.reload4j:reload4j:jar:1.2.19:compile
+[INFO] +- io.confluent:logredactor:jar:1.0.10:compile
+[INFO] |  +- com.google.re2j:re2j:jar:1.6:compile
+[INFO] |  +- io.confluent:logredactor-metrics:jar:1.0.10:compile
+[INFO] |  \- com.eclipsesource.minimal-json:minimal-json:jar:0.9.5:compile
+[INFO] +- io.confluent:kafka-schema-registry-client:jar:7.3.0-0:compile
+[INFO] |  +- org.apache.kafka:kafka-clients:jar:7.3.0-ccs:compile
+[INFO] |  |  +- com.github.luben:zstd-jni:jar:1.5.2-1:runtime
+[INFO] |  |  +- org.lz4:lz4-java:jar:1.8.0:runtime
+[INFO] |  |  \- org.xerial.snappy:snappy-java:jar:1.1.8.4:runtime
+[INFO] |  +- org.apache.avro:avro:jar:1.11.0:compile
+[INFO] |  |  \- com.fasterxml.jackson.core:jackson-core:jar:2.13.2:compile
+[INFO] |  +- org.apache.commons:commons-compress:jar:1.21:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.13.2.2:compile
+[INFO] |  |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.13.2:compile
+[INFO] |  +- io.swagger.core.v3:swagger-annotations:jar:2.1.10:compile
+[INFO] |  \- com.google.guava:guava:jar:30.1.1-jre:compile
+[INFO] |     +- com.google.guava:failureaccess:jar:1.0.1:compile
+[INFO] |     +- com.google.guava:listenablefuture:jar:9999.0-empty-to-avoid-conflict-with-guava:compile
+[INFO] |     +- com.google.code.findbugs:jsr305:jar:3.0.2:compile
+[INFO] |     +- org.checkerframework:checker-qual:jar:3.8.0:compile
+[INFO] |     +- com.google.errorprone:error_prone_annotations:jar:2.5.1:compile
+[INFO] |     \- com.google.j2objc:j2objc-annotations:jar:1.3:compile
+[INFO] +- io.confluent:kafka-schema-registry:jar:7.3.0-0:compile
+[INFO] |  +- io.confluent:kafka-json-schema-provider:jar:7.3.0-0:compile
+[INFO] |  |  +- com.github.erosb:everit-json-schema:jar:1.14.1:compile
+[INFO] |  |  |  +- org.json:json:jar:20220320:compile
+[INFO] |  |  |  +- commons-validator:commons-validator:jar:1.7:compile
+[INFO] |  |  |  |  +- commons-digester:commons-digester:jar:2.1:compile
+[INFO] |  |  |  |  +- commons-logging:commons-logging:jar:1.2:compile
+[INFO] |  |  |  |  \- commons-collections:commons-collections:jar:3.2.2:compile
+[INFO] |  |  |  \- com.damnhandy:handy-uri-templates:jar:2.1.8:compile
+[INFO] |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-guava:jar:2.13.2:compile
+[INFO] |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.13.2:compile
+[INFO] |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-joda:jar:2.13.2:compile
+[INFO] |  |  |  \- joda-time:joda-time:jar:2.10.8:compile
+[INFO] |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.13.2:compile
+[INFO] |  |  +- com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.13.2:compile
+[INFO] |  |  +- com.kjetland:mbknor-jackson-jsonschema_2.13:jar:1.0.39:compile
+[INFO] |  |  |  +- javax.validation:validation-api:jar:2.0.1.Final:compile
+[INFO] |  |  |  \- io.github.classgraph:classgraph:jar:4.8.21:compile
+[INFO] |  |  +- org.jetbrains.kotlin:kotlin-stdlib:jar:1.6.0:compile
+[INFO] |  |  |  +- org.jetbrains:annotations:jar:13.0:compile
+[INFO] |  |  |  \- org.jetbrains.kotlin:kotlin-stdlib-common:jar:1.6.0:compile
+[INFO] |  |  +- org.jetbrains.kotlin:kotlin-scripting-jvm:jar:1.6.0:compile
+[INFO] |  |  |  +- org.jetbrains.kotlin:kotlin-script-runtime:jar:1.6.0:compile
+[INFO] |  |  |  \- org.jetbrains.kotlin:kotlin-scripting-common:jar:1.6.0:compile
+[INFO] |  |  \- org.jetbrains.kotlin:kotlin-scripting-compiler-embeddable:jar:1.6.0:compile
+[INFO] |  |     \- org.jetbrains.kotlin:kotlin-scripting-compiler-impl-embeddable:jar:1.6.0:runtime
+[INFO] |  +- io.confluent:kafka-protobuf-provider:jar:7.3.0-0:compile
+[INFO] |  |  +- com.squareup.wire:wire-schema-jvm:jar:4.3.0:compile
+[INFO] |  |  |  +- org.jetbrains.kotlin:kotlin-stdlib-jdk8:jar:1.6.10:compile
+[INFO] |  |  |  |  \- org.jetbrains.kotlin:kotlin-stdlib-jdk7:jar:1.6.10:compile
+[INFO] |  |  |  \- com.squareup.okio:okio:jar:3.0.0:compile
+[INFO] |  |  +- com.squareup.wire:wire-runtime-jvm:jar:4.3.0:compile
+[INFO] |  |  +- com.squareup.okio:okio-jvm:jar:3.0.0:compile
+[INFO] |  |  +- org.apache.commons:commons-lang3:jar:3.12.0:compile
+[INFO] |  |  +- com.google.protobuf:protobuf-java:jar:3.19.4:compile
+[INFO] |  |  +- com.google.protobuf:protobuf-java-util:jar:3.19.4:compile
+[INFO] |  |  |  \- com.google.code.gson:gson:jar:2.9.0:compile
+[INFO] |  |  +- com.google.api.grpc:proto-google-common-protos:jar:2.5.1:compile
+[INFO] |  |  \- io.confluent:kafka-protobuf-types:jar:7.3.0-0:compile
+[INFO] |  +- org.apache.kafka:kafka_2.13:jar:7.3.0-ccs:compile
+[INFO] |  |  +- org.scala-lang:scala-library:jar:2.13.5:compile
+[INFO] |  |  +- org.apache.kafka:kafka-server-common:jar:7.3.0-ccs:runtime
+[INFO] |  |  +- org.apache.kafka:kafka-metadata:jar:7.3.0-ccs:runtime
+[INFO] |  |  +- org.apache.kafka:kafka-raft:jar:7.3.0-ccs:runtime
+[INFO] |  |  +- org.apache.kafka:kafka-storage:jar:7.3.0-ccs:runtime
+[INFO] |  |  |  \- org.apache.kafka:kafka-storage-api:jar:7.3.0-ccs:runtime
+[INFO] |  |  +- net.sourceforge.argparse4j:argparse4j:jar:0.7.0:runtime
+[INFO] |  |  +- com.fasterxml.jackson.module:jackson-module-scala_2.13:jar:2.13.2:runtime
+[INFO] |  |  |  \- com.thoughtworks.paranamer:paranamer:jar:2.8:runtime
+[INFO] |  |  +- com.fasterxml.jackson.dataformat:jackson-dataformat-csv:jar:2.13.2:runtime
+[INFO] |  |  +- net.sf.jopt-simple:jopt-simple:jar:5.0.4:runtime
+[INFO] |  |  +- org.bitbucket.b_c:jose4j:jar:0.7.9:runtime
+[INFO] |  |  +- com.yammer.metrics:metrics-core:jar:2.2.0:runtime
+[INFO] |  |  +- org.scala-lang.modules:scala-collection-compat_2.13:jar:2.6.0:runtime
+[INFO] |  |  +- org.scala-lang.modules:scala-java8-compat_2.13:jar:1.0.2:runtime
+[INFO] |  |  +- org.scala-lang:scala-reflect:jar:2.13.5:runtime
+[INFO] |  |  +- com.typesafe.scala-logging:scala-logging_2.13:jar:3.9.4:runtime
+[INFO] |  |  +- io.dropwizard.metrics:metrics-core:jar:4.1.12.1:runtime
+[INFO] |  |  \- commons-cli:commons-cli:jar:1.4:runtime
+[INFO] |  +- org.glassfish.jersey.ext:jersey-bean-validation:jar:2.36:compile
+[INFO] |  |  +- org.glassfish.hk2.external:jakarta.inject:jar:2.6.1:compile
+[INFO] |  |  +- org.glassfish.jersey.core:jersey-common:jar:2.36:compile
+[INFO] |  |  |  +- jakarta.annotation:jakarta.annotation-api:jar:1.3.5:compile
+[INFO] |  |  |  \- org.glassfish.hk2:osgi-resource-locator:jar:1.0.3:compile
+[INFO] |  |  +- org.glassfish.jersey.core:jersey-server:jar:2.36:compile
+[INFO] |  |  |  \- org.glassfish.jersey.core:jersey-client:jar:2.36:compile
+[INFO] |  |  +- jakarta.validation:jakarta.validation-api:jar:2.0.2:compile
+[INFO] |  |  +- jakarta.el:jakarta.el-api:jar:4.0.0:compile
+[INFO] |  |  +- org.glassfish:jakarta.el:jar:3.0.4:compile
+[INFO] |  |  \- jakarta.ws.rs:jakarta.ws.rs-api:jar:2.1.6:compile
+[INFO] |  +- org.hibernate.validator:hibernate-validator:jar:6.1.7.Final:compile
+[INFO] |  |  +- org.jboss.logging:jboss-logging:jar:3.3.2.Final:compile
+[INFO] |  |  \- com.fasterxml:classmate:jar:1.3.4:compile
+[INFO] |  +- io.confluent:rest-utils:jar:7.3.0:compile
+[INFO] |  |  +- org.eclipse.jetty.websocket:javax-websocket-server-impl:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  +- org.eclipse.jetty:jetty-annotations:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  |  +- org.eclipse.jetty:jetty-plus:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  |  |  \- org.eclipse.jetty:jetty-jndi:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  |  +- org.eclipse.jetty:jetty-webapp:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  |  |  \- org.eclipse.jetty:jetty-xml:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  |  +- javax.annotation:javax.annotation-api:jar:1.3.2:compile
+[INFO] |  |  |  |  +- org.ow2.asm:asm:jar:9.3:compile
+[INFO] |  |  |  |  \- org.ow2.asm:asm-commons:jar:9.3:compile
+[INFO] |  |  |  |     +- org.ow2.asm:asm-tree:jar:9.3:compile
+[INFO] |  |  |  |     \- org.ow2.asm:asm-analysis:jar:9.3:compile
+[INFO] |  |  |  +- org.eclipse.jetty.websocket:javax-websocket-client-impl:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  |  +- org.eclipse.jetty.websocket:websocket-client:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  |  |  \- org.eclipse.jetty:jetty-client:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  |  \- javax.websocket:javax.websocket-client-api:jar:1.0:compile
+[INFO] |  |  |  +- org.eclipse.jetty.websocket:websocket-server:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  |  +- org.eclipse.jetty.websocket:websocket-common:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  |  |  \- org.eclipse.jetty.websocket:websocket-api:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  |  \- org.eclipse.jetty.websocket:websocket-servlet:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  \- javax.websocket:javax.websocket-api:jar:1.0:compile
+[INFO] |  |  +- org.glassfish.jersey.containers:jersey-container-servlet:jar:2.36:compile
+[INFO] |  |  |  \- org.glassfish.jersey.containers:jersey-container-servlet-core:jar:2.36:compile
+[INFO] |  |  +- org.glassfish.jersey.inject:jersey-hk2:jar:2.36:compile
+[INFO] |  |  |  +- org.glassfish.hk2:hk2-locator:jar:2.6.1:compile
+[INFO] |  |  |  |  +- org.glassfish.hk2.external:aopalliance-repackaged:jar:2.6.1:compile
+[INFO] |  |  |  |  +- org.glassfish.hk2:hk2-api:jar:2.6.1:compile
+[INFO] |  |  |  |  \- org.glassfish.hk2:hk2-utils:jar:2.6.1:compile
+[INFO] |  |  |  \- org.javassist:javassist:jar:3.25.0-GA:compile
+[INFO] |  |  +- javax.xml.bind:jaxb-api:jar:2.3.0:compile
+[INFO] |  |  +- javax.activation:activation:jar:1.1.1:compile
+[INFO] |  |  +- org.eclipse.jetty:jetty-jmx:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  \- org.eclipse.jetty:jetty-util:jar:9.4.48.v20220622:compile
+[INFO] |  |  +- org.eclipse.jetty:jetty-server:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  +- javax.servlet:javax.servlet-api:jar:3.1.0:compile
+[INFO] |  |  |  +- org.eclipse.jetty:jetty-http:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  \- org.eclipse.jetty:jetty-io:jar:9.4.48.v20220622:compile
+[INFO] |  |  +- org.eclipse.jetty.http2:http2-server:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  \- org.eclipse.jetty.http2:http2-common:jar:9.4.48.v20220622:compile
+[INFO] |  |  |     \- org.eclipse.jetty.http2:http2-hpack:jar:9.4.48.v20220622:compile
+[INFO] |  |  +- org.eclipse.jetty:jetty-alpn-server:jar:9.4.48.v20220622:compile
+[INFO] |  |  +- org.eclipse.jetty:jetty-alpn-java-server:jar:9.4.48.v20220622:runtime
+[INFO] |  |  +- org.eclipse.jetty:jetty-servlet:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  +- org.eclipse.jetty:jetty-security:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  \- org.eclipse.jetty:jetty-util-ajax:jar:9.4.48.v20220622:compile
+[INFO] |  |  +- org.eclipse.jetty:jetty-servlets:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  \- org.eclipse.jetty:jetty-continuation:jar:9.4.48.v20220622:compile
+[INFO] |  |  +- org.eclipse.jetty:jetty-jaas:jar:9.4.48.v20220622:compile
+[INFO] |  |  +- com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:jar:2.13.2:compile
+[INFO] |  |  |  \- com.fasterxml.jackson.module:jackson-module-jaxb-annotations:jar:2.13.2:compile
+[INFO] |  |  \- com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:jar:2.13.2:compile
+[INFO] |  +- org.apache.zookeeper:zookeeper:jar:3.6.3:compile
+[INFO] |  |  +- org.apache.zookeeper:zookeeper-jute:jar:3.6.3:compile
+[INFO] |  |  \- org.apache.yetus:audience-annotations:jar:0.5.0:compile
+[INFO] |  +- io.netty:netty-codec:jar:4.1.79.Final:compile
+[INFO] |  |  +- io.netty:netty-common:jar:4.1.79.Final:compile
+[INFO] |  |  +- io.netty:netty-buffer:jar:4.1.79.Final:compile
+[INFO] |  |  \- io.netty:netty-transport:jar:4.1.79.Final:compile
+[INFO] |  |     \- io.netty:netty-resolver:jar:4.1.79.Final:compile
+[INFO] |  \- io.swagger.core.v3:swagger-core:jar:2.1.10:compile
+[INFO] |     +- jakarta.xml.bind:jakarta.xml.bind-api:jar:2.3.2:compile
+[INFO] |     |  \- jakarta.activation:jakarta.activation-api:jar:1.2.1:compile
+[INFO] |     +- com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:jar:2.13.2:compile
+[INFO] |     |  \- org.yaml:snakeyaml:jar:1.30:compile
+[INFO] |     \- io.swagger.core.v3:swagger-models:jar:2.1.10:compile
+[INFO] +- junit:junit:jar:4.13.2:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] +- io.confluent:common-utils:jar:7.3.0:compile
+[INFO] \- io.confluent:assembly-plugin-boilerplate:zip:resources:7.3.0:provided
+[INFO] 
+[INFO] ---------------< io.confluent:kafka-streams-avro-serde >----------------
+[INFO] Building kafka-streams-avro-serde 7.3.0-0                        [14/25]
+[INFO]   from avro-serde/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.3.0:tree (default-cli) @ kafka-streams-avro-serde ---
+[INFO] io.confluent:kafka-streams-avro-serde:jar:7.3.0-0
+[INFO] +- io.confluent:kafka-avro-serializer:jar:7.3.0-0:compile
+[INFO] |  +- io.confluent:kafka-schema-serializer:jar:7.3.0-0:compile
+[INFO] |  +- com.google.guava:guava:jar:30.1.1-jre:compile
+[INFO] |  |  +- com.google.guava:failureaccess:jar:1.0.1:compile
+[INFO] |  |  +- com.google.guava:listenablefuture:jar:9999.0-empty-to-avoid-conflict-with-guava:compile
+[INFO] |  |  +- com.google.code.findbugs:jsr305:jar:3.0.2:compile
+[INFO] |  |  +- org.checkerframework:checker-qual:jar:3.8.0:compile
+[INFO] |  |  +- com.google.errorprone:error_prone_annotations:jar:2.5.1:compile
+[INFO] |  |  \- com.google.j2objc:j2objc-annotations:jar:1.3:compile
+[INFO] |  \- io.confluent:logredactor:jar:1.0.10:compile
+[INFO] |     +- com.google.re2j:re2j:jar:1.6:compile
+[INFO] |     +- io.confluent:logredactor-metrics:jar:1.0.10:compile
+[INFO] |     \- com.eclipsesource.minimal-json:minimal-json:jar:0.9.5:compile
+[INFO] +- io.confluent:kafka-schema-registry-client:jar:7.3.0-0:compile
+[INFO] |  +- org.apache.kafka:kafka-clients:jar:7.3.0-ccs:compile
+[INFO] |  |  +- com.github.luben:zstd-jni:jar:1.5.2-1:runtime
+[INFO] |  |  +- org.lz4:lz4-java:jar:1.8.0:runtime
+[INFO] |  |  \- org.xerial.snappy:snappy-java:jar:1.1.8.4:runtime
+[INFO] |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.13.2.2:compile
+[INFO] |  \- io.swagger.core.v3:swagger-annotations:jar:2.1.10:compile
+[INFO] +- org.apache.avro:avro:jar:1.11.0:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-core:jar:2.13.2:compile
+[INFO] |  \- org.slf4j:slf4j-api:jar:1.7.36:compile
+[INFO] +- org.apache.commons:commons-compress:jar:1.21:compile
+[INFO] +- org.apache.kafka:kafka-streams:jar:7.3.0-ccs:provided
+[INFO] |  +- org.rocksdb:rocksdbjni:jar:6.29.4.1:provided
+[INFO] |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.13.2:compile
+[INFO] +- junit:junit:jar:4.13.2:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] +- io.confluent:common-utils:jar:7.3.0:compile
+[INFO] \- io.confluent:assembly-plugin-boilerplate:zip:resources:7.3.0:provided
+[INFO] 
+[INFO] -------------< io.confluent:kafka-json-schema-serializer >--------------
+[INFO] Building kafka-json-schema-serializer 7.3.0-0                    [15/25]
+[INFO]   from json-schema-serializer/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.3.0:tree (default-cli) @ kafka-json-schema-serializer ---
+[INFO] io.confluent:kafka-json-schema-serializer:jar:7.3.0-0
+[INFO] +- org.apache.kafka:kafka_2.13:jar:7.3.0-ccs:provided
+[INFO] |  +- org.apache.kafka:kafka-clients:jar:7.3.0-ccs:compile
+[INFO] |  |  +- com.github.luben:zstd-jni:jar:1.5.2-1:runtime
+[INFO] |  |  +- org.lz4:lz4-java:jar:1.8.0:runtime
+[INFO] |  |  \- org.xerial.snappy:snappy-java:jar:1.1.8.4:runtime
+[INFO] |  +- org.scala-lang:scala-library:jar:2.13.5:compile
+[INFO] |  +- org.apache.kafka:kafka-server-common:jar:7.3.0-ccs:provided
+[INFO] |  +- org.apache.kafka:kafka-metadata:jar:7.3.0-ccs:provided
+[INFO] |  +- org.apache.kafka:kafka-raft:jar:7.3.0-ccs:provided
+[INFO] |  +- org.apache.kafka:kafka-storage:jar:7.3.0-ccs:provided
+[INFO] |  |  \- org.apache.kafka:kafka-storage-api:jar:7.3.0-ccs:provided
+[INFO] |  +- net.sourceforge.argparse4j:argparse4j:jar:0.7.0:provided
+[INFO] |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.13.2.2:compile
+[INFO] |  |  +- com.fasterxml.jackson.core:jackson-annotations:jar:2.13.2:compile
+[INFO] |  |  \- com.fasterxml.jackson.core:jackson-core:jar:2.13.2:compile
+[INFO] |  +- com.fasterxml.jackson.module:jackson-module-scala_2.13:jar:2.13.2:provided
+[INFO] |  |  \- com.thoughtworks.paranamer:paranamer:jar:2.8:provided
+[INFO] |  +- com.fasterxml.jackson.dataformat:jackson-dataformat-csv:jar:2.13.2:provided
+[INFO] |  +- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.13.2:compile
+[INFO] |  +- net.sf.jopt-simple:jopt-simple:jar:5.0.4:provided
+[INFO] |  +- org.bitbucket.b_c:jose4j:jar:0.7.9:provided
+[INFO] |  +- com.yammer.metrics:metrics-core:jar:2.2.0:provided
+[INFO] |  +- org.scala-lang.modules:scala-collection-compat_2.13:jar:2.6.0:provided
+[INFO] |  +- org.scala-lang.modules:scala-java8-compat_2.13:jar:1.0.2:provided
+[INFO] |  +- org.scala-lang:scala-reflect:jar:2.13.5:provided
+[INFO] |  +- com.typesafe.scala-logging:scala-logging_2.13:jar:3.9.4:provided
+[INFO] |  +- org.slf4j:slf4j-api:jar:1.7.36:compile
+[INFO] |  +- io.dropwizard.metrics:metrics-core:jar:4.1.12.1:provided
+[INFO] |  +- org.apache.zookeeper:zookeeper:jar:3.6.3:provided
+[INFO] |  |  +- org.apache.zookeeper:zookeeper-jute:jar:3.6.3:provided
+[INFO] |  |  \- org.apache.yetus:audience-annotations:jar:0.5.0:provided
+[INFO] |  \- commons-cli:commons-cli:jar:1.4:provided
+[INFO] +- io.confluent:kafka-json-schema-provider:jar:7.3.0-0:compile
+[INFO] |  +- com.github.erosb:everit-json-schema:jar:1.14.1:compile
+[INFO] |  |  +- org.json:json:jar:20220320:compile
+[INFO] |  |  +- commons-validator:commons-validator:jar:1.7:compile
+[INFO] |  |  |  +- commons-digester:commons-digester:jar:2.1:compile
+[INFO] |  |  |  +- commons-logging:commons-logging:jar:1.2:compile
+[INFO] |  |  |  \- commons-collections:commons-collections:jar:3.2.2:compile
+[INFO] |  |  +- com.damnhandy:handy-uri-templates:jar:2.1.8:compile
+[INFO] |  |  \- com.google.re2j:re2j:jar:1.6:compile
+[INFO] |  +- com.fasterxml.jackson.datatype:jackson-datatype-guava:jar:2.13.2:compile
+[INFO] |  +- com.fasterxml.jackson.datatype:jackson-datatype-joda:jar:2.13.2:compile
+[INFO] |  |  \- joda-time:joda-time:jar:2.10.8:compile
+[INFO] |  +- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.13.2:compile
+[INFO] |  +- com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.13.2:compile
+[INFO] |  +- com.kjetland:mbknor-jackson-jsonschema_2.13:jar:1.0.39:compile
+[INFO] |  |  +- javax.validation:validation-api:jar:2.0.1.Final:compile
+[INFO] |  |  \- io.github.classgraph:classgraph:jar:4.8.21:compile
+[INFO] |  +- org.jetbrains.kotlin:kotlin-stdlib:jar:1.6.0:compile
+[INFO] |  |  +- org.jetbrains:annotations:jar:13.0:compile
+[INFO] |  |  \- org.jetbrains.kotlin:kotlin-stdlib-common:jar:1.6.0:compile
+[INFO] |  +- org.jetbrains.kotlin:kotlin-scripting-jvm:jar:1.6.0:compile
+[INFO] |  |  +- org.jetbrains.kotlin:kotlin-script-runtime:jar:1.6.0:compile
+[INFO] |  |  \- org.jetbrains.kotlin:kotlin-scripting-common:jar:1.6.0:compile
+[INFO] |  \- org.jetbrains.kotlin:kotlin-scripting-compiler-embeddable:jar:1.6.0:compile
+[INFO] |     \- org.jetbrains.kotlin:kotlin-scripting-compiler-impl-embeddable:jar:1.6.0:runtime
+[INFO] +- io.confluent:kafka-schema-serializer:jar:7.3.0-0:compile
+[INFO] +- io.confluent:kafka-json-serializer:jar:7.3.0-0:compile
+[INFO] |  \- io.confluent:common-config:jar:7.3.0:compile
+[INFO] +- io.confluent:kafka-schema-registry-client:jar:7.3.0-0:compile
+[INFO] |  +- org.apache.avro:avro:jar:1.11.0:compile
+[INFO] |  +- org.apache.commons:commons-compress:jar:1.21:compile
+[INFO] |  +- io.swagger.core.v3:swagger-annotations:jar:2.1.10:compile
+[INFO] |  \- com.google.guava:guava:jar:30.1.1-jre:compile
+[INFO] |     +- com.google.guava:failureaccess:jar:1.0.1:compile
+[INFO] |     +- com.google.guava:listenablefuture:jar:9999.0-empty-to-avoid-conflict-with-guava:compile
+[INFO] |     +- com.google.code.findbugs:jsr305:jar:3.0.2:compile
+[INFO] |     +- org.checkerframework:checker-qual:jar:3.8.0:compile
+[INFO] |     +- com.google.errorprone:error_prone_annotations:jar:2.5.1:compile
+[INFO] |     \- com.google.j2objc:j2objc-annotations:jar:1.3:compile
+[INFO] +- org.apache.kafka:connect-api:jar:7.3.0-ccs:provided
+[INFO] |  \- javax.ws.rs:javax.ws.rs-api:jar:2.1.1:provided
+[INFO] +- org.mockito:mockito-core:jar:4.6.1:test
+[INFO] |  +- net.bytebuddy:byte-buddy:jar:1.12.10:test
+[INFO] |  +- net.bytebuddy:byte-buddy-agent:jar:1.12.10:test
+[INFO] |  \- org.objenesis:objenesis:jar:3.2:test
+[INFO] +- junit:junit:jar:4.13.2:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] +- io.confluent:common-utils:jar:7.3.0:compile
+[INFO] \- io.confluent:assembly-plugin-boilerplate:zip:resources:7.3.0:provided
+[INFO] 
+[INFO] ----------< io.confluent:kafka-connect-json-schema-converter >----------
+[INFO] Building kafka-connect-json-schema-converter 7.3.0-0             [16/25]
+[INFO]   from json-schema-converter/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.3.0:tree (default-cli) @ kafka-connect-json-schema-converter ---
+[INFO] io.confluent:kafka-connect-json-schema-converter:jar:7.3.0-0
+[INFO] +- io.confluent:kafka-json-schema-provider:jar:7.3.0-0:compile
+[INFO] |  +- com.fasterxml.jackson.datatype:jackson-datatype-guava:jar:2.13.2:compile
+[INFO] |  |  \- com.fasterxml.jackson.core:jackson-core:jar:2.13.2:compile
+[INFO] |  +- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.13.2:compile
+[INFO] |  +- com.fasterxml.jackson.datatype:jackson-datatype-joda:jar:2.13.2:compile
+[INFO] |  |  +- com.fasterxml.jackson.core:jackson-annotations:jar:2.13.2:compile
+[INFO] |  |  \- joda-time:joda-time:jar:2.10.8:compile
+[INFO] |  +- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.13.2:compile
+[INFO] |  +- com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.13.2:compile
+[INFO] |  +- com.kjetland:mbknor-jackson-jsonschema_2.13:jar:1.0.39:compile
+[INFO] |  |  +- org.scala-lang:scala-library:jar:2.13.5:compile
+[INFO] |  |  +- javax.validation:validation-api:jar:2.0.1.Final:compile
+[INFO] |  |  \- io.github.classgraph:classgraph:jar:4.8.21:compile
+[INFO] |  +- org.jetbrains.kotlin:kotlin-stdlib:jar:1.6.0:compile
+[INFO] |  |  +- org.jetbrains:annotations:jar:13.0:compile
+[INFO] |  |  \- org.jetbrains.kotlin:kotlin-stdlib-common:jar:1.6.0:compile
+[INFO] |  +- org.jetbrains.kotlin:kotlin-scripting-jvm:jar:1.6.0:compile
+[INFO] |  |  +- org.jetbrains.kotlin:kotlin-script-runtime:jar:1.6.0:compile
+[INFO] |  |  \- org.jetbrains.kotlin:kotlin-scripting-common:jar:1.6.0:compile
+[INFO] |  \- org.jetbrains.kotlin:kotlin-scripting-compiler-embeddable:jar:1.6.0:compile
+[INFO] |     \- org.jetbrains.kotlin:kotlin-scripting-compiler-impl-embeddable:jar:1.6.0:runtime
+[INFO] +- io.confluent:kafka-json-schema-serializer:jar:7.3.0-0:compile
+[INFO] |  \- io.confluent:kafka-json-serializer:jar:7.3.0-0:compile
+[INFO] |     \- io.confluent:common-config:jar:7.3.0:compile
+[INFO] +- io.confluent:kafka-schema-converter:jar:7.3.0-0:compile
+[INFO] +- io.confluent:kafka-schema-serializer:jar:7.3.0-0:compile
+[INFO] +- io.confluent:kafka-schema-registry-client:jar:7.3.0-0:compile
+[INFO] |  +- org.apache.kafka:kafka-clients:jar:7.3.0-ccs:compile
+[INFO] |  |  +- com.github.luben:zstd-jni:jar:1.5.2-1:runtime
+[INFO] |  |  +- org.lz4:lz4-java:jar:1.8.0:runtime
+[INFO] |  |  \- org.xerial.snappy:snappy-java:jar:1.1.8.4:runtime
+[INFO] |  +- org.apache.avro:avro:jar:1.11.0:compile
+[INFO] |  +- org.apache.commons:commons-compress:jar:1.21:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.13.2.2:compile
+[INFO] |  +- io.swagger.core.v3:swagger-annotations:jar:2.1.10:compile
+[INFO] |  \- com.google.guava:guava:jar:30.1.1-jre:compile
+[INFO] |     +- com.google.guava:failureaccess:jar:1.0.1:compile
+[INFO] |     +- com.google.guava:listenablefuture:jar:9999.0-empty-to-avoid-conflict-with-guava:compile
+[INFO] |     +- com.google.code.findbugs:jsr305:jar:3.0.2:compile
+[INFO] |     +- org.checkerframework:checker-qual:jar:3.8.0:compile
+[INFO] |     +- com.google.errorprone:error_prone_annotations:jar:2.5.1:compile
+[INFO] |     \- com.google.j2objc:j2objc-annotations:jar:1.3:compile
+[INFO] +- org.apache.kafka:connect-api:jar:7.3.0-ccs:provided
+[INFO] |  +- org.slf4j:slf4j-api:jar:1.7.36:compile
+[INFO] |  \- javax.ws.rs:javax.ws.rs-api:jar:2.1.1:provided
+[INFO] +- org.apache.kafka:connect-json:jar:7.3.0-ccs:provided
+[INFO] +- com.github.erosb:everit-json-schema:jar:1.14.1:compile
+[INFO] |  +- org.json:json:jar:20220320:compile
+[INFO] |  +- commons-validator:commons-validator:jar:1.7:compile
+[INFO] |  |  +- commons-digester:commons-digester:jar:2.1:compile
+[INFO] |  |  +- commons-logging:commons-logging:jar:1.2:compile
+[INFO] |  |  \- commons-collections:commons-collections:jar:3.2.2:compile
+[INFO] |  +- com.damnhandy:handy-uri-templates:jar:2.1.8:compile
+[INFO] |  \- com.google.re2j:re2j:jar:1.6:compile
+[INFO] +- org.mockito:mockito-core:jar:4.6.1:test
+[INFO] |  +- net.bytebuddy:byte-buddy:jar:1.12.10:test
+[INFO] |  +- net.bytebuddy:byte-buddy-agent:jar:1.12.10:test
+[INFO] |  \- org.objenesis:objenesis:jar:3.2:test
+[INFO] +- junit:junit:jar:4.13.2:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] +- io.confluent:common-utils:jar:7.3.0:compile
+[INFO] \- io.confluent:assembly-plugin-boilerplate:zip:resources:7.3.0:provided
+[INFO] 
+[INFO] ------------< io.confluent:kafka-streams-json-schema-serde >------------
+[INFO] Building kafka-streams-json-schema-serde 7.3.0-0                 [17/25]
+[INFO]   from json-schema-serde/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.3.0:tree (default-cli) @ kafka-streams-json-schema-serde ---
+[INFO] io.confluent:kafka-streams-json-schema-serde:jar:7.3.0-0
+[INFO] +- io.confluent:kafka-json-schema-serializer:jar:7.3.0-0:compile
+[INFO] |  +- io.confluent:kafka-json-schema-provider:jar:7.3.0-0:compile
+[INFO] |  |  +- com.github.erosb:everit-json-schema:jar:1.14.1:compile
+[INFO] |  |  |  +- org.json:json:jar:20220320:compile
+[INFO] |  |  |  +- commons-validator:commons-validator:jar:1.7:compile
+[INFO] |  |  |  |  +- commons-digester:commons-digester:jar:2.1:compile
+[INFO] |  |  |  |  +- commons-logging:commons-logging:jar:1.2:compile
+[INFO] |  |  |  |  \- commons-collections:commons-collections:jar:3.2.2:compile
+[INFO] |  |  |  +- com.damnhandy:handy-uri-templates:jar:2.1.8:compile
+[INFO] |  |  |  \- com.google.re2j:re2j:jar:1.6:compile
+[INFO] |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-guava:jar:2.13.2:compile
+[INFO] |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.13.2:compile
+[INFO] |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-joda:jar:2.13.2:compile
+[INFO] |  |  |  \- joda-time:joda-time:jar:2.10.8:compile
+[INFO] |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.13.2:compile
+[INFO] |  |  +- com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.13.2:compile
+[INFO] |  |  +- com.kjetland:mbknor-jackson-jsonschema_2.13:jar:1.0.39:compile
+[INFO] |  |  |  +- org.scala-lang:scala-library:jar:2.13.5:compile
+[INFO] |  |  |  +- javax.validation:validation-api:jar:2.0.1.Final:compile
+[INFO] |  |  |  \- io.github.classgraph:classgraph:jar:4.8.21:compile
+[INFO] |  |  +- org.jetbrains.kotlin:kotlin-stdlib:jar:1.6.0:compile
+[INFO] |  |  |  +- org.jetbrains:annotations:jar:13.0:compile
+[INFO] |  |  |  \- org.jetbrains.kotlin:kotlin-stdlib-common:jar:1.6.0:compile
+[INFO] |  |  +- org.jetbrains.kotlin:kotlin-scripting-jvm:jar:1.6.0:compile
+[INFO] |  |  |  +- org.jetbrains.kotlin:kotlin-script-runtime:jar:1.6.0:compile
+[INFO] |  |  |  \- org.jetbrains.kotlin:kotlin-scripting-common:jar:1.6.0:compile
+[INFO] |  |  \- org.jetbrains.kotlin:kotlin-scripting-compiler-embeddable:jar:1.6.0:compile
+[INFO] |  |     \- org.jetbrains.kotlin:kotlin-scripting-compiler-impl-embeddable:jar:1.6.0:runtime
+[INFO] |  +- io.confluent:kafka-schema-serializer:jar:7.3.0-0:compile
+[INFO] |  \- io.confluent:kafka-json-serializer:jar:7.3.0-0:compile
+[INFO] |     \- io.confluent:common-config:jar:7.3.0:compile
+[INFO] +- io.confluent:kafka-schema-registry-client:jar:7.3.0-0:compile
+[INFO] |  +- org.apache.kafka:kafka-clients:jar:7.3.0-ccs:compile
+[INFO] |  |  +- com.github.luben:zstd-jni:jar:1.5.2-1:runtime
+[INFO] |  |  +- org.lz4:lz4-java:jar:1.8.0:runtime
+[INFO] |  |  \- org.xerial.snappy:snappy-java:jar:1.1.8.4:runtime
+[INFO] |  +- org.apache.avro:avro:jar:1.11.0:compile
+[INFO] |  |  \- com.fasterxml.jackson.core:jackson-core:jar:2.13.2:compile
+[INFO] |  +- org.apache.commons:commons-compress:jar:1.21:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.13.2.2:compile
+[INFO] |  +- io.swagger.core.v3:swagger-annotations:jar:2.1.10:compile
+[INFO] |  \- com.google.guava:guava:jar:30.1.1-jre:compile
+[INFO] |     +- com.google.guava:failureaccess:jar:1.0.1:compile
+[INFO] |     +- com.google.guava:listenablefuture:jar:9999.0-empty-to-avoid-conflict-with-guava:compile
+[INFO] |     +- com.google.code.findbugs:jsr305:jar:3.0.2:compile
+[INFO] |     +- org.checkerframework:checker-qual:jar:3.8.0:compile
+[INFO] |     +- com.google.errorprone:error_prone_annotations:jar:2.5.1:compile
+[INFO] |     \- com.google.j2objc:j2objc-annotations:jar:1.3:compile
+[INFO] +- org.apache.kafka:kafka-streams:jar:7.3.0-ccs:provided
+[INFO] |  +- org.rocksdb:rocksdbjni:jar:6.29.4.1:provided
+[INFO] |  +- org.slf4j:slf4j-api:jar:1.7.36:compile
+[INFO] |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.13.2:compile
+[INFO] +- junit:junit:jar:4.13.2:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] +- io.confluent:common-utils:jar:7.3.0:compile
+[INFO] \- io.confluent:assembly-plugin-boilerplate:zip:resources:7.3.0:provided
+[INFO] 
+[INFO] ---------------< io.confluent:kafka-protobuf-serializer >---------------
+[INFO] Building kafka-protobuf-serializer 7.3.0-0                       [18/25]
+[INFO]   from protobuf-serializer/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.3.0:tree (default-cli) @ kafka-protobuf-serializer ---
+[INFO] io.confluent:kafka-protobuf-serializer:jar:7.3.0-0
+[INFO] +- org.apache.kafka:kafka_2.13:jar:7.3.0-ccs:provided
+[INFO] |  +- org.apache.kafka:kafka-clients:jar:7.3.0-ccs:compile
+[INFO] |  +- org.scala-lang:scala-library:jar:2.13.5:provided
+[INFO] |  +- org.apache.kafka:kafka-server-common:jar:7.3.0-ccs:provided
+[INFO] |  +- org.apache.kafka:kafka-metadata:jar:7.3.0-ccs:provided
+[INFO] |  +- org.apache.kafka:kafka-raft:jar:7.3.0-ccs:provided
+[INFO] |  +- org.apache.kafka:kafka-storage:jar:7.3.0-ccs:provided
+[INFO] |  |  \- org.apache.kafka:kafka-storage-api:jar:7.3.0-ccs:provided
+[INFO] |  +- net.sourceforge.argparse4j:argparse4j:jar:0.7.0:provided
+[INFO] |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.13.2.2:compile
+[INFO] |  |  +- com.fasterxml.jackson.core:jackson-annotations:jar:2.13.2:compile
+[INFO] |  |  \- com.fasterxml.jackson.core:jackson-core:jar:2.13.2:compile
+[INFO] |  +- com.fasterxml.jackson.module:jackson-module-scala_2.13:jar:2.13.2:provided
+[INFO] |  |  \- com.thoughtworks.paranamer:paranamer:jar:2.8:provided
+[INFO] |  +- com.fasterxml.jackson.dataformat:jackson-dataformat-csv:jar:2.13.2:provided
+[INFO] |  +- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.13.2:provided
+[INFO] |  +- net.sf.jopt-simple:jopt-simple:jar:5.0.4:provided
+[INFO] |  +- org.bitbucket.b_c:jose4j:jar:0.7.9:provided
+[INFO] |  +- com.yammer.metrics:metrics-core:jar:2.2.0:provided
+[INFO] |  +- org.scala-lang.modules:scala-collection-compat_2.13:jar:2.6.0:provided
+[INFO] |  +- org.scala-lang.modules:scala-java8-compat_2.13:jar:1.0.2:provided
+[INFO] |  +- org.scala-lang:scala-reflect:jar:2.13.5:provided
+[INFO] |  +- com.typesafe.scala-logging:scala-logging_2.13:jar:3.9.4:provided
+[INFO] |  +- org.slf4j:slf4j-api:jar:1.7.36:compile
+[INFO] |  +- io.dropwizard.metrics:metrics-core:jar:4.1.12.1:provided
+[INFO] |  +- org.apache.zookeeper:zookeeper:jar:3.6.3:provided
+[INFO] |  |  +- org.apache.zookeeper:zookeeper-jute:jar:3.6.3:provided
+[INFO] |  |  \- org.apache.yetus:audience-annotations:jar:0.5.0:provided
+[INFO] |  \- commons-cli:commons-cli:jar:1.4:provided
+[INFO] +- io.confluent:kafka-protobuf-provider:jar:7.3.0-0:compile
+[INFO] |  +- com.squareup.wire:wire-schema-jvm:jar:4.3.0:compile
+[INFO] |  |  +- org.jetbrains.kotlin:kotlin-stdlib-common:jar:1.6.10:compile
+[INFO] |  |  +- org.jetbrains.kotlin:kotlin-stdlib-jdk8:jar:1.6.10:compile
+[INFO] |  |  |  \- org.jetbrains.kotlin:kotlin-stdlib-jdk7:jar:1.6.10:compile
+[INFO] |  |  \- com.squareup.okio:okio:jar:3.0.0:compile
+[INFO] |  +- com.squareup.wire:wire-runtime-jvm:jar:4.3.0:compile
+[INFO] |  +- com.squareup.okio:okio-jvm:jar:3.0.0:compile
+[INFO] |  +- org.apache.commons:commons-lang3:jar:3.12.0:compile
+[INFO] |  +- org.jetbrains.kotlin:kotlin-stdlib:jar:1.6.0:compile
+[INFO] |  |  \- org.jetbrains:annotations:jar:13.0:compile
+[INFO] |  \- com.google.protobuf:protobuf-java:jar:3.19.4:compile
+[INFO] +- io.confluent:kafka-protobuf-types:jar:7.3.0-0:compile
+[INFO] +- com.google.api.grpc:proto-google-common-protos:jar:2.5.1:test
+[INFO] +- com.google.protobuf:protobuf-java-util:jar:3.19.4:compile
+[INFO] |  +- com.google.guava:guava:jar:30.1.1-jre:compile
+[INFO] |  |  +- com.google.guava:failureaccess:jar:1.0.1:compile
+[INFO] |  |  +- com.google.guava:listenablefuture:jar:9999.0-empty-to-avoid-conflict-with-guava:compile
+[INFO] |  |  \- org.checkerframework:checker-qual:jar:3.8.0:compile
+[INFO] |  +- com.google.errorprone:error_prone_annotations:jar:2.5.1:compile
+[INFO] |  +- com.google.j2objc:j2objc-annotations:jar:1.3:compile
+[INFO] |  +- com.google.code.findbugs:jsr305:jar:3.0.2:compile
+[INFO] |  \- com.google.code.gson:gson:jar:2.9.0:compile
+[INFO] +- io.confluent:kafka-schema-serializer:jar:7.3.0-0:compile
+[INFO] +- io.confluent:kafka-schema-registry-client:jar:7.3.0-0:compile
+[INFO] |  +- org.apache.avro:avro:jar:1.11.0:compile
+[INFO] |  +- org.apache.commons:commons-compress:jar:1.21:compile
+[INFO] |  \- io.swagger.core.v3:swagger-annotations:jar:2.1.10:compile
+[INFO] +- io.confluent:kafka-schema-registry:jar:7.3.0-0:test
+[INFO] |  +- io.confluent:kafka-json-schema-provider:jar:7.3.0-0:test
+[INFO] |  |  +- com.github.erosb:everit-json-schema:jar:1.14.1:test
+[INFO] |  |  |  +- org.json:json:jar:20220320:test
+[INFO] |  |  |  +- commons-validator:commons-validator:jar:1.7:test
+[INFO] |  |  |  |  +- commons-digester:commons-digester:jar:2.1:test
+[INFO] |  |  |  |  +- commons-logging:commons-logging:jar:1.2:test
+[INFO] |  |  |  |  \- commons-collections:commons-collections:jar:3.2.2:test
+[INFO] |  |  |  \- com.damnhandy:handy-uri-templates:jar:2.1.8:test
+[INFO] |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-guava:jar:2.13.2:test
+[INFO] |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-joda:jar:2.13.2:test
+[INFO] |  |  |  \- joda-time:joda-time:jar:2.10.8:test
+[INFO] |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.13.2:test
+[INFO] |  |  +- com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.13.2:test
+[INFO] |  |  +- com.kjetland:mbknor-jackson-jsonschema_2.13:jar:1.0.39:test
+[INFO] |  |  |  +- javax.validation:validation-api:jar:2.0.1.Final:test
+[INFO] |  |  |  \- io.github.classgraph:classgraph:jar:4.8.21:test
+[INFO] |  |  +- org.jetbrains.kotlin:kotlin-scripting-jvm:jar:1.6.0:test
+[INFO] |  |  |  +- org.jetbrains.kotlin:kotlin-script-runtime:jar:1.6.0:test
+[INFO] |  |  |  \- org.jetbrains.kotlin:kotlin-scripting-common:jar:1.6.0:test
+[INFO] |  |  \- org.jetbrains.kotlin:kotlin-scripting-compiler-embeddable:jar:1.6.0:test
+[INFO] |  |     \- org.jetbrains.kotlin:kotlin-scripting-compiler-impl-embeddable:jar:1.6.0:test
+[INFO] |  +- org.glassfish.jersey.ext:jersey-bean-validation:jar:2.36:test
+[INFO] |  |  +- org.glassfish.hk2.external:jakarta.inject:jar:2.6.1:test
+[INFO] |  |  +- org.glassfish.jersey.core:jersey-common:jar:2.36:test
+[INFO] |  |  |  +- jakarta.annotation:jakarta.annotation-api:jar:1.3.5:test
+[INFO] |  |  |  \- org.glassfish.hk2:osgi-resource-locator:jar:1.0.3:test
+[INFO] |  |  +- org.glassfish.jersey.core:jersey-server:jar:2.36:test
+[INFO] |  |  |  \- org.glassfish.jersey.core:jersey-client:jar:2.36:test
+[INFO] |  |  +- jakarta.validation:jakarta.validation-api:jar:2.0.2:test
+[INFO] |  |  +- jakarta.el:jakarta.el-api:jar:4.0.0:test
+[INFO] |  |  +- org.glassfish:jakarta.el:jar:3.0.4:test
+[INFO] |  |  \- jakarta.ws.rs:jakarta.ws.rs-api:jar:2.1.6:test
+[INFO] |  +- org.hibernate.validator:hibernate-validator:jar:6.1.7.Final:test
+[INFO] |  |  +- org.jboss.logging:jboss-logging:jar:3.3.2.Final:test
+[INFO] |  |  \- com.fasterxml:classmate:jar:1.3.4:test
+[INFO] |  +- io.confluent:rest-utils:jar:7.3.0:test
+[INFO] |  |  +- org.eclipse.jetty.websocket:javax-websocket-server-impl:jar:9.4.48.v20220622:test
+[INFO] |  |  |  +- org.eclipse.jetty:jetty-annotations:jar:9.4.48.v20220622:test
+[INFO] |  |  |  |  +- org.eclipse.jetty:jetty-plus:jar:9.4.48.v20220622:test
+[INFO] |  |  |  |  |  \- org.eclipse.jetty:jetty-jndi:jar:9.4.48.v20220622:test
+[INFO] |  |  |  |  +- org.eclipse.jetty:jetty-webapp:jar:9.4.48.v20220622:test
+[INFO] |  |  |  |  |  \- org.eclipse.jetty:jetty-xml:jar:9.4.48.v20220622:test
+[INFO] |  |  |  |  +- javax.annotation:javax.annotation-api:jar:1.3.2:test
+[INFO] |  |  |  |  +- org.ow2.asm:asm:jar:9.3:test
+[INFO] |  |  |  |  \- org.ow2.asm:asm-commons:jar:9.3:test
+[INFO] |  |  |  |     +- org.ow2.asm:asm-tree:jar:9.3:test
+[INFO] |  |  |  |     \- org.ow2.asm:asm-analysis:jar:9.3:test
+[INFO] |  |  |  +- org.eclipse.jetty.websocket:javax-websocket-client-impl:jar:9.4.48.v20220622:test
+[INFO] |  |  |  |  +- org.eclipse.jetty.websocket:websocket-client:jar:9.4.48.v20220622:test
+[INFO] |  |  |  |  |  \- org.eclipse.jetty:jetty-client:jar:9.4.48.v20220622:test
+[INFO] |  |  |  |  \- javax.websocket:javax.websocket-client-api:jar:1.0:test
+[INFO] |  |  |  +- org.eclipse.jetty.websocket:websocket-server:jar:9.4.48.v20220622:test
+[INFO] |  |  |  |  +- org.eclipse.jetty.websocket:websocket-common:jar:9.4.48.v20220622:test
+[INFO] |  |  |  |  |  \- org.eclipse.jetty.websocket:websocket-api:jar:9.4.48.v20220622:test
+[INFO] |  |  |  |  \- org.eclipse.jetty.websocket:websocket-servlet:jar:9.4.48.v20220622:test
+[INFO] |  |  |  \- javax.websocket:javax.websocket-api:jar:1.0:test
+[INFO] |  |  +- org.glassfish.jersey.containers:jersey-container-servlet:jar:2.36:test
+[INFO] |  |  |  \- org.glassfish.jersey.containers:jersey-container-servlet-core:jar:2.36:test
+[INFO] |  |  +- org.glassfish.jersey.inject:jersey-hk2:jar:2.36:test
+[INFO] |  |  |  +- org.glassfish.hk2:hk2-locator:jar:2.6.1:test
+[INFO] |  |  |  |  +- org.glassfish.hk2.external:aopalliance-repackaged:jar:2.6.1:test
+[INFO] |  |  |  |  +- org.glassfish.hk2:hk2-api:jar:2.6.1:test
+[INFO] |  |  |  |  \- org.glassfish.hk2:hk2-utils:jar:2.6.1:test
+[INFO] |  |  |  \- org.javassist:javassist:jar:3.25.0-GA:test
+[INFO] |  |  +- javax.xml.bind:jaxb-api:jar:2.3.0:test
+[INFO] |  |  +- javax.activation:activation:jar:1.1.1:test
+[INFO] |  |  +- org.eclipse.jetty:jetty-jmx:jar:9.4.48.v20220622:test
+[INFO] |  |  |  \- org.eclipse.jetty:jetty-util:jar:9.4.48.v20220622:test
+[INFO] |  |  +- org.eclipse.jetty:jetty-server:jar:9.4.48.v20220622:test
+[INFO] |  |  |  +- javax.servlet:javax.servlet-api:jar:3.1.0:test
+[INFO] |  |  |  +- org.eclipse.jetty:jetty-http:jar:9.4.48.v20220622:test
+[INFO] |  |  |  \- org.eclipse.jetty:jetty-io:jar:9.4.48.v20220622:test
+[INFO] |  |  +- org.eclipse.jetty.http2:http2-server:jar:9.4.48.v20220622:test
+[INFO] |  |  |  \- org.eclipse.jetty.http2:http2-common:jar:9.4.48.v20220622:test
+[INFO] |  |  |     \- org.eclipse.jetty.http2:http2-hpack:jar:9.4.48.v20220622:test
+[INFO] |  |  +- org.eclipse.jetty:jetty-alpn-server:jar:9.4.48.v20220622:test
+[INFO] |  |  +- org.eclipse.jetty:jetty-alpn-java-server:jar:9.4.48.v20220622:test
+[INFO] |  |  +- org.eclipse.jetty:jetty-servlet:jar:9.4.48.v20220622:test
+[INFO] |  |  |  +- org.eclipse.jetty:jetty-security:jar:9.4.48.v20220622:test
+[INFO] |  |  |  \- org.eclipse.jetty:jetty-util-ajax:jar:9.4.48.v20220622:test
+[INFO] |  |  +- org.eclipse.jetty:jetty-servlets:jar:9.4.48.v20220622:test
+[INFO] |  |  |  \- org.eclipse.jetty:jetty-continuation:jar:9.4.48.v20220622:test
+[INFO] |  |  +- org.eclipse.jetty:jetty-jaas:jar:9.4.48.v20220622:test
+[INFO] |  |  +- com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:jar:2.13.2:test
+[INFO] |  |  |  \- com.fasterxml.jackson.module:jackson-module-jaxb-annotations:jar:2.13.2:test
+[INFO] |  |  \- com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:jar:2.13.2:test
+[INFO] |  +- org.slf4j:slf4j-reload4j:jar:1.7.36:test
+[INFO] |  |  \- ch.qos.reload4j:reload4j:jar:1.2.19:test
+[INFO] |  +- io.confluent:logredactor:jar:1.0.10:test
+[INFO] |  |  +- com.google.re2j:re2j:jar:1.6:test
+[INFO] |  |  +- io.confluent:logredactor-metrics:jar:1.0.10:test
+[INFO] |  |  \- com.eclipsesource.minimal-json:minimal-json:jar:0.9.5:test
+[INFO] |  +- io.netty:netty-codec:jar:4.1.79.Final:test
+[INFO] |  |  +- io.netty:netty-common:jar:4.1.79.Final:test
+[INFO] |  |  +- io.netty:netty-buffer:jar:4.1.79.Final:test
+[INFO] |  |  \- io.netty:netty-transport:jar:4.1.79.Final:test
+[INFO] |  |     \- io.netty:netty-resolver:jar:4.1.79.Final:test
+[INFO] |  \- io.swagger.core.v3:swagger-core:jar:2.1.10:test
+[INFO] |     +- jakarta.xml.bind:jakarta.xml.bind-api:jar:2.3.2:test
+[INFO] |     |  \- jakarta.activation:jakarta.activation-api:jar:1.2.1:test
+[INFO] |     +- com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:jar:2.13.2:test
+[INFO] |     |  \- org.yaml:snakeyaml:jar:1.30:test
+[INFO] |     \- io.swagger.core.v3:swagger-models:jar:2.1.10:test
+[INFO] +- io.confluent:kafka-schema-registry:test-jar:tests:7.3.0-0:test
+[INFO] +- org.apache.kafka:connect-api:jar:7.3.0-ccs:provided
+[INFO] |  \- javax.ws.rs:javax.ws.rs-api:jar:2.1.1:provided
+[INFO] +- org.apache.kafka:kafka-clients:jar:test:7.3.0-ccs:test
+[INFO] |  +- com.github.luben:zstd-jni:jar:1.5.2-1:runtime
+[INFO] |  +- org.lz4:lz4-java:jar:1.8.0:runtime
+[INFO] |  \- org.xerial.snappy:snappy-java:jar:1.1.8.4:runtime
+[INFO] +- org.apache.kafka:kafka_2.13:jar:test:7.3.0-ccs:test
+[INFO] +- org.mockito:mockito-core:jar:4.6.1:test
+[INFO] |  +- net.bytebuddy:byte-buddy:jar:1.12.10:test
+[INFO] |  +- net.bytebuddy:byte-buddy-agent:jar:1.12.10:test
+[INFO] |  \- org.objenesis:objenesis:jar:3.2:test
+[INFO] +- junit:junit:jar:4.13.2:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] +- io.confluent:common-utils:jar:7.3.0:compile
+[INFO] \- io.confluent:assembly-plugin-boilerplate:zip:resources:7.3.0:provided
+[INFO] 
+[INFO] -----------< io.confluent:kafka-connect-protobuf-converter >------------
+[INFO] Building kafka-connect-protobuf-converter 7.3.0-0                [19/25]
+[INFO]   from protobuf-converter/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.3.0:tree (default-cli) @ kafka-connect-protobuf-converter ---
+[INFO] io.confluent:kafka-connect-protobuf-converter:jar:7.3.0-0
+[INFO] +- io.confluent:kafka-protobuf-provider:jar:7.3.0-0:compile
+[INFO] |  +- com.squareup.wire:wire-runtime-jvm:jar:4.3.0:compile
+[INFO] |  +- org.apache.commons:commons-lang3:jar:3.12.0:compile
+[INFO] |  \- com.google.api.grpc:proto-google-common-protos:jar:2.5.1:compile
+[INFO] +- io.confluent:kafka-protobuf-serializer:jar:7.3.0-0:compile
+[INFO] +- io.confluent:kafka-protobuf-serializer:test-jar:tests:7.3.0-0:test
+[INFO] +- io.confluent:kafka-protobuf-types:jar:7.3.0-0:compile
+[INFO] +- com.squareup.wire:wire-schema-jvm:jar:4.3.0:compile
+[INFO] |  +- org.jetbrains.kotlin:kotlin-stdlib-common:jar:1.6.10:compile
+[INFO] |  +- com.google.guava:guava:jar:30.1.1-jre:compile
+[INFO] |  |  +- com.google.guava:failureaccess:jar:1.0.1:compile
+[INFO] |  |  +- com.google.guava:listenablefuture:jar:9999.0-empty-to-avoid-conflict-with-guava:compile
+[INFO] |  |  \- org.checkerframework:checker-qual:jar:3.8.0:compile
+[INFO] |  +- org.jetbrains.kotlin:kotlin-stdlib-jdk8:jar:1.6.10:compile
+[INFO] |  |  \- org.jetbrains.kotlin:kotlin-stdlib-jdk7:jar:1.6.10:compile
+[INFO] |  \- com.squareup.okio:okio:jar:3.0.0:compile
+[INFO] +- com.squareup.okio:okio-jvm:jar:3.0.0:compile
+[INFO] +- org.jetbrains.kotlin:kotlin-stdlib:jar:1.6.0:compile
+[INFO] |  \- org.jetbrains:annotations:jar:13.0:compile
+[INFO] +- io.confluent:kafka-schema-converter:jar:7.3.0-0:compile
+[INFO] +- io.confluent:kafka-schema-serializer:jar:7.3.0-0:compile
+[INFO] +- io.confluent:kafka-schema-registry-client:jar:7.3.0-0:compile
+[INFO] |  +- org.apache.kafka:kafka-clients:jar:7.3.0-ccs:compile
+[INFO] |  |  +- com.github.luben:zstd-jni:jar:1.5.2-1:runtime
+[INFO] |  |  +- org.lz4:lz4-java:jar:1.8.0:runtime
+[INFO] |  |  \- org.xerial.snappy:snappy-java:jar:1.1.8.4:runtime
+[INFO] |  +- org.apache.avro:avro:jar:1.11.0:compile
+[INFO] |  |  \- com.fasterxml.jackson.core:jackson-core:jar:2.13.2:compile
+[INFO] |  +- org.apache.commons:commons-compress:jar:1.21:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.13.2.2:compile
+[INFO] |  |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.13.2:compile
+[INFO] |  \- io.swagger.core.v3:swagger-annotations:jar:2.1.10:compile
+[INFO] +- org.apache.kafka:connect-api:jar:7.3.0-ccs:provided
+[INFO] |  +- org.slf4j:slf4j-api:jar:1.7.36:compile
+[INFO] |  \- javax.ws.rs:javax.ws.rs-api:jar:2.1.1:provided
+[INFO] +- com.google.protobuf:protobuf-java:jar:3.19.4:compile
+[INFO] +- com.google.protobuf:protobuf-java-util:jar:3.19.4:compile
+[INFO] |  +- com.google.errorprone:error_prone_annotations:jar:2.5.1:compile
+[INFO] |  +- com.google.j2objc:j2objc-annotations:jar:1.3:compile
+[INFO] |  +- com.google.code.findbugs:jsr305:jar:3.0.2:compile
+[INFO] |  \- com.google.code.gson:gson:jar:2.9.0:compile
+[INFO] +- org.mockito:mockito-core:jar:4.6.1:test
+[INFO] |  +- net.bytebuddy:byte-buddy:jar:1.12.10:test
+[INFO] |  +- net.bytebuddy:byte-buddy-agent:jar:1.12.10:test
+[INFO] |  \- org.objenesis:objenesis:jar:3.2:test
+[INFO] +- junit:junit:jar:4.13.2:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] +- io.confluent:common-utils:jar:7.3.0:compile
+[INFO] \- io.confluent:assembly-plugin-boilerplate:zip:resources:7.3.0:provided
+[INFO] 
+[INFO] -------------< io.confluent:kafka-streams-protobuf-serde >--------------
+[INFO] Building kafka-streams-protobuf-serde 7.3.0-0                    [20/25]
+[INFO]   from protobuf-serde/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.3.0:tree (default-cli) @ kafka-streams-protobuf-serde ---
+[INFO] io.confluent:kafka-streams-protobuf-serde:jar:7.3.0-0
+[INFO] +- io.confluent:kafka-protobuf-serializer:jar:7.3.0-0:compile
+[INFO] |  +- io.confluent:kafka-protobuf-provider:jar:7.3.0-0:compile
+[INFO] |  |  +- com.squareup.wire:wire-schema-jvm:jar:4.3.0:compile
+[INFO] |  |  |  +- org.jetbrains.kotlin:kotlin-stdlib-common:jar:1.6.10:compile
+[INFO] |  |  |  +- org.jetbrains.kotlin:kotlin-stdlib-jdk8:jar:1.6.10:compile
+[INFO] |  |  |  |  \- org.jetbrains.kotlin:kotlin-stdlib-jdk7:jar:1.6.10:compile
+[INFO] |  |  |  \- com.squareup.okio:okio:jar:3.0.0:compile
+[INFO] |  |  +- com.squareup.wire:wire-runtime-jvm:jar:4.3.0:compile
+[INFO] |  |  +- com.squareup.okio:okio-jvm:jar:3.0.0:compile
+[INFO] |  |  +- org.apache.commons:commons-lang3:jar:3.12.0:compile
+[INFO] |  |  +- org.jetbrains.kotlin:kotlin-stdlib:jar:1.6.0:compile
+[INFO] |  |  |  \- org.jetbrains:annotations:jar:13.0:compile
+[INFO] |  |  +- com.google.protobuf:protobuf-java:jar:3.19.4:compile
+[INFO] |  |  \- com.google.api.grpc:proto-google-common-protos:jar:2.5.1:compile
+[INFO] |  +- io.confluent:kafka-protobuf-types:jar:7.3.0-0:compile
+[INFO] |  +- com.google.protobuf:protobuf-java-util:jar:3.19.4:compile
+[INFO] |  |  +- com.google.errorprone:error_prone_annotations:jar:2.5.1:compile
+[INFO] |  |  +- com.google.j2objc:j2objc-annotations:jar:1.3:compile
+[INFO] |  |  +- com.google.code.findbugs:jsr305:jar:3.0.2:compile
+[INFO] |  |  \- com.google.code.gson:gson:jar:2.9.0:compile
+[INFO] |  \- io.confluent:kafka-schema-serializer:jar:7.3.0-0:compile
+[INFO] +- io.confluent:kafka-schema-registry-client:jar:7.3.0-0:compile
+[INFO] |  +- org.apache.kafka:kafka-clients:jar:7.3.0-ccs:compile
+[INFO] |  |  +- com.github.luben:zstd-jni:jar:1.5.2-1:runtime
+[INFO] |  |  +- org.lz4:lz4-java:jar:1.8.0:runtime
+[INFO] |  |  \- org.xerial.snappy:snappy-java:jar:1.1.8.4:runtime
+[INFO] |  +- org.apache.avro:avro:jar:1.11.0:compile
+[INFO] |  |  \- com.fasterxml.jackson.core:jackson-core:jar:2.13.2:compile
+[INFO] |  +- org.apache.commons:commons-compress:jar:1.21:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.13.2.2:compile
+[INFO] |  +- io.swagger.core.v3:swagger-annotations:jar:2.1.10:compile
+[INFO] |  \- com.google.guava:guava:jar:30.1.1-jre:compile
+[INFO] |     +- com.google.guava:failureaccess:jar:1.0.1:compile
+[INFO] |     +- com.google.guava:listenablefuture:jar:9999.0-empty-to-avoid-conflict-with-guava:compile
+[INFO] |     \- org.checkerframework:checker-qual:jar:3.8.0:compile
+[INFO] +- org.apache.kafka:kafka-streams:jar:7.3.0-ccs:compile
+[INFO] |  +- org.rocksdb:rocksdbjni:jar:6.29.4.1:compile
+[INFO] |  +- org.slf4j:slf4j-api:jar:1.7.36:compile
+[INFO] |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.13.2:compile
+[INFO] +- junit:junit:jar:4.13.2:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] +- io.confluent:common-utils:jar:7.3.0:compile
+[INFO] \- io.confluent:assembly-plugin-boilerplate:zip:resources:7.3.0:provided
+[INFO] 
+[INFO] ---------------< io.confluent:kafka-serde-tools-package >---------------
+[INFO] Building kafka-serde-tools-package 7.3.0-0                       [21/25]
+[INFO]   from package-kafka-serde-tools/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.3.0:tree (default-cli) @ kafka-serde-tools-package ---
+[INFO] io.confluent:kafka-serde-tools-package:pom:7.3.0-0
+[INFO] +- io.confluent:kafka-avro-serializer:jar:7.3.0-0:compile
+[INFO] |  +- org.apache.avro:avro:jar:1.11.0:compile
+[INFO] |  |  \- com.fasterxml.jackson.core:jackson-core:jar:2.13.2:compile
+[INFO] |  +- org.apache.commons:commons-compress:jar:1.21:compile
+[INFO] |  +- io.confluent:kafka-schema-serializer:jar:7.3.0-0:compile
+[INFO] |  +- io.confluent:kafka-schema-registry-client:jar:7.3.0-0:compile
+[INFO] |  +- com.google.guava:guava:jar:30.1.1-jre:compile
+[INFO] |  |  +- com.google.guava:failureaccess:jar:1.0.1:compile
+[INFO] |  |  +- com.google.guava:listenablefuture:jar:9999.0-empty-to-avoid-conflict-with-guava:compile
+[INFO] |  |  +- com.google.code.findbugs:jsr305:jar:3.0.2:compile
+[INFO] |  |  +- org.checkerframework:checker-qual:jar:3.8.0:compile
+[INFO] |  |  +- com.google.errorprone:error_prone_annotations:jar:2.5.1:compile
+[INFO] |  |  \- com.google.j2objc:j2objc-annotations:jar:1.3:compile
+[INFO] |  \- io.confluent:logredactor:jar:1.0.10:compile
+[INFO] |     +- com.google.re2j:re2j:jar:1.6:compile
+[INFO] |     +- io.confluent:logredactor-metrics:jar:1.0.10:compile
+[INFO] |     \- com.eclipsesource.minimal-json:minimal-json:jar:0.9.5:compile
+[INFO] +- io.confluent:kafka-connect-avro-converter:jar:7.3.0-0:compile
+[INFO] +- io.confluent:kafka-connect-avro-data:jar:7.3.0-0:compile
+[INFO] |  \- io.confluent:kafka-schema-converter:jar:7.3.0-0:compile
+[INFO] +- io.confluent:kafka-streams-avro-serde:jar:7.3.0-0:compile
+[INFO] +- io.confluent:kafka-json-serializer:jar:7.3.0-0:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.13.2.2:compile
+[INFO] |  +- io.confluent:common-config:jar:7.3.0:compile
+[INFO] |  +- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.13.2:compile
+[INFO] |  +- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.13.2:compile
+[INFO] |  \- com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.13.2:compile
+[INFO] +- io.confluent:kafka-json-schema-serializer:jar:7.3.0-0:compile
+[INFO] |  \- io.confluent:kafka-json-schema-provider:jar:7.3.0-0:compile
+[INFO] |     +- com.fasterxml.jackson.datatype:jackson-datatype-guava:jar:2.13.2:compile
+[INFO] |     +- com.fasterxml.jackson.datatype:jackson-datatype-joda:jar:2.13.2:compile
+[INFO] |     |  \- joda-time:joda-time:jar:2.10.8:compile
+[INFO] |     +- com.kjetland:mbknor-jackson-jsonschema_2.13:jar:1.0.39:compile
+[INFO] |     |  +- org.scala-lang:scala-library:jar:2.13.5:compile
+[INFO] |     |  +- javax.validation:validation-api:jar:2.0.1.Final:compile
+[INFO] |     |  \- io.github.classgraph:classgraph:jar:4.8.21:compile
+[INFO] |     +- org.jetbrains.kotlin:kotlin-scripting-jvm:jar:1.6.0:compile
+[INFO] |     |  +- org.jetbrains.kotlin:kotlin-script-runtime:jar:1.6.0:compile
+[INFO] |     |  \- org.jetbrains.kotlin:kotlin-scripting-common:jar:1.6.0:compile
+[INFO] |     \- org.jetbrains.kotlin:kotlin-scripting-compiler-embeddable:jar:1.6.0:compile
+[INFO] |        \- org.jetbrains.kotlin:kotlin-scripting-compiler-impl-embeddable:jar:1.6.0:runtime
+[INFO] +- io.confluent:kafka-connect-json-schema-converter:jar:7.3.0-0:compile
+[INFO] |  \- com.github.erosb:everit-json-schema:jar:1.14.1:compile
+[INFO] |     +- org.json:json:jar:20220320:compile
+[INFO] |     +- commons-validator:commons-validator:jar:1.7:compile
+[INFO] |     |  +- commons-digester:commons-digester:jar:2.1:compile
+[INFO] |     |  +- commons-logging:commons-logging:jar:1.2:compile
+[INFO] |     |  \- commons-collections:commons-collections:jar:3.2.2:compile
+[INFO] |     \- com.damnhandy:handy-uri-templates:jar:2.1.8:compile
+[INFO] +- io.confluent:kafka-streams-json-schema-serde:jar:7.3.0-0:compile
+[INFO] +- io.confluent:kafka-protobuf-serializer:jar:7.3.0-0:compile
+[INFO] |  +- io.confluent:kafka-protobuf-provider:jar:7.3.0-0:compile
+[INFO] |  |  +- com.squareup.wire:wire-runtime-jvm:jar:4.3.0:compile
+[INFO] |  |  +- org.apache.commons:commons-lang3:jar:3.12.0:compile
+[INFO] |  |  \- com.google.api.grpc:proto-google-common-protos:jar:2.5.1:compile
+[INFO] |  +- io.confluent:kafka-protobuf-types:jar:7.3.0-0:compile
+[INFO] |  \- com.google.protobuf:protobuf-java-util:jar:3.19.4:compile
+[INFO] |     \- com.google.code.gson:gson:jar:2.9.0:compile
+[INFO] +- io.confluent:kafka-connect-protobuf-converter:jar:7.3.0-0:compile
+[INFO] |  +- com.squareup.wire:wire-schema-jvm:jar:4.3.0:compile
+[INFO] |  |  +- org.jetbrains.kotlin:kotlin-stdlib-common:jar:1.6.10:compile
+[INFO] |  |  +- org.jetbrains.kotlin:kotlin-stdlib-jdk8:jar:1.6.10:compile
+[INFO] |  |  |  \- org.jetbrains.kotlin:kotlin-stdlib-jdk7:jar:1.6.10:compile
+[INFO] |  |  \- com.squareup.okio:okio:jar:3.0.0:compile
+[INFO] |  +- com.squareup.okio:okio-jvm:jar:3.0.0:compile
+[INFO] |  +- org.jetbrains.kotlin:kotlin-stdlib:jar:1.6.0:compile
+[INFO] |  |  \- org.jetbrains:annotations:jar:13.0:compile
+[INFO] |  \- com.google.protobuf:protobuf-java:jar:3.19.4:compile
+[INFO] +- io.confluent:kafka-streams-protobuf-serde:jar:7.3.0-0:compile
+[INFO] |  \- org.apache.kafka:kafka-streams:jar:7.3.0-ccs:compile
+[INFO] |     \- org.rocksdb:rocksdbjni:jar:6.29.4.1:compile
+[INFO] +- junit:junit:jar:4.13.2:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] +- org.apache.kafka:connect-runtime:jar:7.3.0-ccs:provided
+[INFO] |  +- org.apache.kafka:connect-api:jar:7.3.0-ccs:provided
+[INFO] |  |  \- javax.ws.rs:javax.ws.rs-api:jar:2.1.1:provided
+[INFO] |  +- org.apache.kafka:kafka-clients:jar:7.3.0-ccs:compile
+[INFO] |  |  +- com.github.luben:zstd-jni:jar:1.5.2-1:runtime
+[INFO] |  |  +- org.lz4:lz4-java:jar:1.8.0:runtime
+[INFO] |  |  \- org.xerial.snappy:snappy-java:jar:1.1.8.4:runtime
+[INFO] |  +- org.apache.kafka:connect-transforms:jar:7.3.0-ccs:provided
+[INFO] |  +- org.apache.kafka:kafka-tools:jar:7.3.0-ccs:provided
+[INFO] |  |  +- org.apache.kafka:kafka-server-common:jar:7.3.0-ccs:provided
+[INFO] |  |  |  \- com.yammer.metrics:metrics-core:jar:2.2.0:provided
+[INFO] |  |  +- org.apache.kafka:kafka-log4j-appender:jar:7.3.0-ccs:provided
+[INFO] |  |  |  \- org.slf4j:slf4j-reload4j:jar:1.7.36:provided
+[INFO] |  |  \- net.sourceforge.argparse4j:argparse4j:jar:0.7.0:provided
+[INFO] |  +- org.slf4j:slf4j-api:jar:1.7.36:compile
+[INFO] |  +- ch.qos.reload4j:reload4j:jar:1.2.19:provided
+[INFO] |  +- org.bitbucket.b_c:jose4j:jar:0.7.9:provided
+[INFO] |  +- com.fasterxml.jackson.core:jackson-annotations:jar:2.13.2:compile
+[INFO] |  +- com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:jar:2.13.2:provided
+[INFO] |  |  +- com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:jar:2.13.2:provided
+[INFO] |  |  \- com.fasterxml.jackson.module:jackson-module-jaxb-annotations:jar:2.13.2:provided
+[INFO] |  |     +- jakarta.xml.bind:jakarta.xml.bind-api:jar:2.3.3:provided
+[INFO] |  |     \- jakarta.activation:jakarta.activation-api:jar:1.2.1:provided
+[INFO] |  +- org.glassfish.jersey.containers:jersey-container-servlet:jar:2.36:provided
+[INFO] |  |  +- org.glassfish.jersey.containers:jersey-container-servlet-core:jar:2.36:provided
+[INFO] |  |  |  \- org.glassfish.hk2.external:jakarta.inject:jar:2.6.1:provided
+[INFO] |  |  +- org.glassfish.jersey.core:jersey-common:jar:2.36:provided
+[INFO] |  |  |  +- jakarta.annotation:jakarta.annotation-api:jar:1.3.5:provided
+[INFO] |  |  |  \- org.glassfish.hk2:osgi-resource-locator:jar:1.0.3:provided
+[INFO] |  |  +- org.glassfish.jersey.core:jersey-server:jar:2.36:provided
+[INFO] |  |  |  +- org.glassfish.jersey.core:jersey-client:jar:2.36:provided
+[INFO] |  |  |  \- jakarta.validation:jakarta.validation-api:jar:2.0.2:provided
+[INFO] |  |  \- jakarta.ws.rs:jakarta.ws.rs-api:jar:2.1.6:provided
+[INFO] |  +- org.glassfish.jersey.inject:jersey-hk2:jar:2.36:provided
+[INFO] |  |  +- org.glassfish.hk2:hk2-locator:jar:2.6.1:provided
+[INFO] |  |  |  +- org.glassfish.hk2.external:aopalliance-repackaged:jar:2.6.1:provided
+[INFO] |  |  |  +- org.glassfish.hk2:hk2-api:jar:2.6.1:provided
+[INFO] |  |  |  \- org.glassfish.hk2:hk2-utils:jar:2.6.1:provided
+[INFO] |  |  \- org.javassist:javassist:jar:3.25.0-GA:provided
+[INFO] |  +- javax.xml.bind:jaxb-api:jar:2.3.0:provided
+[INFO] |  +- javax.activation:activation:jar:1.1.1:provided
+[INFO] |  +- org.eclipse.jetty:jetty-server:jar:9.4.48.v20220622:provided
+[INFO] |  |  +- javax.servlet:javax.servlet-api:jar:3.1.0:provided
+[INFO] |  |  +- org.eclipse.jetty:jetty-http:jar:9.4.48.v20220622:provided
+[INFO] |  |  \- org.eclipse.jetty:jetty-io:jar:9.4.48.v20220622:provided
+[INFO] |  +- org.eclipse.jetty:jetty-servlet:jar:9.4.48.v20220622:provided
+[INFO] |  |  +- org.eclipse.jetty:jetty-security:jar:9.4.48.v20220622:provided
+[INFO] |  |  \- org.eclipse.jetty:jetty-util-ajax:jar:9.4.48.v20220622:provided
+[INFO] |  +- org.eclipse.jetty:jetty-servlets:jar:9.4.48.v20220622:provided
+[INFO] |  |  +- org.eclipse.jetty:jetty-continuation:jar:9.4.48.v20220622:provided
+[INFO] |  |  \- org.eclipse.jetty:jetty-util:jar:9.4.48.v20220622:provided
+[INFO] |  +- org.eclipse.jetty:jetty-client:jar:9.4.48.v20220622:provided
+[INFO] |  +- org.reflections:reflections:jar:0.9.12:provided
+[INFO] |  +- org.apache.maven:maven-artifact:jar:3.8.4:provided
+[INFO] |  |  \- org.codehaus.plexus:plexus-utils:jar:3.3.0:provided
+[INFO] |  \- io.swagger.core.v3:swagger-annotations:jar:2.1.10:compile
+[INFO] +- org.apache.kafka:connect-json:jar:7.3.0-ccs:provided
+[INFO] +- org.apache.kafka:connect-file:jar:7.3.0-ccs:provided
+[INFO] +- io.confluent:common-utils:jar:7.3.0:compile
+[INFO] \- io.confluent:assembly-plugin-boilerplate:zip:resources:7.3.0:provided
+[INFO] 
+[INFO] ----------< io.confluent:kafka-schema-registry-maven-plugin >-----------
+[INFO] Building maven-plugin 7.3.0-0                                    [22/25]
+[INFO]   from maven-plugin/pom.xml
+[INFO] ----------------------------[ maven-plugin ]----------------------------
+[INFO] 
+[INFO] --- dependency:3.3.0:tree (default-cli) @ kafka-schema-registry-maven-plugin ---
+[INFO] io.confluent:kafka-schema-registry-maven-plugin:maven-plugin:7.3.0-0
+[INFO] +- org.apache.maven:maven-plugin-api:jar:3.8.1:compile
+[INFO] |  +- org.apache.maven:maven-model:jar:3.8.1:compile
+[INFO] |  +- org.apache.maven:maven-artifact:jar:3.8.1:compile
+[INFO] |  +- org.eclipse.sisu:org.eclipse.sisu.plexus:jar:0.3.4:compile
+[INFO] |  |  +- javax.enterprise:cdi-api:jar:1.0:compile
+[INFO] |  |  |  +- javax.annotation:jsr250-api:jar:1.0:compile
+[INFO] |  |  |  \- javax.inject:javax.inject:jar:1:compile
+[INFO] |  |  +- org.eclipse.sisu:org.eclipse.sisu.inject:jar:0.3.4:compile
+[INFO] |  |  \- org.codehaus.plexus:plexus-component-annotations:jar:1.5.5:compile
+[INFO] |  +- org.codehaus.plexus:plexus-utils:jar:3.2.1:compile
+[INFO] |  \- org.codehaus.plexus:plexus-classworlds:jar:2.6.0:compile
+[INFO] +- org.apache.maven.plugin-tools:maven-plugin-annotations:jar:3.6.0:compile
+[INFO] +- io.confluent:kafka-schema-registry-client:jar:7.3.0-0:compile
+[INFO] |  +- org.apache.kafka:kafka-clients:jar:7.3.0-ccs:compile
+[INFO] |  |  +- com.github.luben:zstd-jni:jar:1.5.2-1:runtime
+[INFO] |  |  +- org.lz4:lz4-java:jar:1.8.0:runtime
+[INFO] |  |  \- org.xerial.snappy:snappy-java:jar:1.1.8.4:runtime
+[INFO] |  +- org.apache.avro:avro:jar:1.11.0:compile
+[INFO] |  |  \- com.fasterxml.jackson.core:jackson-core:jar:2.13.2:compile
+[INFO] |  +- org.apache.commons:commons-compress:jar:1.21:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.13.2.2:compile
+[INFO] |  |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.13.2:compile
+[INFO] |  +- io.swagger.core.v3:swagger-annotations:jar:2.1.10:compile
+[INFO] |  \- com.google.guava:guava:jar:30.1.1-jre:compile
+[INFO] |     +- com.google.guava:failureaccess:jar:1.0.1:compile
+[INFO] |     +- com.google.guava:listenablefuture:jar:9999.0-empty-to-avoid-conflict-with-guava:compile
+[INFO] |     +- com.google.code.findbugs:jsr305:jar:3.0.2:compile
+[INFO] |     +- org.checkerframework:checker-qual:jar:3.8.0:compile
+[INFO] |     +- com.google.errorprone:error_prone_annotations:jar:2.5.1:compile
+[INFO] |     \- com.google.j2objc:j2objc-annotations:jar:1.3:compile
+[INFO] +- io.confluent:kafka-json-schema-provider:jar:7.3.0-0:compile
+[INFO] |  +- com.github.erosb:everit-json-schema:jar:1.14.1:compile
+[INFO] |  |  +- org.json:json:jar:20220320:compile
+[INFO] |  |  +- commons-validator:commons-validator:jar:1.7:compile
+[INFO] |  |  |  +- commons-digester:commons-digester:jar:2.1:compile
+[INFO] |  |  |  +- commons-logging:commons-logging:jar:1.2:compile
+[INFO] |  |  |  \- commons-collections:commons-collections:jar:3.2.2:compile
+[INFO] |  |  +- com.damnhandy:handy-uri-templates:jar:2.1.8:compile
+[INFO] |  |  \- com.google.re2j:re2j:jar:1.6:compile
+[INFO] |  +- com.fasterxml.jackson.datatype:jackson-datatype-guava:jar:2.13.2:compile
+[INFO] |  +- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.13.2:compile
+[INFO] |  +- com.fasterxml.jackson.datatype:jackson-datatype-joda:jar:2.13.2:compile
+[INFO] |  |  \- joda-time:joda-time:jar:2.10.8:compile
+[INFO] |  +- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.13.2:compile
+[INFO] |  +- com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.13.2:compile
+[INFO] |  +- com.kjetland:mbknor-jackson-jsonschema_2.13:jar:1.0.39:compile
+[INFO] |  |  +- org.scala-lang:scala-library:jar:2.13.5:compile
+[INFO] |  |  +- javax.validation:validation-api:jar:2.0.1.Final:compile
+[INFO] |  |  \- io.github.classgraph:classgraph:jar:4.8.21:compile
+[INFO] |  +- org.jetbrains.kotlin:kotlin-stdlib:jar:1.6.0:compile
+[INFO] |  |  +- org.jetbrains:annotations:jar:13.0:compile
+[INFO] |  |  \- org.jetbrains.kotlin:kotlin-stdlib-common:jar:1.6.0:compile
+[INFO] |  +- org.jetbrains.kotlin:kotlin-scripting-jvm:jar:1.6.0:compile
+[INFO] |  |  +- org.jetbrains.kotlin:kotlin-script-runtime:jar:1.6.0:compile
+[INFO] |  |  \- org.jetbrains.kotlin:kotlin-scripting-common:jar:1.6.0:compile
+[INFO] |  \- org.jetbrains.kotlin:kotlin-scripting-compiler-embeddable:jar:1.6.0:compile
+[INFO] |     \- org.jetbrains.kotlin:kotlin-scripting-compiler-impl-embeddable:jar:1.6.0:runtime
+[INFO] +- io.confluent:kafka-protobuf-provider:jar:7.3.0-0:compile
+[INFO] |  +- com.squareup.wire:wire-schema-jvm:jar:4.3.0:compile
+[INFO] |  |  +- org.jetbrains.kotlin:kotlin-stdlib-jdk8:jar:1.6.10:compile
+[INFO] |  |  |  \- org.jetbrains.kotlin:kotlin-stdlib-jdk7:jar:1.6.10:compile
+[INFO] |  |  \- com.squareup.okio:okio:jar:3.0.0:compile
+[INFO] |  +- com.squareup.wire:wire-runtime-jvm:jar:4.3.0:compile
+[INFO] |  +- com.squareup.okio:okio-jvm:jar:3.0.0:compile
+[INFO] |  +- org.apache.commons:commons-lang3:jar:3.12.0:compile
+[INFO] |  +- com.google.protobuf:protobuf-java:jar:3.19.4:compile
+[INFO] |  +- com.google.protobuf:protobuf-java-util:jar:3.19.4:compile
+[INFO] |  |  \- com.google.code.gson:gson:jar:2.9.0:compile
+[INFO] |  +- com.google.api.grpc:proto-google-common-protos:jar:2.5.1:compile
+[INFO] |  \- io.confluent:kafka-protobuf-types:jar:7.3.0-0:compile
+[INFO] +- junit:junit:jar:4.13.2:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] +- io.confluent:common-utils:jar:7.3.0:compile
+[INFO] |  \- org.slf4j:slf4j-api:jar:1.7.36:compile
+[INFO] \- io.confluent:assembly-plugin-boilerplate:zip:resources:7.3.0:provided
+[INFO] 
+[INFO] ----------------< io.confluent:client-console-scripts >-----------------
+[INFO] Building client-console-scripts 7.3.0-0                          [23/25]
+[INFO]   from client-console-scripts/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.3.0:tree (default-cli) @ client-console-scripts ---
+[INFO] io.confluent:client-console-scripts:pom:7.3.0-0
+[INFO] +- io.confluent:common-utils:jar:7.3.0:compile
+[INFO] |  \- org.slf4j:slf4j-api:jar:1.7.36:compile
+[INFO] \- io.confluent:assembly-plugin-boilerplate:zip:resources:7.3.0:provided
+[INFO] 
+[INFO] ------------< io.confluent:schema-registry-console-scripts >------------
+[INFO] Building schema-registry-console-scripts 7.3.0-0                 [24/25]
+[INFO]   from schema-registry-console-scripts/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.3.0:tree (default-cli) @ schema-registry-console-scripts ---
+[INFO] io.confluent:schema-registry-console-scripts:pom:7.3.0-0
+[INFO] +- io.confluent:common-utils:jar:7.3.0:compile
+[INFO] |  \- org.slf4j:slf4j-api:jar:1.7.36:compile
+[INFO] \- io.confluent:assembly-plugin-boilerplate:zip:resources:7.3.0:provided
+[INFO] 
+[INFO] ------------< io.confluent:kafka-schema-registry-benchmark >------------
+[INFO] Building kafka-schema-registry-benchmark 7.3.0-0                 [25/25]
+[INFO]   from benchmark/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.3.0:tree (default-cli) @ kafka-schema-registry-benchmark ---
+[INFO] io.confluent:kafka-schema-registry-benchmark:jar:7.3.0-0
+[INFO] +- org.openjdk.jmh:jmh-core:jar:1.21:compile
+[INFO] |  +- net.sf.jopt-simple:jopt-simple:jar:4.6:compile
+[INFO] |  \- org.apache.commons:commons-math3:jar:3.2:compile
+[INFO] +- org.openjdk.jmh:jmh-generator-annprocess:jar:1.21:compile
+[INFO] +- io.confluent:kafka-schema-registry:jar:7.3.0-0:compile
+[INFO] |  +- io.confluent:kafka-schema-registry-client:jar:7.3.0-0:compile
+[INFO] |  |  \- com.fasterxml.jackson.core:jackson-databind:jar:2.13.2.2:compile
+[INFO] |  +- io.confluent:kafka-json-schema-provider:jar:7.3.0-0:compile
+[INFO] |  |  +- com.github.erosb:everit-json-schema:jar:1.14.1:compile
+[INFO] |  |  |  +- org.json:json:jar:20220320:compile
+[INFO] |  |  |  +- commons-validator:commons-validator:jar:1.7:compile
+[INFO] |  |  |  |  +- commons-digester:commons-digester:jar:2.1:compile
+[INFO] |  |  |  |  +- commons-logging:commons-logging:jar:1.2:compile
+[INFO] |  |  |  |  \- commons-collections:commons-collections:jar:3.2.2:compile
+[INFO] |  |  |  \- com.damnhandy:handy-uri-templates:jar:2.1.8:compile
+[INFO] |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-guava:jar:2.13.2:compile
+[INFO] |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.13.2:compile
+[INFO] |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-joda:jar:2.13.2:compile
+[INFO] |  |  |  \- joda-time:joda-time:jar:2.10.8:compile
+[INFO] |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.13.2:compile
+[INFO] |  |  +- com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.13.2:compile
+[INFO] |  |  +- com.kjetland:mbknor-jackson-jsonschema_2.13:jar:1.0.39:compile
+[INFO] |  |  |  +- javax.validation:validation-api:jar:2.0.1.Final:compile
+[INFO] |  |  |  \- io.github.classgraph:classgraph:jar:4.8.21:compile
+[INFO] |  |  +- org.jetbrains.kotlin:kotlin-stdlib:jar:1.6.0:compile
+[INFO] |  |  |  +- org.jetbrains:annotations:jar:13.0:compile
+[INFO] |  |  |  \- org.jetbrains.kotlin:kotlin-stdlib-common:jar:1.6.0:compile
+[INFO] |  |  +- org.jetbrains.kotlin:kotlin-scripting-jvm:jar:1.6.0:compile
+[INFO] |  |  |  +- org.jetbrains.kotlin:kotlin-script-runtime:jar:1.6.0:compile
+[INFO] |  |  |  \- org.jetbrains.kotlin:kotlin-scripting-common:jar:1.6.0:compile
+[INFO] |  |  \- org.jetbrains.kotlin:kotlin-scripting-compiler-embeddable:jar:1.6.0:compile
+[INFO] |  |     \- org.jetbrains.kotlin:kotlin-scripting-compiler-impl-embeddable:jar:1.6.0:runtime
+[INFO] |  +- io.confluent:kafka-protobuf-provider:jar:7.3.0-0:compile
+[INFO] |  |  +- com.squareup.wire:wire-schema-jvm:jar:4.3.0:compile
+[INFO] |  |  |  +- org.jetbrains.kotlin:kotlin-stdlib-jdk8:jar:1.6.10:compile
+[INFO] |  |  |  |  \- org.jetbrains.kotlin:kotlin-stdlib-jdk7:jar:1.6.10:compile
+[INFO] |  |  |  \- com.squareup.okio:okio:jar:3.0.0:compile
+[INFO] |  |  +- com.squareup.wire:wire-runtime-jvm:jar:4.3.0:compile
+[INFO] |  |  +- com.squareup.okio:okio-jvm:jar:3.0.0:compile
+[INFO] |  |  +- org.apache.commons:commons-lang3:jar:3.12.0:compile
+[INFO] |  |  +- com.google.protobuf:protobuf-java:jar:3.19.4:compile
+[INFO] |  |  \- com.google.api.grpc:proto-google-common-protos:jar:2.5.1:compile
+[INFO] |  +- org.apache.kafka:kafka_2.13:jar:7.3.0-ccs:compile
+[INFO] |  |  +- org.scala-lang:scala-library:jar:2.13.5:compile
+[INFO] |  |  +- org.apache.kafka:kafka-server-common:jar:7.3.0-ccs:runtime
+[INFO] |  |  +- org.apache.kafka:kafka-metadata:jar:7.3.0-ccs:runtime
+[INFO] |  |  +- org.apache.kafka:kafka-raft:jar:7.3.0-ccs:runtime
+[INFO] |  |  +- org.apache.kafka:kafka-storage:jar:7.3.0-ccs:runtime
+[INFO] |  |  |  \- org.apache.kafka:kafka-storage-api:jar:7.3.0-ccs:runtime
+[INFO] |  |  +- net.sourceforge.argparse4j:argparse4j:jar:0.7.0:runtime
+[INFO] |  |  +- com.fasterxml.jackson.module:jackson-module-scala_2.13:jar:2.13.2:runtime
+[INFO] |  |  |  \- com.thoughtworks.paranamer:paranamer:jar:2.8:runtime
+[INFO] |  |  +- com.fasterxml.jackson.dataformat:jackson-dataformat-csv:jar:2.13.2:runtime
+[INFO] |  |  +- org.bitbucket.b_c:jose4j:jar:0.7.9:runtime
+[INFO] |  |  +- com.yammer.metrics:metrics-core:jar:2.2.0:runtime
+[INFO] |  |  +- org.scala-lang.modules:scala-collection-compat_2.13:jar:2.6.0:runtime
+[INFO] |  |  +- org.scala-lang.modules:scala-java8-compat_2.13:jar:1.0.2:runtime
+[INFO] |  |  +- org.scala-lang:scala-reflect:jar:2.13.5:runtime
+[INFO] |  |  +- com.typesafe.scala-logging:scala-logging_2.13:jar:3.9.4:runtime
+[INFO] |  |  +- io.dropwizard.metrics:metrics-core:jar:4.1.12.1:runtime
+[INFO] |  |  \- commons-cli:commons-cli:jar:1.4:runtime
+[INFO] |  +- org.apache.kafka:kafka-clients:jar:7.3.0-ccs:compile
+[INFO] |  |  +- com.github.luben:zstd-jni:jar:1.5.2-1:runtime
+[INFO] |  |  +- org.lz4:lz4-java:jar:1.8.0:runtime
+[INFO] |  |  \- org.xerial.snappy:snappy-java:jar:1.1.8.4:runtime
+[INFO] |  +- org.glassfish.jersey.ext:jersey-bean-validation:jar:2.36:compile
+[INFO] |  |  +- org.glassfish.hk2.external:jakarta.inject:jar:2.6.1:compile
+[INFO] |  |  +- org.glassfish.jersey.core:jersey-common:jar:2.36:compile
+[INFO] |  |  |  +- jakarta.annotation:jakarta.annotation-api:jar:1.3.5:compile
+[INFO] |  |  |  \- org.glassfish.hk2:osgi-resource-locator:jar:1.0.3:compile
+[INFO] |  |  +- org.glassfish.jersey.core:jersey-server:jar:2.36:compile
+[INFO] |  |  |  \- org.glassfish.jersey.core:jersey-client:jar:2.36:compile
+[INFO] |  |  +- jakarta.validation:jakarta.validation-api:jar:2.0.2:compile
+[INFO] |  |  +- jakarta.el:jakarta.el-api:jar:4.0.0:compile
+[INFO] |  |  +- org.glassfish:jakarta.el:jar:3.0.4:compile
+[INFO] |  |  \- jakarta.ws.rs:jakarta.ws.rs-api:jar:2.1.6:compile
+[INFO] |  +- org.hibernate.validator:hibernate-validator:jar:6.1.7.Final:compile
+[INFO] |  |  +- org.jboss.logging:jboss-logging:jar:3.3.2.Final:compile
+[INFO] |  |  \- com.fasterxml:classmate:jar:1.3.4:compile
+[INFO] |  +- io.confluent:rest-utils:jar:7.3.0:compile
+[INFO] |  |  +- org.eclipse.jetty.websocket:javax-websocket-server-impl:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  +- org.eclipse.jetty:jetty-annotations:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  |  +- org.eclipse.jetty:jetty-plus:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  |  |  \- org.eclipse.jetty:jetty-jndi:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  |  +- org.eclipse.jetty:jetty-webapp:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  |  |  \- org.eclipse.jetty:jetty-xml:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  |  +- javax.annotation:javax.annotation-api:jar:1.3.2:compile
+[INFO] |  |  |  |  +- org.ow2.asm:asm:jar:9.3:compile
+[INFO] |  |  |  |  \- org.ow2.asm:asm-commons:jar:9.3:compile
+[INFO] |  |  |  |     +- org.ow2.asm:asm-tree:jar:9.3:compile
+[INFO] |  |  |  |     \- org.ow2.asm:asm-analysis:jar:9.3:compile
+[INFO] |  |  |  +- org.eclipse.jetty.websocket:javax-websocket-client-impl:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  |  +- org.eclipse.jetty.websocket:websocket-client:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  |  |  \- org.eclipse.jetty:jetty-client:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  |  \- javax.websocket:javax.websocket-client-api:jar:1.0:compile
+[INFO] |  |  |  +- org.eclipse.jetty.websocket:websocket-server:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  |  +- org.eclipse.jetty.websocket:websocket-common:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  |  |  \- org.eclipse.jetty.websocket:websocket-api:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  |  \- org.eclipse.jetty.websocket:websocket-servlet:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  \- javax.websocket:javax.websocket-api:jar:1.0:compile
+[INFO] |  |  +- org.glassfish.jersey.containers:jersey-container-servlet:jar:2.36:compile
+[INFO] |  |  |  \- org.glassfish.jersey.containers:jersey-container-servlet-core:jar:2.36:compile
+[INFO] |  |  +- org.glassfish.jersey.inject:jersey-hk2:jar:2.36:compile
+[INFO] |  |  |  +- org.glassfish.hk2:hk2-locator:jar:2.6.1:compile
+[INFO] |  |  |  |  +- org.glassfish.hk2.external:aopalliance-repackaged:jar:2.6.1:compile
+[INFO] |  |  |  |  +- org.glassfish.hk2:hk2-api:jar:2.6.1:compile
+[INFO] |  |  |  |  \- org.glassfish.hk2:hk2-utils:jar:2.6.1:compile
+[INFO] |  |  |  \- org.javassist:javassist:jar:3.25.0-GA:compile
+[INFO] |  |  +- javax.xml.bind:jaxb-api:jar:2.3.0:compile
+[INFO] |  |  +- javax.activation:activation:jar:1.1.1:compile
+[INFO] |  |  +- org.eclipse.jetty:jetty-jmx:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  \- org.eclipse.jetty:jetty-util:jar:9.4.48.v20220622:compile
+[INFO] |  |  +- org.eclipse.jetty:jetty-server:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  +- javax.servlet:javax.servlet-api:jar:3.1.0:compile
+[INFO] |  |  |  +- org.eclipse.jetty:jetty-http:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  \- org.eclipse.jetty:jetty-io:jar:9.4.48.v20220622:compile
+[INFO] |  |  +- org.eclipse.jetty.http2:http2-server:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  \- org.eclipse.jetty.http2:http2-common:jar:9.4.48.v20220622:compile
+[INFO] |  |  |     \- org.eclipse.jetty.http2:http2-hpack:jar:9.4.48.v20220622:compile
+[INFO] |  |  +- org.eclipse.jetty:jetty-alpn-server:jar:9.4.48.v20220622:compile
+[INFO] |  |  +- org.eclipse.jetty:jetty-alpn-java-server:jar:9.4.48.v20220622:runtime
+[INFO] |  |  +- org.eclipse.jetty:jetty-servlet:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  +- org.eclipse.jetty:jetty-security:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  \- org.eclipse.jetty:jetty-util-ajax:jar:9.4.48.v20220622:compile
+[INFO] |  |  +- org.eclipse.jetty:jetty-servlets:jar:9.4.48.v20220622:compile
+[INFO] |  |  |  \- org.eclipse.jetty:jetty-continuation:jar:9.4.48.v20220622:compile
+[INFO] |  |  +- org.eclipse.jetty:jetty-jaas:jar:9.4.48.v20220622:compile
+[INFO] |  |  +- com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:jar:2.13.2:compile
+[INFO] |  |  |  \- com.fasterxml.jackson.module:jackson-module-jaxb-annotations:jar:2.13.2:compile
+[INFO] |  |  +- com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:jar:2.13.2:compile
+[INFO] |  |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.13.2:compile
+[INFO] |  +- org.slf4j:slf4j-reload4j:jar:1.7.36:compile
+[INFO] |  |  \- ch.qos.reload4j:reload4j:jar:1.2.19:compile
+[INFO] |  +- io.confluent:logredactor:jar:1.0.10:compile
+[INFO] |  |  +- com.google.re2j:re2j:jar:1.6:compile
+[INFO] |  |  +- io.confluent:logredactor-metrics:jar:1.0.10:compile
+[INFO] |  |  \- com.eclipsesource.minimal-json:minimal-json:jar:0.9.5:compile
+[INFO] |  +- com.google.guava:guava:jar:30.1.1-jre:compile
+[INFO] |  |  +- com.google.guava:failureaccess:jar:1.0.1:compile
+[INFO] |  |  +- com.google.guava:listenablefuture:jar:9999.0-empty-to-avoid-conflict-with-guava:compile
+[INFO] |  |  +- com.google.code.findbugs:jsr305:jar:3.0.2:compile
+[INFO] |  |  +- org.checkerframework:checker-qual:jar:3.8.0:compile
+[INFO] |  |  +- com.google.errorprone:error_prone_annotations:jar:2.5.1:compile
+[INFO] |  |  \- com.google.j2objc:j2objc-annotations:jar:1.3:compile
+[INFO] |  +- org.apache.avro:avro:jar:1.11.0:compile
+[INFO] |  |  \- com.fasterxml.jackson.core:jackson-core:jar:2.13.2:compile
+[INFO] |  +- org.apache.commons:commons-compress:jar:1.21:compile
+[INFO] |  +- org.apache.zookeeper:zookeeper:jar:3.6.3:compile
+[INFO] |  |  +- org.apache.zookeeper:zookeeper-jute:jar:3.6.3:compile
+[INFO] |  |  \- org.apache.yetus:audience-annotations:jar:0.5.0:compile
+[INFO] |  +- io.netty:netty-codec:jar:4.1.79.Final:compile
+[INFO] |  |  +- io.netty:netty-common:jar:4.1.79.Final:compile
+[INFO] |  |  +- io.netty:netty-buffer:jar:4.1.79.Final:compile
+[INFO] |  |  \- io.netty:netty-transport:jar:4.1.79.Final:compile
+[INFO] |  |     \- io.netty:netty-resolver:jar:4.1.79.Final:compile
+[INFO] |  +- io.swagger.core.v3:swagger-annotations:jar:2.1.10:compile
+[INFO] |  \- io.swagger.core.v3:swagger-core:jar:2.1.10:compile
+[INFO] |     +- jakarta.xml.bind:jakarta.xml.bind-api:jar:2.3.2:compile
+[INFO] |     |  \- jakarta.activation:jakarta.activation-api:jar:1.2.1:compile
+[INFO] |     +- com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:jar:2.13.2:compile
+[INFO] |     |  \- org.yaml:snakeyaml:jar:1.30:compile
+[INFO] |     \- io.swagger.core.v3:swagger-models:jar:2.1.10:compile
+[INFO] +- io.confluent:kafka-avro-serializer:jar:7.3.0-0:compile
+[INFO] |  \- io.confluent:kafka-schema-serializer:jar:7.3.0-0:compile
+[INFO] +- io.confluent:kafka-json-schema-serializer:jar:7.3.0-0:compile
+[INFO] |  \- io.confluent:kafka-json-serializer:jar:7.3.0-0:compile
+[INFO] |     \- io.confluent:common-config:jar:7.3.0:compile
+[INFO] +- io.confluent:kafka-protobuf-serializer:jar:7.3.0-0:compile
+[INFO] |  +- io.confluent:kafka-protobuf-types:jar:7.3.0-0:compile
+[INFO] |  \- com.google.protobuf:protobuf-java-util:jar:3.19.4:compile
+[INFO] |     \- com.google.code.gson:gson:jar:2.9.0:compile
+[INFO] +- junit:junit:jar:4.12:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] +- io.confluent:common-utils:jar:7.3.0:compile
+[INFO] |  \- org.slf4j:slf4j-api:jar:1.7.36:compile
+[INFO] \- io.confluent:assembly-plugin-boilerplate:zip:resources:7.3.0:provided
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for kafka-schema-registry-parent 7.3.0-0:
+[INFO] 
+[INFO] kafka-schema-registry-parent ....................... SUCCESS [  0.979 s]
+[INFO] kafka-schema-registry-client ....................... SUCCESS [  0.115 s]
+[INFO] kafka-json-schema-provider ......................... SUCCESS [  0.088 s]
+[INFO] kafka-protobuf-types ............................... SUCCESS [  0.027 s]
+[INFO] kafka-protobuf-provider ............................ SUCCESS [  0.071 s]
+[INFO] kafka-schema-serializer ............................ SUCCESS [  0.017 s]
+[INFO] kafka-avro-serializer .............................. SUCCESS [  0.027 s]
+[INFO] kafka-schema-registry .............................. SUCCESS [  0.542 s]
+[INFO] kafka-json-serializer .............................. SUCCESS [  0.017 s]
+[INFO] kafka-schema-converter ............................. SUCCESS [  0.012 s]
+[INFO] kafka-connect-avro-data ............................ SUCCESS [  0.048 s]
+[INFO] kafka-connect-avro-converter ....................... SUCCESS [  0.017 s]
+[INFO] kafka-schema-registry-package ...................... SUCCESS [  0.035 s]
+[INFO] kafka-streams-avro-serde ........................... SUCCESS [  0.021 s]
+[INFO] kafka-json-schema-serializer ....................... SUCCESS [  0.018 s]
+[INFO] kafka-connect-json-schema-converter ................ SUCCESS [  0.019 s]
+[INFO] kafka-streams-json-schema-serde .................... SUCCESS [  0.013 s]
+[INFO] kafka-protobuf-serializer .......................... SUCCESS [  0.036 s]
+[INFO] kafka-connect-protobuf-converter ................... SUCCESS [  0.012 s]
+[INFO] kafka-streams-protobuf-serde ....................... SUCCESS [  0.011 s]
+[INFO] kafka-serde-tools-package .......................... SUCCESS [  0.037 s]
+[INFO] maven-plugin ....................................... SUCCESS [  0.037 s]
+[INFO] client-console-scripts ............................. SUCCESS [  0.006 s]
+[INFO] schema-registry-console-scripts .................... SUCCESS [  0.006 s]
+[INFO] kafka-schema-registry-benchmark .................... SUCCESS [  0.058 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  3.798 s
+[INFO] Finished at: 2025-09-01T17:13:49+08:00
+[INFO] ------------------------------------------------------------------------

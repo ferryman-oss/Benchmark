@@ -1,0 +1,25 @@
+{
+  "id": "apache__GT__pulsar__1",
+  "client_project_name": "apache/pulsar",
+  "github_url": "https://github.com/apache/pulsar",
+  "before_migration_commit_hash": "5af7d3feac568f28245bc7a20ac425bed3bdc8c5",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "",
+    "pulsar-websocket",
+    "pulsar-client",
+    "pulsar-client-admin",
+    "pulsar-broker"
+  ],
+  "jdk_version": "1.8",
+  "original_library_list": [
+    "org.json:json:20090211"
+  ],
+  "target_library_list": [
+    "com.google.code.gson:gson:2.8.0"
+  ],
+  "commit_pr_url": "https://github.com/apache/pulsar/pull/130"
+}

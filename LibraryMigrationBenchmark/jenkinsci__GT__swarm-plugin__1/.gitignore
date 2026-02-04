@@ -1,0 +1,13 @@
+target/
+work*/
+release.properties
+*.releaseBackup
+
+# IntelliJ project files
+*.iml
+.idea/
+
+# eclipse project file
+.project
+.settings/
+.classpath

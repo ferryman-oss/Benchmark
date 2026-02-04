@@ -1,0 +1,21 @@
+{
+  "id": "nlsfi__GT__oskari-server-extras__1",
+  "client_project_name": "nlsfi/oskari-server-extras",
+  "github_url": "https://github.com/nlsfi/oskari-server-extras",
+  "before_migration_commit_hash": "7bb48e3e28db806c0be03ad0947d35e8a18681b9",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "service-terrain-profile",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "com.netflix.hystrix:hystrix-core:1.5.18"
+  ],
+  "target_library_list": [
+    "io.github.resilience4j:resilience4j-all:2.3.0"
+  ],
+  "commit_pr_url": "https://github.com/nlsfi/oskari-server-extras/pull/36"
+}

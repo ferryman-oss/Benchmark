@@ -1,0 +1,21 @@
+{
+  "id": "IBM__GT__kafka-connect-loosehangerjeans-source__1",
+  "client_project_name": "IBM/kafka-connect-loosehangerjeans-source",
+  "github_url": "https://github.com/IBM/kafka-connect-loosehangerjeans-source",
+  "before_migration_commit_hash": "c2507aa",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "21",
+  "original_library_list": [
+    "com.github.javafaker:javafaker:1.0.2"
+  ],
+  "target_library_list": [
+    "net.datafaker:datafaker:2.5.0"
+  ],
+  "commit_pr_url": "https://github.com/IBM/kafka-connect-loosehangerjeans-source/pull/19"
+}

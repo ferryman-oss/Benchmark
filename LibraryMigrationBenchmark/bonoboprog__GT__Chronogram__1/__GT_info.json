@@ -1,0 +1,21 @@
+{
+  "id": "bonoboprog__GT__Chronogram__1",
+  "client_project_name": "bonoboprog/Chronogram",
+  "github_url": "https://github.com/bonoboprog/Chronogram",
+  "before_migration_commit_hash": "aeba65c60e1f075843a983d7fc1315919b6d8b75",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "backend",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "21",
+  "original_library_list": [
+    "org.mindrot:jbcrypt:0.4"
+  ],
+  "target_library_list": [
+    "org.springframework.security:spring-security-crypto:6.4.4"
+  ],
+  "commit_pr_url": "https://github.com/bonoboprog/Chronogram/pull/5"
+}

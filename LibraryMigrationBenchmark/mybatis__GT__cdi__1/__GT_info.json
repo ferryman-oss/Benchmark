@@ -1,0 +1,21 @@
+{
+  "id": "mybatis__GT__cdi__1",
+  "client_project_name": "mybatis/cdi",
+  "github_url": "https://github.com/mybatis/cdi",
+  "before_migration_commit_hash": "ffe525607fbc831795e963c9243c9e82b93054ff",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "com.atomikos:transactions-jdbc:5.0.9"
+  ],
+  "target_library_list": [
+    "org.jboss.narayana.jta:narayana-jta-jakarta:5.13.1.Final"
+  ],
+  "commit_pr_url": "https://github.com/mybatis/cdi/pull/363"
+}

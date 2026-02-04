@@ -1,0 +1,22 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form" xmlns:c="/lib/credentials">
+
+    <f:entry title="${%Name}" field="name">
+        <f:textbox/>
+    </f:entry>
+
+    <f:entry title="${%Credentials}" field="credentialsId"
+             description="${%Credentials_DESC}">
+        <c:select checkMethod="post"/>
+    </f:entry>
+
+    <f:validateButton title="${%Test Connection}" progress="${%Testing...}" method="testConnection" with="credentialsId" />
+
+    <f:entry title="${%SSHPrivateKey}" field="sshKeysCredentialsId">
+        <c:select includeUser="false" checkMethod="post"/>
+    </f:entry>
+
+    <f:entry title="${%AuthSleepMS}" field="authSleepMs" description="${%AuthSleepMS_DESC}">
+        <f:textbox default="300000"/>
+    </f:entry>
+</j:jelly>

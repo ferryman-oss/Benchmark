@@ -1,0 +1,23 @@
+{
+  "id": "ai-for-java__GT__openai4j__1",
+  "client_project_name": "ai-for-java/openai4j",
+  "github_url": "https://github.com/ai-for-java/openai4j",
+  "before_migration_commit_hash": "d574e94",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "com.squareup.retrofit2:converter-gson:2.9.0",
+    "com.google.code.gson:gson:2.8.9"
+  ],
+  "target_library_list": [
+    "com.squareup.retrofit2:converter-jackson:2.9.0",
+    "com.fasterxml.jackson.core:jackson-databind:2.17.2"
+  ],
+  "commit_pr_url": "https://github.com/ai-for-java/openai4j/pull/35"
+}

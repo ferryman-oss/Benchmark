@@ -1,0 +1,76 @@
+package com.saucelabs.saucerest.integration;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import com.saucelabs.saucerest.DataCenter;
+import com.saucelabs.saucerest.SauceREST;
+import com.saucelabs.saucerest.api.PlatformEndpoint;
+import com.saucelabs.saucerest.model.platform.EndOfLifeAppiumVersions;
+import com.saucelabs.saucerest.model.platform.SupportedPlatforms;
+import com.saucelabs.saucerest.model.platform.TestStatus;
+import java.io.IOException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.EnumSource;
+
+public class PlatformEndpointTest {
+    private final ThreadLocal<PlatformEndpoint> platform = new ThreadLocal<>();
+
+    public void setup(DataCenter dataCenter) {
+        platform.set(new SauceREST(dataCenter).getPlatformEndpoint());
+    }
+
+    @ParameterizedTest
+    @EnumSource(DataCenter.class)
+    public void getTestStatus(DataCenter dataCenter) throws IOException {
+        setup(dataCenter);
+
+        TestStatus testStatus = platform.get().getTestStatus();
+
+        assertNotNull(testStatus);
+        assertNotNull(testStatus.statusMessage);
+    }
+
+    @ParameterizedTest
+    @EnumSource(DataCenter.class)
+    public void getAllSupportedPlatforms(DataCenter dataCenter) throws IOException {
+        setup(dataCenter);
+
+        SupportedPlatforms supportedPlatforms = platform.get().getSupportedPlatforms("all");
+
+        assertNotNull(supportedPlatforms);
+        supportedPlatforms.getPlatforms().forEach(platform -> assertTrue((platform.automationBackend.equals("appium")) || (platform.automationBackend.equals("webdriver"))));
+    }
+
+    @ParameterizedTest
+    @EnumSource(DataCenter.class)
+    public void getAppiumSupportedPlatforms(DataCenter dataCenter) throws IOException {
+        setup(dataCenter);
+
+        SupportedPlatforms supportedPlatforms = platform.get().getSupportedPlatforms("appium");
+
+        assertNotNull(supportedPlatforms);
+        supportedPlatforms.getPlatforms().forEach(platform -> Assertions.assertEquals("appium", platform.automationBackend));
+    }
+
+    @ParameterizedTest
+    @EnumSource(DataCenter.class)
+    public void getWebdriverSupportedPlatforms(DataCenter dataCenter) throws IOException {
+        setup(dataCenter);
+
+        SupportedPlatforms supportedPlatforms = platform.get().getSupportedPlatforms("webdriver");
+
+        assertNotNull(supportedPlatforms);
+        supportedPlatforms.getPlatforms().forEach(platform -> Assertions.assertEquals("webdriver", platform.automationBackend));
+    }
+
+    @ParameterizedTest
+    @EnumSource(DataCenter.class)
+    public void getEndOfLifeAppiumVersions(DataCenter dataCenter) throws IOException {
+        setup(dataCenter);
+
+        EndOfLifeAppiumVersions endOfLifeAppiumVersions = platform.get().getEndOfLifeAppiumVersions();
+
+        assertNotEquals(0, endOfLifeAppiumVersions.getAppiumVersionList().size());
+    }
+}

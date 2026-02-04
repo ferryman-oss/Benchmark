@@ -1,0 +1,24 @@
+init_config:
+
+instances:
+    -   process_name_regex: .*surefire.*
+        name: jmx_test_instance1
+        conf:
+            - include:
+               domain: org.datadog.jmxfetch.test
+               attribute:
+                    ShouldBe100:
+                        metric_type: gauge
+                        alias: this.is.100.$foo.$qux
+                    ShouldBe1000:
+                        metric_type: gauge
+                        alias: this.is.thousand.$value
+                    ShouldBeConverted:
+                        metric_type: gauge
+                        alias: this.is.five.$value
+                        values:
+                            ShouldBe0: 0
+                            ShouldBe5: 5
+                    Hashmap.thisis0:
+                        metric_type: gauge
+                        alias: $domain.$qux.$attribute

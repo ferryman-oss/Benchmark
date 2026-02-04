@@ -1,0 +1,23 @@
+{
+  "id": "jenkinsci__GT__sonar-quality-gates-plugin__1",
+  "client_project_name": "jenkinsci/sonar-quality-gates-plugin",
+  "github_url": "https://github.com/jenkinsci/sonar-quality-gates-plugin",
+  "before_migration_commit_hash": "1ad7d3e54436f3031eb7fab8af56586cb0100663",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "org.apache.httpcomponents:httpcore:4.4.16",
+    "org.apache.httpcomponents:httpclient:4.5.14"
+  ],
+  "target_library_list": [
+    "org.apache.httpcomponents.client5:httpclient5:5.3.1",
+    "org.apache.httpcomponents.core5:httpcore5:5.3.2"
+  ],
+  "commit_pr_url": "https://github.com/jenkinsci/sonar-quality-gates-plugin/pull/57"
+}

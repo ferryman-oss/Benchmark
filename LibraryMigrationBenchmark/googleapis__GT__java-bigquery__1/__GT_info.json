@@ -1,0 +1,21 @@
+{
+  "id": "googleapis__GT__java-bigquery__1",
+  "client_project_name": "googleapis/java-bigquery",
+  "github_url": "https://github.com/googleapis/java-bigquery",
+  "before_migration_commit_hash": "8d349f6693d955c702628f20376bbc03f9f41d9b",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "google-cloud-bigquery"
+  ],
+  "jdk_version": "21",
+  "original_library_list": [
+    "com.google.http-client:google-http-client-jackson2:1.42.3"
+  ],
+  "target_library_list": [
+    "com.google.http-client:google-http-client-gson:1.42.3"
+  ],
+  "commit_pr_url": "https://github.com/googleapis/java-bigquery/pull/2471"
+}

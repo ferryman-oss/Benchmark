@@ -1,0 +1,22 @@
+{
+  "id": "premium-minds__GT__billy__1",
+  "client_project_name": "premium-minds/billy",
+  "github_url": "https://github.com/premium-minds/billy",
+  "before_migration_commit_hash": "dadcd4711b0bf9b100cc0b3dc7ba5652e2f4ea95",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "billy-gin"
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "com.google.zxing:core:3.5.1",
+    "com.google.zxing:javase:3.5.1"
+  ],
+  "target_library_list": [
+    "io.nayuki:qrcodegen:1.8.0"
+  ],
+  "commit_pr_url": "https://github.com/premium-minds/billy/pull/434"
+}

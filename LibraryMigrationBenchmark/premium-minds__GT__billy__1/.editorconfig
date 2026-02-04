@@ -1,0 +1,15 @@
+; EditorConfig file for billy
+
+root = true
+
+[*]
+end_of_line = LF
+trim_trailing_whitespace = true
+
+[*.java]
+indent_style = tab 
+indent_size = 4
+
+[*.xml]
+indent_style = tab
+indent_size = 4

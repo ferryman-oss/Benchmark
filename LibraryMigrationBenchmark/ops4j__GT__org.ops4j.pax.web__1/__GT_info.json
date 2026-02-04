@@ -1,0 +1,32 @@
+{
+  "id": "ops4j__GT__org.ops4j.pax.web__1",
+  "client_project_name": "ops4j/org.ops4j.pax.web",
+  "github_url": "https://github.com/ops4j/org.ops4j.pax.web",
+  "before_migration_commit_hash": "0dc5b764f1e83d4784e05c6cf5abc2d3b64c597d",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "",
+    "itest",
+    "pax-web-spi",
+    "pax-web-runtime",
+    "pax-web-jsp",
+    "pax-web-jetty",
+    "pax-web-deployer",
+    "pax-web-extender-war",
+    "pax-web-extender-whiteboard",
+    "samples/whiteboard"
+  ],
+  "jdk_version": "1.8",
+  "original_library_list": [
+    "commons-logging:commons-logging:1.1.1"
+  ],
+  "target_library_list": [
+    "org.slf4j:slf4j-api:1.6.1",
+    "org.ops4j.pax.logging:pax-logging-api:1.6.0",
+    "org.ops4j.pax.logging:pax-logging-service:1.6.0"
+  ],
+  "commit_pr_url": "https://github.com/ops4j/org.ops4j.pax.web/commit/27ccddac552c64f85de24de7479ac137193f6698"
+}

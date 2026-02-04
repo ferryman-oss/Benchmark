@@ -1,0 +1,21 @@
+{
+  "id": "dflib__GT__dflib__1",
+  "client_project_name": "dflib/dflib",
+  "github_url": "https://github.com/dflib/dflib",
+  "before_migration_commit_hash": "6c11a736f4e4d4feb1d4f0c38e18ac4b53129ab4",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "dflib-jupyter"
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "io.github.spencerpark:jupyter-jvm-basekernel:2.3.0"
+  ],
+  "target_library_list": [
+    "org.dflib.jjava:jupyter-jvm-basekernel:1.0-M3"
+  ],
+  "commit_pr_url": "https://github.com/dflib/dflib/pull/321"
+}

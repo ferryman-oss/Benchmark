@@ -1,0 +1,21 @@
+{
+  "id": "ibinti__GT__bugvm__1",
+  "client_project_name": "ibinti/bugvm",
+  "github_url": "https://github.com/ibinti/bugvm",
+  "before_migration_commit_hash": "fdbe69a4bfc28651ab78bb77977288541d6c363f",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "compiler"
+  ],
+  "jdk_version": "1.8",
+  "original_library_list": [
+    "org.json:json:20131018"
+  ],
+  "target_library_list": [
+    "com.googlecode.json-simple:json-simple:1.1.1"
+  ],
+  "commit_pr_url": "https://github.com/ibinti/bugvm/commit/0e0e589223200b6a1b0fc70f54c1764787efc8b7"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "senzing-garage__GT__senzing-commons-java__1",
+  "client_project_name": "senzing-garage/senzing-commons-java",
+  "github_url": "https://github.com/senzing-garage/senzing-commons-java",
+  "before_migration_commit_hash": "85d34895e1a4c57fbf8917acc9f4468f845cc61c",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "org.ini4j:ini4j:0.5.4"
+  ],
+  "target_library_list": [
+    "org.apache.commons:commons-configuration2:2.9.0"
+  ],
+  "commit_pr_url": "https://github.com/senzing-garage/senzing-commons-java/pull/51"
+}

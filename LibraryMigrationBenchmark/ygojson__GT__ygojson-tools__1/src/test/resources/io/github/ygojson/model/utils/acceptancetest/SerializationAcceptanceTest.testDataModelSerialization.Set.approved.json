@@ -1,0 +1,66 @@
+{
+  "id" : "a09bd474-03e1-3314-8e13-ad9e06d17eee",
+  "name" : "EEBEOAPEZS",
+  "nameAlt" : "ZSPMQCXJT",
+  "setCode" : "DYXKRPV",
+  "setCodeAlt" : "WMMPMPYLW",
+  "printNumberPrefix" : "KVMEOZG",
+  "type" : "OQA",
+  "series" : "HUFOJC",
+  "localizedData" : {
+    "de" : {
+      "name" : "XGHP",
+      "nameAlt" : "EQRGFN",
+      "setCode" : "DJS",
+      "setCodeAlt" : "GGWXHTNS"
+    },
+    "es" : {
+      "name" : "CWAJI",
+      "nameAlt" : "SNLZX",
+      "setCode" : "FFLOPREZ",
+      "setCodeAlt" : "TUKWWH"
+    },
+    "fr" : {
+      "name" : "WXI",
+      "nameAlt" : "ERRC",
+      "setCode" : "TACUEFY",
+      "setCodeAlt" : "KTXAF"
+    },
+    "it" : {
+      "name" : "AXBDXLIXXD",
+      "nameAlt" : "XHJCTSAL",
+      "setCode" : "MGBCUSPZ",
+      "setCodeAlt" : "IAVKADEXAB"
+    },
+    "ja" : {
+      "name" : "IWXHQJB",
+      "nameAlt" : "GYZ",
+      "setCode" : "CCBEX",
+      "setCodeAlt" : "PEDCT"
+    },
+    "ko" : {
+      "name" : "MVZUMETFSA",
+      "nameAlt" : "EGJUEPKGO",
+      "setCode" : "XAU",
+      "setCodeAlt" : "DBYFL"
+    },
+    "pt" : {
+      "name" : "YCILHPTA",
+      "nameAlt" : "OBMP",
+      "setCode" : "DEGYRTKTC",
+      "setCodeAlt" : "LQWLX"
+    },
+    "zh-Hans" : {
+      "name" : "JPI",
+      "nameAlt" : "CJARSZB",
+      "setCode" : "UOJ",
+      "setCodeAlt" : "IMCBOLZHE"
+    },
+    "zh-Hant" : {
+      "name" : "RQJLB",
+      "nameAlt" : "ORREPNH",
+      "setCode" : "AGXQYGANB",
+      "setCodeAlt" : "PTJTIZ"
+    }
+  }
+}

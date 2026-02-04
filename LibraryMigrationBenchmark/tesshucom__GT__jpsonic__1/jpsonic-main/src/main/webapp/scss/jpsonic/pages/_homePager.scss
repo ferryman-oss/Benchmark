@@ -1,0 +1,43 @@
+.mainframe.home {
+  .pager {
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    top: 3px;
+    width: 150px;
+    .pages {
+      display: flex;
+      align-items: center;
+      flex-flow: row wrap;
+      justify-content: space-evenly;
+      width: 90px;
+      height: 26px;
+      border: $jp-border-width solid $jp-color-base2;
+      background-color: $jp-color-base4;
+      color: $jp-color-white;
+      font-weight: 600;
+    }
+  }
+
+  span.genre + .pager,
+  span.decade + .pager {
+    margin-left: 10px;
+  }
+
+  .coverart-container + .controls {
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .decade {
+    min-width: 120px;
+  }
+
+  .genre {
+    min-width: 300px;
+  }
+}

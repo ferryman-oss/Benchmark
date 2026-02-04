@@ -1,0 +1,26 @@
+name: Java CI
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macOS-latest, windows-latest]
+        java: [11, 17, 19, 20-ea]
+        distribution: ['zulu']
+        profile: [cdi-1.1, cdi-1.2, cdi-2.0]
+      fail-fast: false
+      max-parallel: 4
+    name: Test JDK ${{ matrix.java }}, ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: ${{ matrix.java }}
+          distribution: ${{ matrix.distribution }}
+      - name: Test with Maven
+        run: ./mvnw test -B -D"license.skip=true" -P"${{ matrix.profile }}"

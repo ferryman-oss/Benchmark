@@ -1,0 +1,22 @@
+{
+  "id": "visallo__GT__vertexium__1",
+  "client_project_name": "visallo/vertexium",
+  "github_url": "https://github.com/visallo/vertexium",
+  "before_migration_commit_hash": "a7e55d665f8b8f20399db318ad233c09573de518",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "",
+    "sql"
+  ],
+  "jdk_version": "1.8",
+  "original_library_list": [
+    "org.apache.commons:commons-dbcp2:2.1.1"
+  ],
+  "target_library_list": [
+    "com.zaxxer:HikariCP:2.4.6"
+  ],
+  "commit_pr_url": "https://github.com/visallo/vertexium/pull/90"
+}

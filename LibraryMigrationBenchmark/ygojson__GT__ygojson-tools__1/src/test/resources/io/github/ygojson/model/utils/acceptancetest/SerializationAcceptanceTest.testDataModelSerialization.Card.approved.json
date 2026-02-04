@@ -1,0 +1,92 @@
+{
+  "id" : "a09bd474-03e1-3314-8e13-ad9e06d17eee",
+  "identifiers" : {
+    "konamiId" : 5593,
+    "password" : 1263,
+    "passwordAlt" : 8597,
+    "yugipediaPageId" : 2190
+  },
+  "name" : "OAPEZS",
+  "cardType" : "trap",
+  "property" : "SPM",
+  "effectText" : "CXJTGDYX",
+  "monsterTypes" : [ "PVMWMMPMP", "LWRKVM" ],
+  "flavorText" : "OZGBO",
+  "attribute" : "AYHUFOJC",
+  "atk" : 9523,
+  "atkUndefined" : true,
+  "def" : 1732,
+  "defUndefined" : true,
+  "level" : 7689,
+  "materials" : "RGFNZDJSJG",
+  "pendulumEffect" : "WXH",
+  "pendulumScale" : 7102,
+  "linkRating" : 602,
+  "linkArrows" : [ "top-right", "top-right", "top-right" ],
+  "xyzRank" : 6095,
+  "localizedData" : {
+    "de" : {
+      "name" : "IWSNLZXIFF",
+      "effectText" : "OPREZETUKW",
+      "flavorText" : "HTWXIV",
+      "materials" : "RRCITAC",
+      "pendulumEffect" : "EFYJKTXA"
+    },
+    "es" : {
+      "name" : "WAXBDXLI",
+      "effectText" : "XDWXHJCT",
+      "flavorText" : "ALRMG",
+      "materials" : "CUS",
+      "pendulumEffect" : "ZIIAVKA"
+    },
+    "fr" : {
+      "name" : "EXABDIWX",
+      "effectText" : "QJBHGYZ",
+      "flavorText" : "CCBEX",
+      "materials" : "PEDCT",
+      "pendulumEffect" : "MVZUMETFSA"
+    },
+    "it" : {
+      "name" : "EGJUEPKGO",
+      "effectText" : "XAU",
+      "flavorText" : "DBYFL",
+      "materials" : "YCILHPTA",
+      "pendulumEffect" : "OBMP"
+    },
+    "ja" : {
+      "name" : "DEGYRTKTC",
+      "effectText" : "LQWLX",
+      "flavorText" : "JPI",
+      "materials" : "CJARSZB",
+      "pendulumEffect" : "UOJ"
+    },
+    "ko" : {
+      "name" : "IMCBOLZHE",
+      "effectText" : "RQJLB",
+      "flavorText" : "ORREPNH",
+      "materials" : "AGXQYGANB",
+      "pendulumEffect" : "PTJTIZ"
+    },
+    "pt" : {
+      "name" : "JDFMUKYXX",
+      "effectText" : "MIL",
+      "flavorText" : "AKSRBJAV",
+      "materials" : "DTHITLD",
+      "pendulumEffect" : "OWIRHHRU"
+    },
+    "zh-Hans" : {
+      "name" : "TGSHXBX",
+      "effectText" : "IDYJOFGPQ",
+      "flavorText" : "NABGDKN",
+      "materials" : "TCMFLLYPPA",
+      "pendulumEffect" : "MGDG"
+    },
+    "zh-Hant" : {
+      "name" : "WVVVP",
+      "effectText" : "NCQ",
+      "flavorText" : "XUAU",
+      "materials" : "UHWRUWVTDA",
+      "pendulumEffect" : "QOPX"
+    }
+  }
+}

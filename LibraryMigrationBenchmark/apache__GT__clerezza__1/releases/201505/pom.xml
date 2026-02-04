@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <!--
+
+        Licensed to the Apache Software Foundation (ASF) under one or more
+        contributor license agreements.  See the NOTICE file distributed with
+        this work for additional information regarding copyright ownership.
+        The ASF licenses this file to You under the Apache License, Version 2.0
+        (the "License"); you may not use this file except in compliance with
+        the License.  You may obtain a copy of the License at
+
+           http://www.apache.org/licenses/LICENSE-2.0
+
+        Unless required by applicable law or agreed to in writing, software
+        distributed under the License is distributed on an "AS IS" BASIS,
+        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        See the License for the specific language governing permissions and
+        limitations under the License.
+    -->
+
+    <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    !!!!!!                                !!!!!!
+    !!!!!!    This pom is only provided   !!!!!!
+    !!!!!!   for build convenience and    !!!!!!
+    !!!!!!   should not be released       !!!!!!
+    !!!!!!                                !!!!!!
+    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
+    <modelVersion>4.0.0</modelVersion>
+    
+    <parent>
+        <groupId>org.apache.clerezza</groupId>
+        <artifactId>clerezza</artifactId>
+        <version>8-SNAPSHOT</version>
+        <relativePath>../../parent</relativePath>
+    </parent>
+
+    <groupId>org.apache.clerezza.releases</groupId>
+    <artifactId>201505</artifactId>
+    <version>1.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>Clerezza - Release 201505</name>
+
+    <modules>
+        <module>../../jaxrs.rdf.providers</module>
+        <module>../../rdf</module>
+        <module>../../templating</module>
+        <module>../../templating.seedsnipe</module>
+        <module>../../parent</module>
+        <module>../../platform/config</module>
+        <module>../../platform/config.gui</module>
+        <module>../../platform/content</module>
+        <module>../../platform/content.default404</module>
+        <module>../../platform/content.fsadaptor</module>
+        <module>../../platform/globalmenu.api</module>
+        <module>../../platform/platform</module>
+        <module>../../platform/style.default</module>
+        <module>../../platform/typehandlerspace</module>
+        <module>../../platform/typehandlerspace.jaxrs2</module>
+        <module>../../platform/typerendering</module>
+        <module>../../platform/typerendering.scala</module>
+        <module>../../platform/typerendering.scalaserverpages</module>
+        <module>../../platform/typerendering.seedsnipe</module>
+        <module>../../platform/typerendering.gui</module>
+        <module>../../platform/editor</module>
+        <module>../../platform/graphnodeprovider</module>
+        <module>../../platform/graphprovider.content</module>
+        <module>../../platform/documentation</module>
+        <module>../../platform/documentation.viewer</module>
+        <module>../../platform/users</module>
+        <module>../../platform/usermanager</module>
+        <module>../../platform/typepriority</module>
+        <module>../../provisioning/felixosgi</module>
+        <module>../../provisioning/felixweb</module>
+        <module>../../provisioning/jaxrs-whiteboard</module>
+        <module>../../provisioning/launchers/content-launcher</module>
+        <module>../../provisioning/launchers/linked-data-launcher</module>
+        <module>../../provisioning/launchers/typerendering-launcher</module>
+        <module>../../provisioning/launchers/website-launcher</module>
+        <module>../../provisioning/platform.content</module>
+        <module>../../provisioning/platform.graphnodeprovider</module>
+        <module>../../provisioning/rdf</module>
+        <module>../../provisioning/rdf.tdb</module>
+        <module>../../provisioning/rdf.web</module>
+        <module>../../provisioning/site.tools</module>
+        <module>../../provisioning/typehandlerspace</module>
+        <module>../../provisioning/typerendering</module>
+        <module>../../scala-scripting</module>
+        <module>../../site</module>
+        <module>../../tools.offline</module>
+        <module>../../web.fileserver</module>
+    </modules>
+    <scm>
+        <connection>scm:git:git://git.apache.org/clerezza.git</connection>
+        <developerConnection>scm:git:https://git-wip-us.apache.org/repos/asf/clerezza.git</developerConnection>
+        <url>http://git.apache.org/clerezza.git</url>
+      <tag>HEAD</tag>
+  </scm>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.5.4</version>
+                <executions>
+                    <execution>
+                        <id>distro-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <descriptors>
+                                <descriptor>src/assembly/source-release.xml</descriptor>
+                            </descriptors>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.2</version>
+                <configuration>
+                    <updateDependencies>false</updateDependencies>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

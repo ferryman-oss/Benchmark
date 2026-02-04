@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<rules>
+  <rule>
+    <key>S1000</key>
+    <name>My title</name>
+    <severity>CRITICAL</severity>
+    <cardinality>SINGLE</cardinality>
+    <description><![CDATA[My description]]></description>
+    <tag>my-first-tag</tag>
+    <tag>my-second-tag</tag>
+    <type>BUG</type>
+    <debtRemediationFunction>CONSTANT_ISSUE</debtRemediationFunction>
+    <debtRemediationFunctionOffset>15min</debtRemediationFunctionOffset>
+  </rule>
+</rules>

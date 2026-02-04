@@ -1,0 +1,31 @@
+---
+context: "context"
+projects:
+  - name: "foo"
+    consumers:
+      - principal: "User:App0"
+    producers:
+      - principal: "User:App1"
+    streams:
+      - principal: "User:StreamsApp1"
+        topics:
+          read:
+            - "topicA"
+          write:
+            - "topicB"
+    connectors:
+      - principal: "User:Connect1"
+        status_topic: "status"
+        offset_topic: "offset"
+        configs_topic: "configs"
+        topics:
+          read:
+            - "topicB"
+    topics:
+      - name: "topicA"
+        consumers:
+          - principal: "User:App4"
+      - name: "topicB"
+        dataType: "avro"
+        schemas:
+          value.schema.file: "schemas/bar-value.avsc"

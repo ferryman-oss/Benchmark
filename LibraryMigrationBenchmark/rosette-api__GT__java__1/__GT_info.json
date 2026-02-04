@@ -1,0 +1,21 @@
+{
+  "id": "rosette-api__GT__java__1",
+  "client_project_name": "rosette-api/java",
+  "github_url": "https://github.com/rosette-api/java",
+  "before_migration_commit_hash": "0df0c578f740d02fde101b6c970f87b1bcdb1a5d",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "model"
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "javax.validation:validation-api:2.0.1.Final"
+  ],
+  "target_library_list": [
+    "jakarta.validation:jakarta.validation-api:3.1.0"
+  ],
+  "commit_pr_url": "https://github.com/rosette-api/java/pull/255"
+}

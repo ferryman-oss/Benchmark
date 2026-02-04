@@ -1,0 +1,22 @@
+{
+  "id": "turing85__GT__quarkus-qr__1",
+  "client_project_name": "turing85/quarkus-qr",
+  "github_url": "https://github.com/turing85/quarkus-qr",
+  "before_migration_commit_hash": "03ca2872bf5fc6676ea489d23c66aa765b698a72",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "21",
+  "original_library_list": [
+    "com.google.zxing:core:3.5.3",
+    "com.google.zxing:javase:3.5.3"
+  ],
+  "target_library_list": [
+    "io.quarkiverse.barcode:quarkus-zxing:0.0.2"
+  ],
+  "commit_pr_url": "https://github.com/turing85/quarkus-qr/pull/215"
+}

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *	$Revision$
+ *	$Date$
+ *
+ *  Copyright (c) 2005-2012 David Kocher. All rights reserved.
+ *  http://cyberduck.io/
+ *
+ *	This program is free software; you can redistribute it and/or modify
+ *	it under the terms of the GNU General Public License as published by
+ *	the Free Software Foundation; either version 2 of the License, or
+ *	(at your option) any later version.
+ *
+ *	This program is distributed in the hope that it will be useful,
+ *	but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *	GNU General Public License for more details.
+ *
+ *	Bug fixes, suggestions and comments should be sent to:
+ *	dkocher@cyberduck.io
+ -->
+<project name="Cyberduck for Windows" basedir=".">
+
+    <import file="../build.xml"/>
+    <import file="../archive.xml"/>
+
+    <property name="app.name" value="Cyberduck"/>
+
+    <property name="cpack.bin" value="${env.ChocolateyInstall}/bin/cpack"/>
+
+    <property name="chocolatey.source" value="${setup}/chocolatey/cyberduck"/>
+    <property name="chocolatey.target" value="${build.deploy}"/>
+
+    <condition property="msbuild.configuration" value="Debug">
+        <equals arg1="${configuration}" arg2="debug" />
+    </condition>
+    <condition property="msbuild.configuration" value="Release">
+        <equals arg1="${configuration}" arg2="release" />
+    </condition>
+
+    <property name="cpack.bin" value="${env.ChocolateyInstall}/bin/cpack"/>
+
+    <target name="init-msbuild">
+        <taskdef name="msbuild" classname="org.apache.ant.dotnet.build.MSBuildTask">
+            <classpath path="${lib.ext}/ant-dotnet-1.1.jar"/>
+        </taskdef>
+    </target>
+
+    <target name="restore" depends="init-msbuild, version">
+        <msbuild buildfile="build.proj">
+            <target name="Restore" />
+        </msbuild>
+    </target>
+
+    <target name="build" depends="init-msbuild, version">
+        <msbuild buildfile="build.proj">
+            <target name="Build" />
+
+            <property name="BuildModule" value="Project" />
+            <property name="BuildProjectReferences" value="false" />
+            <property name="Configuration" value="${msbuild.configuration}" />
+            <property name="Copyright" value="${copyright}" />
+            <property name="Version" value="${normalized.version}.${revision}" />
+        </msbuild>
+    </target>
+
+    <target name="test" depends="init-msbuild, version" unless="${skip}">
+        <msbuild buildfile="src/test/csharp/Cyberduck.Test.csproj">
+            <target name="Test" />
+        </msbuild>
+    </target>
+
+    <target name="package" depends="init-msbuild, version">
+        <copy todir="${build}">
+            <fileset dir="${home}">
+                <include name="*.ico"/>
+            </fileset>
+        </copy>
+
+        <condition property="msbuild.sign" value="false">
+            <istrue value="${skip}" />
+        </condition>
+        <property name="msbuild.sign" value="" />
+
+        <copy todir="${build}/generated" overwrite="True" encoding="UTF-8" outputencoding="UTF-8">
+            <fileset dir="${module}/src/main/package">
+                <include name="**/*.template"/>
+            </fileset>
+            <filterchain>
+                <expandproperties/>
+            </filterchain>
+            <globmapper from="*.template" to="*"/>
+        </copy>
+
+        <msbuild buildfile="build.proj">
+            <target name="Build" />
+
+            <property name="Platform" value="x64" />
+            <property name="BuildModule" value="Installer" />
+            <property name="BuildProjectReferences" value="false" />
+            <property name="Configuration" value="${msbuild.configuration}" />
+            <property name="Copyright" value="${copyright}" />
+            <property name="ShortVersion" value="${version} (${revision})" />
+            <property name="SignOutput" value="${msbuild.sign}" />
+            <property name="BuildVersion" value="${normalized.version}" />
+            <property name="Revision" value="${revision}" />
+        </msbuild>
+    </target>
+
+    <target name="deploy" depends="version">
+        <taskdef name="xmltask" classname="com.oopsconsultancy.xmltask.ant.XmlTask">
+            <classpath path="${lib.ext}/xmltask.jar"/>
+        </taskdef>
+
+        <mkdir dir="${build}/update"/>
+
+        <echo message="Calculating DSA signature..."/>
+        <exec dir="${home}" executable="sh" outputproperty="signature.dsa" failonerror="true">
+            <arg value="-o"/>
+            <arg value="pipefail"/>
+            <arg value="-c"/>
+            <arg value="openssl dgst -sha1 -binary '${build.deploy}/Cyberduck-Installer-${version}.${revision}.exe' | openssl dgst -sha1 -sign '${www.update}/private.pem' | openssl enc -base64"/>
+        </exec>
+        <echo message="DSASIGNATURE=${signature.dsa}"/>
+
+        <!-- prepare WinSparkle stuff -->
+        <xmltask source="${www.update}/changelog.rss" destbuffer="xmltaskbuffer">
+            <remove path="//*[local-name()='minimumSystemVersion']"/>
+        </xmltask>
+        <xmltask sourcebuffer="xmltaskbuffer" dest="${build}/update/changelog.rss">
+            <attr path="//item/enclosure" attr="sparkle:installerArguments" value="/passive InstallBonjour=0 Autostart=1"/>
+        </xmltask>
+        <copy todir="${build}/update" overwrite="true">
+            <fileset dir="${www.update}">
+                <include name="changelog.html"/>
+            </fileset>
+        </copy>
+        <replace dir="${build}/update" summary="true" encoding="UTF-8">
+            <include name="changelog.rss"/>
+            <replacefilter token="${TIMESTAMP}" value="${touch.time}"/>
+            <replacefilter token="${ARCHIVE}"
+                           value="https://update.cyberduck.io/${sparkle.feed}/${app.name}-Installer-${normalized.version}.${revision}.exe"/>
+            <replacefilter token="${CHANGELOG}" value="https://version.cyberduck.io/windows/${sparkle.feed}/changelog.html"/>
+            <replacefilter token="${REVISION}" value="${revision}"/>
+            <replacefilter token="${VERSION}" value="${version}"/>
+            <replacefilter token="${HASH}" value="${hash}"/>
+            <replacefilter token="${DSASIGNATURE}" value="${signature.dsa}"/>
+            <replacefilter token="${EDSIGNATURE}" value=""/>
+            <replacefilter token="${COPYRIGHT}" value="${copyright}"/>
+        </replace>
+
+        <foreach target="md5" param="source">
+            <fileset dir="${build.deploy}">
+                <include name="*.msi"/>
+                <exclude name="*.exe"/>
+            </fileset>
+        </foreach>
+        <checksum file="${build.deploy}/Cyberduck-Installer-${version}.${revision}.exe"
+                  algorithm="sha-256" property="archive.sha256"/>
+        <copy todir="${chocolatey.target}">
+            <fileset dir="${chocolatey.source}">
+                <include name="*/**"/>
+            </fileset>
+        </copy>
+        <replace dir="${chocolatey.target}" summary="true" encoding="UTF-8">
+            <include name="*.nuspec"/>
+            <include name="tools/*.ps1"/>
+            <replacefilter token="${VERSION}" value="${version}"/>
+            <replacefilter token="${REVISION}" value="${revision}"/>
+            <replacefilter token="${FEED}" value="${sparkle.feed}"/>
+            <replacefilter token="${CHANGELOG}" value="https://version.cyberduck.io/windows/${sparkle.feed}/changelog.html"/>
+            <replacefilter token="${CHECKSUM}" value="${archive.sha256}"/>
+            <replacefilter token="${COPYRIGHT}" value="${copyright}"/>
+        </replace>
+        <exec executable="${cpack.bin}" dir="${chocolatey.target}" failonerror="true"/>
+    </target>
+</project>

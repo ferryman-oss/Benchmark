@@ -1,0 +1,39 @@
+.HomeButtons > * + * {
+  display: flex;
+  flex-direction: column;
+  margin-block: 10px;
+}
+
+
+.logo {
+  float: left;
+    width: 35px;
+    margin-top: 16px;
+    margin-right: 10px;
+}
+
+.user{
+  float: right;
+    height: 51px;
+    margin: 4px 0 10px 0;
+}
+
+
+.menu{
+  float: left;
+  width: 60%;
+}
+.site-layout-content {
+    min-height: 600px;
+    padding: 24px;
+    background: #fff;
+}
+
+.avatar-hover-effect {
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.65); 
+}
+
+.avatar-hover-effect:hover {
+  color: #fff; 
+}

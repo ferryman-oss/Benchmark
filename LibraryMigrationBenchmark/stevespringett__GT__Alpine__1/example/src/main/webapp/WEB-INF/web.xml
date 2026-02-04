@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+
+    <listener>
+        <listener-class>alpine.persistence.PersistenceInitializer</listener-class>
+    </listener>
+    <listener>
+        <listener-class>alpine.persistence.PersistenceManagerFactory</listener-class>
+    </listener>
+    <listener>
+        <listener-class>com.example.event.EventSubsystemInitializer</listener-class>
+    </listener>
+    <listener>
+        <listener-class>com.example.persistence.DefaultObjectCreator</listener-class>
+    </listener>
+
+    <servlet>
+        <servlet-name>HelloWorld</servlet-name>
+        <servlet-class>alpine.AlpineServlet</servlet-class>
+        <init-param>
+            <param-name>jersey.config.server.provider.packages</param-name>
+            <param-value>alpine.filters,alpine.resources,com.example.resources</param-value>
+        </init-param>
+        <init-param>
+            <param-name>jersey.config.server.provider.classnames</param-name>
+            <param-value>org.glassfish.jersey.media.multipart.MultiPartFeature</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HelloWorld</servlet-name>
+        <url-pattern>/api/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Metrics</servlet-name>
+        <servlet-class>alpine.server.servlets.MetricsServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Metrics</servlet-name>
+        <url-pattern>/metrics</url-pattern>
+    </servlet-mapping>
+
+</web-app>

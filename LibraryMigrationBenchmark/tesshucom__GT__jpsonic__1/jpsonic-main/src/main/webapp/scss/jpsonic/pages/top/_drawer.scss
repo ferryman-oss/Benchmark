@@ -1,0 +1,351 @@
+// ******************** toggler / top.jsp *********************************
+
+$jps-toggler-size: 28px;
+$jps-toggler-line-counts: 3;
+$jps-toggler-line-size: calc(#{$jps-toggler-size} / (#{$jps-toggler-line-counts} + #{$jps-toggler-line-counts} - .8));
+$jps-toggler-offset: 15px;
+
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@mixin fluid-type($properties, $min-vw, $max-vw, $min-value, $max-value) {
+  @each $property in $properties {
+    #{$property}: $min-value;
+  }
+  @media screen and (min-width: $min-vw) {
+    @each $property in $properties {
+      #{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * (100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)});
+    }
+  }
+  @media screen and (min-width: $max-vw) {
+    @each $property in $properties {
+      #{$property}: $max-value;
+    }
+  }
+}
+
+.jps-toggler {
+  display: block;
+  position: fixed;
+  z-index: $jp-layer-3;
+  top: $jps-toggler-offset;
+  left: $jps-toggler-offset;
+  width: $jps-toggler-size;
+  height: $jps-toggler-size;
+  border-radius: calc(#{$jps-toggler-line-size} / 2);
+  cursor: pointer;
+
+  @include dropShadow;
+  &:active {
+    top: calc(#{$jps-toggler-offset} + 1px);
+    left: calc(#{$jps-toggler-offset} + 1px);
+  }
+}
+
+.jps-toggler-line {
+  position: absolute;
+  right: 0;
+  left: 0;
+  height: $jps-toggler-line-size;
+  border: solid .5px $jp-color-base3;
+  border-radius: calc(#{$jps-toggler-line-size} / 2);
+  background: $jp-color-base2;
+  transition: .3s;
+
+  $num: 1;
+  @while $num <= 3 {
+    $num: $num + 1;
+    &:nth-child(#{$num}) {
+      top: calc(#{$jps-toggler-line-size} * #{$num} + (#{$jps-toggler-line-size} * (#{$num} - 2)));
+    }
+  }
+}
+
+input[type="checkbox"].jps-input-toggler {
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  &:checked ~ .jps-toggler {
+    .jps-toggler-line:not(:first-child):not(:last-child) {
+      opacity: 0;
+    }
+    .jps-toggler-line:first-child,
+    .jps-toggler-line:last-child {
+      border: solid 0 $jp-color-base2;
+      background-color: $jp-color-white;
+    }
+    .jps-toggler-line:first-child {
+      transform: translateY(calc(#{$jps-toggler-line-size} * (#{$jps-toggler-line-counts} - 1))) rotate(45deg);
+    }
+    .jps-toggler-line:last-child {
+      transform: translateY(calc(-1 * #{$jps-toggler-line-size} * (#{$jps-toggler-line-counts} - 1))) rotate(-45deg);
+    }
+  }
+  &:checked ~ .jps-drawer {
+    visibility: visible;
+    opacity: .98;
+    transform: translateX(0);
+  }
+  &:checked ~ .jps-drawer > aside .jps-radio {
+    @media screen and (min-width: $jp-supplement-width-threshold) {
+      visibility: visible;
+    }
+  }
+  &:focus ~ .jps-toggler {
+    outline: solid $jp-outline-width $jp-color-complementary3;
+  }
+  &:checked ~ #main {
+    left: $jp-drawer-width;
+    width: calc(100vw - #{$jp-drawer-width});
+  }
+}
+
+// ******************** drawer / top.jsp *********************************
+
+/*
+ * If the drawer is hidden, all links have to be disabled.
+ * Unnecessary functions should be retained in the drawer when listening to music.
+ */
+.jps-drawer {
+  visibility: hidden;
+  opacity: .5;
+  position: absolute;
+  z-index: $jp-layer-2;
+  width: $jp-drawer-width;
+  height: 100vh;
+  margin: 0;
+  padding: $jp-header-height 0 0 0;
+  background: $jp-color-base3;
+  transition: all .3s ease-out;
+  transition: all .3s ease-in;
+  transform: translateX(calc(#{$jp-drawer-width} * -1));
+
+  @include border(right);
+  /*
+   * Not displayed when there is only one music folder.
+   */
+  > .jps-musicfolder {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    position: absolute;
+    top: 0;
+    width: calc(#{$jp-drawer-width} - 10px);
+    height: $jp-header-height;
+  }
+
+  /*
+   * Show index mainly for mouse/tap.
+   * Keyboard/screen reader index will provided on other pages.
+   */
+  > ul.jps-index {
+    display: flex;
+    align-items: flex-start;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    z-index: $jp-layer-3;
+    width: $jp-drawer-width - 20px;
+    margin: 0 10px 10px 10px;
+    padding: 8px 8px 8px 6px;
+    box-sizing: border-box;
+    background-color: $jp-color-white;
+
+    @include border;
+    @include borderRadius;
+    li {
+      flex-basis: auto;
+      width: 30px;
+      height: 30px;
+    }
+    > li {
+      margin: 0 2px 2px 8px;
+      padding: 2px;
+      > a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        font-weight: 600;
+
+        @include border;
+        @include blockLink($jp-color-base1, $jp-color-base4);
+      }
+      > ul {
+        pointer-events: none;
+        > li {
+          display: block; //inline-block
+          width: 250px;
+          height: 30px;
+          > a {
+            display: inline-block;
+            position: absolute;
+            left: -2300px;
+            height: 20px;
+            padding: 0 5px;
+            box-sizing: border-box;
+          }
+        }
+      }
+    }
+    > li:focus-within ul {
+      position: absolute;
+      z-index: $jp-layer-4;
+      top: $jp-header-height + 20px;
+      left: $jp-drawer-width - 10px;
+      padding: 5px;
+      border-radius: $jp-border-radius;
+      background-color: $jp-color-base2;
+      pointer-events: auto;
+
+      @include border;
+      a {
+        display: block;
+        visibility: visible;
+        position: relative;
+        top: 0;
+        left: 0;
+        height: 26px;
+        padding: 2px;
+        border-radius: $jp-border-radius;
+
+        @include border;
+        @include blockLink($jp-color-white, $jp-color-base4);
+      }
+    }
+  }
+
+  > aside {
+    .jps-radio {
+      visibility: hidden;
+      li a.control.play {
+        position: relative;
+        top: -2px;
+      }
+    }
+    .jps-shortcuts,
+    .jps-radio {
+      display: flex;
+      overflow: auto;
+      overflow-x: hidden;
+      align-items: flex-start;
+      flex-flow: column wrap;
+      justify-content: flex-start;
+      z-index: $jp-layer-3;
+      width: $jp-drawer-width - 20px;
+      margin: 0 10px 10px 10px;
+      padding: 8px 8px 8px 6px;
+      box-sizing: border-box;
+      background-color: $jp-color-white;
+
+      @include border;
+      @include borderRadius;
+      li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 26px;
+        margin: 2px 5px 2px 5px;
+        padding: 2px 4px 2px 4px;
+        border-radius: 13px;
+
+        @include border;
+        @include blockLink($jp-color-base1, $jp-color-base4);
+        a {
+          color: $jp-color-base4;
+          &:active {
+            background: $jp-color-complementary3;
+          }
+        }
+      }
+    }
+  }
+
+  > .jps-side-menu {
+    position: absolute;
+    bottom: 0;
+    width: $jp-drawer-width - 20px;
+    margin: 0 10px 10px 10px;
+    > nav {
+      > .userInfo {
+        display: flex;
+        align-items: center;
+        flex-flow: row wrap;
+        margin: 0;
+        padding: 5px 15px 5px 15px;
+        background-color: $jp-color-base4;
+
+        @include border;
+        @include borderRadius(upper);
+        img.avatar {
+          width: 48px;
+          height: 48px;
+          margin: 6px 10px 6px 0;
+          border-radius: 50%;
+          background-color: $jp-color-white;
+
+          -webkit-backface-visibility: hidden;
+        }
+        .name {
+          display: inline-block;
+          overflow: hidden;
+          max-width: 130px;
+          height: 1.8em;
+          color: $jp-color-white;
+          font-size: 1.14rem;
+          font-weight: 500;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        a {
+          outline: none;
+          &:link,
+          &:active,
+          &:visited,
+          &:link *,
+          &:active *,
+          &:visited * {
+            color: $jp-color-white;
+          }
+          &:hover,
+          &:hover * {
+            color: $jp-color-complementary3;
+          }
+        }
+      }
+
+      > ul.menu {
+        display: flex;
+        flex-flow: row wrap;
+        margin: 0;
+        padding: 10px 0 0 4px;
+        background-color: $jp-color-white;
+
+        @include border;
+        @include borderRadius(lower);
+        //align-items: center;
+        //justify-content: space-around;
+        li {
+          width: 30px;
+          height: 30px;
+          margin-right: 20px;
+          margin-left: 20px;
+        }
+      }
+    }
+  }
+}
+
+input[type="checkbox"].jps-input-without-index {
+  display: none;
+  &:checked ~ ul.jps-index {
+    display: none;
+  }
+  &:checked ~ .jps-side-menu {
+    position: relative;
+    top: 0;
+  }
+}

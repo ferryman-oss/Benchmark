@@ -1,0 +1,21 @@
+{
+  "id": "openmrs__GT__openmrs-contrib-performance-test__1",
+  "client_project_name": "openmrs/openmrs-contrib-performance-test",
+  "github_url": "https://github.com/openmrs/openmrs-contrib-performance-test",
+  "before_migration_commit_hash": "e1d02dcb739204b5e5961d611928c644c372e055",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "com.google.code.gson:gson:2.11.0"
+  ],
+  "target_library_list": [
+    "com.fasterxml.jackson.core:jackson-databind:2.18.2"
+  ],
+  "commit_pr_url": "https://github.com/openmrs/openmrs-contrib-performance-test/pull/52"
+}

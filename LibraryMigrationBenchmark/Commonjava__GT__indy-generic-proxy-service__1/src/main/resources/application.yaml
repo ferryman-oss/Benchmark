@@ -1,0 +1,97 @@
+quarkus:
+  http:
+    port: 8080
+    read-timeout: 30s
+  log:
+    level: INFO
+    category:
+      "org.commonjava.indy.service.httprox":
+        level: DEBUG
+      "org.commonjava.indy.model":
+        level: ERROR
+  otel:
+    enabled: true
+    exporter:
+      otlp:
+        traces:
+        # This is for sending to something like opentelemetry-collector
+        # endpoint: http://localhost:4317
+
+        # This is for sending to Honeycomb
+        # endpoint: "https://api.honeycomb.io:443"
+        #    headers:
+        #      - "X-honeycomb-team=<write-key>"
+        #      - "X-honeycomb-dataset=test"
+  oidc-client:
+    auth-server-url: "keycloak_server_url/realms/pncredhat"
+    client-id: your_client_id
+    credentials:
+      secret: your_secret
+
+proxy:
+  port: 8082
+  realm: httprox
+  secured: true
+  worker:
+    io:
+      threads: 10
+    task:
+      threads: 10
+    connection:
+      high-water: 50
+
+service_proxy:
+  read-timeout: 30m
+  retry:
+    count: 3
+    interval: 3000
+  services:
+    - host: localhost
+      ssl: false
+      port: 8080
+      path-pattern: /api/.+
+
+executor:
+  mitm-transfers:
+    max-async: 100
+    max-queued: 50
+
+## [MITM]
+MITM:
+  enabled: true
+  ca:
+    key: /tmp/ssl/ca.der
+    cert: /tmp/ssl/ca.crt
+  dn:
+    template: CN=<host>, O=Test Org
+  so:
+    timeout:
+      minutes: 30
+
+tracking:
+  type: SUFFIX
+
+## [storage] - preferred is 'base64url' (for backward compatible, default is 'hashed'). User needs to update dep >= org.commonjava.indy.service:indy-model-core-java:1.5
+storage:
+  path:
+    style: hashed
+
+## [rest client]
+repo-service-api/mp-rest/uri: http://localhost:8080
+repo-service-api/mp-rest/scope: javax.inject.Singleton
+
+## [auth]
+auth:
+  enabled: false
+  realm: keycloak.realm
+  public-key: keycloak.realmPublicKey
+  keycloak-json: keycloak/keycloak.json
+  keycloak-ui-json: keycloak/keycloak-ui.json
+  security-bindings-json: keycloak/security-bindings.json
+  url: keycloak.url
+  server:
+    credential:
+      secret: keycloak.serverCredentialSecret
+    resource: indy
+  ui:
+    resource: indy-ui

@@ -1,0 +1,23 @@
+{
+  "id": "jenkinsci__GT__yandex-cloud-workers-plugin__1",
+  "client_project_name": "jenkinsci/yandex-cloud-workers-plugin",
+  "github_url": "https://github.com/jenkinsci/yandex-cloud-workers-plugin",
+  "before_migration_commit_hash": "c2e5dfd009c6fddd45e84c64282d50d72297b8d6",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "junit:junit:4.13.2"
+  ],
+  "target_library_list": [
+    "org.mockito:mockito-core:5.8.0",
+    "org.mockito:mockito-junit-jupiter:5.8.0",
+    "org.junit.jupiter:junit-jupiter-api:5.10.1"
+  ],
+  "commit_pr_url": "https://github.com/jenkinsci/yandex-cloud-workers-plugin/pull/12"
+}

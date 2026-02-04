@@ -1,0 +1,23 @@
+{
+  "id": "GreenDelta__GT__epd-editor__1",
+  "client_project_name": "GreenDelta/epd-editor",
+  "github_url": "https://github.com/GreenDelta/epd-editor",
+  "before_migration_commit_hash": "c909b29",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "org.slf4j:slf4j-log4j12:1.7.30",
+    "log4j:log4j:1.2.17"
+  ],
+  "target_library_list": [
+    "ch.qos.logback:logback-classic:1.2.11",
+    "ch.qos.logback:logback-core:1.2.11"
+  ],
+  "commit_pr_url": "https://github.com/GreenDelta/epd-editor/pull/81"
+}

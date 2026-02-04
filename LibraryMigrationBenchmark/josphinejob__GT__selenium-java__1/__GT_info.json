@@ -1,0 +1,21 @@
+{
+  "id": "josphinejob__GT__selenium-java__1",
+  "client_project_name": "josphinejob/selenium-java",
+  "github_url": "https://github.com/josphinejob/selenium-java",
+  "before_migration_commit_hash": "6da5ccbd905c3ca2b3a8122f07efa9128f91ad8f",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "junit:junit:4.12"
+  ],
+  "target_library_list": [
+    "org.testng:testng:7.9.0"
+  ],
+  "commit_pr_url": "https://github.com/josphinejob/selenium-java/pull/4"
+}

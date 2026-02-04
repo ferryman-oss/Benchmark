@@ -1,0 +1,75 @@
+<!--
+
+    Copyright © 2017-2023 CESSDA ERIC (support@cessda.eu)
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<form name="reorderForm" (ngSubmit)="confirmReorder()">
+    <div class="modal-header">
+        <h4 class="modal-title">
+            <span>Reorder code</span>
+        </h4>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-hidden="true" (click)="clear()"></button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <p>
+            <span>Please select a position where the selected codes will be moved, by clicking one of the code on right column</span><br/>
+            <small>Note: Drag and drop between codes are still not yet supported</small>
+        </p>
+
+        <div class="row-content">
+            <div class="row-details">
+                <div class="row-detail form-group">
+                    <div class="tree-box">
+                        <div class="head">Selected codes</div>
+                        <jhi-tree-reorder [parentNotation]="" [conceptList]="conceptsToMove" [level]="0" [deprecated]="false"></jhi-tree-reorder>
+                    </div>
+                </div>
+                <div class="row-detail form-group">
+                    <div class="tree-box">
+                        <div class="head">Code List</div>
+                        <jhi-tree-reorder [parentNotation]="" [conceptList]="conceptsToPlace" [level]="0" [deprecated]="false"></jhi-tree-reorder>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row-content">
+            <div class="row-details">
+                <div class="row-detail form-group">
+                    <div class="btn-group btn-group-toggle" role="group" name="insert-choice">
+                        <input type="radio" [(ngModel)]="insertMode" (ngModelChange)="updateTreePreview()" value="INSERT_AFTER" class="btn-check" id="insertAfterButton">
+                        <label class="btn btn-outline-primary" for="insertAfterButton">Insert after</label>
+
+                        <input type="radio" [(ngModel)]="insertMode" (ngModelChange)="updateTreePreview()" value="INSERT_BEFORE" class="btn-check" id="insertBeforeButton">
+                        <label class="btn btn-outline-primary" for="insertBeforeButton">Insert before</label>
+
+                        <input type="radio" [(ngModel)]="insertMode" (ngModelChange)="updateTreePreview()" value="INSERT_AS_CHILD" class="btn-check" id="insertChildButton">
+                        <label class="btn btn-outline-primary" for="insertChildButton">Insert as child</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Close</span>
+        </button>
+        <button type="submit" id="save-new-cv" [disabled]="!selectedConceptToPlace || isSaving" class="btn btn-primary">
+            <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

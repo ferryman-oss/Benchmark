@@ -1,0 +1,298 @@
+<?xml version="1.0"?>
+<document>
+  <properties>
+    <title>Changes</title>
+    <author>David Bernard</author>
+  </properties>
+  <body>
+    <release version="4.1.0" date="2019-06-25">
+      <action dev="Stephane Landelle" type="add">incremental recompileMode for scala 2.13</action>
+    </release>
+    <release version="4.0.1" date="2019-03-05">
+      <action dev="Stephane Landelle" type="fix">incremental recompileMode for scala 2.11</action>
+    </release>
+    <release version="4.0.0" date="2019-03-02">
+      <action dev="Stephane Landelle" type="update">code clean up</action>
+      <action dev="Stephane Landelle" type="update">recompileMode is incremental by default</action>
+      <action dev="Stephane Landelle" type="remove">remove support of zinc server</action>
+      <action dev="Stephane Landelle" type="update">update version of zinc, incremental compiler</action>
+      <action dev="Carlos Rodrigues" type="add" issue="318">add configuratio to add entry into classpath (help for multi jvm language support)</action>
+      <action dev="David Bernard" type="remove">remove support jdk before 1.8</action>
+      <action dev="dependabot" type="update">update dependencies</action>
+    </release>
+    <release version="3.4.6" date="2019-01-21">
+      <action dev="David Bernard" type="fix">re-deployement (issue during release of 3.4.5)</action>
+    </release>
+    <release version="3.4.5" date="2019-01-20">
+      <action dev="Bill Carlson" type="fix">add compiler's plugins when run scaladoc</action>
+      <action dev="dependabot" type="update">update dependencies</action>
+    </release>
+    <release version="3.4.4" date="2018-11-01">
+      <action dev="dependabot" type="update">update dependencies</action>
+    </release>
+    <release version="3.4.3" date="2018-10-28">
+      <action dev="dependabot" type="update">update dependencies</action>
+      <action dev="David Bernard" type="fix">rollback to require maven 3.3.9 as minimal</action>
+    </release>
+    <release version="3.4.2" date="2018-07-22">
+      <action dev="Štefan Miklošovič" type="fix">make zinc host configurable</action>
+      <action dev="dependabot" type="update">update dependencies</action>
+    </release>
+    <release version="3.4.1" date="2018-06-17">
+      <action dev="argv-minus-one" type="fix">Un-break the doc-jar goal.</action>
+      <action dev="dependabot" type="update">update dependencies</action>
+    </release>
+    <release version="3.4.0" date="2018-06-09">
+    </release>
+    <release version="3.3.3" date="2018-06-09">
+      <action dev="dependabot" type="update">update dependencies</action>
+      <action dev="Tobias Roeser" type="update">Migrated javadoc-style annotation to Maven Plugin Annotations.</action>
+    </release>
+    <release version="3.3.2" date="2018-03-19">
+      <action dev="Anton Klaren" type="update">update to zinc 0.3.15</action>
+      <action dev="Anton Klaren" type="fix">Check JAVA_HOME before java.home to locate JDK home</action>
+      <action dev="Bennet Schulz" type="update">update to JUnit 4.12</action>
+    </release>
+    <release version="3.3.1" date="2017-09-05">
+      <action dev="David Bernard" type="update">packaging</action>
+    </release>    
+    <release version="3.3.0" date="2017-08-28">
+      <action dev="David Bernard" type="update">use java 1.8 to build and to support scala 2.12.x => remove test of scala 2.7.x</action>
+      <action dev="David Strawn" type="fix" issue="207">add support to scala console 2.12 (console)</action>
+      <action dev="David Strawn" type="fix" issue="206">add support to java 1.8</action>
+      <action dev="Chris Dessonville" type="fix" issue="192">zinc use maven-toolchains-plugin</action>
+      <action dev="Chris Dessonville" type="update" issue="190">update maven-site-plugin</action>
+    </release>
+    <release version="3.2.2" date="2015-06-28">
+      <action dev="David Bernard" type="fix" issue="168">encode generated script with same encoding as scala sourcefile</action>
+    </release>
+    <release version="3.2.1" date="2015-06-14">
+      <action dev="David Bernard" type="fix" issue="166">add plugin dependencies into script classpath if "includeScope" includes "plugin"</action>
+      <action dev="David Bernard" type="fix" issue="168">add scriptEncoding</action>
+    </release>
+    <release version="3.2.0" date="2014-07-15">
+      <action dev="Alexey Ermakov" type="fix" issue="151">fix scala 2.11 incremental compilation by updating to zinc 0.3.5</action>
+    </release>
+    <release version="3.1.6" date="2013-09-24">
+      <action dev="David Bernard" type="update">update zinc from 0.2.0 to 0.2.5</action>
+      <action dev="David Bernard" type="fix">remove the buid directory from the classpath when compiling</action>
+      <action dev="David Bernard" type="add">add 'scalaCompatVersion' Scala 's version to use to check binary compatibility</action>
+      <action dev="Eric Vantillard" type="add">add 'scalaOrganization' as a configurable parameter</action>
+      <action dev="Kohsuke Yatoh" type="fix" issue="102">check for file changes in incremental and continuous compilation mode</action>
+    </release>
+    <release version="3.1.5" date="2013-05-24">
+      <action dev="David Bernard" type="fix" issue="131" due-to="Juha Heljoranta">fix LinkageError when using project.xxx into script section</action>
+      <action dev="David Bernard" type="update">change the way classpath of script is defined from artifact (to match maven api)</action>
+    </release>
+    <release version="3.1.4" date="2013-04-23">
+      <action dev="Libor Rysavy" type="update">Log only to INFO level when no sources to compile found</action>
+      <action dev="David Bernard" type="fix" issue="121">fix support of space in jvmArgs and args</action>
+      <action dev="David Bernard" type="delete">remove genjson goal</action>
+      <action dev="David Bernard" type="add">add addZincArgs parameters to set additionnal zinc server arguments (like -no-color)</action>
+    </release>
+    <release version="3.1.3" date="2013-02-04">
+      <action dev="David Bernard" type="add" issue="42" due-to="mephi42">Add ability to specify Scala installation directory (-Dscala.home=....)</action>
+      <action dev="Max Lanin" type="fix" issue="119" due-to="Max Lanin">Use -C instead of -J for passing javac options to zinc (0.2.0)</action>
+      <action dev="David Bernard" type="fix">support -nobootcp like scalac</action>
+    </release>
+    <release version="3.1.2" date="2013-01-14">
+      <action dev="David Bernard" type="fix" issue="108" due-to="Galder Zamarreño">ScalaScriptMojo use class from its classpath before read from parent.</action>
+      <action dev="David Bernard" type="fix" issue="5" due-to="Chris Severs">ScalaScriptMojo use class from its classpath before read from parent.</action>
+      <action dev="David Bernard" type="fix" issue="115" due-to="Shai Yallin">add "source", "target", "encoding" to configure java compiler via zinc.</action>
+      <action dev="Shai Yallin" type="fix" issue="116">javac generate debug symbols by default via zinc</action>
+    </release>
+    <release version="3.1.1" date="2013-01-07">
+      <action dev="Peter Vlugter" type="fix" issue="113">Safeguard against null plugin configuration (previously NPE)</action>
+      <action dev="Peter Vlugter" type="fix">Consistently use camel case for system's properties used in configuration</action>
+      <action dev="David Bernard" type="update">upgrade jdk 1.5->1.6, maven 3.0 -> 3.0.4, zinc 0.1.0 -> 0.2.0</action>
+      <action dev="justwrote" type="update">zinc: changed from colon to platform-specific path separator</action>
+    </release>
+    <release version="3.1.0" date="2012-08-08">
+      <action dev="Peter Vlugter" type="update">Zinc integration for incremental compilation of Scala and Java sources.</action>
+      <action dev="David Bernard" type="fix" issue="96">remove temporary scala-maven-RANDOM.args after run if displayCmd != true</action>
+    </release>
+    <release version="3.0.2" date="2012-05-27">
+      <action dev="Alex Hvostov" type="update">Use Maven 3.0 toolchain API to configure a specific JDK to build with</action>
+      <action dev="Christoph Radig" type="add">The compilerPlugin element now honors the classifier of the given artifact.</action>
+      <action dev="David Bernard" type="fix" issue="86">use a .timestamp file per outputDir + sourceDirs</action>
+      <action dev="David Bernard" type="fix" issue="86">sourceDir is no longer added to project source's roots for compilation during 'compile' goal (but it is used to by the scala plugin), use 'add-source' goal to modify project source's roots</action>
+    </release>
+    <release version="3.0.0" date="2012-03-18" description="">
+      <action dev="Josh Suereth"  type="fix">added docjar task to create scaladoc *and* place it in a jar file attached to the project.</action>
+      <action dev="Josh Suereth"  type="fix">modify VersionNumber class so scala-virtualized builds can be used.</action>
+      <action dev="David Bernard" type="update">scala:console use jline from scala-lang when scala's verion >= 2.9.0</action>
+      <action dev="David Bernard + xylo" type="fix" issue="50">provide a configuration "useCanonicalPath" to  use CanonicalPath (or not)</action>
+      <action dev="David Bernard" type="update" issue="54">add @threadSafe on goals : compile, testCompile, run, script</action>
+      <action dev="David Bernard" type="update" issue="57">every lines of an scalac' error or warnings (including guilty source code) should be log with [ERROR] or [WARNING], not only the first one</action>
+      <action dev="David Bernard" type="fix" issue="60">scala:doc no longer remove elements from the classpath</action>
+      <action dev="David Bernard" type="update">move from org.scala-tools to net.alchim31.maven (repo hosted by oss.sonatype)</action>
+      <action dev="David Bernard" type="update">rename artifactId from maven-scala-plugin to scala-maven-plugin (follow maven rules and warning)</action>
+      <action dev="David Bernard" type="update">change name of github repository from maven-scala-plugin to scala-maven-plugin</action>
+      <action dev="David Bernard" type="update">change license from ASL 2.0 to public domain (Unlicense)</action>
+      <action dev="David Bernard" type="remove">remove goals cs-*</action>
+      <action dev="David Bernard" due-to="Christoph Höger" type="fix">Pass-through System.err and System.in to scala</action>
+      <action dev="David Bernard" type="add" issue="74">add command line property 'addScalacArgs' to pass scalac arguments (for test/tuning of scalac)</action>
+      <action dev="David Bernard" type="fix" issue="80">scalac -classpath includes goals's output dir instead of project's output dir</action>
+     </release>
+    <release version="2.15.2" date="2011-02-06" description="">
+      <action dev="David Bernard" type="add">archive generated by scala:genjson into $HOME/.config/vscaladoc2/apis can be intalled/deployed like regular artifact</action>
+    </release>
+    <release version="2.15.1" date="2011-01-25" description="">
+      <action dev="Jim Hurne" type="fix">Fixed bug with cctest that caused the tests to not run if there are no main source files but there are test source files</action>
+      <action dev="Jim Hurne" type="add">Add ccTestGoals parameters to choose others test goals (eg: scalatest:test)</action>
+      <action dev="David Bernard" type="update">scala:genjson can support custom json configuration</action>
+      <action dev="David Bernard" type="update">scala:genjson upgrade default version of vscaladoc2_genjson to 0.3</action>
+    </release>
+    <release version="2.15.0" date="2010-11-11" description="genjson">
+      <action dev="David Bernard" type="add">Add scala:genjson to generate scaladoc in json format (via vscaladoc2_genjson)</action>
+    </release>
+    <release version="2.14.3" date="2010-10-25" description="fix scala:cc">
+      <action dev="David Bernard" type="fix">scala:cc and scala:cctest raise an "UnsupportedOperationException: USELESS"</action>
+    </release>
+    <release version="2.14.2" date="2010-10-14" description="new continuous testing feature">
+      <action dev="James Strachan" type="add">New scala:cctest goal for Continuous Testing of Scala projects</action>
+      <action dev="James Strachan" type="fix">scala:cc now works OK if verbose is enabled</action>
+      <action dev="David Bernard" type="update">scala:doc now works with maven 3.0 (and maven-site-plugin 3.0-beta-2)</action>
+      <action dev="David Bernard" type="fix">fix issue in finding the compiler for scala's version with modifier prefixed by '.' instead of '-' like 2.8.1.RC2</action>
+    </release>
+    <release version="2.14.1" date="2010-07-21" description="">
+      <action dev="Ross A. Baker" type="fix">aggregate vscaladoc should not run with scaladoc(2)</action>
+    </release>
+    <release version="2.14" date="2010-06-27" description="scalac integration and other minor updates">
+      <action dev="David Bernard" type="fix">Allow scala:doc to generate scaladoc for multi-level projects like lift (quick fix)</action>
+      <action dev="Miles Sabin" type="add">first raw integration with tycho</action>
+      <action dev="David Bernard" type="update">script no longer include default import (like for Conversion, as it will not be part of scala 2.8)</action>
+      <action dev="David Bernard" type="update">change the classpath rules for running and compiling script (see doc)</action>
+      <action dev="David Bernard" type="update">property 'maven.scala.displayCmd' replaced by 'displayCmd' shorter for command line typing</action>
+      <action dev="David Bernard" type="update">property 'maven.scala.version' replaced by 'scala.version' to avoid over-configuration</action>
+      <action dev="Indrajit Raychaudhuri" type="update">scaladoc goal now executes generate-sources before executing</action>
+      <action dev="Josh Suereth" type="update">Documentation for scalac arguments updated in usage_compiler.html</action>
+      <action dev="Josh Suereth" type="update">Dependent Artifacts are now listed when there are scala version mismtaches detected</action>
+      <action dev="Josh Suereth" type="fix">Scalac plugins now sent to REPL when executing scala:console</action>
+      <action dev="David Bernard" type="update">the list of source to compile is sorted by path to allow better "reproductible" build across box (as scalac seems sensible to file order)</action>
+      <action dev="David Bernard" type="update">add redirection of spawned process to (java.io.tmpdir)/(mainClassName).(err|out)</action>
+      <action dev="David Bernard" type="add">integration with ScalaCS</action>
+    </release>
+    <release version="2.13" date="2009-11-23" description="editor/ide integration enhancement">
+      <action dev="David Bernard" type="update">compile, test-compile, cc compile all files by default</action>
+      <action dev="David Bernard" type="add">compile, test-compile, cc log the root directories of compilation of the list of files that will be compiled (to allow editor/IDE to reset markers/annotation)</action>
+      <action dev="David Bernard" type="update">output line from compiler are redirected to maven's logger in forked mode => prefixed by [ERROR]/[WARN]/[INFO] + ease integration with m2eclipse (FULL_BUILD)</action>
+      <action dev="David Bernard" type="add">prepare integration of scala-tool-server (sts) with the goal sts-init</action>
+      <action dev="David Bernard" type="fix" due-to="awhitford" issue="16">fix documentation of default value for goal's configuration (http://github.com/davidB/maven-scala-plugin/issues/unreads#issue/16)</action>
+      <action dev="David Bernard" type="fix" due-to="Christophe Dehlinger">fix regression of 2.12 where scala:cc stop/exit at first error</action>
+      <action dev="David Bernard" type="update">rename packages to use a "flat one level" : org.scala_tools.maven.xxx => org_scala_tools_maven_xxx (ease file / web browsing)</action>
+      <action dev="David Bernard" type="delete">remove yaml as pom (maven-yamlpom-plugin doesn't support !true as properties value)</action>
+    </release>
+    <release version="2.12" date="2009-10-06" description="IO Windows fixes">
+      <action dev="David Bernard" type="fix">fix "Broken Pipe" issue on Windows</action>
+      <action dev="David Bernard" type="add">use Yaml to manage pom (thanks to maven-yamlpom-plugin http://wiki.github.com/mrdon/maven-yamlpom-plugin)</action>
+      <action dev="Josh Suereth" type="add">compile and doc mojo now use includes and excludes configuration.</action>
+      <action dev="Josh Suereth" type="fix">fixed documentation errors from 2.11.  Added start of FAQ section</action>
+      <action dev="Nicholas Tung" type="fix">compilerPlugin configuration now pulls in transitive dependencies.</action>
+      <action dev="Sean Griffin" type="fix">Ensure doc is written to site/scaladoc directory with both scala:doc and site goals</action>
+      <action dev="Josh Suereth + Kevin Wright" type="fix">mvn scala:console now works from windows</action>
+      <action dev="Josh Suereth" type="fix">Once again mvn scala:console does *not* compile the project.  See the FAQ</action>
+      <action dev="David Bernard" type="fix">the plugin work with snapshot version of scala-library and scala-compiler</action>
+      <action dev="Heiko Seeberger" type="update">now failOnMultipleScalaVersions == true stop the build</action>
+    </release>
+    <release version="2.11" date="2009-06-29" description="">
+      <action dev="David Bernard" type="fix">fix vscaladoc aggregation to work with maven 2.1.0</action>
+      <action dev="David Bernard" type="update">replace shitty by maven-invoker-plugin to run integration-test (shitty doesn't work with maven 2.1.0)</action>
+      <action dev="David Bernard" type="fix">add jline in the classpath of scala:console to enable REPL enhancement when jline is available</action>
+      <action dev="David Bernard" type="add">For scala version prior to 2.8.0, maven-scala-plugin could use a file to pass arguments to Main.  This fixes issues on OSes with argument length limitations (like windows)</action>
+      <action dev="Josh Suereth" type="add">For scala version 2.8.0 and above, maven-scala-plugin now uses the @ argument to pass arguments via a file.  This fixes issues on OSes with argument length limitations (like windows)</action>
+      <action dev="David Bernard" type="add">allow running vscaladoc aggregation only from command line use "-Dforce-aggregate=true" (avoid using in pom.xml)</action>
+      <action dev="David Bernard" type="fix">disable use of ConsolePiper that generate an echo of command when running scala:console</action>
+    </release>
+    <release version="2.10.1" date="2009-03-05" description="">
+      <action dev="Josh Suereth &amp; David Bernard" type="fix">No longer using Josh's dumb algorithm when checking for multiple scala versions.</action>
+    </release>
+    <release version="2.10" date="2009-03-01" description="">
+      <action dev="Josh Suereth" type="fix">doc goal now behaves like compiler when looking for scala version.</action>
+      <action dev="Arnaud Bailly" type="fix">test source directory parameter (testSourceDir) is now added to the testSourceDirectories (instead of compile source directories).</action>
+      <action dev="Josh Suereth" type="add">Added support for executing scalac plugins.</action>
+      <action dev="Josh Suereth" type="add">Added support for optional forking of scalac.</action>
+      <action dev="Josh Suereth" type="add">Added support to turn off sending Java source to scalac.</action>
+      <action dev="Josh Suereth" type="add">Plugin now detects multiple versions of scala library and issues a warning/fails.</action>
+    </release>
+    <release version="2.9.2" date="2008-12-??" description="">
+      <action dev="Josh Suereth" type="add">Added documentation for Java/Scala combined projects.  Updated integration tests to ensure it works appropriately.</action>
+      <action dev="David Bernard" type="fix">wrong split of -DaddArgs when running 'mvn scala:run -DmainClass=scala.tools.nsc.Main -DaddArgs="scriptName"'</action>
+    </release>
+    <release version="2.9.1" date="2008-12-05" description="">
+      <action dev="Josh Suereth" type="fix">Console goal now executes project compile beforehand</action>
+      <action dev="Josh Suereth" type="fix">does *not* send all java files to the scala compiler for versions prior to 2.7.2</action>
+    </release>
+    <release version="2.9" date="2008-12-03" description="support mixed java/scala projects">
+      <action dev="Josh Suereth" type="add">added support to look in all registered source directories for scala files</action>
+      <action dev="Josh Suereth" type="add">now send all java files to the scala compiler</action>
+      <action dev="Josh Suereth" type="fix">fixed minor issues in documentation xml</action>
+      <action dev="Josh Suereth" type="add">added support for automatic integration tests</action>
+    </release>
+    <release version="2.8" date="2008-09-27" description="">
+      <action dev="David Bernard" type="fix">redefine the run goal at the test-compile phase, to have a correct classpath</action>
+      <action dev="Jesse Eichar" type="add">add ability to run scala script (from pom.xml or external file)</action>
+      <action dev="David Bernard" type="fix">detection of the scala version use the test scope when compiling test classes</action>
+      <action dev="David Bernard" type="update">rename 'scalaJars' configuration attribute to 'dependencies'</action>
+    </release>
+    <release version="2.7" date="2008-08-25" description="">
+      <action dev="David Bernard" type="update">no more add scala-dbc and scala-decoder to the classpath when running scaladoc, compiler (to be compatible with 2.7.2)</action>
+      <action dev="David Bernard" type="add">auto-detect the scala-compiler version from the scala-library version declared as dependency</action>
+      <action dev="David Bernard" type="add">add an alternate format for compiler output if maven is called with "-DemacsMode=true"</action>
+      <action dev="David Bernard" type="add">add launchers : predefined configuration for scala:run</action>
+      <action dev="David Bernard" type="update">change the source host from code.google.com to github</action>
+    </release>
+    <release version="2.6" date="2008-05-08" description="upgrade scaladoc 2.7.1">
+      <action dev="David Bernard" type="update">add a shortcut config to use vscaladoc : vscaladocVersion, it's an alias of using the previous scaladocClassName and scalaJars</action>
+      <action dev="David Bernard" type="update">update the doc goal to support scala 2.7.1 (change the way to call scaladoc)</action>
+    </release>
+    <release version="2.5.1" date="2008-03-29" description="vscaladoc support">
+      <action dev="David Bernard" type="add">fix a bug in custom scaladoc and call to "mvn site"</action>
+    </release>
+    <release version="2.5" date="2008-03-19" description="compile only">
+      <action dev="David Bernard" type="add">add the option "once" to scala:cc, if once == true then it is not a continuous compilation but run once = compile only (no check on resources,...)</action>
+    </release>
+    <release version="2.4" date="2008-03-02" description="improve custom scaladoc">
+      <action dev="David Bernard" type="add">add the configuration parameter scaladocClassName to allow custom scaladoc Main</action>
+    </release>
+    <release version="2.3" date="2008-01-17" description="improve custom compilation">
+      <action dev="David Bernard" type="add">add continuous compilation : compilation run in loop and compile only modified file (non-stop)</action>
+      <action dev="David Bernard" type="add">add configuration scalaJars for additional jar in the classpath of scalaMainClass (improve support of custom main/compiler)</action>
+    </release>
+    <release version="2.2" date="2007-12-12" description="work with console">
+      <action dev="David Bernard" type="update">compile and testCompile, only compile newer source file modification than the last compilation</action>
+      <action dev="David Bernard" type="add">add basic support of javarebel into the console goal</action>
+      <action dev="David Bernard" type="add">the console goal (with history and line navigation)</action>
+      <action dev="David Bernard" type="update">linksource option of scaladoc, default is now true</action>
+      <action dev="David Bernard" type="update">call "scalac -help -X -Y" for scala:help</action>
+      <action dev="David Bernard" type="fix">location/directory of scaladocs for modules</action>
+    </release>
+
+    <release version="2.1" date="2007-11-18" description="documentation fix">
+      <action dev="David Bernard" type="fix">scaladoc bottom substitution</action>
+      <action dev="David Bernard" type="fix">location/directory of scaladocs</action>
+      <action dev="David Bernard" type="fix">add license to header of source file</action>
+    </release>
+
+    <release version="2.0" date="2007-11-15" description="first scala-tools version">
+      <action dev="David Bernard" type="update">change groupId to org.scala-tools</action>
+      <action dev="David Bernard" type="add">add reports to the genereted site</action>
+      <action dev="David Bernard" type="add">generate scaladoc like javadoc (as a report)</action>
+      <action dev="David Bernard" type="add">add support for scaladoc's options (footer, windowtitle,...)</action>
+      <action dev="David Bernard" type="add">the help goal to display compiler arguments</action>
+      <action dev="David Bernard" type="add">allow to display the command line used</action>
+      <action dev="David Bernard" type="add">allow to choose the version of scala compiler</action>
+      <action dev="David Bernard" type="add">use 'args' and 'jvmArgs' to provide complementary options to scala</action>
+      <action dev="David Bernard" type="remove">remove configuration entry : memorymax, memorymin, deprected...</action>
+      <action dev="David Bernard" type="fix">support for source code not under src/main/scala</action>
+      <action dev="David Bernard" type="fix">compile test, with the test dependencies</action>
+      <action dev="David Bernard" type="fix">execute the "run" goal with the runtime dependencies</action>
+      <action dev="David Bernard" type="fix">declare scala-compiler as a plugin dependencies,
+      so it is no more needed to declare scala-compiler
+      as a project's dependencies</action>
+      <action dev="David Bernard" type="fix">goals are documented via the standard maven-plugin-report</action>
+    </release>
+
+    <release version="1.0" date="2007-04-18" description="millstone.iodp.tamu.edu/blambi version"></release>
+  </body>
+</document>

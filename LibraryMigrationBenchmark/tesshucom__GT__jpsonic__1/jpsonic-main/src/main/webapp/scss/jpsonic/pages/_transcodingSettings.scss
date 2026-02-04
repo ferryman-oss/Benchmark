@@ -1,0 +1,81 @@
+.mainframe.settings.transcodingSettings {
+  $baseWidth: 30px;
+  $dlPadding: 3px;
+
+  @mixin transcodingInputWidth($size, $maxWidth: "") {
+    width: 100%;
+    min-width: calc((#{$baseWidth} * #{$size}) - #{$dlPadding});
+  }
+
+  input[name*="name"] {
+    @include transcodingInputWidth(3);
+  }
+  input[name*="sourceFormats"] {
+    width: 100%;
+    max-width: calc(100% - 100px);
+  }
+  input[name*="targetFormat"] {
+    max-width: 90px;
+
+    @include transcodingInputWidth(3);
+  }
+
+  input[name*="step1"] {
+    max-width: 100%;
+
+    @include transcodingInputWidth(9);
+  }
+  input[name*="step2"] {
+    max-width: 100%;
+
+    @include transcodingInputWidth(9);
+  }
+  input[name*="hlsCommand"] {
+    width: calc(80% - 30px);
+    min-width: calc(90px - 3px);
+    max-width: calc(80% - 30px);
+  }
+
+  table.tabular.transcoding {
+    margin: 30px 0 0 30px;
+    th {
+      text-align: center;
+    }
+    tr {
+      &:hover {
+        background-color: inherit;
+      }
+      td {
+        font-size: .86rem;
+        &:nth-child(1) {
+          width: 150px;
+          text-align: left;
+        }
+        &:nth-child(2) {
+          padding: 0;
+          text-align: left;
+        }
+        &:nth-child(3) {
+          width: 60px;
+          padding: 0;
+          text-align: center;
+        }
+        input#defaultActive {
+          margin: -.3rem 0 0 20px;
+        }
+        div#looltop-defaultactive.popup.help {
+          margin-top: .2rem;
+          margin-bottom: -.3rem;
+        }
+      }
+    }
+  }
+
+  div.hls {
+    margin: 30px 0 0 30px;
+    text-align: center;
+    div#looltop-hlscommand {
+      vertical-align: middle;
+    }
+  }
+}

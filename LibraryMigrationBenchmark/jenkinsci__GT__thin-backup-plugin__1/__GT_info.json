@@ -1,0 +1,22 @@
+{
+  "id": "jenkinsci__GT__thin-backup-plugin__1",
+  "client_project_name": "jenkinsci/thin-backup-plugin",
+  "github_url": "https://github.com/jenkinsci/thin-backup-plugin",
+  "before_migration_commit_hash": "b1f6c450d89efaf5dfe88e5bc132c10e5a972e36",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "junit:junit:4.13.2"
+  ],
+  "target_library_list": [
+    "org.junit.jupiter:junit-jupiter:5.10.0",
+    "org.junit.jupiter:junit-jupiter-api:5.10.0"
+  ],
+  "commit_pr_url": "https://github.com/jenkinsci/thin-backup-plugin/pull/116"
+}

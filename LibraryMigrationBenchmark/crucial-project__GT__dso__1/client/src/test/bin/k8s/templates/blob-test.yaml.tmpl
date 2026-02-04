@@ -1,0 +1,31 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: dso-client-test
+spec:
+  parallelism: %PARALLELISM%
+  template:
+    spec:
+      restartPolicy: OnFailure
+      containers:
+      - name: dso-client
+        image: %IMAGE%
+        resources:
+          requests:
+            memory: "256M"
+            cpu: "0.5"
+        env:
+          - name: PROXY
+            value: "%PROXY%"
+          - name: THREADS
+            value: "%THREADS%"
+          - name: INSTANCES
+            value: "1"
+          - name: CALLS
+            value: "%CALLS%"
+          - name: CLASS
+            value: "org.crucial.dso.Blob"
+          - name: PARALLELISM
+            value: "%PARALLELISM%"
+          - name: PARAMETERS
+            value: "1000000"

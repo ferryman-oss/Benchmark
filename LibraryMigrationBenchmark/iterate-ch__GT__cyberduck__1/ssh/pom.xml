@@ -1,0 +1,103 @@
+<!--
+  ~ Copyright (c) 2002-2016 iterate GmbH. All rights reserved.
+  ~ https://cyberduck.io/
+  ~
+  ~ This program is free software; you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation; either version 2 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>ch.cyberduck</groupId>
+        <artifactId>parent</artifactId>
+        <version>9.0.4-SNAPSHOT</version>
+    </parent>
+    <artifactId>ssh</artifactId>
+    <packaging>jar</packaging>
+    <properties>
+        <sshj-version>0.38.0</sshj-version>
+        <jsch-agentproxy-version>0.0.10</jsch-agentproxy-version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>ch.cyberduck</groupId>
+            <artifactId>core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.cyberduck</groupId>
+            <artifactId>test</artifactId>
+            <type>pom</type>
+            <scope>test</scope>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.cyberduck</groupId>
+            <artifactId>s3</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.iterate.ssh</groupId>
+            <artifactId>sshj</artifactId>
+            <version>0.39.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jcraft</groupId>
+            <artifactId>jzlib</artifactId>
+            <version>1.1.3</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.iterate.ssh</groupId>
+            <artifactId>jsch.agentproxy.sshj</artifactId>
+            <version>${jsch-agentproxy-version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.hierynomus</groupId>
+                    <artifactId>sshj</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>ch.iterate.ssh</groupId>
+            <artifactId>jsch.agentproxy.sshagent</artifactId>
+            <version>${jsch-agentproxy-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.iterate.ssh</groupId>
+            <artifactId>jsch.agentproxy.pageant</artifactId>
+            <version>${jsch-agentproxy-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.iterate.ssh</groupId>
+            <artifactId>jsch.agentproxy.usocket-jna</artifactId>
+            <version>${jsch-agentproxy-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.cyberduck</groupId>
+            <artifactId>cryptomator</artifactId>
+            <version>${project.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.cryptomator</groupId>
+            <artifactId>cryptofs</artifactId>
+            <version>2.6.9</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.sshd</groupId>
+            <artifactId>sshd-sftp</artifactId>
+            <version>2.14.0</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>
+

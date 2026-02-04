@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *	$Revision: 6757 $
+ *	$Date: 2010-08-25 13:25:44 +0200 (Mi, 25 Aug 2010) $
+ *
+ *  Copyright (c) 2005-2012 David Kocher. All rights reserved.
+ *  http://cyberduck.io/
+ *
+ *	This program is free software; you can redistribute it and/or modify
+ *	it under the terms of the GNU General Public License as published by
+ *	the Free Software Foundation; either version 2 of the License, or
+ *	(at your option) any later version.package
+ *
+ *	This program is distributed in the hope that it will be useful,
+ *	but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *	GNU General Public License for more details.
+ *
+ *	Bug fixes, suggestions and comments should be sent to:
+ *	dkocher@cyberduck.io
+ -->
+<project name="Cyberduck for Mac" basedir="." xmlns:unless="ant:unless">
+
+    <import file="../build.xml"/>
+
+    <property name="app.name" value="Cyberduck"/>
+    <property name="app.bundle" value="${build}/${app.name}.app"/>
+
+    <property name="spotlight" value="${module}/spotlight"/>
+
+    <property name="app.runtime.archs" value="'x86_64 arm64'"/>
+    <property name="app.runtime.system.min" value="10.13"/>
+    <property name="app.runtime.args"
+              value="-client --add-opens=java.base/sun.security.ssl=ALL-UNNAMED --add-opens=java.base/sun.security.util=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED -Djava.library.path=$APP_PACKAGE/Contents/Frameworks -Djna.boot.library.path=$APP_PACKAGE/Contents/Frameworks -Djna.library.path=$APP_PACKAGE/Contents/Frameworks -Djna.nounpack=true -Djava.awt.headless=true -Dsun.jnu.encoding=utf-8 -Dfile.encoding=utf-8 -Dsun.io.useCanonCaches=false -DLog4jContextSelector=org.apache.logging.log4j.core.selector.BasicContextSelector -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -XX:MinHeapFreeRatio=10 -XX:MaxHeapFreeRatio=20 -XX:+UseStringDeduplication"/>
+
+    <property name="build.xcodeoptions.default"
+              value="CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO JVM_RUNTIME_ARGS='${app.runtime.args}' JAVA_HOME=${java.home} SYMROOT=${build} SDKROOT=macosx ARCHS=${app.runtime.archs} MACOSX_DEPLOYMENT_TARGET=${app.runtime.system.min}"/>
+
+    <condition property="build.xcodeoptions"
+               value="${build.xcodeoptions.default} SPARKLEFEED='https://version.cyberduck.io/${sparkle.feed}/changelog.rss' INFOPLIST_PREPROCESSOR_DEFINITIONS=SPARKLE_BUILD"
+               else="${build.xcodeoptions.default}">
+        <isset property="sparkle.feed"/>
+    </condition>
+
+    <property name="xcode.target" value="app"/>
+
+    <property name="build.lipo.arch.remove" value="i386"/>
+
+    <import file="../runtime.xml"/>
+    <import file="../codesign.xml"/>
+    <import file="../archive.xml"/>
+
+    <target name="spotlight">
+        <local name="build.settings"/>
+        <property name="build.settings"
+                  value="${build.xcodeoptions} VERSION=${version} REVISION=${revision} COPYRIGHT='${copyright}'"/>
+        <echo message="Build settings ${build.settings}"/>
+        <exec dir="${spotlight}" executable="/usr/bin/xcrun" spawn="false" failonerror="true">
+            <arg line="xcodebuild -project '${spotlight}/Spotlight Importer.xcodeproj' -configuration '${xcode.configuration}' ${build.settings}"/>
+        </exec>
+        <copy todir="${app.bundle}/${bundle.spotlight}">
+            <fileset dir="${build}">
+                <include name="*.mdimporter/**"/>
+            </fileset>
+        </copy>
+        <chmod perm="a+x" type="file">
+            <fileset dir="${app.bundle}/${bundle.spotlight}">
+                <include name="**/MacOS/*"/>
+            </fileset>
+        </chmod>
+    </target>
+
+    <target name="build" depends="version,spotlight">
+        <echo message="Building ${app.bundle} with configuration ${xcode.configuration}"/>
+        <local name="build.settings"/>
+        <property name="build.settings"
+                  value="${build.xcodeoptions} RUNTIME_SOURCE=${runtime.dependency} VERSION=${version} REVISION=${revision} COPYRIGHT='${copyright}'"/>
+        <echo message="Build settings ${build.settings}"/>
+        <exec dir="${home}" executable="/usr/bin/xcrun" spawn="false" failonerror="true">
+            <arg line="xcodebuild -project ${home}/'Cyberduck.xcodeproj' -configuration '${xcode.configuration}' -target '${xcode.target}' ${build.settings}"/>
+        </exec>
+        <antcall target="runtime">
+            <param name="bundle" value="${app.bundle}"/>
+        </antcall>
+        <antcall target="shared-library-install-name">
+            <param name="oldname" value="/System/Library/Frameworks/JavaVM.framework/Versions/A/JavaVM"/>
+            <param name="newname" value="${bundle.runtime.lib}"/>
+            <param name="directory" value="${app.bundle}/${bundle.frameworks}"/>
+        </antcall>
+        <!-- Remove architectures -->
+        <foreach target="lipo" param="arch" list="${build.lipo.arch.remove}">
+            <param name="bundle" value="${app.bundle}"/>
+        </foreach>
+    </target>
+
+    <target name="sign" depends="version">
+        <antcall target="codesign" unless:true="${skipSign}">
+            <param name="bundle" value="${app.bundle}"/>
+        </antcall>
+    </target>
+
+    <target name="package" depends="version">
+        <property name="bundle.archive.basename" value="${app.name}-${version}.${revision}"/>
+        <property name="bundle.archive.zip" value="${bundle.archive.basename}.zip"/>
+        <property name="bundle.archive.pkg" value="${bundle.archive.basename}.pkg"/>
+
+        <mkdir dir="${build.deploy}"/>
+        <antcall target="zip">
+            <param name="directory" value="${build}"/>
+            <param name="target" value="${bundle.archive.zip}"/>
+            <param name="source" value="${app.name}.app"/>
+        </antcall>
+        <antcall target="notarize" unless:true="${skipNotarize}">
+            <param name="notarize.archive.upload" value="${build.deploy}/${bundle.archive.zip}"/>
+            <param name="notarize.archive.staple" value="${app.bundle}"/>
+        </antcall>
+        <antcall target="zip">
+            <param name="directory" value="${build}"/>
+            <param name="target" value="${bundle.archive.zip}"/>
+            <param name="source" value="${app.name}.app"/>
+        </antcall>
+        <checksum file="${build.deploy}/${bundle.archive.zip}"
+                  algorithm="md5" property="archive.md5"/>
+        <echo message="Calculating DSA signature..."/>
+        <exec dir="${home}" executable="sh" outputproperty="signature.dsa" failonerror="true">
+            <arg value="-o"/>
+            <arg value="pipefail"/>
+            <arg value="-c"/>
+            <arg value="openssl dgst -sha1 -binary '${build.deploy}/${bundle.archive.zip}' | openssl dgst -sha1 -sign ${www.update}/private.pem | openssl enc -base64"/>
+        </exec>
+        <echo message="DSASIGNATURE=${signature.dsa}"/>
+        <echo message="Calculating ed25519 signature..."/>
+        <exec dir="${home}" executable="sh" outputproperty="signature.ed25519" failonerror="true">
+            <arg value="-o"/>
+            <arg value="pipefail"/>
+            <arg value="-c"/>
+            <arg value="openssl pkeyutl -sign -inkey ${www.update}/private-ed25519.pem -rawin -in '${build.deploy}/${bundle.archive.zip}' | openssl enc -base64 -A"/>
+        </exec>
+        <echo message="EDSIGNATURE=${signature.ed25519}"/>
+        <echo message="MD5SUM=${archive.md5}"/>
+        <copy todir="${build.deploy}" overwrite="true">
+            <fileset dir="${www.update}">
+                <include name="changelog.rss"/>
+                <include name="changelog.html"/>
+            </fileset>
+        </copy>
+        <replace dir="${build.deploy}" summary="true" encoding="UTF-8">
+            <include name="changelog.rss"/>
+            <replacefilter token="${TIMESTAMP}" value="${touch.time}"/>
+            <replacefilter token="${ARCHIVE}"
+                           value="https://update.cyberduck.io/${sparkle.feed}/${bundle.archive.zip}"/>
+            <replacefilter token="${CHANGELOG}" value="https://version.cyberduck.io/${sparkle.feed}/changelog.html"/>
+            <replacefilter token="${REVISION}" value="${revision}"/>
+            <replacefilter token="${HASH}" value="${hash}"/>
+            <replacefilter token="${VERSION}" value="${version}"/>
+            <replacefilter token="${DSASIGNATURE}" value="${signature.dsa}"/>
+            <replacefilter token="${EDSIGNATURE}" value="${signature.ed25519}"/>
+            <replacefilter token="${COPYRIGHT}" value="${copyright}"/>
+            <replacefilter token="${MACOSX_DEPLOYMENT_TARGET}" value="${app.runtime.system.min}"/>
+        </replace>
+        <echo message="Building ${build.deploy}/${bundle.archive.pkg}"/>
+        <echo message="Code signing ${app.bundle} with certificate ${installer.certificate} from ${installer.keychain}"/>
+        <exec dir="${build.deploy}" executable="/usr/bin/xcrun" spawn="false" failonerror="true">
+            <arg line="productbuild --component ${app.bundle} /Applications --version ${version} --sign '${installer.certificate}' --keychain ${installer.keychain} ${build.deploy}/${bundle.archive.pkg}"/>
+        </exec>
+        <antcall target="notarize" unless:true="${skipNotarize}">
+            <param name="notarize.archive.upload" value="${build.deploy}/${bundle.archive.pkg}"/>
+            <param name="notarize.archive.staple" value="${build.deploy}/${bundle.archive.pkg}"/>
+        </antcall>
+        <foreach target="md5" param="source">
+            <fileset dir="${build.deploy}">
+                <include name="*.pkg"/>
+                <include name="*.zip"/>
+            </fileset>
+        </foreach>
+    </target>
+</project>

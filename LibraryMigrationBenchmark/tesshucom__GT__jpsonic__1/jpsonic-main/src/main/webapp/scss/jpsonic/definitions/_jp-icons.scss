@@ -1,0 +1,1041 @@
+/*
+ This file is part of Jpsonic.
+
+ Jpsonic is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ Jpsonic is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with Jpsonic.  If not, see <http://www.gnu.org/licenses/>.
+
+ Copyright 2020 (C) tesshu.com
+ */
+
+// ################################################################################
+
+@font-face {
+  font-family: "ionic";
+
+  src: url("../../fonts/ionicons/ionicons.woff") format("woff"), url("../../fonts/ionicons/ionicons.woff2") format("woff2"), url("../../fonts/ionicons/ionicons.ttf") format("truetype");
+}
+
+@mixin createButtonBase($icon-size: "", $content: "", $content-size: "", $content-top: "", $content-left: "") {
+  outline: none !important;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  @if $content == "" {
+    display: inline-block;
+    overflow: hidden;
+    width: #{$icon-size};
+    height: #{$icon-size};
+    max-height: #{$icon-size};
+    border: 1.4px solid $jp-color-base3;
+    border-radius: 50%;
+    background: $jp-color-base2;
+    line-height: #{$icon-size};
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+
+    filter: drop-shadow($jp-shadow-offset $jp-shadow-offset $jp-shadow-offset $jp-color-mask-gray);
+    &:focus,
+    &:hover {
+      filter: hue-rotate(175deg) contrast(110%) drop-shadow($jp-shadow-offset $jp-shadow-offset $jp-shadow-offset $jp-color-mask-gray);
+    }
+    &:active {
+      top: $jp-shadow-pressed-offset;
+      left: $jp-shadow-pressed-offset;
+
+      filter: hue-rotate(175deg) contrast(110%) drop-shadow($jp-shadow-pressed-offset $jp-shadow-pressed-offset $jp-shadow-pressed-offset $jp-color-mask-gray);
+    }
+    &::before {
+      color: $jp-color-white;
+      font-family: "ionic";
+    }
+  } @else {
+    &::before {
+      display: block;
+      position: absolute;
+      top: -.045em;
+      left: -.075em;
+      width: #{$icon-size};
+      height: #{$icon-size};
+      color: $jp-color-white;
+      font-size: #{$content-size};
+      text-align: center;
+      content: "#{$content}";
+
+      -webkit-font-smoothing: antialiased;
+      @if $content-top != "" {
+        top: #{$content-top};
+      }
+      @if $content-left != "" {
+        left: #{$content-left};
+      }
+    }
+  }
+}
+
+// All link buttons have the same tag format.
+//
+// <a href="???" title="???" class="???">???</a>
+//
+// Ordinary link buttons do not display link text.
+// The link button on the menu displays the link text.
+// Both can be read by a 'screen reader'.
+//
+// The link text of the menu link button is a little complicated because it is created so that no filter-effect is applied.
+@mixin createMenuButtonBase($icon-size: "", $content: "", $content-size: "", $content-top: "", $content-left: "", $content-upside-down: "") {
+  outline: none !important;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  @if $content == "" {
+    display: flex;
+    overflow: visible;
+    align-items: center;
+    flex-flow: row wrap;
+    justify-content: center;
+    font-size: 11px;
+    line-height: #{$icon-size};
+    white-space: nowrap;
+    cursor: pointer;
+
+    filter: drop-shadow(0 0 0 transparent);
+    > a {
+      text-align: center;
+    }
+    &:not(.avatar) {
+      width: #{$icon-size};
+      height: #{$icon-size};
+      margin: 5px 15px 25px 15px;
+      padding: 25px 15px 5px 15px;
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: #{$icon-size};
+        height: #{$icon-size};
+        border: 1.4px solid $jp-color-base3;
+        border: 1.4px solid $jp-color-base3;
+        border-radius: 50%;
+        background: $jp-color-base2;
+        line-height: #{$icon-size};
+        text-decoration: none;
+        content: "";
+
+        filter: drop-shadow($jp-shadow-offset $jp-shadow-offset $jp-shadow-offset $jp-color-mask-gray);
+      }
+    }
+    &:focus,
+    &:focus-within,
+    &:hover {
+      &::before {
+        color: $jp-color-base2;
+
+        filter: hue-rotate(175deg) contrast(120%) drop-shadow($jp-shadow-offset $jp-shadow-offset $jp-shadow-offset $jp-color-mask-gray);
+      }
+      > a {
+        color: $jp-color-complementary3;
+      }
+    }
+    &:active {
+      &::before,
+      a::before {
+        top: $jp-shadow-pressed-offset;
+        left: $jp-shadow-pressed-offset;
+      }
+      &::before {
+        filter: hue-rotate(175deg) contrast(120%) drop-shadow($jp-shadow-pressed-offset $jp-shadow-pressed-offset $jp-shadow-pressed-offset $jp-color-mask-gray);
+      }
+    }
+    a {
+      &::before {
+        color: $jp-color-white;
+        font-family: "ionic";
+      }
+    }
+  } @else {
+    &::before {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: #{$icon-size};
+      height: #{$icon-size};
+      color: $jp-color-white;
+      font-size: #{$content-size};
+      text-align: center;
+      content: "#{$content}";
+
+      -webkit-font-smoothing: antialiased;
+      @if $content-top != "" {
+        top: #{$content-top};
+      }
+      @if $content-left != "" {
+        left: #{$content-left};
+      }
+      @if $content-upside-down != "" {
+        transform: rotate(#{$content-upside-down});
+      }
+    }
+  }
+}
+
+@mixin createButton($content: "", $content-size: "", $content-top: "", $content-left: "") {
+  @include createButtonBase(26px, $content, $content-size, $content-top, $content-left);
+}
+
+@mixin createTabularButton($content: "", $content-size: "", $content-top: "", $content-left: "") {
+  margin: 5px 0 0 0;
+
+  @include createButtonBase(20px, $content, $content-size, $content-top, $content-left);
+  &::before {
+    font-weight: 600;
+  }
+}
+
+@mixin createMenuButton($content: "", $content-size: "", $content-top: "", $content-left: "", $content-upside-down: false) {
+  @include createMenuButtonBase(30px, $content, $content-size, $content-top, $content-left, $content-upside-down);
+}
+
+@mixin createTitleIcon($content: "", $content-size: "", $content-top: "", $content-upside-down: "") {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+
+  $icon-size: 30px;
+  @if $content == "" {
+    &::before {
+      width: $icon-size;
+      height: $icon-size;
+      margin: 0 10px 0 0;
+      border: 1.4px solid $jp-color-base3;
+      border-radius: 50%;
+      background: $jp-color-base2;
+      color: $jp-color-white;
+      text-align: center;
+      content: "";
+    }
+  } @else {
+    &::before {
+      display: block;
+      width: #{$icon-size};
+      height: #{$icon-size};
+      font-family: "ionic";
+      font-size: #{$content-size};
+      font-weight: 300;
+      line-height: calc(#{$icon-size} - .15em);
+      text-align: center;
+      content: "#{$content}";
+
+      -webkit-font-smoothing: antialiased;
+      @if $content-top != "" {
+        line-height: calc(#{$icon-size} - .1em + #{$content-top});
+      }
+      @if $content-upside-down != "" {
+        transform: rotate(#{$content-upside-down});
+      }
+    }
+  }
+}
+
+.control,
+.control.disabled {
+  color: transparent !important;
+
+  @include createButton;
+  &.disabled {
+    background: $jp-color-dark-gray;
+  }
+}
+
+.home .ratings {
+  display: flex;
+  align-items: start;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  height: 30px;
+  color: transparent;
+
+  $icon-size: 20px;
+  $content-size: 20px;
+  .rating {
+    width: #{$icon-size};
+    height: #{$icon-size};
+
+    &::before {
+      position: relative;
+      width: #{$icon-size};
+      height: #{$icon-size};
+      color: $jp-color-base3;
+      font-family: "ionic";
+      font-size: #{$content-size};
+      font-weight: 600;
+
+      -webkit-font-smoothing: antialiased;
+    }
+    &.star {
+      &::before {
+        content: "\f4b2";
+      }
+    }
+    &.star-half {
+      &::before {
+        content: "\f4b1";
+      }
+    }
+    &.star-fill {
+      &::before {
+        content: "\f4b3";
+      }
+    }
+    &.clear {
+      &::before {
+        content: "\f406";
+      }
+    }
+  }
+}
+
+.control.disabled {
+  border: 1.4px solid $jp-color-dark-gray;
+  background: $jp-color-dark-gray;
+  cursor: auto;
+
+  filter: drop-shadow(0 0 0 $jp-color-mask-gray);
+  &:focus,
+  &:hover {
+    filter: hue-rotate(0deg) contrast(100%) drop-shadow(0 0 0 $jp-color-mask-gray);
+  }
+  &:active {
+    top: 0;
+    left: 0;
+
+    filter: hue-rotate(0deg) contrast(100%) drop-shadow(0 0 0 $jp-color-mask-gray);
+  }
+}
+
+.fileControls .control,
+.tabular .control,
+.jps-radio .control {
+  color: transparent !important;
+
+  @include createTabularButton;
+}
+.fileControls {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  div,
+  a {
+    margin: 0 2px 0 2px !important;
+  }
+}
+
+nav > ul.menu li {
+  @include createMenuButton;
+}
+
+section > h1,
+section > details > summary > h1 {
+  @include createTitleIcon;
+}
+
+.control.play {
+  @include createButton("\f357", 15px, -.06em);
+}
+.control.pause {
+  @include createButton("\f478", 20px);
+}
+
+.jps-radio .control.play {
+  @include createButton("\f357", 12px, 0em, -.24em);
+}
+.control.shuffle {
+  @include createButton("\f4a9", 24px);
+}
+.control.plus {
+  @include createButton("\f102", 24px, -.06em);
+}
+.control.download {
+  @include createButton("\f2e3", 20px, -.06em);
+}
+.control.next {
+  @include createTabularButton("\f3d1", 20px, -.06em, .1em);
+}
+.control.edit,
+.control.comment {
+  @include createButton("\f2db", 20px, -.08em, -.05em);
+}
+.control.export {
+  @include createButton("\f31f", 22px);
+}
+.control.import {
+  @include createButton("\f31e", 22px);
+}
+
+.control.cross {
+  @include createButton("\f406", 30px, -.05em, -.05em);
+}
+.control.heart {
+  @include createButton("\f1a1", 20px);
+}
+.control.heart-fill {
+  @include createButton("\f308", 20px);
+}
+.control.heart-dislike {
+  @include createButton("\f167", 20px, -.03em, -.06em);
+}
+.control.share {
+  @include createButton("\f379", 20px, -.06em, -.15em);
+}
+.control.tag {
+  @include createButton("\f35B", 20px, -.03em, -.1em);
+}
+.control.up {
+  @include createButton("\f28B", 20px);
+}
+.control.image {
+  @include createButton("\f19c", 18px, -.09em);
+}
+.control.refresh {
+  font-weight: 600;
+
+  @include createButton("\f49c", 18px, -.09em);
+}
+.control.right {
+  @include createButton("\f28a", 20px);
+}
+.control.left {
+  @include createButton("\f288", 20px);
+}
+.control.all {
+  @include createButton("\f310", 20px);
+}
+.control.saveas {
+  @include createButton("\f31e", 20px);
+}
+.control.select-all {
+  @include createButton("\f2e2", 20px);
+}
+.control.forward {
+  @include createButton("\f217", 20px);
+}
+.control.prev {
+  @include createButton("\f215", 20px);
+}
+.control.repeat {
+  font-weight: 600;
+
+  @include createButton("\f1fe", 24px, -.05em);
+}
+.control.no-repeat {
+  font-weight: 600;
+
+  @include createButton("\f203", 24px);
+}
+.control.cast-active {
+  @include createButton("\f22f", 20px, -.05em);
+}
+.control.cast-idle {
+  @include createButton("\f22f", 20px, -.05em);
+}
+.control.maximize {
+  font-weight: 300;
+
+  @include createButton("\f1d7", 20px, -.05em);
+}
+.control.pip {
+  @include createButton("\f34f", 18px, -.1em);
+}
+.control.expand {
+  font-weight: 600;
+
+  @include createButton("\f3d8", 22px, -.05em);
+}
+.control.shrink {
+  font-weight: 600;
+
+  @include createButton("\f3d0", 22px);
+}
+.control.save-pq {
+  font-weight: 500;
+
+  @include createButton("\f1b1", 20px, -.08em);
+}
+.control.load-pq {
+  font-weight: 500;
+
+  @include createButton("\f1b2", 20px, -.08em);
+}
+.control.reset,
+.control.undo {
+  @include createButton("\f49c", 22px, -.1em);
+  &::before {
+    transform: scale(-1, 1) rotate(90deg);
+  }
+}
+.control.volume {
+  @include createButton("\f3a1", 22px, -.07em, -.1em);
+}
+.control.mute {
+  @include createButton("\f3a2", 22px, -.05em);
+}
+.control.sort {
+  @include createButton("\f31b", 20px, -.05em);
+}
+
+.control.artist {
+  @include createButton("\f2d7", 20px, -.05em);
+}
+.control.album {
+  @include createButton("\f2e0", 20px, -.05em);
+}
+.control.track {
+  @include createButton("\f46b", 20px, -.05em);
+}
+.control.ratings {
+  @include createButton("\f392", 20px, -.08em);
+}
+.control.outernal-link {
+  @include createButton("\f22a", 20px, -.08em);
+  &::before {
+    font-weight: 400;
+  }
+}
+
+.control.desktop-pc {
+  @include createButton("\f16c", 20px);
+}
+.control.tablet {
+  @include createButton("\f223", 20px);
+}
+.control.smartphone {
+  @include createButton("\f1e2", 20px);
+}
+
+.control.star {
+  @include createButton("\f4b2", 18px, -.12em, -.08em);
+}
+.control.star-fill {
+  @include createButton("\f4b3", 18px, -.12em, -.08em);
+}
+.control.star-half {
+  @include createButton("\f4b1", 18px, -.09em, -.06em);
+}
+.control.star-fill {
+  @include createButton("\f4b3", 18px, -.09em, -.06em);
+}
+.control.elasticity {
+  @include createButton("\f36b", 18px, -.09em, -.06em);
+}
+.control.elasticity {
+  @include createButton("\f36b", 18px, -.09em, -.06em);
+}
+.control.force-scan {
+  @include createButton("\f42d", 20px);
+}
+
+td > .control.up {
+  @include createButton("\f28B", 18px, -.06em, -.20em);
+}
+
+dd > .control.reflesh {
+  position: relative;
+  top: 4px;
+  left: 4px;
+  width: 22px;
+  height: 22px;
+  margin: -4px;
+
+  @include createButton("\f49c", 18px);
+  &::before {
+    position: absolute;
+    top: -2px;
+    left: -4px;
+    transform: scale(-1, 1) rotate(90deg);
+  }
+}
+
+// used in createSearchButton
+$icon-height: 26px;
+$icon-width: 40px;
+
+@mixin createSearchButton($content: "", $content-size: "") {
+  width: $icon-width;
+  height: $icon-height;
+  margin-left: 1px;
+  border: 1.4px solid $jp-color-base3;
+  border-radius: 0 calc(#{$icon-height} / 2) calc(#{$icon-height} / 2) 0;
+
+  &::before {
+    display: flex;
+    display: block;
+    align-items: center;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: #{$icon-height};
+    height: #{$icon-height};
+    padding-left: .4em;
+    background: $jp-color-base2;
+    color: $jp-color-white;
+    font-family: "ionic";
+    font-size: #{$content-size};
+    font-weight: 300;
+    line-height: calc(#{$icon-height} - .1em);
+    content: "#{$content}";
+
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+form .control.search {
+  @include createSearchButton("\f375", 20px);
+}
+
+form .control.microphone {
+  @include createSearchButton("\f32c", 20px);
+}
+
+// used in .popup.help
+
+$icon-size: 18px;
+$content: "\f30b";
+$content-size: 1.1rem;
+$content-top: "";
+$content-left: "";
+
+.popup.help {
+  display: inline-block;
+  overflow: hidden;
+  width: #{$icon-size};
+  height: #{$icon-size};
+  margin: 0 0 0 0;
+  outline: none;
+  border: 1.4px solid $jp-color-base3;
+  border-radius: 50%;
+  background: $jp-color-base2;
+  color: transparent;
+  line-height: #{$content-size};
+  text-decoration: none;
+  text-align: center;
+
+  filter: drop-shadow(0 0 0 transparent);
+  &:hover {
+    filter: hue-rotate(175deg) contrast(110%);
+  }
+  &::before {
+    display: block;
+    position: absolute;
+    top: -.03em;
+    left: -.075em;
+    width: #{$icon-size};
+    height: #{$icon-size};
+    color: $jp-color-white;
+    font-family: "ionic";
+    font-size: #{$content-size};
+    text-align: center;
+    content: "#{$content}";
+
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@mixin createToggle($direction: "left", $content: "", $content-size: "", $content-top: "", $content-left: "") {
+  width: 30px;
+
+  $icon-height: 26px;
+  @include createButton($content, $content-size, $content-top, $content-left);
+  @if $direction != "left" {
+    border-radius: 0 calc(#{$icon-height} / 2) calc(#{$icon-height} / 2) 0;
+  } @else if $direction != "right" {
+    border-radius: calc(#{$icon-height} / 2) 0 0 calc(#{$icon-height} / 2);
+  }
+}
+
+// list or tile >>
+.control.list {
+  @include createToggle("left", "\f454", 22px, -.05em, .1em);
+  &::before {
+    font-weight: 600;
+  }
+}
+.control.list.disabled {
+  @include createButton("\f454", 22px, -.05em, .1em);
+  &::before {
+    font-weight: 600;
+  }
+}
+.control.tile {
+  @include createToggle("right", "\f27a", 22px);
+}
+.control.tile.disabled {
+  @include createButton("\f27a", 22px);
+}
+// list or tile <<
+
+// outline or working-outline >>
+.control.outline {
+  @include createToggle("left", "\f2ce", 24px, -.05em, .05em);
+}
+.control.outline.disabled {
+  @include createButton("\f2ce", 24px, -.05em, .05em);
+}
+.control.working-outline {
+  @include createToggle("right", "\f2cd", 24px, -.05em, .005em);
+}
+.control.working-outline.disabled {
+  @include createButton("\f2cd", 24px, -.05em, .005em);
+}
+// outline or working-outline <<
+
+.pager {
+  .control.previous {
+    width: 30px;
+    border-radius: calc(#{$icon-height} / 2) 0 0 calc(#{$icon-height} / 2);
+
+    $icon-height: 26px;
+    @include createButton("\f288", 22px, -.05em, .1em);
+    &::before {
+      font-weight: 600;
+    }
+  }
+  .control.previous.disabled {
+    @include createButton("\f288", 22px, -.05em, .1em);
+  }
+  .control.forward {
+    width: 30px;
+    border-radius: 0 calc(#{$icon-height} / 2) calc(#{$icon-height} / 2) 0;
+
+    $icon-height: 26px;
+    @include createButton("\f28a", 22px, -.05em);
+  }
+  .control.forward.disabled {
+    @include createButton("\f28a", 22px, -.05em);
+  }
+}
+
+.menu-item.home {
+  @include createMenuButton("\f448", 24px);
+}
+.menu-item.pulse {
+  @include createMenuButton("\f35d", 24px);
+}
+.menu-item.star {
+  @include createMenuButton("\f4b3", 24px);
+}
+.menu-item.playlists {
+  @include createMenuButton("\f33f", 24px);
+}
+.menu-item.podcast {
+  @include createMenuButton("\f248", 24px);
+}
+.menu-item.refresh {
+  @include createMenuButton("\f49c", 24px);
+}
+.menu-item.settings {
+  @include createMenuButton("\f377", 24px);
+}
+.menu-item.personal {
+  @include createMenuButton("\f2a6", 24px);
+}
+.menu-item.upload {
+  @include createMenuButton("\f2e3", 24px, 0, 0, 180deg);
+}
+.menu-item.graph {
+  @include createMenuButton("\f1ed", 24px);
+}
+.menu-item.about {
+  @include createMenuButton("\f44d", 40px);
+}
+.menu-item.logout {
+  @include createMenuButton("\f1ef", 24px);
+}
+.menu-item.upload {
+  @include createMenuButton("\f2e3", 24px, 0, 0, 180deg);
+}
+.menu-item.connecting {
+  @include createMenuButton("\f186", 24px, 0, .08em);
+}
+.rating.star {
+  @include createButton("\f4b2", 18px, -.09em, -.06em);
+}
+.fileControls .control.play,
+.tabular .control.play {
+  @include createTabularButton("\f357", 11px, -.12em);
+}
+.fileControls .control.download,
+.tabular .control.download {
+  @include createTabularButton("\f2e3", 14px, -.1em);
+}
+.fileControls .control.next,
+.tabular .control.next {
+  @include createTabularButton("\f3d1", 14px, -.1em);
+}
+.fileControls .control.plus,
+.tabular .control.plus {
+  @include createTabularButton("\f102", 20px, -.08em, -.08em);
+}
+
+.tabular .control.suggest {
+  @include createTabularButton("\f2a7", 16px, -.08em, -.08em);
+}
+.tabular .control.apply-all {
+  @include createTabularButton("\f365", 16px, -.08em, -.08em);
+  &::before {
+    transform: rotate(90deg);
+  }
+}
+.tabular .control.undo {
+  @include createTabularButton("\f49c", 16px, -.08em, -.08em);
+  &::before {
+    transform: scale(-1, 1) rotate(90deg);
+  }
+}
+
+.tabular .control.minus {
+  @include createTabularButton("\f1fc", 20px, -.08em, -.08em);
+  &::before {
+    font-weight: 600;
+  }
+}
+.tabular .control.star {
+  @include createTabularButton("\f4b2", 16px, -.13em, -.1em);
+  &::before {
+    font-weight: 400;
+  }
+}
+
+.tabular .control.star-fill {
+  @include createTabularButton("\f4b3", 16px, -.13em, -.1em);
+  &::before {
+    font-weight: 400;
+  }
+}
+
+.tabular .control.outernal-link {
+  @include createTabularButton("\f22a", 16px, -.08em, -.08em);
+  &::before {
+    font-weight: 400;
+  }
+}
+
+h1.home {
+  @include createTitleIcon("\f30c", 24px);
+}
+h1.pulse {
+  @include createTitleIcon("\f35d", 24px);
+}
+h1.star {
+  @include createTitleIcon("\f4b3", 24px);
+}
+h1.playlists {
+  @include createTitleIcon("\f33f", 24px);
+}
+h1.podcast {
+  @include createTitleIcon("\f248", 24px);
+}
+h1.settings {
+  @include createTitleIcon("\f377", 24px, .05em);
+}
+h1.info {
+  @include createTitleIcon("\f312", 36px, .05em);
+}
+h1.upload {
+  @include createTitleIcon("\f2e3", 24px, 0, 180deg);
+}
+h1.search {
+  @include createTitleIcon("\f375", 24px);
+}
+h1.graph {
+  @include createTitleIcon("\f1ed", 24px);
+}
+h1.share {
+  @include createTitleIcon("\f379", 24px, .05em);
+}
+h1.error {
+  @include createTitleIcon("\f3a5", 24px, -.2em);
+}
+
+h1.artist {
+  @include createTitleIcon("\f2d7", 22px);
+}
+h1.album {
+  @include createTitleIcon("\f2e0", 22px, .05em);
+}
+h1.keyboad {
+  @include createTitleIcon("\f2aa", 22px, .05em, 90deg);
+}
+h1.image {
+  @include createTitleIcon("\f19c", 22px, .05em);
+}
+h1.key {
+  @include createTitleIcon("\f1a7", 22px, .05em);
+}
+h1.movie {
+  @include createTitleIcon("\f4cd", 22px, .05em);
+}
+h1.playqueue {
+  @include createTitleIcon("\f46c", 22px);
+}
+
+@mixin createIcon($content: "", $content-size: "", $content-top: "", $content-left: "", $content-upside-down: false) {
+  display: inline;
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  color: transparent !important;
+  user-select: none;
+  &::before {
+    position: relative;
+    color: $jp-color-dark-gray;
+    font-family: "ionic";
+    font-size: #{$content-size};
+    text-align: center;
+    content: "#{$content}";
+
+    -webkit-font-smoothing: antialiased;
+    @if $content-top != "" {
+      top: #{$content-top};
+    }
+    @if $content-left != "" {
+      left: #{$content-left};
+    }
+  }
+}
+
+.icon.numberofsongs {
+  @include createIcon("\f46b", 24px, -.2em);
+}
+.icon.duration {
+  @include createIcon("\f3c8", 24px, -.2em);
+}
+.icon.date {
+  @include createIcon("\f2ab", 24px, -.2em);
+}
+.icon.person {
+  @include createIcon("\f345", 24px, -.2em);
+}
+.icon.visibility {
+  @include createIcon("\f2e9", 24px, -.2em);
+}
+.icon.comment {
+  @include createIcon("\f2db", 24px, -.2em);
+}
+.icon.facebook {
+  @include createIcon("\f236", 24px, -.2em);
+}
+.icon.twitter {
+  @include createIcon("\f2b0", 24px, -.2em);
+}
+
+@mixin playQueueCursol {
+  position: relative;
+  top: .2em;
+  color: $jp-color-now-playing;
+  font-family: "ionic";
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  content: "\f46b";
+}
+
+.song.paused {
+  &::before {
+    @include playQueueCursol;
+  }
+}
+
+.song.playing {
+  &::before {
+    -webkit-animation: blink 1s ease-in-out infinite alternate;
+       -moz-animation: blink 1s ease-in-out infinite alternate;
+            animation: blink 1s ease-in-out infinite alternate;
+
+    @include playQueueCursol;
+    -webkit-font-smoothing: antialiased;
+  }
+  @-webkit-keyframes blink {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @-moz-keyframes blink {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes blink {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+// Details with special icons.
+// Affordance icons may be used in some details for easy user understanding.
+// These are displayed on the far right of the summary.
+// (Because the arrow is usually used at the left end of the summary)
+
+@mixin detailsIcon($content: "", $content-size: "", $content-url: "") {
+  &::after {
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    font-family: "ionic";
+    font-size: #{$content-size};
+    line-height: 30px;
+
+    -webkit-font-smoothing: antialiased;
+    @if $content-url != "" {
+      content: url(#{$content-url});
+    } @else {
+      content: "#{$content}";
+    }
+  }
+}
+
+details {
+  summary[class~="statusOK"] {
+    @include detailsIcon("\f14a", 24px);
+    &::after {
+      color: #8fbc8f;
+    }
+  }
+  summary[class~="statusNG"] {
+    @include detailsIcon("\f276", 24px);
+    &::after {
+      color: #dc915b;
+    }
+  }
+  summary[class~="jpsonic"] {
+    @include detailsIcon(null, 28px, "../../icons/japanesque.svg");
+  }
+}

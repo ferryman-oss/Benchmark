@@ -1,0 +1,60 @@
+h3 {
+    background-color: gray;
+    color: white;
+    padding: 5px 0 5px 5px;
+}
+
+label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+table {
+    border-spacing: 0;
+}
+
+th, td {
+    vertical-align: top;
+    text-align: left;
+    padding: 0 20px 10px 0;
+}
+
+ul {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.COMPLETE {
+    color: green;
+}
+
+.LOADING {
+    color: red;
+}
+
+.OFFLINE {
+    color: gray;
+}
+
+.m20 {
+    margin: 20px;
+}
+
+.number {
+    text-align: right;
+    font-family: monospace;
+}
+
+#breadcrumbs a {
+    padding: 0 5px 0 5px;
+    border-left: 1px solid black;
+}
+
+#stackInfo th {
+    text-decoration: underline;
+}
+
+#stackInfo td {
+    font-family: monospace;
+}

@@ -1,0 +1,78 @@
+{
+    "type" : "object",
+    "properties" : {
+        "stringWithDefault" : {
+            "type" : "string",
+            "default" : "abc"
+        },
+        "integerWithDefault" : {
+            "type" : "integer",
+            "default" : 1337
+        },
+        "numberWithDefault" : {
+            "type" : "number",
+            "default" : 1.337
+        },
+        "booleanWithDefault" : {
+            "type" : "boolean",
+            "default" : true
+        },
+        "dateWithDefault" : {
+            "type" : "string",
+            "format" : "date-time",
+            "default" : 123456789
+        },
+        "dateAsStringWithDefault" : {
+            "type" : "string",
+            "format" : "date-time",
+            "default" : "2011-02-24T09:25:23.112+0000"
+        },
+        "utcmillisecWithDefault" : {
+            "type" : "integer",
+            "format" : "utc-millisec",
+            "default" : 123456789
+        },
+        "enumWithDefault" : {
+            "type" : "string",
+            "enum" : ["one", "two", "three"],
+            "default" : "two"
+        },
+        "arrayWithDefault" : {
+            "type" : "array",
+            "items" : {
+                "type" : "string"
+            },
+            "default" : ["one", "two", "three"]
+        },
+        "complexPropertyWithDefault" : {
+            "type" : "object",
+            "properties" : {
+                "abc" : {
+                    "type" : "string"
+                }
+            },
+            "default" : {"abc" : "xyz"}
+        },
+        "uniqueArrayWithDefault" : {
+            "type" : "array",
+            "uniqueItems" : true,
+            "items" : {
+                "type" : "integer"
+            },
+            "default" : [100, 200, 300]
+        },
+        "arrayWithoutDefault" : {
+            "type" : "array",
+            "items" : {
+                "type" : "string"
+            }
+        },
+        "uniqueArrayWithoutDefault" : {
+            "type" : "array",
+            "uniqueItems" : true,
+            "items" : {
+                "type" : "boolean"
+            }
+        }
+    }
+}

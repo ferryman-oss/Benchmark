@@ -1,0 +1,22 @@
+{
+  "id": "joelittlejohn__GT__jsonschema2pojo__1",
+  "client_project_name": "joelittlejohn/jsonschema2pojo",
+  "github_url": "https://github.com/joelittlejohn/jsonschema2pojo",
+  "before_migration_commit_hash": "041cc356c984fddf32aa85628865aedf29453669",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "",
+    "jsonschema2pojo-cli"
+  ],
+  "jdk_version": "1.8",
+  "original_library_list": [
+    "commons-cli:commons-cli:1.2"
+  ],
+  "target_library_list": [
+    "com.beust:jcommander:1.18"
+  ],
+  "commit_pr_url": "https://github.com/joelittlejohn/jsonschema2pojo/commit/74db6fa001d1c519ddc9d9264221be4269953692"
+}

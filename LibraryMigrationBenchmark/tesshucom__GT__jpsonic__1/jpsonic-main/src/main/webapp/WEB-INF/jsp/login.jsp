@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="iso-8859-1"%>
+
+<html><head>
+    <%@ include file="head.jsp" %>
+    <script>
+        if (window != window.top) {
+            top.location.href = location.href;
+        }
+    </script>
+
+</head>
+<body class="mainframe login">
+
+    <form action="<c:url value='/login'/>" method="POST">
+        <sec:csrfInput />
+
+        <div id="loginframe">
+            <img src="./icons/logo.svg" alt="" class="logo">
+
+            <input required type="text" autofocus id="j_username" name="j_username" tabindex="1" placeholder="<fmt:message key='login.username'/>">
+
+            <input required type="password" autocomplete="off"  name="j_password" tabindex="2" placeholder="<fmt:message key='login.password'/>">
+
+            <input name="submit" type="submit" value="<fmt:message key='login.login'/>" tabindex="4">
+
+            <div class="details">
+            	<c:if test="${model.showRememberMe}">
+	                <div id="loginremember">
+	                    <label for="remember"><fmt:message key="login.remember"/></label>
+	                    <input type="checkbox" name="remember-me" id="remember" tabindex="3">
+	                </div>
+                </c:if>
+                <a href="recover.view"><fmt:message key="login.recover"/></a>
+            </div>
+
+            <c:if test="${model.logout}">
+                <div class="loginmessagebottom">
+                    <fmt:message key="login.logout"/>
+                </div>
+            </c:if>
+
+            <c:if test="${model.error}">
+                <div class="loginmessagebottom"><strong><fmt:message key="login.error"/></strong></div>
+            </c:if>
+
+            <c:if test="${model.insecure}">
+                <div class="loginmessagebottom"><strong><fmt:message key="login.insecure"><fmt:param value="${model.brand}"/></fmt:message></strong></div>
+            </c:if>
+
+            <div class="loginmessagetop">${model.loginMessage}</div>
+
+        </div>
+    </form>
+
+</body>
+</html>

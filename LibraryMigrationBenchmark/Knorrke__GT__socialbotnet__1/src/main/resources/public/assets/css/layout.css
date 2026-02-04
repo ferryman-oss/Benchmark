@@ -1,0 +1,176 @@
+:root {
+	/** using color palette https://coolors.co/f0f7fa-8ecae6-219ebc-023047-ffb703-fb8500 */
+    --bg-layout: #023047;
+    --color-layout: #fff;
+    --hover-header: #fb8500;
+    --bg-main: #fff;
+    --bg-content: #f2f2f2;
+    --color-content: #000;
+    --bg-media: #fff;
+    --bg-primary: #219ebc;
+    --color-primary: #fff;
+    --bg-secondary: #8ecae6;
+    --color-secondary: #fff;
+    --bg-light: #f0f7fa;
+    --color-light: #000;
+}
+
+html {
+	line-height: 1.5;
+}
+
+body {
+	font-family: Roboto;
+	padding: 0;
+	margin: 0;
+	background: var(--bg-layout);
+}
+
+#root {
+	background: var(--bg-main);
+}
+
+.main {
+	max-width: 1000px;
+	min-height: 500px;
+	margin: 0 auto 20px;
+	padding: 10px 30px;
+	color: var(--color-content);
+}
+
+@media only screen and (min-width: 1024px) {
+	#side-content {
+		float: right;
+		width: 230px;
+		padding-left: 20px;
+		border-left: 2px var(--bg-layout) solid;
+	}
+
+	.main .has-side-content {
+		margin-right: 250px;
+		padding-right: 20px;
+		border-right: 2px #000D54 solid;
+	}
+}
+
+dt {
+	margin-top: 15px;
+}
+
+button {
+	cursor: pointer;
+}
+
+/********************
+* Header and Footer *
+********************/
+
+.header {
+	background: var(--bg-layout);
+	color: var(--color-layout);
+	position: relative;
+	margin: 0;
+}
+
+.header-inner {
+	margin: 0 5% 0 0;
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.header a, .header a:visited, .header a:hover,
+.footer a, .footer a:visited, .footer a:hover {
+	color: var(--color-layout);
+	text-decoration: none;
+	padding: .25em .75em;
+	transition: color .3s ease;
+}
+
+.header a:hover,
+.footer a:hover {
+	color: var(--hover-header);
+}
+
+/** GI logo **/
+#gi-header {
+	display: inline-block;
+	vertical-align: middle;
+}
+#gi-header a {
+	padding-left: 0;
+}
+
+#gi-image {
+	height: 50px;
+	vertical-align: middle;
+}
+#gi-fg-bil-title {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 15px;
+}
+#gi-fg-bil {
+    padding: 10px 20px 10px;
+    display: inline-block;
+    color: var(--bg-layout);
+    border-bottom-right-radius: 100px;
+	background-color: var(--color-layout);
+    background-position: right bottom;
+	border-bottom: 1px solid var(--bg-layout);
+}
+
+#gi-fg-bil:hover {
+	transition: all 0.5s ease;
+	background: linear-gradient(to bottom right, #eee 45%, white 55%);
+	background-size: 200% 200%;
+	background-position: left top;
+}
+
+/** navigation top left **/
+#menu-meta {
+	display: inline-block;
+	vertical-align: bottom;
+}
+
+.header a:hover #header-image {
+	background-color: hsla(0,0%,100%,.65);
+}
+
+#header-image {
+	background-color: #ddd;
+	transition: background-color .3s ease;
+	border-radius: 100px;
+	margin-right: 5px;
+	padding: 5px;
+	vertical-align: bottom;
+}
+
+/** navigation top right **/
+#menu {
+	display: flex;
+	align-items: end;
+}
+
+nav ul {
+	margin: 0;
+    padding: 0;
+    list-style: none;
+    vertical-align: bottom;
+}
+
+nav li {
+	display: inline-block;
+    padding: 1em 0;
+}
+
+/** footer **/
+
+.footer {
+	background: var(--bg-layout);
+	color: var(--color-layout);
+	position: relative;
+	margin: 0;
+	padding: 25px 50px 5px;
+}

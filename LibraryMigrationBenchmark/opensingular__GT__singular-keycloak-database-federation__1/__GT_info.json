@@ -1,0 +1,21 @@
+{
+  "id": "opensingular__GT__singular-keycloak-database-federation__1",
+  "client_project_name": "opensingular/singular-keycloak-database-federation",
+  "github_url": "https://github.com/opensingular/singular-keycloak-database-federation",
+  "before_migration_commit_hash": "fcd8c6c0f2152fce85d91f41bc544723e12bf344",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "org.mindrot:jbcrypt:0.4"
+  ],
+  "target_library_list": [
+    "at.favre.lib:bcrypt:0.9.0"
+  ],
+  "commit_pr_url": "https://github.com/opensingular/singular-keycloak-database-federation/pull/38"
+}

@@ -1,0 +1,12 @@
+.top-frame {
+  // jquery.toastmessage
+  // Align with toast on mainframe
+  .toast-position-top-right {
+    top: 80px !important; //20px;
+    right: 40px !important; //20px;
+  }
+}
+
+@import "top/_header";
+@import "top/_drawer";
+@import "top/_scanning";

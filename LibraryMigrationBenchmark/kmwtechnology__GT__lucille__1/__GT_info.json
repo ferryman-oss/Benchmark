@@ -1,0 +1,23 @@
+{
+  "id": "kmwtechnology__GT__lucille__1",
+  "client_project_name": "kmwtechnology/lucille",
+  "github_url": "https://github.com/kmwtechnology/lucille",
+  "before_migration_commit_hash": "4d09fa9",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "lucille-core",
+    "lucille-parent"
+  ],
+  "jdk_version": "21",
+  "original_library_list": [
+    "net.mguenther.kafka:kafka-junit:3.6.0"
+  ],
+  "target_library_list": [
+    "org.springframework.kafka:spring-kafka:3.3.3",
+    "org.springframework.kafka:spring-kafka-test:3.3.3"
+  ],
+  "commit_pr_url": "https://github.com/kmwtechnology/lucille/pull/274"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "kiwiproject__GT__service-discovery-client__1",
+  "client_project_name": "kiwiproject/service-discovery-client",
+  "github_url": "https://github.com/kiwiproject/service-discovery-client",
+  "before_migration_commit_hash": "7cc6a15",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "com.pszymczyk.consul:embedded-consul:2.2.1"
+  ],
+  "target_library_list": [
+    "org.testcontainers:consul:1.17.5"
+  ],
+  "commit_pr_url": "https://github.com/kiwiproject/service-discovery-client/pull/265"
+}

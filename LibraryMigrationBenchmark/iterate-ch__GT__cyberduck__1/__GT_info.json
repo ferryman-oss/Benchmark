@@ -1,0 +1,22 @@
+{
+  "id": "iterate-ch__GT__cyberduck__1",
+  "client_project_name": "iterate-ch/cyberduck",
+  "github_url": "https://github.com/iterate-ch/cyberduck",
+  "before_migration_commit_hash": "aeab198e7a122258416a156af56a43d9c3c970b3",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "core",
+    ""
+  ],
+  "jdk_version": "21",
+  "original_library_list": [
+    "com.google.guava:guava:31.0.1-jre"
+  ],
+  "target_library_list": [
+    "com.github.ben-manes.caffeine:caffeine:2.9.3"
+  ],
+  "commit_pr_url": "https://github.com/iterate-ch/cyberduck/pull/16476"
+}

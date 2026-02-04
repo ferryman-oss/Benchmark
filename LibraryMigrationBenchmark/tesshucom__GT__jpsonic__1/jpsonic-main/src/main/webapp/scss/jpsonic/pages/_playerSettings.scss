@@ -1,0 +1,30 @@
+.mainframe.settings.playerSettings {
+  .topSelectorContainer {
+    dl {
+      dt {
+        background-color: $jp-color-base4;
+        color: $jp-color-white;
+        font-weight: 600;
+
+        @include borderRadius(left);
+      }
+      dd {
+        @include borderRadius(right);
+      }
+    }
+  }
+
+  input#name {
+    @include dlInputWidth(4);
+  }
+  .player {
+    width: 480px;
+    min-width: 480px;
+    max-width: 510px;
+    margin: 34px 20px 3px 20px;
+    @media screen and (min-width: $jp-supplement-width-threshold) {
+      width: calc(50vw - 60px);
+      margin: 34px 20px 3px calc((100vw - (50vw - 60px)) / 2);
+    }
+  }
+}

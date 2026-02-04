@@ -1,0 +1,24 @@
+﻿Contributors
+============
+
+Andreas Gudian
+Christian Schuster
+Christophe Labouisse
+Ciaran Liedeman
+Dilip Krishnan
+Ewald Volkert
+Gunnar Morling
+Ivo Smid
+Markus Heberling
+Michael Pardo
+Mustafa Caylak
+Oliver Ehrenmüller
+Paul Strugnell
+Remko Plantenga
+Samuel Wright
+Sebastian Hasait
+Sjaak Derksen
+Sean Huang
+Timo Eckhardt
+Tomek Gubala
+Vincent Alexander Beelte

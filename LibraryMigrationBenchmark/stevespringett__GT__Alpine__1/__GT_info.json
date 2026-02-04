@@ -1,0 +1,28 @@
+{
+  "id": "stevespringett__GT__Alpine__1",
+  "client_project_name": "stevespringett/Alpine",
+  "github_url": "https://github.com/stevespringett/Alpine",
+  "before_migration_commit_hash": "8c7a230f2cb9869f80c04bc23be6c51f387ae415",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "alpine-common",
+    "alpine-infra",
+    "alpine-model",
+    "alpine-server",
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "junit:junit:4.13.2",
+    "com.github.stefanbirkner:system-rules:1.19.0"
+  ],
+  "target_library_list": [
+    "org.junit.jupiter:junit-jupiter:5.10.3",
+    "org.junit-pioneer:junit-pioneer:2.2.0",
+    "org.junit.jupiter:junit-jupiter-api:5.10.3"
+  ],
+  "commit_pr_url": "https://github.com/stevespringett/Alpine/pull/609"
+}

@@ -1,0 +1,126 @@
+<!-- lingon: layout '/_layouts/default.ejs' -->
+<h1>Spotify Apollo<br/> Operations Manual</h1>
+
+<p class="small disclaimer">
+  A library for writing services that focuses on composability and simplicity, with high performance
+  using modern Java idioms and features.
+</p>
+
+<section>
+  <h1>General Description</h1>
+
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Apollo</h2>
+
+      <p>
+        Apollo is a set of Java libraries that we use at Spotify when
+        writing micro-services. Apollo includes features such as an
+        HTTP server and a URI routing system, making it trivial to
+        implement RESTful services.
+      </p>
+
+      <p>
+        Apollo has been used in production at Spotify for a long time.
+        As a part of the work to release version 1.0.0 we are moving the
+        development of Apollo in to the open.
+      </p>
+
+      <p>
+        Apollo has three main parts:
+      </p>
+
+      <ol>
+        <li>
+          <a href="https://github.com/spotify/apollo/tree/master/apollo-api">
+            apollo-api
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/spotify/apollo/tree/master/apollo-core">
+            apollo-core
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/spotify/apollo/tree/master/apollo-http-service">
+            apollo-http-service
+          </a>
+        </li>
+      </ol>
+    </div>
+
+    <div>
+      <h3>Apollo API</h3>
+
+      <p>
+        The apollo-api library defines the interfaces for your request routing
+        and request/reply handlers.
+      </p>
+
+      <h3>Apollo Core</h3>
+
+      <p>
+        The apollo-core library manages the lifecycle (loading,
+        starting, and stopping) of your service and defines a powerful module system for adding
+        functionality to an Apollo assembly. You do not usually
+        need to interact directly with apollo-core; think of it merely
+        as “plumbing.”
+      </p>
+
+      <h3>Apollo HTTP Service</h3>
+
+      <p>
+        The apollo-http-service library is a standardized assembly of
+        Apollo modules. It incorporates both apollo-api and
+        apollo-core and ties them together with several other useful
+        modules to get a standard api service using HTTP for incoming
+        and outgoing communication.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h1>Getting started</h1>
+
+  <p>
+    Apollo is distributed as a set of Maven artifacts, which makes it
+    easy to get started no matter the build tool; Maven, Ant + Ivy or
+    Gradle.  Below is a very simple but functional service &mdash;
+    more extensive examples are available
+    in <a href="https://github.com/spotify/apollo/tree/master/examples">the
+    GitHub repository</a>.
+  </p>
+
+
+  <fieldset>
+    <legend>Use the latest maven artifact</legend>
+
+    <pre><code class="xml"><dependency>
+    <groupId>com.spotify</groupId>
+    <artifactId>apollo-http-service</artifactId>
+    <version><%= global.apolloVersion %></version>
+</dependency></code></pre>
+  </fieldset>
+
+
+  <fieldset>
+    <legend>Minimal Apollo Application</legend>
+
+    <pre><code class="java">public final class App {
+
+    public static void main(String... args) throws LoadingException {
+        HttpService.boot(App::init, "my-app", args);
+    }
+
+    static void init(Environment environment) {
+        environment.routingEngine()
+            .registerAutoRoute(Route.sync("GET", "/", rc -> "hello world"));
+    }
+ }</code></pre>
+  </fieldset>
+
+  <p>
+    Find the <a href="http://spotify.github.io/apollo/maven/apidocs/">JavaDocs here</a>.
+  </p>
+</section>

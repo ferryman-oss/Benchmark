@@ -1,0 +1,21 @@
+{
+  "id": "cap-java__GT__cds-feature-event-hub__1",
+  "client_project_name": "cap-java/cds-feature-event-hub",
+  "github_url": "https://github.com/cap-java/cds-feature-event-hub",
+  "before_migration_commit_hash": "",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "cds-feature-event-hub"
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "org.mock-server:mockserver-netty:5.15.0"
+  ],
+  "target_library_list": [
+    "org.wiremock:wiremock-jetty12:3.12.1"
+  ],
+  "commit_pr_url": "https://github.com/cap-java/cds-feature-event-hub/pull/30"
+}

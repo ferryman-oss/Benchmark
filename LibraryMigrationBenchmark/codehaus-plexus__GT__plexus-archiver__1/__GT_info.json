@@ -1,0 +1,21 @@
+{
+  "id": "codehaus-plexus__GT__plexus-archiver__1",
+  "client_project_name": "codehaus-plexus/plexus-archiver",
+  "github_url": "https://github.com/codehaus-plexus/plexus-archiver",
+  "before_migration_commit_hash": "2b86526",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "org.iq80.snappy:snappy:0.4"
+  ],
+  "target_library_list": [
+    "io.airlift:aircompressor:0.27"
+  ],
+  "commit_pr_url": "https://github.com/codehaus-plexus/plexus-archiver/pull/339"
+}

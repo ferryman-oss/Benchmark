@@ -1,0 +1,21 @@
+{
+  "id": "openGemini__GT__opengemini-client-java__1",
+  "client_project_name": "openGemini/opengemini-client-java",
+  "github_url": "https://github.com/openGemini/opengemini-client-java",
+  "before_migration_commit_hash": "450fce8",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "21",
+  "original_library_list": [
+    "io.opentelemetry:opentelemetry-exporter-jaeger:1.32.0"
+  ],
+  "target_library_list": [
+    "io.opentelemetry:opentelemetry-exporter-otlp:1.32.0"
+  ],
+  "commit_pr_url": "https://github.com/openGemini/opengemini-client-java/pull/176"
+}

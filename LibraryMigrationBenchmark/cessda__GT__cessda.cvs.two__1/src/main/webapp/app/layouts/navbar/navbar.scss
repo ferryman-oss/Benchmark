@@ -1,0 +1,261 @@
+/**
+ * Copyright © 2017-2023 CESSDA ERIC (support@cessda.eu)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+@import '/node_modules/bootstrap/scss/functions';
+@import '/node_modules/bootstrap/scss/variables';
+
+/* ==========================================================================
+Navbar
+========================================================================== */
+
+.navbar-version {
+  font-size: 0.65em;
+  color: $navbar-dark-color;
+}
+
+.profile-image {
+  height: 1.75em;
+  width: 1.75em;
+}
+
+.navbar {
+  background: none;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  a {
+    z-index: 1;
+    color: #fff;
+    transition: all 0.3s;
+    border-bottom: 1px solid transparent;
+    font-size: 14px;
+  }
+  a:hover {
+    border-bottom: 1px solid #fff;
+    text-decoration: none;
+  }
+  .navbar-top {
+    width: 100%;
+    background-color: #4e4d56;
+    height: 36px;
+    .navbar-inner {
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      a {
+        color: #fff;
+      }
+      .cessda-abbr {
+        width: 0;
+        display: block;
+        overflow: hidden;
+      }
+      .navbar-nav-top {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        display: flex;
+        flex-flow: row nowrap;
+        -webkit-box-pack: start;
+        justify-content: flex-start;
+        padding-left: 0;
+        margin-bottom: 0;
+        list-style: none;
+        .dropdown-menu {
+          background-color: #4e4d56;
+          top: -5px !important;
+          border-radius: 0;
+          border: none;
+
+          a {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+
+  .navbar-middle {
+    width: 100%;
+    .navbar-inner {
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .logo {
+        position: relative;
+        text-align: center;
+        width: 275px;
+        margin: 15px 0;
+        z-index: 1;
+        img {
+          width: 100%;
+        }
+      }
+      .search-box {
+        width: 90%;
+        margin-bottom: 10px;
+        .input-group {
+          border: 1px solid #e5e5e5;
+          background-color: #fff;
+          border-radius: 0;
+          height: 45px;
+          max-width: 600px;
+          .square-icon {
+            margin: 10px 0 0 12px;
+            height: 20px;
+            width: 20px;
+            display: block;
+            opacity: 0.3;
+          }
+          .lang-input {
+            padding: 1px 0 1px 10px;
+            border: none;
+            height: auto;
+            line-height: normal;
+            background-color: #e5e5e5;
+            max-width: 170px;
+            font-size: 90%;
+          }
+          .search-input {
+            font-size: 16px;
+            padding: 1px 0 1px 10px;
+            border: none;
+            height: auto;
+            line-height: normal;
+          }
+          .search-input:focus {
+            box-shadow: none;
+          }
+        }
+      }
+    }
+  }
+
+  .navbar-bottom {
+    width: 100%;
+    background-color: #2b5a9b;
+    height: 50px;
+
+    .navbar-inner {
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      .navbar-toggler {
+        font-size: 150%;
+        font-weight: 600;
+        padding: 0 15px;
+        line-height: 50px;
+        height: 50px;
+        border: none;
+      }
+      .nav-item {
+        .nav-link {
+          padding: 0 13px;
+          color: #fff;
+          text-decoration: none;
+          line-height: 50px;
+          height: 50px;
+          margin: 0;
+          white-space: nowrap;
+        }
+        .nav-link:hover {
+          border: none;
+        }
+      }
+      .secondary-menu {
+        display: block;
+      }
+      .navbar-collapse {
+        z-index: 1;
+        background-color: #2b5a9b;
+      }
+      .dropdown-menu {
+        top: -3px;
+        border: none;
+        border-radius: 0;
+        background-color: #2b5a9b;
+      }
+    }
+  }
+
+  .navbar-version {
+    color: #000;
+  }
+  .dropdown-item:focus,
+  .dropdown-item:hover {
+    background-color: #5680b3;
+    border-bottom: none;
+  }
+  .dropdown-item.active,
+  .dropdown-item.active:focus,
+  .dropdown-item.active:hover {
+    background-color: #5680b3;
+  }
+  ul.navbar-nav {
+    .nav-item:hover,
+    .nav-item.active {
+      background-color: #5680b3;
+    }
+  }
+
+  a.nav-link {
+    font-weight: 400;
+  }
+
+  .navbar-toggler {
+    &:hover {
+      color: $navbar-dark-hover-color;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .navbar {
+    background: url(/content/images/line-background.png) no-repeat 100% 36px;
+    background-size: 176px;
+    .navbar-top {
+      .navbar-inner {
+        .cessda-abbr {
+          width: auto;
+        }
+      }
+    }
+
+    .navbar-middle {
+      .navbar-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: baseline;
+        .search-box {
+          width: 60%;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1023px) and (min-width: 769px) {
+  .navbar {
+    .navbar-bottom {
+      .navbar-inner {
+        .secondary-menu {
+          display: none;
+        }
+      }
+    }
+  }
+}

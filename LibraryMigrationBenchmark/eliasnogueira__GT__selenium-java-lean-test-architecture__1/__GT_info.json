@@ -1,0 +1,21 @@
+{
+  "id": "eliasnogueira__GT__selenium-java-lean-test-architecture__1",
+  "client_project_name": "eliasnogueira/selenium-java-lean-test-architecture",
+  "github_url": "https://github.com/eliasnogueira/selenium-java-lean-test-architecture",
+  "before_migration_commit_hash": "047d8641dcefa1983649ad235b4dc71e86bce372",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "com.github.javafaker:javafaker:1.0.2"
+  ],
+  "target_library_list": [
+    "net.datafaker:datafaker:1.6.0"
+  ],
+  "commit_pr_url": "https://github.com/eliasnogueira/selenium-java-lean-test-architecture/pull/119"
+}

@@ -1,0 +1,10 @@
+gitSafeReplacementChar: '-'
+branchName: '${issue.number}-${issue.title}'
+defaultBranch: 'master'
+branches:
+  - label: enhancement
+    prefix: enhancement/
+  - label: feature_request
+    prefix: feature/
+  - label: bug
+    prefix: bugfix/

@@ -1,0 +1,617 @@
+.mejs__overlay-loading-bg-img {
+  background-image: url("jpsonic-controls.svg");
+}
+
+.mejs__button > button {
+  background-image: url("jpsonic-controls.svg");
+}
+
+.mejs__overlay-button {
+  background-image: url("jpsonic-controls.svg");
+}
+
+.mejs__container {
+  background: transparent;
+}
+
+.mejs__container .me_cannotplay a {
+  background: transparent;
+}
+
+.mejs__controls:not([style*="display: none"]) {
+  background: transparent;
+  background: -webkit-linear-gradient(transparent, transparent);
+  background:         linear-gradient(transparent, transparent);
+}
+
+.mejs__time {
+  color: $jp-color-dark-gray;
+}
+
+.mejs__time-total {
+  @include primaryMaskedBg(.5);
+}
+
+.mejs__time-buffering {
+  background: linear-gradient(
+  -45deg,
+  rgba($jp-color-black, .15) 75%,
+  transparent 75%,
+  transparent 50%,
+  rgba($jp-color-black, .85) 50%,
+  rgba($jp-color-black, .85) 75%,
+  transparent 75%,
+  transparent
+  );
+}
+
+.mejs__time-loaded {
+  @include primaryMaskedBg(.7);
+}
+
+.mejs__time-current,
+.mejs__time-handle-content {
+  @include primaryMaskedBg(1);
+}
+
+.mejs__time-hovered {
+  background: rgba($jp-color-black, .4);
+}
+
+.mejs__time-hovered.negative {
+  background: rgba($jp-color-white, .4);
+}
+
+.mejs__volume-button > .mejs__volume-slider {
+  background: rgba(50, 50, 50, .3);
+}
+
+.mejs__volume-current {
+  @include primaryMaskedBg(1);
+}
+
+.mejs__volume-handle {
+  @include primaryMaskedBg(1);
+}
+
+.mejs__horizontal-volume-total {
+  @include primaryMaskedBg(.5);
+}
+
+.mejs__horizontal-volume-current {
+  @include primaryMaskedBg(1);
+}
+
+.mejs__captions-button > .mejs__captions-selector,
+.mejs__chapters-button > .mejs__chapters-selector {
+  background: rgba(50, 50, 50, .3);
+}
+
+.mejs__captions-selector-list-item,
+.mejs__chapters-selector-list-item {
+  color: $jp-color-black;
+}
+
+.mejs__captions-selector-list-item:hover,
+.mejs__chapters-selector-list-item:hover {
+  background-color: rgb(100, 100, 100) !important;
+  background-color: rgba(0, 0, 0, .6) !important;
+}
+
+.mejs__captions-layer {
+  color: $jp-color-black;
+}
+
+.mejs__captions-layer a {
+  color: $jp-color-black;
+}
+
+// ******************** playQueue/playQueue.jsp *******************************
+
+$play-button-size: 30px;
+$button-size: 26px;
+$buttons-top: 20px;
+
+.playQueue {
+  overflow: hidden;
+  margin: 0;
+  background-color: transparent;
+  div.control.expand {
+    display: block;
+  }
+  div.control.shrink {
+    display: none;
+  }
+  > input#isQueueOpened {
+    display: none;
+    &:checked ~ .jps-playqueue-drawer {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    &:checked ~ .playerView {
+      a {
+        div.control.elasticity {
+          opacity: 1;
+          //display: block;
+          left: calc(100vw - #{$button-size} - 70px);
+        }
+        div.control.expand {
+          display: none;
+        }
+        div.control.shrink {
+          display: block;
+        }
+      }
+    }
+  }
+
+  > input#isQueueExpand {
+    display: none;
+  }
+  > input#isQueueOpened:checked + input#isQueueExpand:checked + .playerView {
+    .mejs__unmute button,
+    .mejs__mute button,
+    .mejs__horizontal-volume-slider,
+    .jp-volume,
+    select[name="player"] {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+  > input#isQueueOpened:checked + input#isQueueExpand:checked .jps-playqueue-drawer {
+    border: none;
+  }
+
+  section {
+    min-height: 30px;
+    margin: 0 10px 0 10px;
+    border-bottom: 1.4px solid $jp-color-base3;
+
+    > h1 {
+      display: flex;
+      align-items: center;
+      height: 30px;
+      font-size: 1.43rem;
+      white-space: nowrap;
+    }
+
+    dl.overview {
+      position: absolute;
+      top: 0;
+      right: 60px;
+      width: 180px;
+      border: none;
+      background-color: transparent;
+      dt {
+        display: flex;
+        align-items: center;
+        flex-flow: row nowrap;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border: none;
+        background-color: transparent;
+      }
+      dd {
+        display: flex;
+        overflow: hidden;
+        align-items: center;
+        flex-flow: row nowrap;
+        justify-content: start;
+        width: 60px;
+        max-width: 60px;
+        height: 30px;
+        border: none;
+        background-color: transparent;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
+  section + div.actions {
+    margin-left: 10px;
+    > .controls {
+      > li {
+        // one off for sorting layout
+        &:focus-within ul {
+          top: 70px;
+          left: 145px;
+        }
+      }
+    }
+  }
+
+  input#isElementUnderQueue {
+    display: none;
+    &:checked ~ .queue-container {
+      height: calc(100vh - 60px - 60px - 60px - 30px);
+      margin-bottom: 30px;
+    }
+  }
+
+  .queue-container {
+    overflow: scroll;
+    overflow-x: hidden;
+    width: calc(100vw - 60px);
+    height: calc(100vh - 60px - 60px - 60px - 30px - 30px);
+    margin: 30px 30px 0 30px;
+    line-height: .86rem;
+
+    line-height-step: 30px;
+    .tabular.queue {
+      width: calc(100% - 30px);
+      margin: 0;
+      padding: 0;
+      thead {
+        tr {
+          th {
+            position: -webkit-sticky;
+            position:         sticky;
+            z-index: $jp-layer-2;
+            top: 0;
+            background-color: $jp-color-base4;
+            color: $jp-color-white;
+          }
+        }
+      }
+      tbody {
+        cursor: pointer;
+        tr {
+          td {
+            &:nth-child(1),
+            &:nth-child(2) {
+              @include buttonCell;
+            }
+            &.action {
+              width: 30px;
+              text-align: center;
+              vertical-align: middle;
+            }
+            &.track {
+              width: 30px;
+              text-align: right;
+            }
+            &.song,
+            &.album,
+            &.artist {
+              overflow: hidden;
+              min-width: 8rem;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+            &.song {
+              max-width: 20vw;
+              &.truncate {
+                max-width: 16vw;
+              }
+            }
+            &.album {
+              max-width: 12vw;
+              .truncate {
+                max-width: 8vw;
+              }
+            }
+            &.artist {
+              max-width: 12vw;
+              .truncate {
+                max-width: 8vw;
+              }
+            }
+            &.composer {
+              overflow: hidden;
+              min-width: 4rem;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+            &.genre {
+              overflow: hidden;
+              min-width: 4rem;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+            &.year,
+            &.format,
+            &.size,
+            &.duration,
+            &.bitrate {
+              padding: 0 10px 0 0;
+              text-align: right;
+            }
+            &.year {
+              width: 30px;
+            }
+            &.format {
+              width: 30px;
+            }
+            &.size {
+              width: 60px;
+            }
+            &.duration {
+              width: 60px;
+            }
+            &.bitrate {
+              width: 90px;
+            }
+            &.remove {
+              width: 30px;
+              padding: 0 10px 0 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .queue-container + div.actions {
+    margin-left: 30px;
+  }
+
+  > .playerView {
+    position: fixed;
+    z-index: $jp-layer-3;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    min-height: 60px;
+    max-height: 60px;
+    padding: 0;
+    background-color: $jp-color-base1;
+
+    @include border(top);
+    // player >>
+    $player-baseline: -56px;
+
+    .mejs__mediaelement,
+    .mejs__time-total,
+    .mejs__time-total .mejs__time-slider,
+    .mejs__time-buffering {
+      z-index: $jp-layer-2;
+    }
+
+    #player {
+      position: relative;
+      z-index: $jp-layer-1 !important;
+      top: -20px !important;
+      left: 0 !important;
+      width: 100% !important;
+    }
+
+    .control {
+      z-index: $jp-layer-3;
+    }
+    .mejs__container .mejs__container-keyboard-inactive .mejs__audio,
+    .mejs__time-rail,
+    .mejs__controls {
+      height: 30px !important;
+    }
+
+    .mejs__button > button {
+      position: absolute;
+      color: transparent !important;
+
+      @include createButton;
+    }
+
+    .mejs__play button,
+    #castPlay,
+    #start,
+    .mejs__pause button,
+    #castPause,
+    #stop {
+      position: absolute;
+      top: $buttons-top;
+      left: calc((100vw - #{$play-button-size}) / 2 - 3px);
+      background-position: -300px -300px;
+
+      @include createButtonBase($play-button-size, "", "", "", "");
+      &:active {
+        top: calc(#{$buttons-top} + #{$jp-shadow-pressed-offset});
+        left: calc((100vw - #{$play-button-size}) / 2 + #{$jp-shadow-pressed-offset} - 3px);
+      }
+    }
+    .mejs__play button,
+    #castPlay {
+      @include createButton("\f357", 16px, -.06em, .06em);
+    }
+    .mejs__pause button,
+    .mejs__pause > button,
+    #castPause {
+      @include createButton("\f478", 16px, -.06em, -.01em);
+    }
+    #castPlayer,
+    #castPause,
+    #castMuteOff,
+    #castOn,
+    #castOff,
+    #stop {
+      display: none;
+    }
+
+    .mejs__unmute button {
+      visibility: hidden;
+      top: $player-baseline;
+      right: 60px;
+
+      @include createButton("\f3a1", 22px, calc(-.07em), -.1em);
+    }
+    .mejs__mute button {
+      visibility: hidden;
+      top: $player-baseline;
+      right: 60px;
+
+      @include createButton("\f3a2", 22px, -.05em);
+    }
+
+    .mejs__horizontal-volume-slider {
+      visibility: hidden;
+      top: calc(#{$player-baseline} + 2px);
+      right: 60px;
+    }
+
+    .mejs__unmute button,
+    .mejs__mute button,
+    .mejs__horizontal-volume-slider {
+      opacity: 0;
+    }
+
+    .mejs__unmute button,
+    .mejs__mute button {
+      &:active {
+        top: calc(#{$player-baseline} + #{$jp-shadow-pressed-offset});
+      }
+    }
+    select[name="player"] {
+      visibility: hidden;
+      opacity: 0;
+      position: absolute;
+      top: calc(#{$player-baseline} + 1px);
+      left: calc(100vw - 270px);
+    }
+
+    // player <<
+
+    div.control {
+      position: absolute;
+      top: $buttons-top;
+      &:active {
+        top: calc(#{$buttons-top} + #{$jp-shadow-pressed-offset});
+      }
+    }
+    div.control.prev {
+      left: calc(50vw - #{$button-size} / 2 - 50px);
+      &:active {
+        left: calc(50vw - #{$button-size} / 2 - 50px + #{$jp-shadow-pressed-offset});
+      }
+    }
+    div.control.forward {
+      left: calc(50vw - #{$button-size} / 2 + 50px);
+      &:active {
+        left: calc(50vw - #{$button-size} / 2 + 50px + #{$jp-shadow-pressed-offset});
+      }
+    }
+
+    div.control.elasticity {
+      opacity: 0;
+      //display: none;
+      left: calc(100vw - #{$button-size} - 30px);
+    }
+
+    div.control.expand {
+      left: calc(100vw - #{$button-size} - 30px);
+      &:active,
+      &:focus,
+      &:hover {
+        left: calc(100vw - #{$button-size} - 30px+ #{$jp-shadow-pressed-offset});
+      }
+    }
+    div.control.shrink {
+      display: none;
+      left: calc(100vw - #{$button-size} - 30px);
+      &:active,
+      &:focus,
+      &:hover {
+        left: calc(100vw - #{$button-size} - 30px+ #{$jp-shadow-pressed-offset});
+      }
+    }
+  }
+  input[type="checkbox"].jps-input-toggler {
+    visibility: visible;
+    &:checked ~ .bar {
+      .mejs__play > button,
+      .mejs__pause > button {
+        left: calc((100vw - #{$jp-drawer-width} - #{$play-button-size}) / 2 - (#{$play-button-size} - #{$button-size}));
+        &:active {
+          left: calc((100vw - #{$jp-drawer-width} - #{$play-button-size}) / 2 - (#{$play-button-size} - #{$button-size}));
+        }
+      }
+      div.control.prev {
+        left: calc((100vw - #{$jp-drawer-width} - #{$button-size}) / 2 - 50px);
+        &:active {
+          left: calc((100vw - #{$jp-drawer-width} - #{$button-size}) / 2 - 50px + #{$jp-shadow-pressed-offset});
+        }
+      }
+      div.control.forward {
+        left: calc((100vw - #{$jp-drawer-width} - #{$button-size}) / 2 + 50px);
+        &:active {
+          left: calc((100vw - #{$jp-drawer-width} - #{$button-size}) / 2 + 50px + #{$jp-shadow-pressed-offset});
+        }
+      }
+    }
+  }
+}
+
+.jp-volume {
+  // Not implemented in legacy
+  display: none;
+  display: flex;
+  visibility: hidden;
+  align-items: center;
+  flex-flow: row nowrap;
+  justify-content: center;
+  position: absolute;
+  top: -55px;
+  right: 60px;
+  .ui-widget-content {
+    @include primaryMaskedBg(.5);
+  }
+  .ui-widget-header {
+    font-weight: bold;
+
+    @include border;
+    @include primaryMaskedBg(1);
+  }
+  .ui-slider {
+    cursor: pointer;
+    &:focus {
+      outline: none;
+    }
+    .ui-slider-handle {
+      width: 12px;
+      height: 12px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      &:active,
+      &:focus,
+      &:hover {
+        border-radius: 50%;
+        background: $jp-color-white;
+
+        @include border;
+      }
+    }
+  }
+}
+
+#castVolume {
+  // Not implemented in legacy
+  width: 80px;
+  height: 4px;
+  margin-top: 8px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+// ******************** playqueue-drawer / playQueue.jsp *****************
+
+$jp-playqueue-drawer-hight: 100vh;
+
+.jps-playqueue-drawer {
+  visibility: hidden;
+  opacity: .5;
+  position: absolute;
+  z-index: $jp-layer-2;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: calc(#{$jp-playqueue-drawer-hight} - 60px);
+  margin: 0;
+  padding: 0;
+  background: $jp-color-base1;
+  transition: all .3s ease-in;
+  transition: all .3s ease-out;
+  transform: translateY(calc(#{$jp-playqueue-drawer-hight}));
+
+  @include border(top);
+}

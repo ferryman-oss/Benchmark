@@ -1,0 +1,21 @@
+{
+  "id": "squashql__GT__squashql__1",
+  "client_project_name": "squashql/squashql",
+  "github_url": "https://github.com/squashql/squashql",
+  "before_migration_commit_hash": "6c81b111a1349b15a9f0f346071e49f31e2db24b",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "bigquery"
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "javax.servlet:javax.servlet-api:4.0.1"
+  ],
+  "target_library_list": [
+    "jakarta.servlet:jakarta.servlet-api:6.0.0"
+  ],
+  "commit_pr_url": "https://github.com/squashql/squashql/pull/234"
+}

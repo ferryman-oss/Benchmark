@@ -1,0 +1,21 @@
+{
+  "id": "DataDog__GT__jmxfetch__1",
+  "client_project_name": "DataDog/jmxfetch",
+  "github_url": "https://github.com/DataDog/jmxfetch",
+  "before_migration_commit_hash": "5459a98b1e3bdffa86950c6091c60065e07c2593",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "org.yaml:snakeyaml:2.0"
+  ],
+  "target_library_list": [
+    "org.snakeyaml:snakeyaml-engine:2.9"
+  ],
+  "commit_pr_url": "https://github.com/DataDog/jmxfetch/pull/554"
+}

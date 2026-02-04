@@ -1,0 +1,29 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: dso-client
+spec:
+  parallelism: %PARALLELISM%
+  template:
+    spec:
+      restartPolicy: OnFailure
+      containers:
+      - name: dso-client
+        image: %IMAGE%
+        resources:
+          requests:
+            memory: "128M"
+            cpu: "0.2"
+        env:
+          - name: PROXY
+            value: "%PROXY%"
+          - name: THREADS
+            value: "%THREADS%"
+          - name: INSTANCES
+            value: "1"
+          - name: CALLS
+            value: "%CALLS%"
+          - name: CLASS
+            value: "org.crucial.dso.CyclicBarrier"
+          - name: PARALLELISM
+            value: "%PARALLELISM%"

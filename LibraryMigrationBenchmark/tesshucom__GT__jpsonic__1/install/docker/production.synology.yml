@@ -1,0 +1,106 @@
+#
+# This is a JPSONIC boot configuration sample in Synology DS220+ or in Linux with UPnP.
+# You can easily start Jpsonic by changing the volume, port and so on.
+#
+# usage: 
+#   docker-compose -f production.synology.yml up -d
+#
+# @since v112.2.3
+#
+
+services:
+  app:
+    image: 'jpsonic/jpsonic:latest'
+    container_name: 'jpsonic'
+    network_mode: 'host'
+    hostname: 'SynologyNAS'
+    pid: host
+
+    # This image is automatically updated by watchtower.
+    # See docker-compose.watchtower.yml
+    labels:
+     - "com.centurylinklabs.watchtower.enable=true"
+
+    volumes:
+     # <host>:<internal>
+     # Please rewrite "the path of host" appropriately.
+     - '/volume1/docker/jpsonic-data:/jpsonic/data'
+     - '/volume1/Music:/jpsonic/music'
+     - '/volume1/Podcasts:/jpsonic/podcasts'
+     - '/volume1/Playlists:/jpsonic/playlists'
+
+    # If you want to add a large number of music folders, add more volumes.
+    # Please add <internal> from Settings pages as Music foldres after login.
+    #
+    # - '/volume1/Music2:/jpsonic/music2'
+    # - '/volume1/Music3:/jpsonic/music3'
+
+    # Jpsonic container is limited to 1Gb so that it can run on DS220+'s standard memory.
+    # Please change this depending on the number of songs in your library.
+    # Note that you need to change both Java and Docker memory settings.
+    #
+    # ---------------------------------------------------------
+    # Songs count    Java(Xms, Xmx)  Docker(mem_limit)
+    # 70K            512m            896m
+    # 100K           640m            1024m
+    # 130K           768m            1152m
+    # 200K           1024m           1.5g
+    # 300K           1280m           1.75g
+    # 400K           1536m           2g
+    # ---------------------------------------------------------
+    mem_limit: 1024m
+    mem_swappiness: 1
+
+    environment:
+     # Specify the appropriate Java options.
+     #
+     # When using a CPU with lower performance than DS220+(Intel Celeron J4025),
+     # please remove the -XX:+UseG1GC Option. Or specify -XX:+UseSerialGC.
+     # Jpsonic has been tested for both Serial GC and G1 GC.
+
+     JAVA_OPTS: >
+       -Xms640m
+       -Xmx640m
+       -XX:+UseG1GC
+       -XX:MaxGCPauseMillis=500
+
+     # Set the jpsonic and upnp ports.
+     # Containers share the host networking name space,
+     # so be careful not to overlap with existing ports.
+     JPSONIC_PORT: '4040'
+     UPNP_PORT: '4041'
+
+     # Set the appropriate UID/GID.
+     USER_ID: '0'
+     GROUP_ID: '0'
+
+     # Please specify the appropriate timezone
+     TIME_ZONE: 'Asia/Tokyo'
+
+     # Jpsonic context path.
+     CONTEXT_PATH: '/'
+
+     # Whether to log the logo at startup. [OFF|CONSOLE|LOG]
+     BANNER_MODE: 'OFF'
+
+     # Granularity of output logs. [ERROR|WARN|INFO|DEBUG|TRACE]
+     LOG_LEVEL: 'WARN'
+
+     # Whether to scan at startup. False is recommended for Docker.
+     SCAN_ON_BOOT: 'false'
+
+     # If false, use the logical font of JRE (JDK) for Cover Art.
+     # If true, preferentially use embedded fonts.
+     EMBEDDED_FONT: 'false'
+
+     # You can override the MIME of DSD according to your device.
+     MIME_DSF: 'audio/x-dsd'
+     MIME_DFF: 'audio/x-dsd'
+
+    # Usually no need to change.
+    # Unlike other Sonic servers, Jpsonic has a graceful shutdown implemented.
+    # After receiving the 'kill 15' of Docker message, it will phase out, and finnaly shut down the database.
+    # In case of emergency shutdown during critical processing,
+    # there may be a wait time of up to 30 seconds to protect data.
+     TINI_SUBREAPER: 'true'
+    stop_grace_period: '30s'

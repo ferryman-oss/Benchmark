@@ -1,0 +1,78 @@
+<app-text-waiting *ngIf="isLoading && !sandbox" text="Retrieving sandbox metadata..."></app-text-waiting>
+
+<div *ngIf="sandbox">
+    <div class="pageTitle">
+        <span>Sandbox: {{sandbox.name}}</span>
+
+        <span style="vertical-align: middle;">
+            <button
+            mat-icon-button
+            color="primary"
+            title="Settings"
+            (click)="onClickSettings()"
+            ><mat-icon>settings</mat-icon></button>
+        </span>
+    </div>
+</div>
+
+<app-text-waiting *ngIf="isLoading && sandbox && !sandbox.canNotifyParty" text="Retrieving scenarios..."></app-text-waiting>
+
+<div class="pageSubtitle" *ngIf="!isLoading && standardModules.length == 0">No scenarios</div>
+
+<app-text-waiting *ngIf="startingOrStoppingScenario" text="Updating scenario state..."></app-text-waiting>
+
+<div *ngIf="!startingOrStoppingScenario">
+    <div *ngFor="let standardModule of standardModules">
+        <div class="pageSubtitle">{{standardModule.moduleName}}</div>
+
+        <mat-card [ngClass]="'entityCard'" *ngFor="let scenario of standardModule.scenarios">
+            <div class="cardContent withPointerCursor" (click)="onScenarioClick(scenario)">
+                <button
+                class="scenarioActionButton"
+                mat-icon-button
+                color="primary"
+                [disabled]="cannotPerformAction(scenario)"
+                [title]="getActionTitle(scenario)"
+                (click)="onScenarioAction($event, scenario)"
+                ><mat-icon>{{getActionIconName(scenario)}}</mat-icon></button>
+
+                <span
+                id="conformanceStatus"
+                class="conformanceStatus"
+                [title]="getConformanceStatusTitle(scenario.conformanceStatus)"
+                >{{getConformanceStatusEmoji(scenario.conformanceStatus)}}</span>
+
+                <span class="wrappingText">{{scenario.name}}</span>
+            </div>
+        </mat-card>
+        <br/>
+    </div>
+</div>
+
+<div *ngIf="sandbox?.canNotifyParty">
+    <div class="paragraph">
+        <button
+        id="notifyPartyButton"
+        mat-raised-button
+        color="primary"
+        (click)="onClickNotifyParty()"
+        >Notify party</button>
+        &nbsp;
+        <button
+        mat-raised-button
+        (click)="onClickResetParty()"
+        >Reset party</button>
+    </div>
+
+    <div class="pageSubtitle">Activity</div>
+    <div>(latest message at the top)</div>
+    <div class="paragraph">
+        <button
+        mat-raised-button
+        testId="refreshButton"
+        color="primary"
+        (click)="onClickRefresh()"
+        >Refresh</button>
+    </div>
+    <div class="paragraph" testId="operatorLog" *ngFor="let logEntry of sandbox?.operatorLog">{{logEntry}}</div>
+</div>

@@ -1,0 +1,21 @@
+{
+  "id": "ehayik__GT__jmaskify__1",
+  "client_project_name": "ehayik/jmaskify",
+  "github_url": "https://github.com/ehayik/jmaskify",
+  "before_migration_commit_hash": "5980b5f",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "21",
+  "original_library_list": [
+    "jakarta.annotation:jakarta.annotation-api:3.0.0"
+  ],
+  "target_library_list": [
+    "org.jspecify:jspecify:1.0.0"
+  ],
+  "commit_pr_url": "https://github.com/ehayik/jmaskify/pull/13"
+}

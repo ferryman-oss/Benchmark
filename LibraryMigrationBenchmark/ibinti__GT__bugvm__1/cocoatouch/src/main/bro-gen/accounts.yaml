@@ -1,0 +1,107 @@
+package: org.robovm.apple.accounts
+include: [foundation.yaml]
+library: Accounts
+framework: Accounts
+clang_args: ['-x', 'objective-c']
+headers:
+    - /System/Library/Frameworks/Accounts.framework/Headers/Accounts.h
+    - /System/Library/Frameworks/Accounts.framework/Headers/AccountsDefines.h
+typedefs: {}
+    
+enums:
+    ACErrorCode: {}
+    ACAccountCredentialRenewResult: {}
+        
+classes:
+    ACAccount: {}
+    ACAccountCredential: {}
+    ACAccountStore:
+        properties:
+            'accounts':
+                type: "NSArray<ACAccount>"
+        methods:
+            '-accountWithIdentifier:':
+                name: getAccount
+            '-accountTypeWithAccountTypeIdentifier:':
+                name: getAccountType
+                parameters:
+                    typeIdentifier:
+                        type: NSString
+            '-accountsWithAccountType:':
+                name: getAccounts
+                return_type: "NSArray<ACAccount>" 
+            '-saveAccount:withCompletionHandler:':
+                name: saveAccount
+                parameters:
+                    account: {}
+                    completionHandler:
+                        type: "@Block VoidBlock2<Boolean, NSError>"
+            '-requestAccessToAccountsWithType:withCompletionHandler:':
+                name: requestAccessToAccounts
+                parameters:
+                    accountType: {}
+                    handler:
+                        type: "@Block VoidBlock2<Boolean, NSError>"                   
+            '-requestAccessToAccountsWithType:options:completion:':
+                name: requestAccessToAccounts
+                parameters:
+                   accountType: {}
+                   options:
+                        type: "NSDictionary<NSString, ?>"
+                   completion:
+                        type: "@Block VoidBlock2<Boolean, NSError>"              
+            '-renewCredentialsForAccount:completion:':
+                name: renewCredentials
+                parameters:
+                    account: {}
+                    completionHandler:
+                        type: "@Block VoidBlock2<ACAccountCredentialRenewResult, NSError>" 
+            '-removeAccount:withCompletionHandler:':
+                name: removeAccount
+                parameters:
+                    account: {}
+                    completionHandler:
+                        type: "@Block VoidBlock2<Boolean, NSError>"
+    ACAccountType:
+        properties:
+            'identifier':
+                type: NSString
+
+protocols: {}
+
+functions:
+    # Make sure we don't miss any functions if new ones are introduced in a later version
+    (AC.*):
+        class: Accounts
+        name: "Function__#{g[0]}"
+
+values:
+    AC(ErrorDomain):
+        type: NSString
+        name: "#{g[0]}"
+    AC(AccountTypeIdentifier.*):
+        type: NSString
+        name: "#{g[0]}"
+    AC(Facebook.*):
+        type: NSString
+        name: "#{g[0]}"
+    AC(LinkedIn.*):
+        type: NSString
+        name: "#{g[0]}"
+    AC(TencentWeibo.*):
+        type: NSString
+        name: "#{g[0]}"
+    AC(.*Notification):
+        type: NSString
+        name: "#{g[0]}"
+   
+    # Make sure we don't miss any values if new ones are introduced in a later version
+    (AC.*):
+        class: Accounts
+        name: "Value__#{g[0]}"
+
+constants:
+    # Make sure we don't miss any constants if new ones are introduced in a later version
+    (AC.*):
+        class: Accounts
+        name: "Constant__#{g[0]}"

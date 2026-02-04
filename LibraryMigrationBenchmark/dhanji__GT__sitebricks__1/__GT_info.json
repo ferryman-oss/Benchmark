@@ -1,0 +1,27 @@
+{
+  "id": "dhanji__GT__sitebricks__1",
+  "client_project_name": "dhanji/sitebricks",
+  "github_url": "https://github.com/dhanji/sitebricks",
+  "before_migration_commit_hash": "adffc296db98bf5a4569ce698b4c3fbf0769b1b4",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "",
+    "sitebricks-client",
+    "sitebricks-converter",
+    "sitebricks-mail",
+    "sitebricks",
+    "slf4j",
+    "stat"
+  ],
+  "jdk_version": "1.8",
+  "original_library_list": [
+    "junit:junit:4.0"
+  ],
+  "target_library_list": [
+    "org.testng:testng:5.8"
+  ],
+  "commit_pr_url": "https://github.com/dhanji/sitebricks/commit/dfe5b79144714727ceeb5c64ed794c9496105006"
+}

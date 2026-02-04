@@ -1,0 +1,35 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <property name="binary_type" dbms="hsqldb" value="binary" />
+    <property name="binary_type" dbms="postgresql" value="bytea" />
+    <property name="binary_type" value="blob" />
+    <property name="curr_date_expr" value="current_timestamp" />
+    <property name="varchar_type" dbms="mariadb,mysql" value="varchar(${mysqlVarcharLimit})" />
+    <property name="varchar_type" value="varchar" />
+    <property name="timestamp_type" dbms="postgresql,mysql,mariadb,hsqldb" value="datetime(6)" />
+    <property name="timestamp_type" value="datetime" />
+    <include file="legacy/legacy-changelog.xml" relativeToChangelogFile="true"/>
+    <include file="6.2/changelog.xml" relativeToChangelogFile="true"/>
+    <include file="6.3/changelog.xml" relativeToChangelogFile="true"/>
+    <include file="jp1.0/changelog.xml" relativeToChangelogFile="true"/>
+    <include file="jp1.2/changelog.xml" relativeToChangelogFile="true"/>
+    <include file="jp1.2.2/changelog.xml" relativeToChangelogFile="true"/>
+    <include file="jp1.3/changelog.xml" relativeToChangelogFile="true"/>
+    <include file="6.4/changelog.xml" relativeToChangelogFile="true"/>
+    <include file="10.2/changelog.xml" relativeToChangelogFile="true"/>
+    <include file="jp105.1.0/changelog.xml" relativeToChangelogFile="true"/>
+    <include file="jp105.2.0/changelog.xml" relativeToChangelogFile="true"/>
+    <include file="10.3/changelog.xml" relativeToChangelogFile="true"/>
+    <include file="10.6/changelog.xml" relativeToChangelogFile="true"/>
+    <include file="jp107.2.0/changelog.xml" relativeToChangelogFile="true"/>
+    <include file="jp109.1.0/changelog.xml" relativeToChangelogFile="true"/>
+    <include file="jp109.3.0/changelog.xml" relativeToChangelogFile="true"/>
+    <include file="jp109.4.0/changelog.xml" relativeToChangelogFile="true"/>
+    <include file="jp109.5.0/changelog.xml" relativeToChangelogFile="true"/>
+    <include file="jp110.2.0/changelog.xml" relativeToChangelogFile="true"/>
+    <include file="jp111.6.0/changelog.xml" relativeToChangelogFile="true"/>
+    <include file="jp112.0.0/changelog.xml" relativeToChangelogFile="true"/>
+    <include file="jp113.0.0/changelog.xml" relativeToChangelogFile="true"/>
+</databaseChangeLog>

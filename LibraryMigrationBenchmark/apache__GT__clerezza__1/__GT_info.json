@@ -1,0 +1,30 @@
+{
+  "id": "apache__GT__clerezza__1",
+  "client_project_name": "apache/clerezza",
+  "github_url": "https://github.com/apache/clerezza",
+  "before_migration_commit_hash": "14575ea321a737f68732783e8248221b3efcef1c",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "parent",
+    "rdf/core.test",
+    "rdf/core",
+    "rdf/scala.utils",
+    "rdf/schemagen/main",
+    "rdf/schemagen/maven-plugin",
+    "rdf/simple.storage",
+    "rdf/utils"
+  ],
+  "jdk_version": "1.8",
+  "original_library_list": [
+    "junit:junit:4.12"
+  ],
+  "target_library_list": [
+    "org.junit.jupiter:junit-jupiter-api:5.0.2",
+    "org.junit.jupiter:junit-jupiter-engine:5.0.2",
+    "org.junit.platform:junit-platform-runner:1.0.2"
+  ],
+  "commit_pr_url": "https://github.com/apache/clerezza/pull/5"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "project-ncl__GT__rpm-builder-maven-plugin__1",
+  "client_project_name": "project-ncl/rpm-builder-maven-plugin",
+  "github_url": "https://github.com/project-ncl/rpm-builder-maven-plugin",
+  "before_migration_commit_hash": "015ed7b27e3f924b748871e55778ee2516399811",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "ch.vorburger.exec:exec:3.3.2"
+  ],
+  "target_library_list": [
+    "io.smallrye.common:smallrye-common-process:2.13.9"
+  ],
+  "commit_pr_url": "https://github.com/project-ncl/rpm-builder-maven-plugin/pull/28"
+}

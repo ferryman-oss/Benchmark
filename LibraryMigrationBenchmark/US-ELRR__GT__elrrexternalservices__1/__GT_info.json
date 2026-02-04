@@ -1,0 +1,21 @@
+{
+  "id": "US-ELRR__GT__elrrexternalservices__1",
+  "client_project_name": "US-ELRR/elrrexternalservices",
+  "github_url": "https://github.com/US-ELRR/elrrexternalservices",
+  "before_migration_commit_hash": "f3eec7a4e301b3a9f4cc17de4cbfdfde26ac48e7",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "gov.adlnet:jxapi:2.0.1"
+  ],
+  "target_library_list": [
+    "com.yetanalytics:xapi-tools:0.0.2"
+  ],
+  "commit_pr_url": "https://github.com/US-ELRR/elrrexternalservices/pull/41"
+}

@@ -1,0 +1,108 @@
+= Quarkus QR Code generator
+
+A small application that generates a QR-Code from text.
+
+== JVM-Mode
+
+=== Application
+.Building the application
+[source, bash]
+----
+./mvnw clean package
+----
+
+=== Container image
+.Build a container image
+[source, bash]
+----
+./mvnw \
+  --define build-container-image \
+  clean package
+----
+The resulting image will be named `de.turing85/qr-code-generator:latest`
+
+=== Starting a container and testing the application
+.Starting the image
+[source, bash]
+----
+docker run \
+  --detach \
+  --rm \
+  --publish 8080:8080 \
+  --name qr-code-generator \
+  de.turing85/qr-code-generator:latest
+----
+
+To test the application, access link:http://localhost:8080/qr-code/foo%20bar%20baz[]
+
+=== Stopping the container
+.Stopping the container
+[source, bash]
+----
+docker stop qr-code-generator
+----
+
+== Native mode
+
+=== Application
+.Building the application
+[source, bash]
+----
+./mvnw \
+  --define native \
+  clean package
+----
+
+=== Container image
+.Build a container image
+[source, bash]
+----
+./mvnw \
+  --define native \
+  --define build-container-image \
+  clean package
+----
+The resulting image will be named `de.turing85/qr-code-generator:latest` and `de.turing85/qr-code-generator:native`
+
+=== Starting a container and testing the application
+.Starting a container
+[source, bash]
+----
+docker run \
+  --detach \
+  --rm \
+  --publish 8080:8080 \
+  --name qr-code-generator \
+  de.turing85/qr-code-generator:latest
+----
+
+To test the application, access link:http://localhost:8080/qr-code/foo%20bar%20baz[]
+
+=== Stopping the container
+.Stopping the container
+[source, bash]
+----
+docker stop qr-code-generator
+----
+
+== Contributors ✨
+
+Thanks goes to these wonderful people (https://allcontributors.org/docs/en/emoji-key[emoji key]):
+
+++++
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://turing85.github.io"><img src="https://avatars.githubusercontent.com/u/32584495?v=4?s=100" width="100px;" alt="Marco Bungart"/><br /><sub><b>Marco Bungart</b></sub></a><br /><a href="#code-turing85" title="Code">💻</a> <a href="#maintenance-turing85" title="Maintenance">🚧</a> <a href="#doc-turing85" title="Documentation">📖</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+++++

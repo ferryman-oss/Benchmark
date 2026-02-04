@@ -1,0 +1,21 @@
+{
+  "id": "dcsaorg__GT__Conformance-Gateway__1",
+  "client_project_name": "dcsaorg/Conformance-Gateway",
+  "github_url": "https://github.com/dcsaorg/Conformance-Gateway",
+  "before_migration_commit_hash": "9074a37fed618c43fbe0d008f62a84655eb0225c",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "lambda"
+  ],
+  "jdk_version": "21",
+  "original_library_list": [
+    "com.amazonaws:aws-java-sdk-lambda:1.12.780"
+  ],
+  "target_library_list": [
+    "software.amazon.awssdk:lambda:2.29.50"
+  ],
+  "commit_pr_url": "https://github.com/dcsaorg/Conformance-Gateway/pull/257"
+}

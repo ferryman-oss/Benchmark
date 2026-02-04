@@ -1,0 +1,23 @@
+{
+  "id": "BachErik__GT__Hypixel-Stats-generator__1",
+  "client_project_name": "BachErik/Hypixel-Stats-generator",
+  "github_url": "https://github.com/BachErik/Hypixel-Stats-generator",
+  "before_migration_commit_hash": "6f6beda99aa3b1a3c1a383d45aaa92903e5cfe04",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "Hypixel-Stats-bot",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "21",
+  "original_library_list": [
+    "org.slf4j:slf4j-api:1.7.24"
+  ],
+  "target_library_list": [
+    "org.apache.logging.log4j:log4j-core:2.17.0",
+    "org.apache.logging.log4j:log4j-api:2.17.0",
+    "org.apache.logging.log4j:log4j-slf4j-impl:2.17.2"
+  ],
+  "commit_pr_url": "https://github.com/BachErik/Hypixel-Stats-generator/pull/2"
+}

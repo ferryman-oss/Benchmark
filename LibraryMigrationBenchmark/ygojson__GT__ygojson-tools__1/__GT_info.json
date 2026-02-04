@@ -1,0 +1,21 @@
+{
+  "id": "ygojson__GT__ygojson-tools__1",
+  "client_project_name": "ygojson/ygojson-tools",
+  "github_url": "https://github.com/ygojson/ygojson-tools",
+  "before_migration_commit_hash": "8145239",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "21",
+  "original_library_list": [
+    "com.github.f4b6a3:uuid-creator:5.3.7"
+  ],
+  "target_library_list": [
+    "com.fasterxml.uuid:java-uuid-generator:5.0.0"
+  ],
+  "commit_pr_url": "https://github.com/ygojson/ygojson-tools/pull/131"
+}

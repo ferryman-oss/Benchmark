@@ -1,0 +1,10 @@
+*.rtf -text
+*.xml svneol=native#text/xml
+*.png -text svneol=unset#image/png
+*.tiff -text svneol=unset#image/tiff
+*.icns -text
+*.jar -text svneol=unset#application/jar
+*.dll -text
+*.cyberduckprofile -text svneol=unset#application/octet-stream
+*.xib -text
+*.strings -text svneol=unset#text/utf-16

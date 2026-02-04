@@ -1,0 +1,76 @@
+// ******************** fancy/albumMain.jsp *******************************
+
+.mainframe.status {
+  > .tabular.current {
+    width: calc(100vw - 60px);
+    margin: 30px 20px 0 20px;
+    @media screen and (min-width: $jp-supplement-width-threshold) {
+      width: calc(50vw - 60px);
+      margin: 30px 20px 0 calc((100vw - (50vw - 60px)) / 2);
+    }
+    tr {
+      th {
+        text-align: center;
+        vertical-align: middle;
+      }
+      td {
+        &:nth-child(1) {
+          dl {
+            width: calc(100vw - 300px - 70px);
+            margin: 0 10px 0 10px;
+            @media screen and (min-width: $jp-supplement-width-threshold) {
+              width: calc(50vw - 300px - 70px);
+            }
+            dt {
+              overflow: hidden;
+              width: 10rem;
+              padding: 0 3px 0 3px;
+              line-height: 30px;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+            dd {
+              overflow: hidden;
+              width: calc(100vw - 10rem - 300px - 70px);
+              padding: 0 3px 0 3px;
+              line-height: 30px;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              @media screen and (min-width: $jp-supplement-width-threshold) {
+                width: calc(50vw - 10rem - 300px - 70px);
+              }
+            }
+          }
+        }
+      }
+      &:hover {
+        background-color: $jp-color-white;
+      }
+    }
+  }
+  > .tabular.statics {
+    width: calc(100vw - 60px);
+    margin: 30px 20px 0 20px;
+    @media screen and (min-width: $jp-supplement-width-threshold) {
+      width: calc(50vw - 60px);
+      margin: 30px 20px 0 calc((100vw - (50vw - 60px)) / 2);
+    }
+    tr {
+      th {
+        text-align: center;
+        vertical-align: middle;
+      }
+      td {
+        &:nth-child(1) {
+          width: 50%;
+        }
+        &:nth-child(2) {
+          width: 50%;
+        }
+      }
+      &:hover {
+        background-color: $jp-color-white;
+      }
+    }
+  }
+}

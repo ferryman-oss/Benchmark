@@ -1,0 +1,22 @@
+{
+  "id": "aerospike__GT__aerospike-loader__1",
+  "client_project_name": "aerospike/aerospike-loader",
+  "github_url": "https://github.com/aerospike/aerospike-loader",
+  "before_migration_commit_hash": "1c73339982d5cbd3e925fba024a5b7efcac8097d",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "1.8",
+  "original_library_list": [
+    "log4j:log4j:1.2.14"
+  ],
+  "target_library_list": [
+    "org.apache.logging.log4j:log4j-api:2.11.1",
+    "org.apache.logging.log4j:log4j-core:2.11.1"
+  ],
+  "commit_pr_url": "https://github.com/aerospike/aerospike-loader/commit/150639d1de5c8fd7abdc8f578c17bc3d58eb74db"
+}

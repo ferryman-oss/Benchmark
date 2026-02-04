@@ -1,0 +1,23 @@
+{
+  "id": "thalesmg__GT__flink-emqx-connector__1",
+  "client_project_name": "thalesmg/flink-emqx-connector",
+  "github_url": "https://github.com/thalesmg/flink-emqx-connector",
+  "before_migration_commit_hash": "2d1d5f515354f4abda1449217301bd5a8d9d7ed3",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "",
+    "flink-emqx-connector-core",
+    "flink-emqx-connector-examples/flink-emqx-connector-examples-word-count"
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "com.hivemq:hivemq-mqtt-client:1.3.9"
+  ],
+  "target_library_list": [
+    "org.eclipse.paho:org.eclipse.paho.mqttv5.client:1.2.5"
+  ],
+  "commit_pr_url": "https://github.com/thalesmg/flink-emqx-connector/pull/2"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "eclipse-ee4j__GT__glassfish-logging-annotation-processor__1",
+  "client_project_name": "eclipse-ee4j/glassfish-logging-annotation-processor",
+  "github_url": "https://github.com/eclipse-ee4j/glassfish-logging-annotation-processor",
+  "before_migration_commit_hash": "03152cd71434493cb989b3c6a515e4dadde9f4e1",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "junit:junit:4.13.2"
+  ],
+  "target_library_list": [
+    "org.junit.jupiter:junit-jupiter-api:5.10.3"
+  ],
+  "commit_pr_url": "https://github.com/eclipse-ee4j/glassfish-logging-annotation-processor/pull/54"
+}

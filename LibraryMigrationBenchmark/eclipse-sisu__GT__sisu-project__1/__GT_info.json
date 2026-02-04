@@ -1,0 +1,22 @@
+{
+  "id": "eclipse-sisu__GT__sisu-project__1",
+  "client_project_name": "eclipse-sisu/sisu-project",
+  "github_url": "https://github.com/eclipse-sisu/sisu-project",
+  "before_migration_commit_hash": "978564aab1b904d64e6f8bf4923530dadfe3248c",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "",
+    "org.eclipse.sisu.mojos"
+  ],
+  "jdk_version": "21",
+  "original_library_list": [
+    "org.sonatype.plexus:plexus-build-api:0.0.7"
+  ],
+  "target_library_list": [
+    "org.codehaus.plexus:plexus-build-api:1.2.0"
+  ],
+  "commit_pr_url": "https://github.com/eclipse-sisu/sisu-project/pull/215"
+}

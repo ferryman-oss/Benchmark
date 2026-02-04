@@ -1,0 +1,24 @@
+{
+  "id": "jhu-sheridan-libraries__GT__DSpace__1",
+  "client_project_name": "jhu-sheridan-libraries/DSpace",
+  "github_url": "https://github.com/jhu-sheridan-libraries/DSpace",
+  "before_migration_commit_hash": "1af2454045e41d0e8c414c4e9b9e61cba73593fe",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "dspace-api"
+  ],
+  "jdk_version": "21",
+  "original_library_list": [
+    "com.amazonaws:aws-java-sdk-s3:1.12.785",
+    "io.findify:s3mock_2.13:0.2.6"
+  ],
+  "target_library_list": [
+    "software.amazon.awssdk:s3:2.32.31",
+    "software.amazon.awssdk.crt:aws-crt:0.38.12",
+    "com.adobe.testing:s3mock-testcontainers:4.8.0"
+  ],
+  "commit_pr_url": "https://github.com/jhu-sheridan-libraries/DSpace/pull/1"
+}

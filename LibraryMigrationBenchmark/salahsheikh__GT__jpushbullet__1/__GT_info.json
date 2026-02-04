@@ -1,0 +1,26 @@
+{
+  "id": "salahsheikh__GT__jpushbullet__1",
+  "client_project_name": "salahsheikh/jpushbullet",
+  "github_url": "https://github.com/salahsheikh/jpushbullet",
+  "before_migration_commit_hash": "409cf4ede3b1f4a262192f691df84d412466a37c",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "1.8",
+  "original_library_list": [
+    "commons-logging:commons-logging:1.1.3",
+    "org.apache.logging.log4j:log4j-api:2.7",
+    "org.apache.logging.log4j:log4j-core:2.7"
+  ],
+  "target_library_list": [
+    "org.slf4j:slf4j-api:1.7.22",
+    "org.slf4j:jcl-over-slf4j:1.7.22",
+    "org.slf4j:log4j-over-slf4j:1.7.22",
+    "ch.qos.logback:logback-core:1.1.8"
+  ],
+  "commit_pr_url": "https://github.com/salahsheikh/jpushbullet/commit/0068aff4990badaa8e8e40f5dbe7a1a4bf9b27d5"
+}

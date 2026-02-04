@@ -1,0 +1,27 @@
+{
+  "id": "mapstruct__GT__mapstruct__1",
+  "client_project_name": "mapstruct/mapstruct",
+  "github_url": "https://github.com/mapstruct/mapstruct",
+  "before_migration_commit_hash": "c05d44845d4ab30e1598b736b6297bd4b60b9998",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "processor",
+    "parent",
+    "core",
+    "core-common",
+    "core-jdk8",
+    "integrationtest",
+    "integrationtest/src/test/resources"
+  ],
+  "jdk_version": "1.8",
+  "original_library_list": [
+    "org.easytesting:fest-assert:1.4"
+  ],
+  "target_library_list": [
+    "org.assertj:assertj-core:3.5.2"
+  ],
+  "commit_pr_url": "https://github.com/mapstruct/mapstruct/pull/863"
+}

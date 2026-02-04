@@ -1,0 +1,22 @@
+{
+  "id": "DennisJakobi76__GT__java_retirement_analysis__1",
+  "client_project_name": "DennisJakobi76/java_retirement_analysis",
+  "github_url": "https://github.com/DennisJakobi76/java_retirement_analysis",
+  "before_migration_commit_hash": "1a4b652b34628daa8ea55a6de3a625340d22ab8f",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "21",
+  "original_library_list": [
+    "org.knowm.xchart:xchart:3.8.8"
+  ],
+  "target_library_list": [
+    "org.jfree:jfreechart:1.5.4",
+    "org.jfree:jfreechart:1.5.4"
+  ],
+  "commit_pr_url": "https://github.com/DennisJakobi76/java_retirement_analysis/pull/3"
+}

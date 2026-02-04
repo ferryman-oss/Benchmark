@@ -1,0 +1,22 @@
+{
+  "id": "webjars__GT__webjars-locator-lite__1",
+  "client_project_name": "webjars/webjars-locator-lite",
+  "github_url": "https://github.com/webjars/webjars-locator-lite",
+  "before_migration_commit_hash": "8708a4a7a086e930c1d770aaa521af0c1a383727",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "junit:junit:4.13.2"
+  ],
+  "target_library_list": [
+    "org.junit.jupiter:junit-jupiter-api:5.10.3",
+    "org.junit.jupiter:junit-jupiter-engine:5.10.3"
+  ],
+  "commit_pr_url": "https://github.com/webjars/webjars-locator-lite/pull/10"
+}

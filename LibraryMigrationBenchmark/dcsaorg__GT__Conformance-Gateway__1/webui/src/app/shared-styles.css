@@ -1,0 +1,87 @@
+.cardContent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.configCard {
+  margin-top: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-bottom: 1em;
+}
+
+.configPageSubtitle {
+  font-size: 1.1rem;
+  margin-top: 1em;
+  font-weight: bold;
+}
+
+.configPageTitle {
+  font-size: 1.2rem;
+  margin-top: 1em;
+  font-weight: bold;
+}
+
+.conformanceStatus {
+    width: 2em;
+}
+
+.entityCard {
+    margin-top: 1em;
+}
+
+.fullWidth {
+    width: 100%;
+}
+
+.pageSubtitle {
+    font-size: 1.1rem;
+    margin-top: 1em;
+}
+
+.pageTitle {
+    font-size: 1.2rem;
+    margin-top: 1em;
+}
+
+.paragraph {
+    margin-top: 1em;
+}
+
+.waiting {
+  margin-top: 1em;
+  color: darkgray;
+  font-style: italic;
+}
+
+.readOnlyInput {
+    width: 99%;
+    background-color: #eee;
+    color: #555;
+    border: 1px solid grey;
+}
+
+.withContentPadding {
+    padding: 1em;
+}
+
+.withPointerCursor {
+    cursor: pointer;
+}
+
+.wrappingText {
+    white-space: normal;
+}
+
+.text-with-spinner {
+  display: flex;
+  align-items: center;
+}
+
+.inline-spinner {
+  width: 1em;
+  height: 1em;
+  margin-right: 8px;
+}

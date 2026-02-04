@@ -1,0 +1,21 @@
+{
+  "id": "apache__GT__maven-dependency-analyzer__1",
+  "client_project_name": "apache/maven-dependency-analyzer",
+  "github_url": "https://github.com/apache/maven-dependency-analyzer",
+  "before_migration_commit_hash": "8dbf929c5c3084b0dd1ef5f27710267b65e923b0",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "1.8",
+  "original_library_list": [
+    "junit:junit:4.13.2"
+  ],
+  "target_library_list": [
+    "org.junit.jupiter:junit-jupiter-api:5.9.3"
+  ],
+  "commit_pr_url": "https://github.com/apache/maven-dependency-analyzer/pull/90"
+}

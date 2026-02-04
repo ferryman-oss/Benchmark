@@ -1,0 +1,17 @@
+{
+  "name": "spotify-apollo-oss-site",
+  "version": "0.0.1",
+  "description": "Landing page for Spotify's Apollo OSS project",
+  "engine": "node ^0.12.0",
+  "devDependencies": {
+    "gulp-autoprefixer": "^2.0.0",
+    "gulp-highlight": "^1.0.0",
+    "gulp-sass": "^2.1.0",
+    "lingon": "^2.2.7",
+    "lingon-git-deploy": "0.1.0",
+    "through2": "^2.0.0"
+  },
+  "dependencies": {
+    "lingon-livereload": "^1.0.1"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "dependency-check__GT__DependencyCheck__1",
+  "client_project_name": "dependency-check/DependencyCheck",
+  "github_url": "https://github.com/dependency-check/DependencyCheck",
+  "before_migration_commit_hash": "012c62cbbf985c82e5b001439d72378175df6203",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "core"
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "com.fasterxml.jackson.module:jackson-module-afterburner:2.13.4"
+  ],
+  "target_library_list": [
+    "com.fasterxml.jackson.module:jackson-module-blackbird:2.13.4"
+  ],
+  "commit_pr_url": "https://github.com/dependency-check/DependencyCheck/pull/4905"
+}

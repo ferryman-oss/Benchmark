@@ -1,0 +1,22 @@
+{
+  "id": "NitorCreations__GT__nflow__1",
+  "client_project_name": "NitorCreations/nflow",
+  "github_url": "https://github.com/NitorCreations/nflow",
+  "before_migration_commit_hash": "2c28041e18dbd6964d6233bd010788ed6f6182f5",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "",
+    "nflow-engine"
+  ],
+  "jdk_version": "1.8",
+  "original_library_list": [
+    "com.jolbox:bonecp:0.8.0.RELEASE"
+  ],
+  "target_library_list": [
+    "com.zaxxer:HikariCP:1.3.3"
+  ],
+  "commit_pr_url": "https://github.com/NitorCreations/nflow/commit/90738add18c7260328d1ed942b0fd19870a51b25"
+}

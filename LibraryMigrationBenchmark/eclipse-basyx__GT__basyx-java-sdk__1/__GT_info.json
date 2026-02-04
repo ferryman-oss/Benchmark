@@ -1,0 +1,24 @@
+{
+  "id": "eclipse-basyx__GT__basyx-java-sdk__1",
+  "client_project_name": "eclipse-basyx/basyx-java-sdk",
+  "github_url": "https://github.com/eclipse-basyx/basyx-java-sdk",
+  "before_migration_commit_hash": "93af005f302230e03f8ab75d55d59074943ae1d2",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "javax.servlet:javax.servlet-api:4.0.1",
+    "javax.ws.rs:javax.ws.rs-api:2.1.1"
+  ],
+  "target_library_list": [
+    "jakarta.servlet:jakarta.servlet-api:6.0.0",
+    "jakarta.ws.rs:jakarta.ws.rs-api:3.1.0",
+    "jakarta.activation:jakarta.activation-api:2.1.0"
+  ],
+  "commit_pr_url": "https://github.com/eclipse-basyx/basyx-java-sdk/pull/109"
+}

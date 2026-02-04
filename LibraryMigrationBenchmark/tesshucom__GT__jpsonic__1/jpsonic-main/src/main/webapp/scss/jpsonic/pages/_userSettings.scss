@@ -1,0 +1,25 @@
+.mainframe.settings.userSettings {
+  .topSelectorContainer {
+    dl {
+      dt {
+        background-color: $jp-color-base4;
+        color: $jp-color-white;
+        font-weight: 600;
+
+        @include borderRadius(left);
+      }
+      dd {
+        @include borderRadius(right);
+      }
+    }
+  }
+
+  div.titledSelector.username {
+    select {
+      overflow: hidden;
+      max-width: 140px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}

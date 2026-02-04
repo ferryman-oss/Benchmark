@@ -1,0 +1,224 @@
+{
+  "document": {
+    "transportDocumentReference": "TRANSPORT_DOCUMENT_REFERENCE_PLACEHOLDER",
+    "shippingInstructionsReference": "SHIPPING_INSTRUCTION_REFERENCE_PLACEHOLDER",
+    "transportDocumentStatus": "ISSUED",
+    "transportDocumentTypeCode": "BOL",
+    "isShippedOnBoardType": true,
+    "freightPaymentTermCode": "PRE",
+    "isElectronic": true,
+    "isToOrder": false,
+    "displayedNameForPlaceOfReceipt": [
+      "Strawinskylaan 4117"
+    ],
+    "displayedNameForPortOfLoad": [
+      "Strawinskylaan 4117"
+    ],
+    "displayedNameForPortOfDischarge": [
+      "Strawinskylaan 4117"
+    ],
+    "displayedNameForPlaceOfDelivery": [
+      "Strawinskylaan 4117"
+    ],
+    "shippedOnBoardDate": "2020-12-12",
+    "displayedShippedOnBoardReceivedForShipment": "Received for Shipment CMA CGM CONCORDE 28-Jul-2022 CMA CGM Agences France SAS As agents for the Carrier",
+    "termsAndConditions": "Any reference in...",
+    "receiptTypeAtOrigin": "CY",
+    "deliveryTypeAtDestination": "CY",
+    "cargoMovementTypeAtOrigin": "FCL",
+    "cargoMovementTypeAtDestination": "FCL",
+    "issueDate": "2020-12-12",
+    "serviceContractReference": "HHL51800000",
+    "contractQuotationReference": "HHL1401",
+    "declaredValue": 1231.1,
+    "declaredValueCurrency": "DKK",
+    "carrierCode": "MMCU",
+    "carrierCodeListProvider": "NMFTA",
+    "carrierClauses": [
+      "It is not allowed to..."
+    ],
+    "numberOfRiderPages": 2,
+    "transports": {
+      "plannedArrivalDate": "2024-06-07",
+      "plannedDepartureDate": "2024-06-03",
+      "preCarriageBy": "RAIL",
+      "onCarriageBy": "TRUCK",
+      "placeOfReceipt": {
+        "locationName": "Hamburg",
+        "UNLocationCode": "DEHAM"
+      },
+      "portOfLoading": {
+        "locationName": "Hamburg",
+        "UNLocationCode": "DEHAM"
+      },
+      "portOfDischarge": {
+        "locationName": "Hamburg",
+        "UNLocationCode": "DEHAM"
+      },
+      "placeOfDelivery": {
+        "locationName": "Hamburg",
+        "UNLocationCode": "DEHAM"
+      },
+      "onwardInlandRouting": {
+        "locationName": "Hamburg",
+        "UNLocationCode": "DEHAM"
+      },
+      "vesselVoyages": [
+        {
+          "vesselName": "King of the Seas",
+          "carrierExportVoyageNumber": "2103S",
+          "universalExportVoyageReference": "2103N"
+        }
+      ]
+    },
+    "charges": [
+      {
+        "chargeName": "Documentation fee - Destination",
+        "currencyAmount": 1012.12,
+        "currencyCode": "DKK",
+        "paymentTermCode": "PRE",
+        "calculationBasis": "Per day",
+        "unitPrice": 3456.6,
+        "quantity": 34.4
+      }
+    ],
+    "placeOfIssue": {
+      "locationName": "Port of Amsterdam",
+      "UNLocationCode": "NLAMS"
+    },
+    "invoicePayableAt": {
+      "UNLocationCode": "NLAMS"
+    },
+    "partyContactDetails": [
+      {
+        "name": "Henrik",
+        "phone": "+45 51801234"
+      },
+      {
+        "name": "Henrik",
+        "phone": "+45 51801234"
+      }
+    ],
+    "documentParties": {
+      "shipper": {
+        "partyName": "IKEA Denmark",
+        "partyContactDetails": [
+          {
+            "name": "Henrik",
+            "phone": "+45 51801234"
+          },
+          {
+            "name": "Henrik",
+            "phone": "+45 51801234"
+          }
+        ]
+      },
+      "consignee": {
+        "partyName": "CONSIGNEE_LEGAL_NAME_PLACEHOLDER",
+        "identifyingCodes": [
+          {
+            "codeListProvider": "W3C",
+            "partyCode": "CONSIGNEE_PARTY_CODE_PLACEHOLDER",
+            "codeListName": "CONSIGNEE_CODE_LIST_NAME_PLACEHOLDER"
+          }
+        ],
+        "partyContactDetails": [
+          {
+            "name": "Henrik",
+            "phone": "+45 51801234"
+          },
+          {
+            "name": "Henrik",
+            "phone": "+45 51801234"
+          }
+        ]
+      },
+      "issuingParty": {
+        "partyName": "Hyundai",
+        "address": {
+          "street": "Ruijggoordweg",
+          "city": "Amsterdam",
+          "countryCode": "NL"
+        },
+        "identifyingCodes": [
+          {
+            "codeListProvider": "W3C",
+            "partyCode": "MSK",
+            "codeListName": "DID"
+          }
+        ]
+      },
+      "notifyParties": [
+        {
+          "partyName": "IKEA Denmark",
+          "partyContactDetails": [
+            {
+              "name": "Henrik",
+              "phone": "+45 51801234"
+            },
+            {
+              "name": "Henrik",
+              "phone": "+45 51801234"
+            }
+          ]
+        }
+      ],
+      "other": [
+        {
+          "party": {
+            "partyName": "Asseco Denmark"
+          },
+          "partyFunction": "SCO"
+        }
+      ]
+    },
+    "consignmentItems": [
+      {
+        "carrierBookingReference": "BOOKING_REFERENCE_PLACEHOLDER",
+        "descriptionOfGoods": ["Shoes - black, 400 boxes"],
+        "HSCodes": [
+          "640510"
+        ],
+        "cargoItems": [
+          {
+            "equipmentReference": "NARU3472484",
+            "cargoGrossWeight": {
+              "value": 12000,
+              "unit": "KGM"
+            },
+            "outerPackaging": {
+              "numberOfPackages": 400,
+              "packageCode": "4G",
+              "description": "Fibreboard boxes"
+            }
+          }
+        ]
+      }
+    ],
+    "utilizedTransportEquipments": [
+      {
+        "equipment": {
+          "equipmentReference": "NARU3472484",
+          "ISOEquipmentCode": "22G1"
+        },
+        "isShipperOwned": false,
+        "seals": [
+          {
+            "number": "VET123"
+          }
+        ]
+      }
+    ]
+  },
+  "issueTo": {
+    "partyName": "ISSUE_TO_LEGAL_NAME_PLACEHOLDER",
+    "sendToPlatform": "SEND_TO_PLATFORM_PLACEHOLDER",
+    "identifyingCodes": [
+      {
+        "codeListProvider": "W3C",
+        "partyCode": "ISSUE_TO_PARTY_CODE_PLACEHOLDER",
+        "codeListName": "ISSUE_TO_CODE_LIST_NAME_PLACEHOLDER"
+      }
+    ]
+  }
+}

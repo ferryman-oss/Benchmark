@@ -1,0 +1,24 @@
+{
+  "id": "baloo42__GT__crd-generator-victools__1",
+  "client_project_name": "baloo42/crd-generator-victools",
+  "github_url": "https://github.com/baloo42/crd-generator-victools",
+  "before_migration_commit_hash": "03860744ea90fc991af8693794ff53deb3e45814",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "cli",
+    ""
+  ],
+  "jdk_version": "21",
+  "original_library_list": [
+    "ch.qos.logback:logback-classic:1.5.10"
+  ],
+  "target_library_list": [
+    "org.apache.logging.log4j:log4j-slf4j2-impl:2.24.1",
+    "org.apache.logging.log4j:log4j-core:2.24.1",
+    "org.apache.logging.log4j:log4j-api:2.24.1"
+  ],
+  "commit_pr_url": "https://github.com/baloo42/crd-generator-victools/pull/29"
+}

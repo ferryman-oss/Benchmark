@@ -1,0 +1,27 @@
+{
+  "id": "Azure-Samples__GT__java-migration-copilot-samples__1",
+  "client_project_name": "Azure-Samples/java-migration-copilot-samples",
+  "github_url": "https://github.com/Azure-Samples/java-migration-copilot-samples",
+  "before_migration_commit_hash": "",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "rabbitmq-custom-formula-source",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "org.springframework.boot:spring-boot-starter-amqp:3.3.0"
+  ],
+  "target_library_list": [
+    "com.azure.spring:spring-cloud-azure-starter:5.22.0",
+    "com.azure.spring:spring-messaging-azure-servicebus:5.22.0",
+    "com.azure:azure-messaging-servicebus:7.17.10",
+    "com.azure:azure-core:1.55.3",
+    "com.azure.spring:spring-cloud-azure-autoconfigure:5.22.0",
+    "org.springframework:spring-messaging:6.1.8",
+    "org.springframework:spring-context:6.1.8"
+  ],
+  "commit_pr_url": "https://github.com/Azure-Samples/java-migration-copilot-samples/pull/18"
+}

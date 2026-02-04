@@ -1,0 +1,25 @@
+{
+  "id": "jrtom__GT__jung__1",
+  "client_project_name": "jrtom/jung",
+  "github_url": "https://github.com/jrtom/jung",
+  "before_migration_commit_hash": "002b53507f689c7a2e9972459219ea1625dfb401",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "jung-samples",
+    "jung-visualization"
+  ],
+  "jdk_version": "1.8",
+  "original_library_list": [
+    "org.apache.logging.log4j:log4j-slf4j-impl:2.9.1",
+    "org.apache.logging.log4j:log4j-api:2.9.1",
+    "org.apache.logging.log4j:log4j-core:2.9.1"
+  ],
+  "target_library_list": [
+    "ch.qos.logback:logback-classic:1.2.3",
+    "ch.qos.logback:logback-core:1.2.3"
+  ],
+  "commit_pr_url": "https://github.com/jrtom/jung/commit/09cac49d5ff02ec79cb3193c96ce596f24f84140"
+}

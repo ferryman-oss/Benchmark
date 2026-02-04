@@ -1,0 +1,22 @@
+{
+  "id": "BlackBeltTechnology__GT__judo-dao-api__1",
+  "client_project_name": "BlackBeltTechnology/judo-dao-api",
+  "github_url": "https://github.com/BlackBeltTechnology/judo-dao-api",
+  "before_migration_commit_hash": "3f5cd33b40cdb66c28b81348a12c283cbbcc8300",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "com.google.code.gson:gson:2.9.1"
+  ],
+  "target_library_list": [
+    "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.11.4",
+    "com.fasterxml.jackson.core:jackson-databind:2.11.4"
+  ],
+  "commit_pr_url": "https://github.com/BlackBeltTechnology/judo-dao-api/pull/46"
+}

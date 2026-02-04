@@ -1,0 +1,21 @@
+{
+  "id": "roastedroot__GT__sqlite4j__1",
+  "client_project_name": "roastedroot/sqlite4j",
+  "github_url": "https://github.com/roastedroot/sqlite4j",
+  "before_migration_commit_hash": "3907cce",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "com.google.jimfs:jimfs:1.3.0"
+  ],
+  "target_library_list": [
+    "io.roastedroot:zerofs:0.0.1"
+  ],
+  "commit_pr_url": "https://github.com/roastedroot/sqlite4j/pull/15"
+}

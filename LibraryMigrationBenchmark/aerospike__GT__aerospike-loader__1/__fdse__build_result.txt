@@ -1,0 +1,44 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------< com.aerospike:aerospike-load >--------------------
+[INFO] Building Aerospike DSV Loader 2.2
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ aerospike-load ---
+[INFO] Deleting /home/zjp/LibraryMigration/groundtruth_clients/aerospike__GT__aerospike-loader__1/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ aerospike-load ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] The encoding used to copy filtered properties files have not been set. This means that the same encoding will be used to copy filtered properties files as when copying other filtered resources. This might not be what you want! Run your build with --debug to see which files might be affected. Read more at https://maven.apache.org/plugins/maven-resources-plugin/examples/filtering-properties-files.html
+[INFO] 
+[INFO] --- compiler:2.3.2:compile (default-compile) @ aerospike-load ---
+[INFO] Compiling 12 source files to /home/zjp/LibraryMigration/groundtruth_clients/aerospike__GT__aerospike-loader__1/target/classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/zjp/LibraryMigration/groundtruth_clients/aerospike__GT__aerospike-loader__1/src/main/java/com/aerospike/load/AerospikeLoad.java:[227,15] error: > expected
+[ERROR] /home/zjp/LibraryMigration/groundtruth_clients/aerospike__GT__aerospike-loader__1/src/main/java/com/aerospike/load/AerospikeLoad.java:[227,8] error: not a statement
+[ERROR] /home/zjp/LibraryMigration/groundtruth_clients/aerospike__GT__aerospike-loader__1/src/main/java/com/aerospike/load/AerospikeLoad.java:[803,67] error: ')' expected
+[ERROR] /home/zjp/LibraryMigration/groundtruth_clients/aerospike__GT__aerospike-loader__1/src/main/java/com/aerospike/load/AsWriterTask.java:[519,47] error: ')' expected
+[INFO] 4 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.005 s
+[INFO] Finished at: 2025-08-01T15:09:36+08:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:2.3.2:compile (default-compile) on project aerospike-load: Compilation failure: Compilation failure: 
+[ERROR] /home/zjp/LibraryMigration/groundtruth_clients/aerospike__GT__aerospike-loader__1/src/main/java/com/aerospike/load/AerospikeLoad.java:[227,15] error: > expected
+[ERROR] /home/zjp/LibraryMigration/groundtruth_clients/aerospike__GT__aerospike-loader__1/src/main/java/com/aerospike/load/AerospikeLoad.java:[227,8] error: not a statement
+[ERROR] /home/zjp/LibraryMigration/groundtruth_clients/aerospike__GT__aerospike-loader__1/src/main/java/com/aerospike/load/AerospikeLoad.java:[803,67] error: ')' expected
+[ERROR] /home/zjp/LibraryMigration/groundtruth_clients/aerospike__GT__aerospike-loader__1/src/main/java/com/aerospike/load/AsWriterTask.java:[519,47] error: ')' expected
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+

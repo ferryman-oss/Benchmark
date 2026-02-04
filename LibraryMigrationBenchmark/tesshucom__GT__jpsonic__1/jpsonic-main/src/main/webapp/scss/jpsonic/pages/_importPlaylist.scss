@@ -1,0 +1,17 @@
+.mainframe.settings.importPlaylist {
+  input#file {
+    padding: 0 0 0 10px;
+    border: none;
+    cursor: pointer;
+
+    @include dlInputWidth(10);
+  }
+  > section + form > dl.single {
+    width: calc(100vw - 60px);
+    margin: 30px 20px 0 20px;
+    @media screen and (min-width: $jp-supplement-width-threshold) {
+      width: calc(50vw - 60px);
+      margin: 30px 20px 0 calc((100vw - (50vw - 60px)) / 2);
+    }
+  }
+}

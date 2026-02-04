@@ -1,0 +1,21 @@
+{
+  "id": "remondis-it__GT__remap__1",
+  "client_project_name": "remondis-it/remap",
+  "github_url": "https://github.com/remondis-it/remap",
+  "before_migration_commit_hash": "2535c732df747f9c64286c40070ac56c6763225f",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "cglib:cglib:3.2.9"
+  ],
+  "target_library_list": [
+    "net.bytebuddy:byte-buddy:1.12.14"
+  ],
+  "commit_pr_url": "https://github.com/remondis-it/remap/pull/148"
+}

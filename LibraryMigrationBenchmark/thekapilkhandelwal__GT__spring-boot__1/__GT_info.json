@@ -1,0 +1,22 @@
+{
+  "id": "thekapilkhandelwal__GT__spring-boot__1",
+  "client_project_name": "thekapilkhandelwal/spring-boot",
+  "github_url": "https://github.com/thekapilkhandelwal/spring-boot",
+  "before_migration_commit_hash": "34db7291484bf9979884d44ef8959439eb9d72ea",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "org.springframework.kafka:spring-kafka:3.1.4"
+  ],
+  "target_library_list": [
+    "org.springframework.boot:spring-boot-starter-data-redis:3.2.5",
+    "org.springframework.boot:spring-boot-starter-cache:3.2.5"
+  ],
+  "commit_pr_url": "https://github.com/thekapilkhandelwal/spring-boot/pull/4"
+}

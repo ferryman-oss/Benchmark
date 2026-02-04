@@ -1,0 +1,21 @@
+{
+  "id": "XeroAPI__GT__Xero-Java__1",
+  "client_project_name": "XeroAPI/Xero-Java",
+  "github_url": "https://github.com/XeroAPI/Xero-Java",
+  "before_migration_commit_hash": "223d2887912e711160de1483f9fdd7548b430c83",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "1.8",
+  "original_library_list": [
+    "log4j:log4j:1.2.17"
+  ],
+  "target_library_list": [
+    "org.apache.logging.log4j:log4j-api:2.11.0"
+  ],
+  "commit_pr_url": "https://github.com/XeroAPI/Xero-Java/commit/981ec06610faf4d31f88da577d27e5edbf942b1e"
+}

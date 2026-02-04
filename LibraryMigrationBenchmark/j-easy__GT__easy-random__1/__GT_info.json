@@ -1,0 +1,22 @@
+{
+  "id": "j-easy__GT__easy-random__1",
+  "client_project_name": "j-easy/easy-random",
+  "github_url": "https://github.com/j-easy/easy-random",
+  "before_migration_commit_hash": "f228b7b00494555ab2d854a752c028e199302f25",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "",
+    "random-beans"
+  ],
+  "jdk_version": "1.8",
+  "original_library_list": [
+    "org.reflections:reflections:0.9.10"
+  ],
+  "target_library_list": [
+    "io.github.lukehutch:fast-classpath-scanner:1.9.18"
+  ],
+  "commit_pr_url": "https://github.com/j-easy/easy-random/pull/89"
+}

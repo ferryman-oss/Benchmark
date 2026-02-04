@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<title>Controlled Vocabulary</title>
+	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'/>
+	<style type="text/css">
+
+		body {
+			font-family: 'Roboto', sans-serif;
+			margin: 2em;
+			font-size:0.8em;
+			/*
+            font-size: 90%;
+            */
+		}
+		h2, caption {
+			font-size: 130%;
+		}
+		div.UsageTitle {
+			font-size: 110%;
+			font-weight: bold;
+		}
+        p {
+            margin: 0;
+            padding: 0;
+        }
+		hr {
+			clear: left;
+			color: #D3D3D3; /*lightgrey */
+			margin-top: 2em;
+			margin-bottom: 2em;
+			margin-left: 10%;
+			margin-right: 10%;
+		}
+		table, th, td {
+			border-style: solid;
+			border-color: #D3D3D3; /*lightgrey */
+			border-width: 1px;
+			border-collapse: collapse;
+		}
+		caption {
+			font-weight: bold;
+			margin-bottom: 1em;
+			text-align: left;
+		}
+		thead {
+			font-size: 120%;
+		}
+		th, td {
+			padding: 0.5em;
+			vertical-align: top;
+		}
+		td.Code {
+			font-weight: bold;
+		}
+		td.Term {
+			white-space: nowrap;
+		}
+		dl {
+			float: left;
+		}
+		dt {
+			clear: left;
+			float: left;
+			font-weight: bold;
+			width: 15em;
+			margin-bottom: 0.3em;
+			margin-right: 1em;
+		}
+		dd {
+			float: left;
+			margin: 0;
+			margin-bottom: 0.3em;
+		}
+		span.LanguageCode{
+			color: #D3D3D3; /*lightgrey */
+			font-style: italic;
+		}
+		table.UsageDetails>thead>tr>th {
+			width: 15em;
+		}
+		div.CodeList {
+			page-break-before:always;
+		}
+		.URL {
+			font-size:80%;
+		}
+
+		@page {
+			@bottom-right {
+				color: #97acc2;
+				content: counter(page) " / " counter(pages);
+			}
+		}
+
+		@media all
+		{
+			div.page{
+				page-break-inside: avoid;
+			}
+
+			.pagebreak { page-break-before: always; }
+		}
+
+		.logo {
+			width:120px;
+		}
+
+		.switch {
+			float: right;
+		}
+		.switch button {
+			border: 1px solid black;
+			padding: 4px 10px;
+			background-color: #fff;
+		}
+		.switch button.active {
+			background-color: #dddddd;
+		}
+	</style>
+	<script th:inline="javascript">
+		/*<![CDATA[*/
+		var callback = function(){
+			var logo = /*[[${agency.logo}]]*/ '';
+			var images = document.getElementsByTagName('img');
+			for(var i = 0; i < images.length; i++) {
+				if( images[i].classList.contains('logo'))
+					images[i].src = logo;
+			}
+
+			var buttons = document.getElementsByTagName('button');
+			for(var i = 0; i < buttons.length; i++) {
+				buttons[i].addEventListener("click", function(e) {
+					toggleLang (buttons, e.currentTarget);
+					e.stopPropagation();
+				}, false);
+			}
+		};
+
+		function toggleLang(buttons, currentButton){
+			var id = currentButton.value;
+			var divs = document.getElementsByClassName("cv");
+			for (i = 0; i < divs.length; i++) {
+				if( id !== "all")
+					divs[i].style.display = "none";
+				else
+					divs[i].style.display = "block";
+			}
+			if( id !== "all")
+				document.getElementById(id).style.display = "block";
+
+			for(var i = 0; i < buttons.length; i++) {
+				buttons[i].classList.remove('active');
+			}
+			currentButton.classList.add('active');
+		}
+
+		if ( document.readyState === "complete" || (document.readyState !== "loading" && !document.documentElement.doScroll)) {
+			callback();
+		} else {
+			document.addEventListener("DOMContentLoaded", callback);
+		}
+		/*]]>*/
+	</script>
+</head>
+<body>
+
+<div class="switch">
+	<p>
+		<button value="all" class="active">show all</button>
+	<div th:remove="tag" th:each="version, iterStat: ${versions}">
+		<button th:value="${version.language}" th:text="${version.language}" th:title="${version.getFormattedLanguage()}"></button>
+	</div>
+</div>
+
+<div th:remove="tag" th:each="version, iterStat: ${versions}">
+	<div class="cv" th:id="${version.language}">
+		<div th:if="${iterStat.index} > 0" class="pagebreak"></div>
+
+		<div class="page">
+			<div style="width: 100%;">
+				<div style="width:130px;float:left;padding-right:15px" th:if="${agency.logo != null}">
+					<img alt="agency-logo" class="logo" th:src="@{${agency.logo}}"/>
+				</div>
+				<div>
+					<h1 th:text="${agency.name + ' Controlled Vocabulary for ' + version.notation}"></h1>
+				</div>
+			</div>
+
+			<hr />
+			<h2>CV definition</h2>
+			<p th:text="${version.definition}"></p>
+			<hr />
+			<h2>Details</h2>
+			<dl>
+				<dt>CV short name:</dt>
+				<dd th:text="${version.notation}"></dd>
+				<dt>CV name:</dt>
+				<dd th:text="${version.title}"></dd>
+                <dt th:if="${version.notes != null}">CV notes:</dt>
+                <dd th:if="${version.notes != null}" th:text="${version.notes}"></dd>
+				<dt>Language:</dt>
+				<dd th:text="${version.getFormattedLanguage()}"></dd>
+				<dt th:if="${version.number != null}">Version:</dt>
+				<dd th:if="${version.number != null and version.status == 'PUBLISHED'}" th:text="${version.number}"></dd>
+                <dd th:if="${version.number != null and version.status != 'PUBLISHED'}" th:text="${version.number + '-' + version.status}"></dd>
+				<dt th:if="${version.versionNotes != null and version.versionNotes != ''}">Version notes:</dt>
+				<dd th:if="${version.versionNotes != null and version.versionNotes != ''}" th:utext="${version.versionNotes}"></dd>
+				<dt th:if="${version.versionChanges != null and version.versionChanges != ''}">Version changes:</dt>
+				<dd th:if="${version.versionChanges != null and version.versionChanges != ''}" th:utext="${version.versionChanges}"></dd>
+				<dt th:if="${version.canonicalUri != null}">Canonical URI:</dt>
+				<dd>
+					<a rel="canonical URN this version" th:href="${baseUrl + '/urn/' + version.canonicalUri}" th:text="${version.canonicalUri}"></a>
+				</dd>
+
+				<dt>Agency: </dt>
+				<dd>
+					<a th:href="${agency.link}" th:text="${agency.name}"></a>
+				</dd>
+                <dt th:if="${version.translateAgency != null}">Translator Agency: </dt>
+                <dd th:if="${version.translateAgency != null and version.translateAgencyLink != null}">
+                    <a th:href="${version.translateAgencyLink}" th:text="${version.translateAgency}"></a>
+                </dd>
+                <dd th:if="${version.translateAgency != null and version.translateAgencyLink == null}" th:text="${version.translateAgency}">
+                </dd>
+			</dl>
+		</div>
+		<hr />
+
+		<div class="CodeList page">
+			<table aria-describedby="page-heading">
+				<caption>Code list</caption>
+				<thead>
+				<tr>
+                    <th scope="col" style="width: 25%">Code value</th>
+                    <th scope="col" style="width: 25%">Code descriptive term</th>
+                    <th scope="col" style="width: 50%">Code definition</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr th:each="concept : ${version.concepts}" th:if="${!concept.deprecated}">
+                    <td style="width: 25%;white-space:pre-line;word-break:break-all;word-wrap:break-word;" th:text="${concept.notation}"></td>
+                    <td style="width: 25%" th:text="${concept.title}"></td>
+                    <td style="width: 50%" th:text="${concept.definition}"></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<hr />
+
+		<div th:if="${version.concepts.^[deprecated == true]}">
+			<div class="CodeList page">
+				<h2>Deprecated codes list</h2>
+				<table aria-describedby="page-heading" style="width: 100%;">
+					<tr>
+						<td>
+							<ul th:each="concept : ${version.concepts}" th:if="${concept.deprecated}" >
+								<li>
+									<span style="font-weight: 600;" th:text="${concept.notation}"></span>
+									<ul>
+										<li th:if="${concept.validFrom != null || concept.validUntil != null}">Valid<span th:if="${concept.validFrom != null}" th:text="' from ' + ${concept.validFrom}"></span><span th:if="${concept.validUntil != null}" th:text="' to ' + ${concept.validUntil}"></span></li>
+										<li>URI: <a th:href="${concept.uri}" th:text="${concept.uri}"></a></li>
+										<li>Descriptive term: <span th:utext="${concept.title}"></span></li>
+										<li th:if="${concept.replacedById} != null">
+											Replaced by:
+											<ul>
+												<li><span th:utext="'Code: ' + ${concept.replacedByNotation}"></span></li>
+												<li>URI: <a th:if="${concept.replacedByUri != null}" th:href="${concept.replacedByUri}" th:text="${concept.replacedByUri}"></a><span th:unless="${concept.replacedByUri != null}" style="font-style: italic;">undefined</span></li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<hr />
+		</div>
+
+		<div class="Usage page">
+			<h2>Usage</h2>
+			<div th:remove="tag" th:utext="${version.ddiUsage}"></div>
+		</div>
+		<hr />
+        <h2>License and citation</h2>
+        <p>Copyright © <a th:href="${agency.link}" th:text="${agency.name}"></a> <span th:text="${year}"></span>.</p>
+        <p th:if="${version.licenseName != null}">
+            <a rel="license" th:if="${version.licenseLogo != null}" th:href="${version.licenseLink}">
+                <img style="border-width:0;width:140px" alt="license-logo" th:attr="src=${version.licenseLogo},title=${version.licenseName},alt=${version.licenseName}" />
+            </a>
+            <span>This work is licensed under a
+						<a rel="license" th:href="${version.licenseLink}" th:text="${version.licenseName}"></a>.
+					</span>
+        </p>
+		<p><br/></p>
+        <p th:if="${version.canonicalUri != null}">Citation:
+            <span th:utext="${version.citation}"></span> Available from:
+            <a th:href="${baseUrl + '/urn/' + version.canonicalUri}" th:text="${baseUrl + '/urn/' + version.canonicalUri}"></a>
+        </p>
+		<br/><br/><br/><br/>
+	</div>
+</div>
+</body>
+</html>

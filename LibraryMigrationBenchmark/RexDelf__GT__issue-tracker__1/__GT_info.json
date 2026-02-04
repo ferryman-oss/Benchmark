@@ -1,0 +1,21 @@
+{
+  "id": "RexDelf__GT__issue-tracker__1",
+  "client_project_name": "RexDelf/issue-tracker",
+  "github_url": "https://github.com/RexDelf/issue-tracker",
+  "before_migration_commit_hash": "a16c169eb16fa9e587373f5bc3e75d1cc7ba071f",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "org.modelmapper:modelmapper:3.1.1"
+  ],
+  "target_library_list": [
+    "org.mapstruct:mapstruct:1.5.3.Final"
+  ],
+  "commit_pr_url": "https://github.com/RexDelf/issue-tracker/pull/8"
+}

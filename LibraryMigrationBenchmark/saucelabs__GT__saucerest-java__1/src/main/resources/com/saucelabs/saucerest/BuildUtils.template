@@ -1,0 +1,15 @@
+package com.saucelabs.saucerest;
+
+public class BuildUtils
+{
+    // ------------------------------------------------------------------------------------------------------- Constants
+
+    private static final String version = "@VERSION@";
+
+    // -------------------------------------------------------------------------------------------------- Public Methods
+    public static String getCurrentVersion()
+    {
+        return version;
+    }
+}
+

@@ -1,0 +1,23 @@
+{
+  "id": "confluentinc__GT__schema-registry__1",
+  "client_project_name": "confluentinc/schema-registry",
+  "github_url": "https://github.com/confluentinc/schema-registry",
+  "before_migration_commit_hash": "c3e9e7e",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "client"
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "org.powermock:powermock-module-junit4:2.0.9",
+    "org.powermock:powermock-api-easymock:2.0.9"
+  ],
+  "target_library_list": [
+    "org.mockito:mockito-core:4.6.1",
+    "org.mockito:mockito-inline:4.6.1"
+  ],
+  "commit_pr_url": "https://github.com/confluentinc/schema-registry/pull/2378"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "multiformats__GT__java-multiaddr__1",
+  "client_project_name": "multiformats/java-multiaddr",
+  "github_url": "https://github.com/multiformats/java-multiaddr",
+  "before_migration_commit_hash": "11bcde489dcc42f368bf04c24085ae7e6c891e78",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "junit:junit:4.13.2"
+  ],
+  "target_library_list": [
+    "org.junit.jupiter:junit-jupiter:5.11.0",
+    "org.junit.jupiter:junit-jupiter-api:5.11.0"
+  ],
+  "commit_pr_url": "https://github.com/multiformats/java-multiaddr/pull/27"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "nil-andreas__GT__live-clipper__1",
+  "client_project_name": "nil-andreas/live-clipper",
+  "github_url": "https://github.com/nil-andreas/live-clipper",
+  "before_migration_commit_hash": "930b7e8",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "21",
+  "original_library_list": [
+    "org.springframework.boot:spring-boot-starter-data-redis:3.4.2"
+  ],
+  "target_library_list": [
+    "org.springframework.boot:spring-boot-starter-data-mongodb:3.4.2"
+  ],
+  "commit_pr_url": "https://github.com/nil-andreas/live-clipper/pull/6"
+}

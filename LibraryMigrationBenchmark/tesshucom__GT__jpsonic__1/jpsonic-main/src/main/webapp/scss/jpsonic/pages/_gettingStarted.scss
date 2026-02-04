@@ -1,0 +1,19 @@
+.mainframe.gettingStarted {
+  dl {
+    width: 80vw;
+    counter-reset: count 0;
+    dt {
+      &:before {
+        content: counter(count) ". ";
+        counter-increment: count;
+      }
+      form {
+        display: inline-block;
+        vertical-align: middle;
+        select {
+          margin-top: -5px;
+        }
+      }
+    }
+  }
+}

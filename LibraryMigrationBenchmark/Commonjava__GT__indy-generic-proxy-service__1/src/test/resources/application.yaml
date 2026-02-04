@@ -1,0 +1,54 @@
+proxy:
+  port: 8085
+  realm: httprox
+  secured: true
+  worker:
+    io:
+      threads: 10
+    task:
+      threads: 10
+
+service_proxy:
+  read-timeout: 30m
+  retry:
+    count: 1
+    interval: 3000
+  services:
+    - host: localhost
+      ssl: false
+      port: 8080
+      path-pattern: /api/.+
+
+MITM:
+  enabled: true
+  ca:
+    key: /tmp/ssl/ca.der
+    cert: /tmp/ssl/ca.crt
+  dn:
+    template: CN=<host>, O=Test Org
+  so:
+    timeout:
+      minutes: 30
+
+tracking:
+  type: SUFFIX
+
+## [rest client]
+repo-service-api/mp-rest/uri: http://localhost:8080
+repo-service-api/mp-rest/scope: javax.inject.Singleton
+
+## [auth]
+auth:
+  enabled: false
+  realm: keycloak.realm
+  public-key: keycloak.realmPublicKey
+  keycloak-json: keycloak/keycloak.json
+  keycloak-ui-json: keycloak/keycloak-ui.json
+  security-bindings-json: keycloak/security-bindings.json
+  url: keycloak.url
+  server:
+    credential:
+      secret: keycloak.serverCredentialSecret
+    resource: indy
+  ui:
+    resource: indy-ui

@@ -1,0 +1,26 @@
+{
+  "id": "alibaba__GT__spring-ai-alibaba__1",
+  "client_project_name": "alibaba/spring-ai-alibaba",
+  "github_url": "https://github.com/alibaba/spring-ai-alibaba",
+  "before_migration_commit_hash": "26022e43a591b5adb7e7b6a84719fba25f0503c0",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "spring-ai-alibaba-jmanus"
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "org.seleniumhq.selenium:selenium-java:4.25.0",
+    "org.seleniumhq.selenium:selenium-chrome-driver:4.25.0",
+    "org.seleniumhq.selenium:selenium-api:4.25.0",
+    "org.seleniumhq.selenium:selenium-remote-driver:4.25.0",
+    "org.seleniumhq.selenium:selenium-manager:4.25.0",
+    "org.seleniumhq.selenium:selenium-http:4.25.0"
+  ],
+  "target_library_list": [
+    "com.microsoft.playwright:playwright:1.52.0"
+  ],
+  "commit_pr_url": "https://github.com/alibaba/spring-ai-alibaba/pull/875"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "Lxca128__GT__SlimeRanks__1",
+  "client_project_name": "Lxca128/SlimeRanks",
+  "github_url": "https://github.com/Lxca128/SlimeRanks",
+  "before_migration_commit_hash": "d8246e4f5cc036b6f55752787b8b85e1b4457984",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "21",
+  "original_library_list": [
+    "org.slf4j:slf4j-api:2.0.9"
+  ],
+  "target_library_list": [
+    "org.apache.logging.log4j:log4j-api:2.24.3"
+  ],
+  "commit_pr_url": "https://github.com/Lxca128/SlimeRanks/pull/17"
+}

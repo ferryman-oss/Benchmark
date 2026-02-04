@@ -1,0 +1,22 @@
+{
+  "id": "crucial-project__GT__dso__1",
+  "client_project_name": "crucial-project/dso",
+  "github_url": "https://github.com/crucial-project/dso",
+  "before_migration_commit_hash": "e0b1a707b1d120fe5d81a52beed6c4f2da3d9295",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "",
+    "core"
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "com.google.guava:guava:18.0"
+  ],
+  "target_library_list": [
+    "com.github.ben-manes.caffeine:caffeine:2.8.4"
+  ],
+  "commit_pr_url": "https://github.com/crucial-project/dso/pull/11"
+}

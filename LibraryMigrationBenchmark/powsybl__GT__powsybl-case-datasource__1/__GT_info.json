@@ -1,0 +1,23 @@
+{
+  "id": "powsybl__GT__powsybl-case-datasource__1",
+  "client_project_name": "powsybl/powsybl-case-datasource",
+  "github_url": "https://github.com/powsybl/powsybl-case-datasource",
+  "before_migration_commit_hash": "80dbbff",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "junit:junit:4.13.2"
+  ],
+  "target_library_list": [
+    "org.mockito:mockito-junit-jupiter:5.11.0",
+    "org.junit.jupiter:junit-jupiter:5.10.3",
+    "org.junit.jupiter:junit-jupiter-api:5.10.3"
+  ],
+  "commit_pr_url": "https://github.com/powsybl/powsybl-case-datasource/pull/141"
+}

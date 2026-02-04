@@ -1,0 +1,29 @@
+{
+  "id": "dromara__GT__hmily__1",
+  "client_project_name": "dromara/hmily",
+  "github_url": "https://github.com/dromara/hmily",
+  "before_migration_commit_hash": "0d16213a3123b856f4123f2cb579cf1edf1228ab",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "",
+    "hmily-tcc-admin",
+    "hmily-tcc-core",
+    "hmily-tcc-demo/hmily-tcc-demo-dubbo/hmily-tcc-demo-dubbo-account",
+    "hmily-tcc-demo/hmily-tcc-demo-dubbo/hmily-tcc-demo-dubbo-inventory",
+    "hmily-tcc-demo/hmily-tcc-demo-dubbo/hmily-tcc-demo-dubbo-order",
+    "hmily-tcc-demo/hmily-tcc-demo-springcloud/hmily-tcc-demo-springcloud-account",
+    "hmily-tcc-demo/hmily-tcc-demo-springcloud/hmily-tcc-demo-springcloud-inventory",
+    "hmily-tcc-demo/hmily-tcc-demo-springcloud/hmily-tcc-demo-springcloud-order"
+  ],
+  "jdk_version": "1.8",
+  "original_library_list": [
+    "com.alibaba:druid:1.0.29"
+  ],
+  "target_library_list": [
+    "com.zaxxer:HikariCP:3.2.0"
+  ],
+  "commit_pr_url": "https://github.com/dromara/hmily/pull/23"
+}

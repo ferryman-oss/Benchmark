@@ -1,0 +1,9 @@
+syntax: glob
+.classpath
+.settings
+.project
+*/target/
+target/
+apidocs
+.idea
+*.iml

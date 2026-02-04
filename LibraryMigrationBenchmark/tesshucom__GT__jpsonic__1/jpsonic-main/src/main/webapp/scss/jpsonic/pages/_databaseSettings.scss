@@ -1,0 +1,121 @@
+
+.mainframe.settings.databaseSettings.notMobile,
+.mainframe.settings.databaseSettings {
+  .topSelectorContainer2 {
+    dt {
+      background-color: $jp-color-base4;
+      color: $jp-color-white;
+      font-weight: 600;
+
+      @include borderRadius(left);
+    }
+    dd {
+      @include borderRadius(right);
+    }
+  }
+
+  input#embedDriver {
+    @include dlInputWidth(10);
+  }
+  input#embedUrl {
+    @include dlInputWidth(14);
+  }
+  input#embedUsername {
+    @include dlInputWidth(5);
+  }
+  input#embedPassword {
+    @include dlInputWidth(5);
+  }
+  input#JNDIName {
+    @include dlInputWidth(5);
+  }
+  input#mysqlVarcharMaxlength {
+    @include dlInputWidth(2);
+  }
+  input#usertableQuote {
+    @include dlInputWidth(1);
+  }
+
+  .methods {
+    width: 430px;
+    min-width: 430px;
+    max-width: 500px;
+    margin: 34px 20px 3px 20px;
+    @media screen and (min-width: $jp-supplement-width-threshold) {
+      width: calc(50vw - 60px);
+      margin: 34px 20px 3px calc((100vw - (50vw - 60px)) / 2);
+    }
+  }
+
+  dl,
+  dl.single {
+    width: calc(100vw - 60px);
+    margin: 30px 20px 0 20px;
+    @media screen and (min-width: $jp-supplement-width-threshold) {
+      width: calc(50vw - 60px);
+      margin: 30px 20px 0 calc((100vw - (50vw - 60px)) / 2);
+    }
+  }
+
+  .helper > dl {
+    margin: 30px 20px 0 0;
+  }
+  ul.driverPreset {
+    display: flex;
+    align-items: center;
+    flex-flow: row nowrap;
+    justify-content: start;
+    margin: 3px;
+    a {
+      top: -2px;
+      outline: none;
+      background: $jp-color-base1;
+
+      @include dropShadow;
+    }
+    .selected {
+      top: -1px;
+      background: $jp-color-dark-gray;
+      color: $jp-color-white;
+      font-weight: 600;
+
+      @include dropShadow(none);
+    }
+    a,
+    .selected {
+      position: relative;
+      height: 26px;
+      margin: 2px 8px 2px 0;
+      padding: 0 4px 0 4px;
+      border-radius: 10px;
+      font-size: .93rem;
+      font-weight: 600;
+      vertical-align: middle;
+
+      @include border;
+      &:active {
+        top: -1px;
+      }
+    }
+    a {
+      &:focus,
+      &:hover {
+        background: $jp-color-complementary3;
+        color: $jp-color-base4;
+      }
+    }
+  }
+  textarea#jndiResource {
+    width: 100%;
+  }
+
+  .bottomDD {
+    @include border(bottom);
+    @include borderRadius(lower-right);
+  }
+
+  .bottomDT {
+    @include border(bottom);
+    @include borderRadius(lower-left);
+  }
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>cyberduck</id>
+    <title>Cyberduck</title>
+    <version>${VERSION}.${REVISION}</version>
+    <authors>iterate GmbH</authors>
+    <owners>cyberduck.io</owners>
+    <summary>Cyberduck is a libre FTP, SFTP, WebDAV, S3, Backblaze B2, Azure &amp; OpenStack Swift browser for Mac and Windows</summary>
+    <description>Cyberduck is a libre FTP, SFTP, WebDAV, S3, Backblaze B2, Azure &amp; OpenStack Swift browser for Mac and Windows</description>
+    <projectUrl>https://cyberduck.io</projectUrl>
+    <tags>cloud ftp sftp webdav amazon s3 openstack swift rackspace backblaze b2 microsoft azure onedrive google drive dropbox spectralogic</tags>
+    <copyright>${COPYRIGHT}</copyright>
+    <licenseUrl>https://cyberduck.io/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <iconUrl>https://cdn.cyberduck.io/img/cyberduck-icon-384.png</iconUrl>
+    <releaseNotes>${CHANGELOG}</releaseNotes>
+    <docsUrl>https://help.cyberduck.io</docsUrl>
+    <bugTrackerUrl>https://trac.cyberduck.io</bugTrackerUrl>
+    <mailingListUrl>https://lists.cyberduck.io</mailingListUrl>
+    <packageSourceUrl>https://github.com/iterate-ch/cyberduck</packageSourceUrl>
+    <dependencies>
+      <dependency id="bonjour" version="3.1.0.2" />
+      <dependency id="dotnetfx" version="4.7.2.20210909" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>

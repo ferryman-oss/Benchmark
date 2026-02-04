@@ -1,0 +1,281 @@
+<script type='text/javascript'>
+    var chart_{{id}} = echarts.init(
+        document.getElementById('{{id}}'),
+        {{{themeOrNull}}},
+    {{#initOpts}}
+        {
+            {{#renderer}}renderer: '{{.}}'{{/renderer}}
+        }
+    {{/initOpts}}   );
+    var option_{{id}} = {
+{{#option}}
+    {{#title}}
+        title: {
+            text: '{{.}}'
+        },
+    {{/title}}
+    {{#tooltip}}
+        tooltip: {
+        {{#trigger}}
+            trigger: '{{.}}',
+        {{/trigger}}
+        {{#axisPointer}}
+            axisPointer: {
+            {{#type}}
+                type: '{{.}}',
+            {{/type}}
+            }
+        {{/axisPointer}}
+        },
+    {{/tooltip}}
+    {{#toolbox}}
+        toolbox: {
+            feature: {
+            {{#dataZoom}}
+                dataZoom: {},
+            {{/dataZoom}}
+            {{#saveAsImage}}
+                saveAsImage: {
+                {{#pixelRatio}}
+                    pixelRatio: {{.}}
+                {{/pixelRatio}}
+                },
+            {{/saveAsImage}}
+            {{#restore}}
+                restore: {}
+            {{/restore}}
+            }
+        },
+    {{/toolbox}}
+    {{#legend}}
+        legend: {},
+    {{/legend}}
+    {{#gridPresent}}
+        grid: [
+        {{#grid}}
+            {
+            {{#left}}
+                left: {{{.}}},
+            {{/left}}
+            {{#right}}
+                right: {{{.}}},
+            {{/right}}
+            {{#top}}
+                top: {{{.}}},
+            {{/top}}
+            {{#bottom}}
+                bottom: {{{.}}},
+            {{/bottom}}
+            {{#width}}
+                width: {{{.}}},
+            {{/width}}
+            {{#height}}
+                height: {{{.}}},
+            {{/height}}
+            },
+        {{/grid}}
+        ],
+    {{/gridPresent}}
+    {{#dataset}}
+        dataset: {
+            source: [
+                {{#rows}}
+                [{{#columns}}{{{quotedValue}}}{{^last}},{{/last}}{{/columns}}]{{^last}},{{/last}}
+                {{/rows}}
+            ]
+        },
+    {{/dataset}}
+    {{#xAxesPresent}}
+        xAxis: [
+        {{#xAxes}}
+        {
+        {{#alignTicksPresent}}
+            alignTicks: {{alignTicks}},
+        {{/alignTicksPresent}}
+        {{#axisLabel}}
+            axisLabel: {
+            {{#fontSize}}
+                fontSize: {{.}},
+            {{/fontSize}}
+            {{#fontStyle}}
+                fontStyle: '{{.}}',
+            {{/fontStyle}}
+            {{#fontWeight}}
+                fontWeight: {{{.}}},
+            {{/fontWeight}}
+            {{#fontFamily}}
+                fontFamily: '{{.}}',
+            {{/fontFamily}}
+            {{#formatter}}
+                formatter: '{{.}}',
+            {{/formatter}}
+            {{#rotate}}
+                rotate: {{.}}
+            {{/rotate}}
+            },
+        {{/axisLabel}}
+        {{#axisLine}}
+            axisLine: {
+                show: {{show}},
+            {{#onZeroPresent}}
+                onZero: {{onZero}},
+            {{/onZeroPresent}}
+            },
+        {{/axisLine}}
+        {{#noBoundaryGap}}
+            boundaryGap: false,
+        {{/noBoundaryGap}}
+        {{#gridIndex}}
+            gridIndex: {{.}},
+        {{/gridIndex}}
+        {{#name}}
+            name: {{{quotedName}}},
+        {{/name}}
+        {{#offset}}
+            offset: {{.}},
+        {{/offset}}
+        {{#position}}
+            position: '{{.}}',
+        {{/position}}
+        {{#type}}
+            type: '{{.}}'
+        {{/type}}
+        },
+        {{/xAxes}}
+        ],
+    {{/xAxesPresent}}
+    {{#yAxesPresent}}
+        yAxis: [
+        {{#yAxes}}
+        {
+        {{#alignTicksPresent}}
+            alignTicks: {{alignTicks}},
+        {{/alignTicksPresent}}
+        {{#axisLabel}}
+            axisLabel: {
+            {{#fontSize}}
+                fontSize: {{.}},
+            {{/fontSize}}
+            {{#fontStyle}}
+                fontStyle: '{{.}}',
+            {{/fontStyle}}
+            {{#fontWeight}}
+                fontWeight: {{{.}}},
+            {{/fontWeight}}
+            {{#fontFamily}}
+                fontFamily: '{{.}}',
+            {{/fontFamily}}
+            {{#formatter}}
+                formatter: '{{.}}',
+            {{/formatter}}
+            {{#rotate}}
+                rotate: {{.}}
+            {{/rotate}}
+            },
+        {{/axisLabel}}
+        {{#axisLine}}
+            axisLine: {
+                show: {{show}},
+            {{#onZeroPresent}}
+                onZero: {{onZero}},
+            {{/onZeroPresent}}
+            },
+        {{/axisLine}}
+        {{#noBoundaryGap}}
+            boundaryGap: false,
+        {{/noBoundaryGap}}
+        {{#gridIndex}}
+            gridIndex: {{.}},
+        {{/gridIndex}}
+        {{#name}}
+            name: {{{quotedName}}},
+        {{/name}}
+        {{#offset}}
+            offset: {{.}},
+        {{/offset}}
+        {{#position}}
+            position: '{{.}}',
+        {{/position}}
+        {{#type}}
+            type: '{{.}}'
+        {{/type}}
+        },
+        {{/yAxes}}
+        ],
+    {{/yAxesPresent}}
+        series: [
+            {{#series}}
+            {
+                name: '{{name}}',
+            {{#areaStyle}}
+                areaStyle: {},
+            {{/areaStyle}}
+            {{#encode}}
+                encode: {
+                {{#x}}
+                    x: {{.}},
+                {{/x}}
+                {{#y}}
+                    y: {{.}},
+                {{/y}}
+                {{#value}}
+                    value: {{.}},
+                {{/value}}
+                {{#itemName}}
+                    itemName: {{.}},
+                {{/itemName}}
+                },
+            {{/encode}}
+            {{#label}}
+                label: {
+                {{#showPresent}}
+                    show: {{show}},
+                {{/showPresent}}
+                {{#formatter}}
+                    formatter: '{{.}}',
+                {{/formatter}}
+                {{#position}}
+                    position: '{{.}}'
+                {{/position}}
+                },
+            {{/label}}
+            {{#seriesLayoutBy}}
+                seriesLayoutBy: '{{.}}',
+            {{/seriesLayoutBy}}
+            {{#dontShowSymbol}}
+                showSymbol: false,
+            {{/dontShowSymbol}}
+            {{#smooth}}
+                smooth: true,
+            {{/smooth}}
+            {{#stack}}
+                stack: 'total',
+            {{/stack}}
+            {{#xAxisIndex}}
+                xAxisIndex: {{.}},
+            {{/xAxisIndex}}
+            {{#yAxisIndex}}
+                yAxisIndex: {{.}},
+            {{/yAxisIndex}}
+            {{#radius}}
+                radius: {{{radius}}},
+            {{/radius}}
+            {{#center}}
+                center: {{{center}}},
+            {{/center}}
+            {{#startAngle}}
+                startAngle: {{.}},
+            {{/startAngle}}
+            {{#endAngle}}
+                endAngle: {{.}},
+            {{/endAngle}}
+            {{#roseType}}
+                roseType: '{{.}}',
+            {{/roseType}}
+                type: '{{type}}'
+            },
+            {{/series}}
+        ]
+{{/option}}
+    };
+    option_{{id}} && chart_{{id}}.setOption(option_{{id}});</script>

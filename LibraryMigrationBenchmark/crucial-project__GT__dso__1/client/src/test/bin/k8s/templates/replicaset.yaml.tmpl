@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: dso-server
+  labels:
+    app: dso-server
+spec:
+  replicas: %REPLICAS%
+  selector:
+    matchLabels:
+      app: dso-server
+  template:
+    metadata:
+      labels:
+        app: dso-server
+    spec:
+      containers:
+       - name: server
+         image: %IMAGE%
+         imagePullPolicy: "Always"
+         resources:
+           requests:
+             cpu: %CPU%
+           limits:
+             cpu: %CPU%
+         env:
+         - name: IP
+           valueFrom:
+             fieldRef:
+               fieldPath: status.podIP
+         - name: CLOUD
+           value: k8s
+         - name: EXTRA
+           value: "-rf 2"
+         - name: JVM_EXTRA
+           value: "-XX:+PrintGCDetails -XX:+UseConcMarkSweepGC -Xms64m -Xmx16024m"

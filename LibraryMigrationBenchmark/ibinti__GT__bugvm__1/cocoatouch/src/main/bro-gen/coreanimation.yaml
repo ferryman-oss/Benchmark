@@ -1,0 +1,105 @@
+package: org.robovm.apple.coreanimation
+include: [coregraphics.yaml, foundation.yaml, opengles.yaml]
+library: QuartzCore
+framework: QuartzCore
+clang_args: ['-x', 'objective-c']
+headers:
+    - /System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.h
+typedefs: {}
+enums:
+    CAEdgeAntialiasingMask: {bits: true}
+
+categories:
+    NSValue: {}
+
+    CAAnimationDelegate@NSObject: {protocol: true}
+    CALayerDelegate@NSObject: {protocol: true}
+
+classes:
+    # Structs
+    CATransform3D: {}
+
+    # CADisplayLink:
+    #     methods:
+    #         '+displayLinkWithTarget:selector:':
+    #             name: create
+    CALayer: {}
+    CAAnimation:
+        properties:
+            'delegate':
+                type: CAAnimationDelegate
+    CAAnimationGroup: {}
+    CABasicAnimation: {}
+    CADisplayLink: {}
+    CAEAGLLayer:
+        protocols: [EAGLDrawable]
+    CAEmitterCell: {}
+    CAEmitterLayer: {}
+    CAGradientLayer: {}
+    CAKeyframeAnimation:
+        properties:
+            'tensionValues':
+                type: "NSArray<NSNumber>"
+    CALayer:
+        properties:
+            'delegate':
+                type: CALayerDelegate
+            'edgeAntialiasingMask':
+                type: CAEdgeAntialiasingMask
+        methods:
+            '-init':
+                exclude: true
+    CAMediaTimingFunction: {}
+    CAPropertyAnimation: {}
+    CAReplicatorLayer: {}
+    CAScrollLayer: {}
+    CAShapeLayer: {}
+    CATextLayer: {}
+    CATiledLayer: {}
+    CATransaction: {}
+    CATransformLayer: {}
+    CATransition: {}
+    CAValueFunction: {}
+
+protocols:
+    CAAction: {}
+    CAMediaTiming: {}
+    CAAnimationDelegate: {}
+    CALayerDelegate: {}
+
+functions:
+
+    CATransform3D(Make.*):
+        class: CATransform3D
+        static: true
+        name: "#{g[0]}"
+    CATransform3D(.*):
+        class: CATransform3D
+        static: true
+        visibility: protected
+        name: "#{g[0]}"
+
+    CA(CurrentMediaTime):
+        class: CAAnimation
+        name: "get#{g[0]}"
+
+    # Make sure we don't miss any functions if new ones are introduced in a later version
+    (CA.*):
+        class: CoreAnimation
+        name: "Function__#{g[0]}"
+
+values: 
+
+    k?CA(.*):
+        class: CoreAnimation
+        name: "#{g[0]}"
+
+constants:
+
+    CA_WARN_DEPRECATED:
+        exclude: true
+
+    # Make sure we don't miss any constants if new ones are introduced in a later version
+    (k?CA.*):
+        class: CoreAnimation
+        name: "Constant__#{g[0]}"

@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <relativePath>../pom.xml</relativePath>
+    <groupId>org.ops4j.pax</groupId>
+    <artifactId>web</artifactId>
+    <version>1.1.0-SNAPSHOT</version>
+  </parent>
+
+  <groupId>org.ops4j.pax.web</groupId>
+  <artifactId>pax-web-jsp</artifactId>
+  <packaging>jar</packaging>
+
+  <name>OPS4J Pax Web - Jsp Support</name>
+  <description>
+    Pax Web Jsp Support via Tomcat Jasper 2.
+    Detailed information to be found at http://wiki.ops4j.org/confluence/x/CgNN.
+  </description>
+
+  <properties>
+    <bundle.symbolicName>org.ops4j.pax.web.pax-web-jsp</bundle.symbolicName>
+    <bundle.namespace>org.ops4j.pax.web.jsp</bundle.namespace>
+  </properties>
+
+  <build>
+    <plugins>
+      <!-- <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+      </plugin> -->
+    </plugins>
+  </build>
+
+  <dependencies>
+
+    <!-- Embeded dependencies (not transitive) -->
+    <dependency>
+      <groupId>org.ops4j.pax.swissbox</groupId>
+      <artifactId>pax-swissbox-core</artifactId>
+      <scope>compile</scope>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.ops4j.pax.swissbox</groupId>
+      <artifactId>pax-swissbox-optional-jcl</artifactId>
+      <scope>compile</scope>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.tomcat</groupId>
+      <artifactId>jasper</artifactId>
+      <scope>compile</scope>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+	  <groupId>javax.servlet</groupId>
+	  <artifactId>jstl</artifactId>
+      <scope>compile</scope>
+      <optional>true</optional>
+	</dependency>
+
+    <!-- Provided dependencies (not transitive) -->
+    <dependency>
+      <groupId>org.osgi</groupId>
+      <artifactId>org.osgi.core</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+  </dependencies>
+
+</project>

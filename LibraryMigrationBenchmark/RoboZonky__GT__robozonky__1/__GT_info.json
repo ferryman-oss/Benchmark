@@ -1,0 +1,23 @@
+{
+  "id": "RoboZonky__GT__robozonky__1",
+  "client_project_name": "RoboZonky/robozonky",
+  "github_url": "https://github.com/RoboZonky/robozonky",
+  "before_migration_commit_hash": "897668eb230582800b4430ec2fe195ffef79967a",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "",
+    "robozonky-app",
+    "robozonky-cli"
+  ],
+  "jdk_version": "1.8",
+  "original_library_list": [
+    "com.beust:jcommander:1.72"
+  ],
+  "target_library_list": [
+    "info.picocli:picocli:3.7.0"
+  ],
+  "commit_pr_url": "https://github.com/RoboZonky/robozonky/commit/38463dcb4e063b3a96b90f353b2f93e89ef03d1e"
+}

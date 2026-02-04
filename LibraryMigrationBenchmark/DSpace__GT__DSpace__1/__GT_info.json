@@ -1,0 +1,23 @@
+{
+  "id": "DSpace__GT__DSpace__1",
+  "client_project_name": "DSpace/DSpace",
+  "github_url": "https://github.com/DSpace/DSpace",
+  "before_migration_commit_hash": "2ae9110b05766798b2634f2e6584f38930c37b9e",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "",
+    "dspace-api",
+    "dspace-jspui"
+  ],
+  "jdk_version": "1.8",
+  "original_library_list": [
+    "net.sf.flexjson:flexjson:2.1"
+  ],
+  "target_library_list": [
+    "com.google.code.gson:gson:2.2.1"
+  ],
+  "commit_pr_url": "https://github.com/DSpace/DSpace/commit/784f22a821c86a02ed00b2ade0b7bb1a13198249"
+}

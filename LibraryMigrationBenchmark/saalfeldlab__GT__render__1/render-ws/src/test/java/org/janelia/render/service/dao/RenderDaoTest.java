@@ -1,0 +1,321 @@
+package org.janelia.render.service.dao;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import mpicbg.trakem2.transform.AffineModel2D;
+
+import org.janelia.alignment.spec.Bounds;
+import org.janelia.alignment.spec.LayoutData;
+import org.janelia.alignment.spec.LeafTransformSpec;
+import org.janelia.alignment.spec.ListTransformSpec;
+import org.janelia.alignment.spec.ReferenceTransformSpec;
+import org.janelia.alignment.spec.TileSpec;
+import org.janelia.alignment.spec.TransformSpec;
+import org.janelia.alignment.spec.TransformSpecMetaData;
+import org.janelia.alignment.spec.stack.StackId;
+import org.janelia.alignment.spec.stack.StackMetaData;
+import org.janelia.alignment.spec.stack.StackStats;
+import org.janelia.alignment.spec.stack.StackVersion;
+import org.janelia.test.EmbeddedMongoDb;
+import org.junit.AfterClass;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import static org.janelia.alignment.spec.stack.StackMetaData.StackState.LOADING;
+
+/**
+ * Tests {@link RenderDao} methods that change persisted data.
+ * The embedded database is rebuilt for each test, so these tests take longer to run.
+ *
+ * @author Eric Trautman
+ */
+public class RenderDaoTest {
+
+    private static StackId stackId;
+    private static EmbeddedMongoDb embeddedMongoDb;
+    private static RenderDao dao;
+
+    @BeforeClass
+    public static void before() throws Exception {
+        stackId = new StackId("flyTEM", "test", "elastic");
+        embeddedMongoDb = new EmbeddedMongoDb(RenderDao.RENDER_DB_NAME);
+        dao = new RenderDao(embeddedMongoDb.getMongoClient());
+    }
+
+    @Before
+    public void setUp() throws Exception {
+        embeddedMongoDb.importCollection(RenderDao.STACK_META_DATA_COLLECTION_NAME,
+                                         new File("src/test/resources/mongodb/admin__stack_meta_data.json"),
+                                         true,
+                                         false,
+                                         true);
+
+        embeddedMongoDb.importCollection(stackId.getTileCollectionName(),
+                                         new File("src/test/resources/mongodb/elastic-3903.json"),
+                                         true,
+                                         false,
+                                         true);
+
+        embeddedMongoDb.importCollection(stackId.getTransformCollectionName(),
+                                         new File("src/test/resources/mongodb/elastic-transform.json"),
+                                         true,
+                                         false,
+                                         true);
+    }
+
+    @AfterClass
+    public static void after() throws Exception {
+        embeddedMongoDb.stop();
+    }
+
+    @Test
+    public void testCloneStack() throws Exception {
+
+        final StackId toStackId = new StackId(stackId.getOwner(), stackId.getProject(), "clonedStack");
+
+        StackMetaData toStackMetaData = dao.getStackMetaData(toStackId);
+        Assert.assertNull("stack should not exist before clone", toStackMetaData);
+
+        List<Double> zValues = dao.getZValues(toStackId);
+        Assert.assertEquals("no z values should exist before clone", 0, zValues.size());
+
+        StackMetaData fromStackMetaData = dao.getStackMetaData(stackId);
+        fromStackMetaData = dao.ensureIndexesAndDeriveStats(fromStackMetaData);
+
+        dao.cloneStack(stackId, toStackId, null);
+
+        zValues = dao.getZValues(toStackId);
+        Assert.assertEquals("invalid number of z values after clone", 1, zValues.size());
+
+        toStackMetaData = new StackMetaData(toStackId, fromStackMetaData.getCurrentVersion());
+        toStackMetaData = dao.ensureIndexesAndDeriveStats(toStackMetaData);
+
+        final StackStats fromStats = fromStackMetaData.getStats();
+        Assert.assertNotNull("null fromStats", fromStats);
+
+        final StackStats toStats = toStackMetaData.getStats();
+        Assert.assertNotNull("null toStats", toStats);
+
+        Assert.assertEquals("cloned tile count does not match",
+                            fromStats.getTileCount(), toStats.getTileCount());
+        Assert.assertEquals("cloned transform count does not match",
+                            fromStats.getTransformCount(), toStats.getTransformCount());
+
+        final Double newZValue = 999.0;
+        final TileSpec newTileSpec = new TileSpec();
+        newTileSpec.setTileId("new-tile-spec");
+        newTileSpec.setZ(newZValue);
+
+        dao.saveTileSpec(stackId, newTileSpec);
+
+        final StackId filteredStackId = new StackId(stackId.getOwner(), stackId.getProject(), "filteredStack");
+        final List<Double> filteredZValues = new ArrayList<>();
+        filteredZValues.add(newZValue);
+        dao.cloneStack(stackId, filteredStackId, filteredZValues);
+
+        zValues = dao.getZValues(filteredStackId);
+        Assert.assertEquals("invalid number of z values after clone filter", 1, zValues.size());
+        Assert.assertEquals("invalid z value after clone filter", newZValue, zValues.get(0));
+    }
+
+    @Test
+    public void testSaveStackMetaDataAndDeriveStats() throws Exception {
+
+        final StackVersion secondTry = new StackVersion(new Date(),
+                                                        "second try",
+                                                        5,
+                                                        3,
+                                                        4.2,
+                                                        4.2,
+                                                        35.2,
+                                                        null,
+                                                        null);
+
+        final StackMetaData stackMetaDataBeforeSave = dao.getStackMetaData(stackId);
+        final StackMetaData updatedStackMetaData = stackMetaDataBeforeSave.getNextVersion(secondTry);
+        dao.saveStackMetaData(updatedStackMetaData);
+
+        final StackMetaData stackMetaDataAfterSave = dao.getStackMetaData(stackId);
+        validateStackMetaData(" after save", LOADING, 3, secondTry, stackMetaDataAfterSave);
+
+        dao.ensureIndexesAndDeriveStats(stackMetaDataAfterSave);
+
+        final StackMetaData stackMetaDataAfterStats = dao.getStackMetaData(stackId);
+
+        final StackStats stats = stackMetaDataAfterStats.getStats();
+        Assert.assertNotNull("null stats returned after derivation", stats);
+
+        final Bounds expectedBounds = new Bounds(1094.0, 1769.0, 3903.0, 9917.0, 8301.0, 3903.0);
+
+        Assert.assertEquals("invalid bounds", expectedBounds.toJson(), stats.getStackBounds().toJson());
+        Assert.assertEquals("invalid tile count", new Long(12), stats.getTileCount());
+
+    }
+
+    @Test
+    public void testRemoveStack() throws Exception {
+
+        final StackMetaData stackMetaBeforeRemove = dao.getStackMetaData(stackId);
+        Assert.assertNotNull("meta data for " + stackId + " missing before removal", stackMetaBeforeRemove);
+
+        final List<Double> zValuesBeforeRemove = dao.getZValues(stackId);
+        Assert.assertNotNull("zValues null for " + stackId + " before removal",
+                             zValuesBeforeRemove);
+        Assert.assertTrue("zValues missing for " + stackId + " before removal",
+                          zValuesBeforeRemove.size() > 0);
+
+        dao.removeStack(stackId, true);
+        final StackMetaData stackMetaAfterRemove = dao.getStackMetaData(stackId);
+
+        Assert.assertNull("meta data for " + stackId + " returned after removal", stackMetaAfterRemove);
+
+        final List<Double> zValuesAfterRemove = dao.getZValues(stackId);
+        Assert.assertNotNull("zValues null for " + stackId + " after removal",
+                             zValuesAfterRemove);
+        Assert.assertEquals("zValues exist for " + stackId + " after removal",
+                            0, zValuesAfterRemove.size());
+    }
+
+    @Test
+    public void testRemoveSection() throws Exception {
+
+        final TileSpec tileSpec = new TileSpec();
+        tileSpec.setTileId("testTileId");
+        tileSpec.setZ(999.0);
+
+        dao.saveTileSpec(stackId, tileSpec);
+
+        final List<Double> zValuesBeforeRemove = dao.getZValues(stackId);
+        Assert.assertNotNull("zValues null for " + stackId + " before removal",
+                             zValuesBeforeRemove);
+        Assert.assertEquals("incorrect number of zValues for " + stackId + " before removal",
+                            2, zValuesBeforeRemove.size());
+
+        dao.removeSection(stackId, tileSpec.getZ());
+
+        final List<Double> zValuesAfterRemove = dao.getZValues(stackId);
+        Assert.assertNotNull("zValues null for " + stackId + " after removal",
+                             zValuesAfterRemove);
+        Assert.assertEquals("zValues exist for " + stackId + " after removal",
+                            1, zValuesAfterRemove.size());
+    }
+
+    @Test
+    public void testSaveTileSpec() throws Exception {
+        final String tileId = "new-tile-1";
+        final String temca = "0";
+        final LayoutData layoutData = new LayoutData("s123", temca, null, null, null, null, null, null);
+
+        final TileSpec tileSpec = new TileSpec();
+        tileSpec.setTileId(tileId);
+        tileSpec.setLayout(layoutData);
+
+        dao.saveTileSpec(stackId, tileSpec);
+
+        final TileSpec insertedTileSpec = dao.getTileSpec(stackId, tileId, false);
+
+        Assert.assertNotNull("null tileSpec retrieved after insert", insertedTileSpec);
+        final LayoutData insertedLayoutData = insertedTileSpec.getLayout();
+        Assert.assertNotNull("null layout retrieved after insert", insertedLayoutData);
+        Assert.assertEquals("invalid temca retrieved after insert", temca, insertedLayoutData.getTemca());
+        Assert.assertFalse("tileSpec is has transforms after insert", tileSpec.hasTransforms());
+
+        final String changedTemca = "1";
+        final LayoutData changedLayoutData = new LayoutData("s123", changedTemca, null, null, null, null, null, null);
+        tileSpec.setLayout(changedLayoutData);
+        final List<TransformSpec> list = new ArrayList<>();
+        list.add(new ReferenceTransformSpec("1"));
+        tileSpec.addTransformSpecs(list);
+
+        dao.saveTileSpec(stackId, tileSpec);
+
+        final TileSpec updatedTileSpec = dao.getTileSpec(stackId, tileId, false);
+
+        Assert.assertNotNull("null tileSpec retrieved after update", updatedTileSpec);
+        final LayoutData updatedLayoutData = updatedTileSpec.getLayout();
+        Assert.assertNotNull("null layout retrieved after update", updatedLayoutData);
+        Assert.assertEquals("invalid temca retrieved after update", changedTemca, updatedLayoutData.getTemca());
+        Assert.assertTrue("tileSpec is missing transforms after update", tileSpec.hasTransforms());
+    }
+
+    @Test
+    public void testSaveTransformSpec() throws Exception {
+
+        final String transformId = "new-transform-1";
+        final TransformSpecMetaData metaData = new TransformSpecMetaData();
+        metaData.setGroup("test-group");
+
+        final LeafTransformSpec leafSpec = new LeafTransformSpec(transformId,
+                                                                 metaData,
+                                                                 AffineModel2D.class.getName(),
+                                                                 "1  0  0  1  0  0");
+        dao.saveTransformSpec(stackId, leafSpec);
+
+        final TransformSpec insertedSpec = dao.getTransformSpec(stackId, transformId);
+
+        Assert.assertNotNull("null transformSpec retrieved after insert", insertedSpec);
+        final TransformSpecMetaData insertedMetaData = insertedSpec.getMetaData();
+        Assert.assertNotNull("null meta data retrieved after insert", insertedMetaData);
+        Assert.assertEquals("invalid group retrieved after insert",
+                            metaData.getGroup(), insertedMetaData.getGroup());
+
+        final TransformSpecMetaData changedMetaData = new TransformSpecMetaData();
+        changedMetaData.setGroup("updated-group");
+
+        final ListTransformSpec listSpec = new ListTransformSpec(transformId, changedMetaData);
+        listSpec.addSpec(new ReferenceTransformSpec("1"));
+
+        dao.saveTransformSpec(stackId, listSpec);
+
+        final TransformSpec updatedSpec = dao.getTransformSpec(stackId, transformId);
+
+        Assert.assertNotNull("null transformSpec retrieved after update", updatedSpec);
+        final TransformSpecMetaData updatedMetaData = updatedSpec.getMetaData();
+        Assert.assertNotNull("null meta data retrieved after update", updatedMetaData);
+        Assert.assertEquals("invalid group retrieved after update",
+                            changedMetaData.getGroup(), updatedMetaData.getGroup());
+        Assert.assertFalse("transformSpec should not be resolved after update", updatedSpec.isFullyResolved());
+    }
+
+    public static void validateStackMetaData(final String context,
+                                             final StackMetaData.StackState expectedState,
+                                             final Integer expectedVersionNumber,
+                                             final StackVersion expectedVersion,
+                                             final StackMetaData actualMetaData) {
+
+        Assert.assertNotNull("null meta data retrieved" + context, actualMetaData);
+        Assert.assertEquals("invalid state" + context,
+                            expectedState, actualMetaData.getState());
+        Assert.assertNotNull("null modified date" + context,
+                             actualMetaData.getLastModifiedTimestamp());
+        Assert.assertEquals("invalid version number" + context,
+                            expectedVersionNumber, actualMetaData.getCurrentVersionNumber());
+
+        final StackVersion actualVersion = actualMetaData.getCurrentVersion();
+        Assert.assertNotNull("null version for " + context, actualVersion);
+        Assert.assertEquals("invalid createTimestamp" + context,
+                            expectedVersion.getCreateTimestamp(), actualVersion.getCreateTimestamp());
+        Assert.assertEquals("invalid versionNotes" + context,
+                            expectedVersion.getVersionNotes(), actualVersion.getVersionNotes());
+        Assert.assertEquals("invalid cycleNumber" + context,
+                            expectedVersion.getCycleNumber(), actualVersion.getCycleNumber());
+        Assert.assertEquals("invalid cycleStepNumber" + context,
+                            expectedVersion.getCycleStepNumber(), actualVersion.getCycleStepNumber());
+        Assert.assertEquals("invalid stackResolutionX" + context,
+                            expectedVersion.getStackResolutionX(), actualVersion.getStackResolutionX());
+        Assert.assertEquals("invalid stackResolutionY" + context,
+                            expectedVersion.getStackResolutionY(), actualVersion.getStackResolutionY());
+        Assert.assertEquals("invalid stackResolutionZ" + context,
+                            expectedVersion.getStackResolutionZ(), actualVersion.getStackResolutionZ());
+        Assert.assertEquals("invalid snapshotRootPath" + context,
+                            expectedVersion.getSnapshotRootPath(), actualVersion.getSnapshotRootPath());
+        Assert.assertEquals("invalid mipmapPathBuilder" + context,
+                            expectedVersion.getMipmapPathBuilder(), actualVersion.getMipmapPathBuilder());
+    }
+
+}

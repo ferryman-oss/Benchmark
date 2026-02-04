@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <properties>
+        <title>scala-maven-plugin</title>
+        <authors>
+            <person name="David Bernard"/>
+        </authors>
+    </properties>
+    <body>
+        <section name="scala-maven-plugin">
+            <p>The scala-maven-plugin is used for compiling/testing/running/documenting scala code in maven.</p>
+            <p>If there are problems please let us know.</p>
+        </section>
+        <section name="Requirements">
+            <ul>
+                <li>Maven 3.0+</li>
+                <li>JDK 1.5</li>
+                <li><bold>No need to install <a href="http://scala-lang.org">scala</a> !</bold></li>
+            </ul>
+        </section>
+    </body>
+</document>

@@ -1,0 +1,60 @@
+# Migration from 5.X to 6
+
+# Swagger 2
+
+The old `<swagger>` proxy is no longer supported. The new `api` proxy also supports Swagger version 2.
+See example...
+
+## InternalProxy
+
+<internalProxy name="foo"/>  -> <internal name="foo"></internal>
+
+<target url="service:a"/> -> <target url="internal://a"/>
+
+# Scripting
+
+SpeL default für setHeader, if, setProperty
+
+# setHeader
+
+Now if there is no message to set a header, an exception is thrown.
+
+# Internal API
+
+- Interceptor.handleRquest() and handleRquest() aren't throwing any exception anymore
+- ConditionalInterceptor is renamed in IfInterceptor
+
+# <xPAth> and <xPathExtractor>
+- Use `<setHeader>` or `<setProperty>` with language `xpath` instead.
+
+# CBR
+
+# Log
+
+- Instead of headerOnly="true" body="false"
+
+# Internal API
+
+- exchange.destinations can now be set exchange.setDestination() with an immutable list
+  => no getDestinations().clear() anymore
+
+# Scripting 
+
+## Groovy
+
+Use $property.foo instead of $foo. Fields are not accessible just by name!
+
+## OAuth2Resource removal
+
+Rename `<oauth2Resource>` to `<oauth2Resource2>`.
+
+Remove the `publicURL` attribute from it: It will be automatically computed from the incoming `Host` header.
+
+# Error Messages
+
+In ProblemJson 
+also Validators
+
+# Monitoring
+
+Default naming scheme for serviceProxys has changed. This might affect existing filters in log aggregation systems and/or monitoring dashboards, e.g. in Prometheus/Grafana.")

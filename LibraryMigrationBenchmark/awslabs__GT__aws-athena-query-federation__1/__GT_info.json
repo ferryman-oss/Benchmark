@@ -1,0 +1,21 @@
+{
+  "id": "awslabs__GT__aws-athena-query-federation__1",
+  "client_project_name": "awslabs/aws-athena-query-federation",
+  "github_url": "https://github.com/awslabs/aws-athena-query-federation",
+  "before_migration_commit_hash": "39551b4",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "athena-redis"
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "com.amazonaws:aws-java-sdk-elasticache:1.12.770"
+  ],
+  "target_library_list": [
+    "software.amazon.awssdk:elasticache:2.25.56"
+  ],
+  "commit_pr_url": "https://github.com/awslabs/aws-athena-query-federation/pull/2238"
+}

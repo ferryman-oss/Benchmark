@@ -1,0 +1,22 @@
+{
+  "id": "saucelabs__GT__saucerest-java__1",
+  "client_project_name": "saucelabs/saucerest-java",
+  "github_url": "https://github.com/saucelabs/saucerest-java",
+  "before_migration_commit_hash": "",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "org.json:json:20240303",
+    "com.squareup.moshi:moshi:1.15.1"
+  ],
+  "target_library_list": [
+    "com.google.code.gson:gson:2.11.0"
+  ],
+  "commit_pr_url": "https://github.com/saucelabs/saucerest-java/pull/530"
+}

@@ -1,0 +1,23 @@
+{
+  "id": "saalfeldlab__GT__render__1",
+  "client_project_name": "saalfeldlab/render",
+  "github_url": "https://github.com/saalfeldlab/render",
+  "before_migration_commit_hash": "99e03ffac1e466712ddc96bef43f4ccf8e56e788",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "",
+    "render-app",
+    "render-ws"
+  ],
+  "jdk_version": "1.8",
+  "original_library_list": [
+    "com.google.code.gson:gson:2.2.4"
+  ],
+  "target_library_list": [
+    "com.fasterxml.jackson.core:jackson-databind:2.6.1"
+  ],
+  "commit_pr_url": "https://github.com/saalfeldlab/render/commit/e20ad52aa9699b6872038ebfe6598255d087aef4"
+}

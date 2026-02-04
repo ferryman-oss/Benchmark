@@ -1,0 +1,89 @@
+openapi: '3.0.2'
+info:
+  title: References Test
+  version: '1.0'
+servers:
+  - url: https://api.server.test/
+paths:
+  /references/{rid}:
+    get:
+      parameters:
+        - $ref: "#/components/parameters/Rid"
+        - $ref: "#/components/parameters/Limit"
+        - $ref: "#/components/parameters/Start"
+        - in: query
+          name: search
+          required: false
+          schema:
+            type: integer
+            minimum: 10
+
+      responses:
+        '200':
+          description: OK
+  /body-as-ref-primitive:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Rid"
+      responses:
+        '200':
+          description: OK
+  /obj-ref-obj:
+    post:
+      requestBody:
+        $ref: "#/components/schemas/Customer"
+      responses:
+        '200':
+          description: OK  
+
+components:
+  requestBodies:
+    Customer:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Customer"
+  parameters:
+    Rid:
+      name: rid
+      in: path
+      required: true
+      schema:
+        $ref: "#/components/schemas/Rid"
+    Limit:
+      in: query
+      name: limit
+      required: false
+      schema:
+        $ref: "#/components/schemas/Limit"
+    Start:
+      name: start
+      in: query
+      required: false
+      schema:
+        minimum: 1
+        type: integer
+  schemas:
+    Rid:
+      type: integer
+      minimum: 0
+    Limit:
+      type: integer
+      maximum: 100
+    Customer:
+      type: object
+      properties:
+        contract:
+          $ref: "#/components/schemas/Contract"
+    Contract:
+      type: object
+      properties:
+        details:
+          $ref: "#/components/schemas/Details"
+    Details:
+      type: string
+      maxLength: 5
+    

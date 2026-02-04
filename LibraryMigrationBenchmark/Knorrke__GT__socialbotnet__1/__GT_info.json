@@ -1,0 +1,21 @@
+{
+  "id": "Knorrke__GT__socialbotnet__1",
+  "client_project_name": "Knorrke/socialbotnet",
+  "github_url": "https://github.com/Knorrke/socialbotnet",
+  "before_migration_commit_hash": "2dab381cc583af8845d52d411a37d47d270a8b44",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "org.apache.commons:commons-dbcp2:2.9.0"
+  ],
+  "target_library_list": [
+    "com.zaxxer:HikariCP:5.0.1"
+  ],
+  "commit_pr_url": "https://github.com/Knorrke/socialbotnet/pull/71"
+}

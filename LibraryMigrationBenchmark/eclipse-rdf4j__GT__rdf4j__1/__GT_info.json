@@ -1,0 +1,28 @@
+{
+  "id": "eclipse-rdf4j__GT__rdf4j__1",
+  "client_project_name": "eclipse-rdf4j/rdf4j",
+  "github_url": "https://github.com/eclipse-rdf4j/rdf4j",
+  "before_migration_commit_hash": "5c1cc9a17a7564308c132c16d10a549406f9b59e",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "core/http/client",
+    "core",
+    "core/repository/api",
+    "core/repository/manager",
+    "",
+    "spring-components/rdf4j-spring"
+  ],
+  "jdk_version": "21",
+  "original_library_list": [
+    "com.github.tomakehurst:wiremock-jre8:2.35.0"
+  ],
+  "target_library_list": [
+    "org.mock-server:mockserver-junit-jupiter-no-dependencies:5.15.0",
+    "org.mock-server:mockserver-client-java-no-dependencies:5.15.0",
+    "org.mock-server:mockserver-core:5.15.0"
+  ],
+  "commit_pr_url": "https://github.com/eclipse-rdf4j/rdf4j/pull/4439"
+}

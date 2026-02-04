@@ -1,0 +1,141 @@
+.mainframe.settings.personalSettings {
+  .fontSizeSettings {
+    height: 30px;
+    margin-left: 22px;
+  }
+  input#fontFamily {
+    @include dlInputWidth(12);
+  }
+  input#fontSize {
+    @include dlInputWidth(2);
+  }
+  input#ietf {
+    @include dlInputWidth(2);
+  }
+  input#paginationSize {
+    @include dlInputWidth(1);
+  }
+  input#listenBrainzToken {
+    @include dlInputWidth(9);
+  }
+  input#lastFmUsername {
+    @include dlInputWidth(6);
+  }
+  input#lastFmPassword {
+    @include dlInputWidth(6);
+  }
+  input#file {
+    padding: 0 0 0 10px;
+    border: none;
+    cursor: pointer;
+
+    @include dlInputWidth(10);
+  }
+
+  input#fontSizeSlider {
+    height: 10px;
+    outline: none;
+    border: solid 1px $jp-color-medium-gray;
+    border-radius: 5px;
+    background: $jp-color-base1;
+    cursor: pointer;
+
+    -webkit-appearance: none;
+            appearance: none;
+  }
+
+  input#fontSizeSlider::-webkit-slider-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: $jp-color-base3;
+
+    -webkit-appearance: none;
+    @include dropShadow;
+  }
+  input#fontSizeSlider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border: none;
+    border-radius: 50%;
+    background: $jp-color-base3;
+
+    @include dropShadow;
+  }
+  input#fontSizeSlider::-moz-focus-outer {
+    border: 0;
+  }
+  input#fontSizeSlider:focus::-webkit-slider-thumb,
+  input#fontSizeSlider:hover::-webkit-slider-thumb,
+  input#fontSizeSlider:active::-webkit-slider-thumb {
+    background: $jp-color-complementary3;
+  }
+
+  table.tabular.personalsettings-display {
+    width: 400px;
+    margin: 30px 0 0 calc((100% - 400px) / 2);
+    th {
+      text-align: center;
+    }
+    tr {
+      &:hover {
+        background-color: inherit;
+      }
+      td {
+        &:nth-child(1) {
+          width: 150px;
+          padding-left: 10px;
+          text-align: left;
+        }
+        &:nth-child(2) {
+          width: 120px;
+          text-align: center;
+        }
+        &:nth-child(3) {
+          width: 120px;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  table.tabular.personalsettings-display + dl {
+    margin-top: 30px;
+  }
+
+  summary + dl.single {
+    margin-top: 30px;
+  }
+
+  dl {
+    dd.avatarContainer {
+      display: flex;
+      align-items: center;
+      flex-flow: row wrap;
+      justify-content: start;
+      .avatar {
+        white-space: nowrap;
+      }
+
+      .avatar {
+        margin: 4px 0 4px 4px;
+        img {
+          width: 80px;
+          height: 80px;
+
+          -webkit-backface-visibility: hidden;
+        }
+      }
+    }
+  }
+  .lastfm {
+    display: inline-block;
+    width: 50px;
+    height: 18px;
+    margin-left: 4px;
+    background-image: url(../../icons/lastfm.gif);
+    background-size: contain;
+
+    -webkit-backface-visibility: hidden;
+  }
+}

@@ -1,0 +1,43 @@
+name: DrMap
+version: ${project.version}
+main: org.acornmc.drmap.DrMap
+api-version: 1.17
+authors: [DrBot]
+commands:
+  drmap:
+    description: import online images to maps
+    permission: drmap.command
+    usage: "/<command> create <url> [params]\n/<command> reload\n/<command> erase\n/<command> info"
+permissions:
+  drmap.command.create:
+    default: op
+    description: create drmaps
+    children:
+      drmap.command: true
+  drmap.command.reload:
+    default: op
+    description: reload plugin
+    children:
+      drmap.command: true
+  drmap.command.erase:
+    default: op
+    description: erase drmaps
+    children:
+      drmap.command: true
+  drmap.command.info:
+    default: op
+    description: get info on drmaps
+    children:
+      drmap.command: true
+  drmap.place:
+    default: op
+    description: place drmaps in item frames
+  drmap.place.magic:
+    default: op
+    description: quick-place large drmaps in item frames
+  drmap.rotate:
+    default: op
+    description: rotate drmaps
+  drmap.cartography:
+    default: op
+    description: manipulate drmaps in cartography table

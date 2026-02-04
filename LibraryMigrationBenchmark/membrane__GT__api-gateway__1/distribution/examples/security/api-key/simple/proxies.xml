@@ -1,0 +1,41 @@
+<spring:beans xmlns="http://membrane-soa.org/proxies/1/"
+              xmlns:spring="http://www.springframework.org/schema/beans"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+					    http://membrane-soa.org/proxies/1/ http://membrane-soa.org/schemas/proxies-1.xsd">
+
+    <router>
+
+        <!--API key authentication, providing key is mandatory.-->
+        <api port="2000">
+            <apiKey>
+                <!-- API keys that permit access -->
+                <keys>
+                    <secret value="demokey" />
+                    <secret value="aed8bcc4-7c83-44d5-8789-21e4024ac873" />
+                    <secret value="abc123" />
+                </keys>
+
+                <!-- Fetch the API key from header
+
+                     X-Api-Key: demokey
+                -->
+                <headerExtractor />
+
+                <!-- Fetch key from query
+
+                     GET /foo?api-key=abc123
+                -->
+                <queryParamExtractor />
+            </apiKey>
+
+            <!-- Use your backend instead of static and return.
+                 e.g. <target url="https://example.com"/>
+            -->
+            <static>Secured API!</static>
+            <return/>
+        </api>
+
+    </router>
+
+</spring:beans>

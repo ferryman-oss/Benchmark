@@ -1,0 +1,23 @@
+*.class
+*~
+*.DS_Store
+target/*
+.euml2
+.umlproject
+.classpath
+.factorypath
+.project
+.settings/
+/target
+.idea
+.vscode
+*.iml
+*.ucls
+
+*.png
+
+# jenv
+.java_version
+.java-version
+
+.env

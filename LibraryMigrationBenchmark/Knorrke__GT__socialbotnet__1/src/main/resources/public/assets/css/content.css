@@ -1,0 +1,257 @@
+.pageTitle {
+	width: 80%;
+	margin: 20px auto 0;
+	padding-top: 10px;
+	text-align: center;
+}
+
+.warning {
+	background-color: #ffcc66;
+	border-radius: 20px;
+	position: relative;
+	padding-left: 70px !important;
+}
+
+.warning::before {
+	content: "\26A0";
+	display: inline-block;
+	position: absolute;
+	left: 20px;
+	top: 0;
+	color: red;
+	font-size: 30pt;
+}
+
+.colored {
+	background: var(--bg-media);
+	border-radius: 20px;
+	box-shadow: 2px 2px 5px 0px #ccc;
+	-webkit-box-shadow: 2px 2px 5px 0px #ccc;
+    -moz-box-shadow: 2px 2px 5px 0px #ccc;
+    border: none;
+
+}
+
+.media {
+	padding: 20px;
+	margin: 20px 0;
+	overflow: hidden;
+	word-wrap: break-word;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin:      0 0 15px;
+    padding:     0px;
+    font-weight: 600;
+    line-height: 1.7;
+}
+
+a {
+	text-decoration: none;
+}
+a:not(.prevent-external)[href^="//"]:after, 
+a:not(.prevent-external)[href^="http://"]:after, 
+a:not(.prevent-external)[href^="https://"]:after {
+    font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f35d";
+	font-size: 10pt;
+	margin: 0 0 0 5px;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+#filters {
+	float: right;
+	margin-top: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+	#filters {
+		display: flex;
+		flex-direction: column;
+		float: none;
+	}
+}
+
+.button {
+	padding: 10px;
+	border-radius: 50px;
+	color: var(--color-content);
+}
+.button.selected {
+	background-color: var(--bg-primary);
+	color: var(--color-primary);
+}
+
+a.button:hover, a.button:active,
+button.button:hover, button.button:active {
+	background-color: var(--bg-secondary);
+    text-decoration: none;
+}
+
+.button:active {
+  -webkit-box-shadow: inset -1px -1px 5px #c1c1c1;
+     -moz-box-shadow: inset -1px -1px 5px #c1c1c1;
+          box-shadow: inset -1px -1px 5px #c1c1c1;
+   outline: none;
+}
+
+.text-element {
+	padding: 5px 0 5px 15px;
+	border: 1px solid #000;
+	border-radius: 20px;
+	display: inline-block;
+}
+
+.text-element input, .text-element textarea {
+	border: none;
+	outline: none;
+	background-color: transparent;
+}
+
+.text-element .img-button {
+	background: none;
+	border: none;
+	vertical-align: middle;
+	cursor: pointer;
+	padding: 5px 20px;
+	margin: -5px 0;
+}
+
+.action-button .icon-action,
+.action-button:hover .icon-current {
+	display: none;
+}
+
+.action-button:hover .icon-action {
+	display: inline;
+}
+
+code {
+    font-family: Menlo,Monaco,Consolas,Courier New,monospace;
+    background-color: #f9f2f4;
+	padding: 2px 4px;
+    font-size: 90%;
+    border-radius: 2px;
+}
+
+.profile-pic {
+	background-color: var(--bg-light);
+	border-radius: 50%;
+	padding: 10px;
+	box-shadow: 2px 2px 5px 0px #ccc;
+	-webkit-box-shadow: 2px 2px 5px 0px #ccc;
+    -moz-box-shadow: 2px 2px 5px 0px #ccc;
+}
+.profile-pic.small {
+	padding: 2px;
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+	text-align: center;
+	box-shadow: 0 0 0 4px #fff;
+	-webkit-box-shadow: 0 0 0 4px #fff;
+    -moz-box-shadow: 0 0 0 4px #fff;
+}
+
+.likes-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.likes {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+.likes-count {
+	margin-right: 15px;
+	display: inline-block;
+}
+
+.overlapping {
+	display: inline-block;
+	transition: margin 0.3s, padding 0.3s;
+	margin-right: -5px;
+}
+
+.overlapping:hover {
+	margin-right: 0px;
+	padding-right: 5px;
+	padding-left: 10px;
+}
+
+i {
+	margin-right: 5px;
+}
+
+hr {
+	margin: 30px 0 50px;
+}
+
+.obfuscated {
+	background-color: var(--bg-light);
+	color: var(--color-light);
+	padding: 5px;
+	border-radius: 10px;
+}
+
+/**
+ * Tooltip Styles https://codepen.io/cbracco/pen/nXEQLw 
+ */
+
+/* Add this attribute to the element that needs a tooltip */
+[data-tooltip] {
+  position: relative;
+  z-index: 2;
+}
+
+/* Hide the tooltip content by default */
+[data-tooltip]:before,
+[data-tooltip]:after {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s;
+}
+
+/* Position tooltip above the element */
+[data-tooltip]:before {
+  position: absolute;
+  bottom: 150%;
+  left: 50%;
+  margin-bottom: 5px;
+  margin-left: -50%;
+  padding: 7px;
+  border-radius: 3px;
+  background-color: var(--bg-layout);
+  color: var(--color-layout);
+  content: attr(data-tooltip);
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+/* Triangle hack to make tooltip look like a speech bubble */
+[data-tooltip]:after {
+  position: absolute;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -5px;
+  width: 0;
+  border-top: 5px solid var(--bg-layout);
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  content: " ";
+  font-size: 0;
+  line-height: 0;
+}
+
+/* Show tooltip content on hover */
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+  visibility: visible;
+  opacity: 1;
+}

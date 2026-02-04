@@ -1,0 +1,21 @@
+{
+  "id": "JMRI__GT__JMRI__1",
+  "client_project_name": "JMRI/JMRI",
+  "github_url": "https://github.com/JMRI/JMRI",
+  "before_migration_commit_hash": "44f7088c7509e336e4d4acce9d2aded776596a2e",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "org.bidib.jbidib:jbidibc-purejavacomm:2.0.18"
+  ],
+  "target_library_list": [
+    "org.bidib.jbidib:jbidibc-jserialcomm:2.0.18"
+  ],
+  "commit_pr_url": "https://github.com/JMRI/JMRI/pull/13311"
+}

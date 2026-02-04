@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- see http://www.mojohaus.org/clirr-maven-plugin/examples/ignored-differences.html -->
+<differences>
+  <!-- TODO: REMOVE AFTER RELEASE -->
+  <difference>
+    <differenceType>7004</differenceType>
+    <className>com/google/cloud/bigquery/spi/v2/BigQueryRpc</className>
+    <method>com.google.api.services.bigquery.model.GetQueryResultsResponse getQueryResultsWithRowLimit(java.lang.String, java.lang.String, java.lang.String, java.lang.Integer)</method>
+    <justification>getQueryResultsWithRowLimit is just used by ConnectionImpl at the moment so it should be fine to update the signature instead of writing an overloaded method</justification>
+  </difference>
+  <difference>
+    <differenceType>7004</differenceType>
+    <className>com/google/cloud/bigquery/spi/v2/HttpBigQueryRpc</className>
+    <method>com.google.api.services.bigquery.model.GetQueryResultsResponse getQueryResultsWithRowLimit(java.lang.String, java.lang.String, java.lang.String, java.lang.Integer)</method>
+    <justification>getQueryResultsWithRowLimit is just used by ConnectionImpl at the moment so it should be fine to update the signature instead of writing an overloaded method</justification>
+  </difference>
+  <difference>
+    <differenceType>7013</differenceType>
+    <className>com/google/cloud/bigquery/ExternalTableDefinition*</className>
+    <method>*ReferenceFileSchemaUri(*)</method>
+  </difference>
+  <difference>
+    <differenceType>7013</differenceType>
+    <className>com/google/cloud/bigquery/RoutineInfo*</className>
+    <method>*RemoteFunctionOptions(*)</method>
+  </difference>
+  <difference>
+    <differenceType>7012</differenceType>
+    <className>com/google/cloud/bigquery/Connection</className>
+    <method>com.google.common.util.concurrent.ListenableFuture executeSelectAsync(java.lang.String)</method>
+  </difference>
+  <difference>
+    <differenceType>7012</differenceType>
+    <className>com/google/cloud/bigquery/Connection</className>
+    <method>com.google.common.util.concurrent.ListenableFuture executeSelectAsync(java.lang.String, java.util.List, java.util.Map[])</method>
+  </difference>
+  </differences>

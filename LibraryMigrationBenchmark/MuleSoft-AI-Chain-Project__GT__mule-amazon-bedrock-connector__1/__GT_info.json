@@ -1,0 +1,22 @@
+{
+  "id": "MuleSoft-AI-Chain-Project__GT__mule-amazon-bedrock-connector__1",
+  "client_project_name": "MuleSoft-AI-Chain-Project/mule-amazon-bedrock-connector",
+  "github_url": "https://github.com/MuleSoft-AI-Chain-Project/mule-amazon-bedrock-connector",
+  "before_migration_commit_hash": "99c2e361d71d6aa15de83cf91a5cd3b8d4b62ea7",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "1.8",
+  "original_library_list": [
+    "org.mapdb:mapdb:3.1.0"
+  ],
+  "target_library_list": [
+    "com.h2database:h2:2.2.224"
+  ],
+  "param": "-Dgpg.skip",
+  "commit_pr_url": "https://github.com/MuleSoft-AI-Chain-Project/mule-amazon-bedrock-connector/pull/17"
+}

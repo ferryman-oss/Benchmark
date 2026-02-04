@@ -1,0 +1,22 @@
+{
+  "id": "cessda__GT__cessda.cvs.two__1",
+  "client_project_name": "cessda/cessda.cvs.two",
+  "github_url": "https://github.com/cessda/cessda.cvs.two",
+  "before_migration_commit_hash": "aeb5646e721a604a67433a130f1153d4c68626fc",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "com.itextpdf:html2pdf:6.1.0"
+  ],
+  "target_library_list": [
+    "org.xhtmlrenderer:flying-saucer-pdf:9.5.2",
+    "org.jsoup:jsoup:1.19.1"
+  ],
+  "commit_pr_url": "https://github.com/cessda/cessda.cvs.two/pull/1054"
+}

@@ -1,0 +1,47 @@
+{
+    "type" : "object",
+    "properties" : {
+        "booleanProperty" : {
+            "type" : "boolean"
+        },
+        "stringProperty" : {
+            "type" : "string"
+        },
+        "integerProperty" : {
+            "type" : "integer"
+        },
+        "numberProperty" : {
+            "type" : "number"
+        },
+        "arrayProperty" : {
+            "type" : "array"
+        },
+        "nullProperty" : {
+            "type" : "null"
+        },
+        "anyProperty" : {
+            "type" : "any"
+        },
+        "objectProperty" : {
+            "type" : "object",
+            "properties" : {
+            	"property" : {
+            		"type" : "string"
+            	}
+            }
+        },
+        "defaultProperty" : {
+        },
+        "unknownProperty" : {
+            "type" : "some-unknown-type"
+        },
+        "reusedClasspathType" : {
+            "type" : "object",
+            "javaType" : "java.util.Locale"
+        },
+        "reusedGeneratedType" : {
+            "type" : "object",
+            "javaType" : "com.example.ObjectProperty"
+        }
+    }
+}

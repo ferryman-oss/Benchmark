@@ -1,0 +1,22 @@
+{
+  "id": "apache__GT__maven-enforcer__1",
+  "client_project_name": "apache/maven-enforcer",
+  "github_url": "https://github.com/apache/maven-enforcer",
+  "before_migration_commit_hash": "aa5f0f0f2c4248a04abd74c8972dbb0c05f8b018",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "",
+    "enforcer-rules"
+  ],
+  "jdk_version": "1.8",
+  "original_library_list": [
+    "easymock:easymock:1.2_Java1.3"
+  ],
+  "target_library_list": [
+    "org.mockito:mockito-core:1.9.0"
+  ],
+  "commit_pr_url": "https://github.com/apache/maven-enforcer/commit/12b3260071b94f66c078ca4bfef07fe8d28fdea7"
+}

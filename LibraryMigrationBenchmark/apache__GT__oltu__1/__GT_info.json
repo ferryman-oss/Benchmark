@@ -1,0 +1,25 @@
+{
+  "id": "apache__GT__oltu__1",
+  "client_project_name": "apache/oltu",
+  "github_url": "https://github.com/apache/oltu",
+  "before_migration_commit_hash": "019b8b23e30d49dedcbed4d36a6387fc157bf396",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "oauth-2.0",
+    "oauth-2.0/dynamicreg-server",
+    "oauth-2.0/common",
+    "oauth-2.0/client",
+    "oauth-2.0/authzserver"
+  ],
+  "jdk_version": "1.8",
+  "original_library_list": [
+    "org.codehaus.jettison:jettison:1.2"
+  ],
+  "target_library_list": [
+    "org.json:json:20131018"
+  ],
+  "commit_pr_url": "https://github.com/apache/oltu/commit/2e3fca10109b22d56251c6dbb1e17dc24be6c773"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "statnett__GT__kafka-ops-julie__1",
+  "client_project_name": "statnett/kafka-ops-julie",
+  "github_url": "https://github.com/statnett/kafka-ops-julie",
+  "before_migration_commit_hash": "5fe5e14",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "io.findify:s3mock_2.13:0.2.6"
+  ],
+  "target_library_list": [
+    "io.github.robothy:local-s3-rest:1.20"
+  ],
+  "commit_pr_url": "https://github.com/statnett/kafka-ops-julie/pull/228"
+}

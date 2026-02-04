@@ -1,0 +1,21 @@
+{
+  "id": "apache__GT__maven-changes-plugin__1",
+  "client_project_name": "apache/maven-changes-plugin",
+  "github_url": "https://github.com/apache/maven-changes-plugin",
+  "before_migration_commit_hash": "863ca19aebbb3969d6d209ebfdf2540ab872abe0",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "1.8",
+  "original_library_list": [
+    "org.eclipse.mylyn.github:org.eclipse.egit.github.core:2.1.5"
+  ],
+  "target_library_list": [
+    "org.kohsuke:github-api:1.326"
+  ],
+  "commit_pr_url": "https://github.com/apache/maven-changes-plugin/pull/51"
+}

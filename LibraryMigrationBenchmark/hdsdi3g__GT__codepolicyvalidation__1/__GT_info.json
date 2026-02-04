@@ -1,0 +1,22 @@
+{
+  "id": "hdsdi3g__GT__codepolicyvalidation__1",
+  "client_project_name": "hdsdi3g/codepolicyvalidation",
+  "github_url": "https://github.com/hdsdi3g/codepolicyvalidation",
+  "before_migration_commit_hash": "e2f4987f56cc5c42bfb30c15f176377c32497e85",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "javax.persistence:javax.persistence-api:2.2"
+  ],
+  "target_library_list": [
+    "jakarta.persistence:jakarta.persistence-api:3.0.0"
+  ],
+  "param": "-Dgpg.skip=true",
+  "commit_pr_url": "https://github.com/hdsdi3g/codepolicyvalidation/pull/36"
+}

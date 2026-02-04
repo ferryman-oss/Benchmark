@@ -1,0 +1,23 @@
+{
+  "id": "spotify__GT__apollo__1",
+  "client_project_name": "spotify/apollo",
+  "github_url": "https://github.com/spotify/apollo",
+  "before_migration_commit_hash": "1412a2efa6499fde33df69b73d039e72605eb659",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "apollo-bom",
+    "modules/jetty-http-server",
+    "modules/okhttp-client"
+  ],
+  "jdk_version": "1.8",
+  "original_library_list": [
+    "com.squareup.okhttp:okhttp:2.5.0"
+  ],
+  "target_library_list": [
+    "com.squareup.okhttp3:okhttp:3.9.0"
+  ],
+  "commit_pr_url": "https://github.com/spotify/apollo/commit/e3e69587137fec03bac1eef4ab275e488221d76e"
+}

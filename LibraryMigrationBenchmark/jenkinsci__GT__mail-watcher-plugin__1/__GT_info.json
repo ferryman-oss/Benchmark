@@ -1,0 +1,24 @@
+{
+  "id": "jenkinsci__GT__mail-watcher-plugin__1",
+  "client_project_name": "jenkinsci/mail-watcher-plugin",
+  "github_url": "https://github.com/jenkinsci/mail-watcher-plugin",
+  "before_migration_commit_hash": "178854fd7a79f9cff09a0b768b2542dd04c12152",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    ""
+  ],
+  "jdk_version": "17",
+  "original_library_list": [
+    "junit:junit:4.13.2",
+    "org.powermock:powermock-reflect:2.0.9"
+  ],
+  "target_library_list": [
+    "org.mockito:mockito-core:5.15.2",
+    "org.mockito:mockito-junit-jupiter:5.15.2",
+    "org.junit.jupiter:junit-jupiter-api:5.11.4"
+  ],
+  "commit_pr_url": "https://github.com/jenkinsci/mail-watcher-plugin/pull/162"
+}

@@ -1,0 +1,23 @@
+{
+  "id": "VueGWT__GT__vue-gwt__1",
+  "client_project_name": "VueGWT/vue-gwt",
+  "github_url": "https://github.com/VueGWT/vue-gwt",
+  "before_migration_commit_hash": "bce4b448587ccd1299c715e478afd08ed2caf1de",
+  "old_version": "pom.xml.old",
+  "both_version": "pom.xml.both",
+  "new_version": "pom.xml.new",
+  "root_path": "",
+  "change_pom_path": [
+    "",
+    "core",
+    "processors"
+  ],
+  "jdk_version": "1.8",
+  "original_library_list": [
+    "org.jsoup:jsoup:1.10.2"
+  ],
+  "target_library_list": [
+    "net.htmlparser.jericho:jericho-html:3.4"
+  ],
+  "commit_pr_url": "https://github.com/VueGWT/vue-gwt/commit/13d1de34e200e05297811abff1842ee0ead6baa2"
+}

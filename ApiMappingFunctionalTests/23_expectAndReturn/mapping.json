@@ -1,0 +1,7 @@
+{
+  "source": "easymock:easymock:1.2_Java1.3<L>org.easymock.MockControl.expectAndReturn(java.lang.Object, java.lang.Object)",
+  "targets": [
+    "org.mockito:mockito-core:1.9.0<L>org.mockito.Mockito.when(T)",
+    "org.mockito:mockito-core:1.9.0<L>org.mockito.stubbing.OngoingStubbing.thenReturn(T)"
+  ]
+}

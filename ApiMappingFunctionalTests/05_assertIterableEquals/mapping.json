@@ -1,0 +1,7 @@
+{
+  "source": "org.junit.jupiter:junit-jupiter-api:5.13.1<L>org.junit.jupiter.api.Assertions.assertIterableEquals(java.lang.Iterable<?>, java.lang.Iterable<?>)",
+  "targets": [
+    "org.assertj:assertj-core:3.25.3<L>org.assertj.core.api.Assertions.assertThat(java.lang.Iterable<? extends ELEMENT>)",
+    "org.assertj:assertj-core:3.25.3<L>org.assertj.core.api.AbstractIterableAssert.containsExactlyElementsOf(java.lang.Iterable<? extends ELEMENT>)"
+  ]
+}

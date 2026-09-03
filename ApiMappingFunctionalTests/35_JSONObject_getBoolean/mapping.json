@@ -1,0 +1,7 @@
+{
+  "source": "org.json:json:20090211<L>org.json.JSONObject.getBoolean(java.lang.String)",
+  "targets": [
+    "com.google.code.gson:gson:2.8.0<L>com.google.gson.JsonObject.get(java.lang.String)",
+    "com.google.code.gson:gson:2.8.0<L>com.google.gson.JsonElement.getAsBoolean()"
+  ]
+}

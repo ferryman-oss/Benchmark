@@ -1,0 +1,8 @@
+{
+  "source": "org.iq80.snappy:snappy:0.4<L>org.iq80.snappy.Snappy.uncompress(byte[], int, int)",
+  "targets": [
+    "io.airlift:aircompressor:0.27<L>io.airlift.compress.snappy.SnappyDecompressor.SnappyDecompressor()",
+    "io.airlift:aircompressor:0.27<L>io.airlift.compress.snappy.SnappyDecompressor.getUncompressedLength(byte[], int)",
+    "io.airlift:aircompressor:0.27<L>io.airlift.compress.snappy.SnappyDecompressor.decompress(byte[], int, int, byte[], int, int)"
+  ]
+}

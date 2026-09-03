@@ -1,0 +1,8 @@
+{
+  "source": "log4j:log4j:1.2.17<L>org.apache.log4j.FileAppender.FileAppender(org.apache.log4j.Layout, java.lang.String)",
+  "targets": [
+    "ch.qos.logback:logback-core:1.2.11<L>ch.qos.logback.core.FileAppender.FileAppender()",
+    "ch.qos.logback:logback-core:1.2.11<L>ch.qos.logback.core.FileAppender.setLayout(ch.qos.logback.core.Layout<E>)",
+    "ch.qos.logback:logback-core:1.2.11<L>ch.qos.logback.core.FileAppender.setFile(java.lang.String)"
+  ]
+}

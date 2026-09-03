@@ -1,0 +1,8 @@
+{
+  "source": "org.junit.jupiter:junit-jupiter-api:5.13.1<L>org.junit.jupiter.api.Assertions.assertTrue(boolean, java.lang.String)",
+  "targets": [
+    "org.assertj:assertj-core:3.25.3<L>org.assertj.core.api.Assertions.assertThat(boolean)",
+    "org.assertj:assertj-core:3.25.3<L>org.assertj.core.api.AbstractBooleanAssert.as(java.lang.String, java.lang.Object[])",
+    "org.assertj:assertj-core:3.25.3<L>org.assertj.core.api.AbstractBooleanAssert.isTrue()"
+  ]
+}

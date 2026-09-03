@@ -1,0 +1,7 @@
+{
+  "source": "commons-httpclient:commons-httpclient:3.1<L>org.apache.commons.httpclient.methods.PostMethod.setRequestBody(java.lang.String)",
+  "targets": [
+    "org.apache.httpcomponents:httpcore:4.3.2<L>org.apache.http.entity.StringEntity.StringEntity(java.lang.String)",
+    "org.apache.httpcomponents:httpcore:4.3.2<L>org.apache.http.HttpEntityEnclosingRequest.setEntity(org.apache.http.HttpEntity)"
+  ]
+}

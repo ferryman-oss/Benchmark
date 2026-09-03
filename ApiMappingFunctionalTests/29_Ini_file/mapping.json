@@ -1,0 +1,7 @@
+{
+  "source": "org.ini4j:ini4j:0.5.4<L>org.ini4j.Ini.Ini(java.io.File)",
+  "targets": [
+    "org.apache.commons:commons-configuration2:2.9.0<L>org.apache.commons.configuration2.builder.fluent.Configurations.Configurations()",
+    "org.apache.commons:commons-configuration2:2.9.0<L>org.apache.commons.configuration2.builder.fluent.Configurations.ini(java.io.File)"
+  ]
+}

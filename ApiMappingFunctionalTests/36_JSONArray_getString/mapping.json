@@ -1,0 +1,7 @@
+{
+  "source": "org.json:json:20090211<L>org.json.JSONArray.getString(int)",
+  "targets": [
+    "com.google.code.gson:gson:2.8.0<L>com.google.gson.JsonArray.get(int)",
+    "com.google.code.gson:gson:2.8.0<L>com.google.gson.JsonElement.getAsString()"
+  ]
+}

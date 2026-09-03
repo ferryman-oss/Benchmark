@@ -1,0 +1,8 @@
+{
+  "source": "log4j:log4j:1.2.17<L>org.apache.log4j.PropertyConfigurator.configure(java.lang.String)",
+  "targets": [
+    "ch.qos.logback:logback-classic:1.2.11<L>ch.qos.logback.classic.joran.JoranConfigurator.JoranConfigurator()",
+    "ch.qos.logback:logback-classic:1.2.11<L>ch.qos.logback.classic.joran.JoranConfigurator.setContext(ch.qos.logback.core.Context)",
+    "ch.qos.logback:logback-classic:1.2.11<L>ch.qos.logback.classic.joran.JoranConfigurator.doConfigure(java.lang.String)"
+  ]
+}

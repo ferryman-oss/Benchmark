@@ -1,0 +1,7 @@
+{
+  "source": "org.junit.jupiter:junit-jupiter-api:5.13.1<L>org.junit.jupiter.api.Assertions.assertDoesNotThrow(org.junit.jupiter.api.function.Executable)",
+  "targets": [
+    "org.assertj:assertj-core:3.25.3<L>org.assertj.core.api.Assertions.assertThatCode(org.assertj.core.api.ThrowableAssert.ThrowingCallable)",
+    "org.assertj:assertj-core:3.25.3<L>org.assertj.core.api.AbstractThrowableAssert.doesNotThrowAnyException()"
+  ]
+}

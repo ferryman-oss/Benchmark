@@ -1,0 +1,7 @@
+{
+  "source": "org.seleniumhq.selenium:selenium-support:4.14.1<L>org.openqa.selenium.support.ui.Select.selectByVisibleText(java.lang.String)",
+  "targets": [
+    "com.microsoft.playwright:playwright:1.52.0<L>com.microsoft.playwright.Locator.selectOption(com.microsoft.playwright.options.SelectOption)",
+    "com.microsoft.playwright:playwright:1.52.0<L>com.microsoft.playwright.options.SelectOption.setLabel(java.lang.String)"
+  ]
+}

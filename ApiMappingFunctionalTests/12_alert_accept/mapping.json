@@ -1,0 +1,7 @@
+{
+  "source": "org.seleniumhq.selenium:selenium-api:4.25.0<L>org.openqa.selenium.Alert.accept()",
+  "targets": [
+    "com.microsoft.playwright:playwright:1.52.0<L>com.microsoft.playwright.Page.onDialog(java.util.function.Consumer<com.microsoft.playwright.Dialog>)",
+    "com.microsoft.playwright:playwright:1.52.0<L>com.microsoft.playwright.Dialog.accept()"
+  ]
+}

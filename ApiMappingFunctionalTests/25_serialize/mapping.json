@@ -1,0 +1,7 @@
+{
+  "source": "net.sf.flexjson:flexjson:2.1<L>flexjson.JSONSerializer.serialize(java.lang.Object)",
+  "targets": [
+    "com.google.code.gson:gson:2.2.1<L>com.google.gson.Gson.Gson()",
+    "com.google.code.gson:gson:2.2.1<L>com.google.gson.Gson.toJson(java.lang.Object)"
+  ]
+}

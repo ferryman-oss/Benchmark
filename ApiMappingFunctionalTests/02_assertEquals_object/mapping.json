@@ -1,0 +1,7 @@
+{
+  "source": "org.junit.jupiter:junit-jupiter-api:5.13.1<L>org.junit.jupiter.api.Assertions.assertEquals(java.lang.Object, java.lang.Object)",
+  "targets": [
+    "org.assertj:assertj-core:3.25.3<L>org.assertj.core.api.Assertions.assertThat(T)",
+    "org.assertj:assertj-core:3.25.3<L>org.assertj.core.api.AbstractObjectAssert.isEqualTo(java.lang.Object)"
+  ]
+}

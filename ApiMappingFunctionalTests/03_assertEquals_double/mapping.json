@@ -1,0 +1,8 @@
+{
+  "source": "org.junit.jupiter:junit-jupiter-api:5.13.1<L>org.junit.jupiter.api.Assertions.assertEquals(double, double, double)",
+  "targets": [
+    "org.assertj:assertj-core:3.25.3<L>org.assertj.core.api.Assertions.assertThat(double)",
+    "org.assertj:assertj-core:3.25.3<L>org.assertj.core.api.Assertions.offset(java.lang.Double)",
+    "org.assertj:assertj-core:3.25.3<L>org.assertj.core.api.AbstractDoubleAssert.isCloseTo(double, org.assertj.core.data.Offset<java.lang.Double>)"
+  ]
+}

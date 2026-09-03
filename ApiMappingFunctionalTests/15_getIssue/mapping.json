@@ -1,0 +1,7 @@
+{
+  "source": "org.eclipse.mylyn.github:org.eclipse.egit.github.core:2.1.5<L>org.eclipse.egit.github.core.service.IssueService.getIssue(java.lang.String, java.lang.String, int)",
+  "targets": [
+    "org.kohsuke:github-api:1.326<L>org.kohsuke.github.GitHub.getRepository(java.lang.String)",
+    "org.kohsuke:github-api:1.326<L>org.kohsuke.github.GHRepository.getIssue(int)"
+  ]
+}

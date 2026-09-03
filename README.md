@@ -12,3 +12,12 @@ This repository includes two main benchmarks:
 - **Project Structure**:
   - `.java-version`: Specifies the JDK version required for the project.
   - `__GT_info.json`: Contains details regarding the library migration for the project.
+
+## 3. API Mapping Functional Tests
+- **Folder**: `ApiMappingFunctionalTests/`
+- **Description**: Executable functional tests that validate the 36 newly added one-to-many API mappings.
+- **Structure**: 36 folders (`01_xxx` – `36_xxx`), each containing:
+  - `before/`: the pre-migration implementation.
+  - `after/`: the post-migration implementation.
+  - `test/`: the functional test, run against both implementations.
+  - `mapping.json`: the corresponding one-to-many API mapping.

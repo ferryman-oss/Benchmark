@@ -1,0 +1,7 @@
+{
+  "source": "com.github.f4b6a3:uuid-creator:5.3.7<L>com.github.f4b6a3.uuid.UuidCreator.getTimeBased()",
+  "targets": [
+    "com.fasterxml.uuid:java-uuid-generator:5.0.0<L>com.fasterxml.uuid.Generators.timeBasedGenerator()",
+    "com.fasterxml.uuid:java-uuid-generator:5.0.0<L>com.fasterxml.uuid.impl.TimeBasedGenerator.generate()"
+  ]
+}

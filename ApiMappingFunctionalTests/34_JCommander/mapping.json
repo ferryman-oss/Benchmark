@@ -1,0 +1,7 @@
+{
+  "source": "com.beust:jcommander:1.72<L>com.beust.jcommander.JCommander.JCommander(java.lang.Object, java.lang.String[])",
+  "targets": [
+    "info.picocli:picocli:3.7.0<L>picocli.CommandLine.CommandLine(java.lang.Object)",
+    "info.picocli:picocli:3.7.0<L>picocli.CommandLine.parseArgs(java.lang.String[])"
+  ]
+}

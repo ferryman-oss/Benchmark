@@ -1,0 +1,8 @@
+{
+  "source": "log4j:log4j:1.2.17<L>org.apache.log4j.RollingFileAppender.setMaxFileSize(java.lang.String)",
+  "targets": [
+    "ch.qos.logback:logback-core:1.2.11<L>ch.qos.logback.core.util.FileSize.valueOf(java.lang.String)",
+    "ch.qos.logback:logback-core:1.2.11<L>ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy.setMaxFileSize(ch.qos.logback.core.util.FileSize)",
+    "ch.qos.logback:logback-core:1.2.11<L>ch.qos.logback.core.rolling.RollingFileAppender.setTriggeringPolicy(ch.qos.logback.core.rolling.TriggeringPolicy<E>)"
+  ]
+}

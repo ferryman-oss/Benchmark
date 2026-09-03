@@ -1,0 +1,7 @@
+{
+  "source": "commons-httpclient:commons-httpclient:3.1<L>org.apache.commons.httpclient.methods.PostMethod.addParameter(java.lang.String, java.lang.String)",
+  "targets": [
+    "org.apache.httpcomponents:httpclient:4.5.8<L>org.apache.http.client.entity.UrlEncodedFormEntity.UrlEncodedFormEntity(java.util.List<? extends org.apache.http.NameValuePair>)",
+    "org.apache.httpcomponents:httpclient:4.5.8<L>org.apache.http.client.methods.HttpEntityEnclosingRequestBase.setEntity(org.apache.http.HttpEntity)"
+  ]
+}

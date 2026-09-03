@@ -1,0 +1,8 @@
+{
+  "source": "org.hamcrest:hamcrest:3.0<L>org.hamcrest.MatcherAssert.assertThat(java.lang.String, boolean)",
+  "targets": [
+    "org.assertj:assertj-core:3.27.3<L>org.assertj.core.api.Assertions.assertThat(boolean)",
+    "org.assertj:assertj-core:3.27.3<L>org.assertj.core.api.AbstractBooleanAssert.as(java.lang.String, java.lang.Object[])",
+    "org.assertj:assertj-core:3.27.3<L>org.assertj.core.api.AbstractBooleanAssert.isTrue()"
+  ]
+}

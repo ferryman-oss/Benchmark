@@ -1,0 +1,7 @@
+{
+  "source": "com.sparkjava:spark-core:2.9.4<L>spark.Spark.init()",
+  "targets": [
+    "io.javalin:javalin:6.6.0<L>io.javalin.Javalin.create()",
+    "io.javalin:javalin:6.6.0<L>io.javalin.Javalin.start()"
+  ]
+}
